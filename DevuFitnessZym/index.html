@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Devu Fitness Center - Transform your body and life with professional training, modern equipment, and expert guidance.">
+    <meta name="keywords" content="gym, fitness, personal training, yoga, cardio, weightlifting">
+    <title>Devu Fitness Center | Transform Your Body, Transform Your Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.9) 0%, rgba(0, 0, 0, 0.95) 100%);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .testimonial-card {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-black/95 backdrop-blur-sm border-b border-red-600/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-12 h-12 bg-red-600 flex items-center justify-center font-bold text-2xl">D</div>
+                    <span class="text-2xl font-bold">DEVU <span class="text-red-600">FITNESS</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-red-600 transition">Home</a>
+                    <a href="#about" class="hover:text-red-600 transition">About</a>
+                    <a href="#services" class="hover:text-red-600 transition">Services</a>
+                    <a href="#trainers" class="hover:text-red-600 transition">Trainers</a>
+                    <a href="#schedule" class="hover:text-red-600 transition">Schedule</a>
+                    <a href="#contact" class="hover:text-red-600 transition">Contact</a>
+                </div>
+                <button id="menuBtn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#home" class="block py-2 hover:text-red-600 transition">Home</a>
+                <a href="#about" class="block py-2 hover:text-red-600 transition">About</a>
+                <a href="#services" class="block py-2 hover:text-red-600 transition">Services</a>
+                <a href="#trainers" class="block py-2 hover:text-red-600 transition">Trainers</a>
+                <a href="#schedule" class="block py-2 hover:text-red-600 transition">Schedule</a>
+                <a href="#contact" class="block py-2 hover:text-red-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&h=1080&fit=crop');">
+            <div class="hero-gradient absolute inset-0"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                TRANSFORM YOUR BODY,<br><span class="text-red-600">TRANSFORM YOUR LIFE</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300">Join the ultimate fitness experience with expert trainers and state-of-the-art equipment</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-primary px-8 py-4 rounded-lg font-bold text-lg">JOIN NOW</button>
+                <button class="bg-white text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-200 transition">BOOK APPOINTMENT</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- BMI Calculator Section -->
+    <section class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto bg-gray-800 rounded-2xl p-8 shadow-2xl">
+                <h2 class="text-3xl font-bold text-center mb-8">BMI CALCULATOR</h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block mb-2 font-semibold">Weight (kg)</label>
+                        <input type="number" id="weight" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-red-600 focus:outline-none" placeholder="70">
+                    </div>
+                    <div>
+                        <label class="block mb-2 font-semibold">Height (cm)</label>
+                        <input type="number" id="height" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-red-600 focus:outline-none" placeholder="175">
+                    </div>
+                </div>
+                <button onclick="calculateBMI()" class="btn-primary w-full py-3 rounded-lg font-bold">CALCULATE BMI</button>
+                <div id="bmiResult" class="mt-6 p-4 bg-gray-700 rounded-lg hidden">
+                    <p class="text-center text-xl font-semibold">Your BMI: <span id="bmiValue" class="text-red-600"></span></p>
+                    <p class="text-center mt-2" id="bmiCategory"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opening Hours -->
+    <section class="py-16 bg-red-600">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-8">OPENING HOURS</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-black/30 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4">WEEKDAYS</h3>
+                        <p class="text-lg">Monday - Friday</p>
+                        <p class="text-2xl font-bold mt-2">5:00 AM - 11:00 PM</p>
+                    </div>
+                    <div class="bg-black/30 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4">WEEKENDS</h3>
+                        <p class="text-lg">Saturday - Sunday</p>
+                        <p class="text-2xl font-bold mt-2">6:00 AM - 9:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">ABOUT <span class="text-red-600">DEVU FITNESS</span></h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <div>
+                    <p class="text-lg mb-6 leading-relaxed">At Devu Fitness Center, we believe that fitness is not just about physical transformation—it's about building confidence, discipline, and a healthier lifestyle. Our state-of-the-art facility is equipped with the latest equipment and staffed by certified professionals dedicated to your success.</p>
+                    <p class="text-lg mb-6 leading-relaxed">With over 10 years of experience, we've helped thousands of members achieve their fitness goals through personalized training programs, group classes, and nutritional guidance.</p>
+                    <div class="flex gap-8 mt-8">
+                        <div>
+                            <p class="text-4xl font-bold text-red-600">10+</p>
+                            <p class="text-gray-400">Years Experience</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold text-red-600">5000+</p>
+                            <p class="text-gray-400">Happy Members</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-bold text-red-600">25+</p>
+                            <p class="text-gray-400">Expert Trainers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=300&fit=crop" alt="Gym facility" class="rounded-lg w-full h-48 object-cover">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop" alt="Training session" class="rounded-lg w-full h-48 object-cover mt-8">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=400&h=300&fit=crop" alt="Equipment" class="rounded-lg w-full h-48 object-cover -mt-8">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop" alt="Group class" class="rounded-lg w-full h-48 object-cover">
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="mt-20">
+                <h3 class="text-3xl font-bold text-center mb-12">WHAT OUR MEMBERS SAY</h3>
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="testimonial-card p-6 rounded-xl card-hover">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Member" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Sarah Johnson</h4>
+                                <p class="text-sm text-gray-400">Member since 2023</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"Devu Fitness changed my life! The trainers are amazing and the community is so supportive. I've lost 30 pounds and gained so much confidence."</p>
+                    </div>
+                    <div class="testimonial-card p-6 rounded-xl card-hover">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Member" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Mike Peterson</h4>
+                                <p class="text-sm text-gray-400">Member since 2022</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"Best gym I've ever been to. The equipment is top-notch and the personal training sessions have helped me achieve goals I never thought possible."</p>
+                    </div>
+                    <div class="testimonial-card p-6 rounded-xl card-hover">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Member" class="w-16 h-16 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Emily Chen</h4>
+                                <p class="text-sm text-gray-400">Member since 2024</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">"The yoga and group classes are fantastic! I love the variety and the instructors really know their stuff. Highly recommend!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">OUR <span class="text-red-600">SERVICES</span></h2>
+            <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
+                <div class="bg-gray-900 p-6 rounded-xl text-center card-hover border border-gray-800">
+                    <div class="text-5xl mb-4">💪</div>
+                    <h3 class="text-xl font-bold mb-3">Personal Training</h3>
+                    <p class="text-gray-400">One-on-one sessions with certified trainers tailored to your goals</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-xl text-center card-hover border border-gray-800">
+                    <div class="text-5xl mb-4">🧘</div>
+                    <h3 class="text-xl font-bold mb-3">Yoga Classes</h3>
+                    <p class="text-gray-400">Find balance and flexibility with our expert yoga instructors</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-xl text-center card-hover border border-gray-800">
+                    <div class="text-5xl mb-4">🏃</div>
+                    <h3 class="text-xl font-bold mb-3">Cardio Training</h3>
+                    <p class="text-gray-400">High-intensity cardio sessions for maximum fat burning</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-xl text-center card-hover border border-gray-800">
+                    <div class="text-5xl mb-4">🏋️</div>
+                    <h3 class="text-xl font-bold mb-3">Weightlifting</h3>
+                    <p class="text-gray-400">Build strength and muscle with our comprehensive programs</p>
+                </div>
+            </div>
+
+            <!-- Pricing Table -->
+            <h3 class="text-3xl font-bold text-center mb-12">MEMBERSHIP <span class="text-red-600">PLANS</span></h3>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 card-hover">
+                    <h4 class="text-2xl font-bold mb-4">MONTHLY</h4>
+                    <p class="text-4xl font-bold text-red-600 mb-6">$49<span class="text-lg text-gray-400">/month</span></p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><span class="text-red-600 mr-2">✓</span> Access to all equipment</li>
+                        <li class="flex items-center"><span class="text-red-600 mr-2">✓</span> Group classes</li>
+                        <li class="flex items-center"><span class="text-red-600 mr-2">✓</span> Locker & shower access</li>
+                        <li class="flex items-center"><span class="text-red-600 mr-2">✓</span> 1 free personal training session</li>
+                    </ul>
+                    <button class="btn-primary w-full py-3 rounded-lg font-bold">SIGN UP</button>
+                </div>
+                <div class="bg-gradient-to-b from-red-600 to-red-800 p-8 rounded-xl transform scale-105 card-hover relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-black px-4 py-1 rounded-full text-sm font-bold">POPULAR</div>
+                    <h4 class="text-2xl font-bold mb-4">QUARTERLY</h4>
+                    <p class="text-4xl font-bold mb-6">$129<span class="text-lg">/3 months</span></p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><span class="mr-2">✓</span> Everything in Monthly</li>
+                        <li class="flex items-center"><span class="mr-2">✓</span> 3 personal training sessions</li>
+                        <li class="flex items-center"><span class="mr-2">✓</span> Nutrition consultation</li>
+                        <li class="flex items-center"><span class="mr-2">✓</span> Priority class booking</li>
+                        <li class="flex items-center"><span class="mr-2">✓</span> Save $18</li>
+                    </ul>
+                    <button class="bg-white text-red-600 w-full py-3 rounded-lg font-bold hover:bg-gray-100 transition">SIGN UP</button>
+                </div>
+                <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 card-hover">
+                    <h4 class="text-2xl font-bold mb-4">YEARLY</h4>
+                    <p class="text-4xl font-bold text-red-600 mb-6">$449<span class="text-lg text-gray-400">/year</span></p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><span class="text-red-600 mr-2">✓</span> Everything in Quarterly</li>
+                        <li class="flex items-center"><span class="text-red-600 mr-2">✓</span> 12 personal training sessions</li>
+                        <li class="flex items-center"><span class="text-red-600 mr-2">✓</span> Guest passes (5/month)</li>
+                        <li class="flex items-center"><span class="text-red-600 mr-2">✓</span> Free gym merchandise</li>
+                        <li class="flex items-center"><span class="text-red-600 mr-2">✓</span> Save $139</li>
+                    </ul>
+                    <button class="btn-primary w-full py-3 rounded-lg font-bold">SIGN UP</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section id="trainers" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">MEET OUR <span class="text-red-600">TRAINERS</span></h2>
+            <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="bg-gray-800 rounded-xl overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=500&fit=crop" alt="Trainer" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Alex Martinez</h3>
+                        <p class="text-red-600 mb-3">Head Trainer</p>
+                        <p class="text-sm text-gray-400 mb-4">Certified Personal Trainer with 12 years experience. Specializes in strength training and body transformation.</p>
+                        <button class="btn-primary w-full py-2 rounded-lg text-sm font-bold">BOOK SESSION</button>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&h=500&fit=crop" alt="Trainer" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Priya Sharma</h3>
+                        <p class="text-red-600 mb-3">Yoga Instructor</p>
+                        <p class="text-sm text-gray-400 mb-4">Certified Yoga Alliance instructor. Specializes in Vinyasa Flow and mindfulness practices.</p>
+                        <button class="btn-primary w-full py-2 rounded-lg text-sm font-bold">BOOK SESSION</button>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&h=500&fit=crop" alt="Trainer" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">James Wilson</h3>
+                        <p class="text-red-600 mb-3">Cardio Specialist</p>
+                        <p class="text-sm text-gray-400 mb-4">Former marathon runner. Specializes in endurance training and weight loss programs.</p>
+                        <button class="btn-primary w-full py-2 rounded-lg text-sm font-bold">BOOK SESSION</button>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=400&h=500&fit=crop" alt="Trainer" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Lisa Thompson</h3>
+                        <p class="text-red-600 mb-3">Nutrition Coach</p>
+                        <p class="text-sm text-gray-400 mb-4">Registered dietitian with focus on sports nutrition and meal planning for athletes.</p>
+                        <button class="btn-primary w-full py-2 rounded-lg text-sm font-bold">BOOK SESSION</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">CLASS <span class="text-red-600">SCHEDULE</span></h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-wrap gap-4 justify-center mb-8">
+                    <button onclick="filterSchedule('all')" class="filter-btn bg-red-600 px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition">ALL</button>
+                    <button onclick="filterSchedule('yoga')" class="filter-btn bg-gray-800 px-6 py-2 rounded-lg font-semibold hover:bg-gray-700 transition">YOGA</button>
+                    <button onclick="filterSchedule('cardio')" class="filter-btn bg-gray-800 px-6 py-2 rounded-lg font-semibold hover:bg-gray-700 transition">CARDIO</button>
+                    <button onclick="filterSchedule('strength')" class="filter-btn bg-gray-800 px-6 py-2 rounded-lg font-semibold hover:bg-gray-700 transition">STRENGTH</button>
+                </div>
+                <div class="bg-gray-900 rounded-xl overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-red-600">
+                            <tr>
+                                <th class="p-4 text-left">TIME</th>
+                                <th class="p-4 text-left">CLASS</th>
+                                <th class="p-4 text-left">TRAINER</th>
+                                <th class="p-4 text-left">TYPE</th>
+                                <th class="p-4 text-left">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleTable">
+                            <tr class="border-b border-gray-800 schedule-item" data-type="yoga">
+                                <td class="p-4">6:00 AM</td>
+                                <td class="p-4 font-semibold">Morning Yoga Flow</td>
+                                <td class="p-4">Priya Sharma</td>
+                                <td class="p-4"><span class="bg-purple-600 px-3 py-1 rounded-full text-sm">Yoga</span></td>
+                                <td class="p-4"><button class="text-red-600 hover:text-red-400 font-semibold">SIGN UP</button></td>
+                            </tr>
+                            <tr class="border-b border-gray-800 schedule-item" data-type="cardio">
+                                <td class="p-4">7:00 AM</td>
+                                <td class="p-4 font-semibold">HIIT Cardio Blast</td>
+                                <td class="p-4">James Wilson</td>
+                                <td class="p-4"><span class="bg-orange-600 px-3 py-1 rounded-full text-sm">Cardio</span></td>
+                                <td class="p-4"><button class="text-red-600 hover:text-red-400 font-semibold">SIGN UP</button></td>
+                            </tr>
+                            <tr class="schedule-item" data-type="strength">
+                                <td class="p-4">7:00 PM</td>
+                                <td class="p-4 font-semibold">Body Building</td>
+                                <td class="p-4">Alex Martinez</td>
+                                <td class="p-4"><span class="bg-blue-600 px-3 py-1 rounded-full text-sm">Strength</span></td>
+                                <td class="p-4"><button class="text-red-600 hover:text-red-400 font-semibold">SIGN UP</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">GET IN <span class="text-red-600">TOUCH</span></h2>
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <span class="text-red-600 text-2xl mr-4">📍</span>
+                            <div>
+                                <p class="font-semibold">Address</p>
+                                <p class="text-gray-400">123 Fitness Street, Chennai, Tamil Nadu 600001</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-red-600 text-2xl mr-4">📞</span>
+                            <div>
+                                <p class="font-semibold">Phone</p>
+                                <p class="text-gray-400">+91 98765 43210</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-red-600 text-2xl mr-4">✉️</span>
+                            <div>
+                                <p class="font-semibold">Email</p>
+                                <p class="text-gray-400">info@devufitness.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="font-bold mb-4">Follow Us</h4>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-12 h-12 bg-red-600 flex items-center justify-center rounded-full hover:bg-red-700 transition">
+                                <span class="text-2xl">📘</span>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-red-600 flex items-center justify-center rounded-full hover:bg-red-700 transition">
+                                <span class="text-2xl">📷</span>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-red-600 flex items-center justify-center rounded-full hover:bg-red-700 transition">
+                                <span class="text-2xl">🐦</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden h-64">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.84916296514!2d80.06892485!3d13.047982699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1634567890123" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label class="block mb-2 font-semibold">Your Name</label>
+                            <input type="text" id="contactName" required class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-red-600 focus:outline-none" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block mb-2 font-semibold">Your Email</label>
+                            <input type="email" id="contactEmail" required class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-red-600 focus:outline-none" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block mb-2 font-semibold">Message</label>
+                            <textarea id="contactMessage" required rows="5" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-red-600 focus:outline-none" placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-3 rounded-lg font-bold">SEND MESSAGE</button>
+                        <div id="contactSuccess" class="hidden bg-green-600 p-4 rounded-lg text-center">
+                            Thank you! We'll get back to you soon.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-red-600 flex items-center justify-center font-bold text-xl">D</div>
+                        <span class="text-xl font-bold">DEVU FITNESS</span>
+                    </div>
+                    <p class="text-gray-400">Transform your body and mind with expert guidance and world-class facilities.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-red-600 transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-red-600 transition">About Us</a></li>
+                        <li><a href="#services" class="hover:text-red-600 transition">Services</a></li>
+                        <li><a href="#trainers" class="hover:text-red-600 transition">Trainers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-red-600 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-red-600 transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-red-600 transition">Sitemap</a></li>
+                        <li><a href="#" class="hover:text-red-600 transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe for fitness tips and updates</p>
+                    <form id="newsletterForm" class="space-y-2">
+                        <input type="email" id="newsletterEmail" required class="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:border-red-600 focus:outline-none" placeholder="Your email">
+                        <button type="submit" class="btn-primary w-full py-2 rounded-lg font-bold">SUBSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Devu Fitness Center. All rights reserved. | Designed with ❤️ for fitness enthusiasts</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // BMI Calculator
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100;
+            
+            if (!weight || !height || weight <= 0 || height <= 0) {
+                alert('Please enter valid weight and height values');
+                return;
+            }
+            
+            const bmi = (weight / (height * height)).toFixed(1);
+            const resultDiv = document.getElementById('bmiResult');
+            const bmiValue = document.getElementById('bmiValue');
+            const bmiCategory = document.getElementById('bmiCategory');
+            
+            bmiValue.textContent = bmi;
+            
+            let category = '';
+            let color = '';
+            if (bmi < 18.5) {
+                category = 'Underweight';
+                color = 'text-blue-400';
+            } else if (bmi < 25) {
+                category = 'Normal weight';
+                color = 'text-green-400';
+            } else if (bmi < 30) {
+                category = 'Overweight';
+                color = 'text-yellow-400';
+            } else {
+                category = 'Obese';
+                color = 'text-red-400';
+            }
+            
+            bmiCategory.innerHTML = `Category: <span class="${color} font-semibold">${category}</span>`;
+            resultDiv.classList.remove('hidden');
+        }
+
+        // Schedule Filter
+        function filterSchedule(type) {
+            const items = document.querySelectorAll('.schedule-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-red-600');
+                btn.classList.add('bg-gray-800');
+            });
+            event.target.classList.remove('bg-gray-800');
+            event.target.classList.add('bg-red-600');
+            
+            items.forEach(item => {
+                if (type === 'all' || item.dataset.type === type) {
+                    item.style.display = 'table-row';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            if (name && email && message) {
+                document.getElementById('contactSuccess').classList.remove('hidden');
+                document.getElementById('contactForm').reset();
+                setTimeout(() => {
+                    document.getElementById('contactSuccess').classList.add('hidden');
+                }, 5000);
+            }
+        });
+
+        // Newsletter Form
+        document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            if (email) {
+                alert('Thank you for subscribing!');
+                document.getElementById('newsletterForm').reset();
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
