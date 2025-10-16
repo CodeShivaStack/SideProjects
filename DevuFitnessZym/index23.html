@@ -275,6 +275,7 @@
                 <p class="text-neutral-400">Choose the plan that fits your lifestyle</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Monthly Plan -->
                 <div class="glass-effect p-8 rounded-2xl hover-lift">
                     <p class="text-sm font-semibold text-neutral-400 mb-2">MONTHLY</p>
                     <p class="text-5xl font-bold mb-6">₹1000<span class="text-lg text-neutral-400">/mo</span></p>
@@ -293,6 +294,8 @@
                         Get Started
                     </button>
                 </div>
+
+                <!-- Quarterly Plan (Popular) -->
                 <div class="bg-red-500 p-8 rounded-2xl hover-lift relative">
                     <div
                         class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-4 py-1 rounded-full text-xs font-bold">
@@ -311,6 +314,8 @@
                         Get Started
                     </button>
                 </div>
+
+                <!-- Yearly Plan -->
                 <div class="glass-effect p-8 rounded-2xl hover-lift">
                     <p class="text-sm font-semibold text-neutral-400 mb-2">YEARLY</p>
                     <p class="text-5xl font-bold mb-6">₹8000<span class="text-lg text-neutral-400">/yr</span></p>
@@ -330,8 +335,175 @@
                     </button>
                 </div>
             </div>
+
+            <!-- Modal -->
+            <div id="signupModal"
+                class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="bg-white p-6 rounded-xl w-full max-w-md shadow-lg">
+                    <h2 class="text-xl  text-black font-bold mb-4">Get Started with <span id="selectedPlan"></span> Plan</h2>
+                    <form id="signupForm">
+                        <input type="text" name="name" placeholder="Your Name" required
+                            class="w-full p-2 border rounded mb-3 text-black">
+                        <input type="tel" name="phone" placeholder="Phone Number" required
+                            class="w-full p-2 border rounded mb-3 text-black">
+                        <button type="submit"
+                            class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Submit</button>
+                        <button type="button" onclick="closeModal()" class="ml-4 text-gray-500">Cancel</button>
+                    </form>
+                </div>
+            </div>
+
+
         </div>
     </section>
+
+
+
+
+
+    <script>
+        const modal = document.getElementById('signupModal');
+        const planSpan = document.getElementById('selectedPlan');
+        let selectedPlan = "";
+
+        // Attach click event to all Get Started buttons
+        document.querySelectorAll('.hover-lift button, .bg-white.text-red-500').forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                const plans = ['Monthly', 'Quarterly', 'Yearly'];
+                selectedPlan = plans[index];
+                planSpan.innerText = selectedPlan;
+                modal.classList.remove('hidden');
+            });
+        });
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Submit form to Google Sheets
+//         document.getElementById('signupForm').addEventListener('submit', async function (e) {
+//             e.preventDefault();
+//             const name = this.name.value.trim();
+//             const phone = this.phone.value.trim();
+//             const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+
+//             const data = {
+//                 name,
+//                 phone,
+//                 plan: selectedPlan,
+//                 timestamp
+//             };
+
+//             // Replace this URL with your actual Google Apps Script Web App URL
+//             const scriptURL = 'https://script.google.com/macros/s/AKfycbzI0Inq8DivOK4E_aUdk0lZ67ZT9XfEHGdpDPhGqbRqFqBHXFMxgg9mwbXg0TTBt58/exec';
+// console.log(data);
+//             try {
+//                 const res = await fetch(scriptURL, {
+//                     method: 'POST',
+//                     body: JSON.stringify(data),
+//                     headers: {
+//                         'Content-Type': 'application/json'
+//                     }
+//                 });
+
+//                 if (res.ok) {
+//                     alert('Submitted successfully!');
+//                     closeModal();
+//                     this.reset();
+//                 } else {
+//                     alert('Submission failed. Try again later.');
+//                 }
+//             } catch (err) {
+//                 alert('Error: ' + err.message);
+//             }
+//         });
+
+
+
+// document.getElementById('signupForm').addEventListener('submit', async function (e) {
+//     e.preventDefault();
+//     const name = this.name.value.trim();
+//     const phone = this.phone.value.trim();
+//     const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+
+//     const formData = new FormData();
+//     formData.append("name", name);
+//     formData.append("phone", phone);
+//     formData.append("plan", selectedPlan);
+//     formData.append("timestamp", timestamp);
+
+//     const scriptURL = 'https://script.google.com/macros/s/AKfycbxS1tVl5I7S1CTNYJjUXIj4BkAUADUJthTWc6JkhU0X-WsxJulZvaUVrOjfRBVNC0I/exec';
+
+//     try {
+//         const res = await fetch(scriptURL, {
+//             method: 'POST',
+//             body: formData
+//         });
+
+//         if (res.ok) {
+//             alert('Submitted successfully!');
+//             closeModal();
+//             this.reset();
+//         } else {
+//             alert('Submission failed. Try again later.');
+//         }
+//     } catch (err) {
+//         alert('Error: ' + err.message);
+//     }
+// });
+
+    </script>
+
+
+<!-- <script>
+  document.getElementById('signupForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    formData.append("timestamp", timestamp);
+
+    try {
+      const res = await fetch('https://script.google.com/macros/s/AKfycbxS1tVl5I7S1CTNYJjUXIj4BkAUADUJthTWc6JkhU0X-WsxJulZvaUVrOjfRBVNC0I/exec', {
+        method: 'POST',
+        body: formData
+      });
+
+      const text = await res.text();
+      alert("Response: " + text);
+    } catch (error) {
+      alert("Fetch Error: " + error.message);
+    }
+  });
+</script> -->
+
+
+<script>
+  document.getElementById('signupForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    const plan = document.getElementById("selectedPlan")?.textContent.trim();
+    formData.append("plan", plan);
+    const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    formData.append("timestamp", timestamp);
+
+    try {
+      const res = await fetch('https://script.google.com/macros/s/AKfycbxS1tVl5I7S1CTNYJjUXIj4BkAUADUJthTWc6JkhU0X-WsxJulZvaUVrOjfRBVNC0I/exec', {
+        method: 'POST',
+        body: formData
+      });
+
+      const text = await res.text();
+      alert("Response: " + text);
+    } catch (error) {
+      alert("Fetch Error: " + error.message);
+    }
+  });
+</script>
+
 
     <!-- Trainers Section -->
     <section id="trainers" class="section-spacing bg-neutral-900">
@@ -342,6 +514,7 @@
                     success</p>
             </div>
             <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <!-- Trainer 1 - Alex Martinez -->
                 <div class="glass-effect rounded-2xl overflow-hidden hover-lift">
                     <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=400&fit=crop"
                         alt="Trainer" class="w-full h-72 object-cover">
@@ -349,12 +522,16 @@
                         <h3 class="text-xl font-bold mb-1">Alex Martinez</h3>
                         <p class="text-sm text-red-500 mb-3">Head Trainer</p>
                         <p class="text-xs text-neutral-400 mb-4">Strength & Conditioning Specialist</p>
-                        <button
-                            class="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-semibold hover:bg-red-600 transition">
-                            Book Session
-                        </button>
+                        <a href="https://wa.me/919535328937?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20session%20with%20Alex%20Martinez%20for%20Strength%20and%20Conditioning.%20Please%20let%20me%20know%20your%20availability."
+                            target="_blank">
+                            <button
+                                class="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-semibold hover:bg-red-600 transition">
+                                Book Session
+                            </button>
+                        </a>
                     </div>
                 </div>
+                <!-- Trainer 2 - Priya Sharma -->
                 <div class="glass-effect rounded-2xl overflow-hidden hover-lift">
                     <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&h=400&fit=crop"
                         alt="Trainer" class="w-full h-72 object-cover">
@@ -362,12 +539,16 @@
                         <h3 class="text-xl font-bold mb-1">Priya Sharma</h3>
                         <p class="text-sm text-red-500 mb-3">Yoga Instructor</p>
                         <p class="text-xs text-neutral-400 mb-4">Certified Yoga Alliance (RYT 500)</p>
-                        <button
-                            class="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-semibold hover:bg-red-600 transition">
-                            Book Session
-                        </button>
+                        <a href="https://wa.me/919535328937?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20Yoga%20session%20with%20Priya%20Sharma.%20Please%20let%20me%20know%20your%20availability."
+                            target="_blank">
+                            <button
+                                class="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-semibold hover:bg-red-600 transition">
+                                Book Session
+                            </button>
+                        </a>
                     </div>
                 </div>
+                <!-- Trainer 3 - James Wilson -->
                 <div class="glass-effect rounded-2xl overflow-hidden hover-lift">
                     <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&h=400&fit=crop"
                         alt="Trainer" class="w-full h-72 object-cover">
@@ -375,12 +556,16 @@
                         <h3 class="text-xl font-bold mb-1">James Wilson</h3>
                         <p class="text-sm text-red-500 mb-3">Cardio Specialist</p>
                         <p class="text-xs text-neutral-400 mb-4">Former Marathon Runner</p>
-                        <button
-                            class="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-semibold hover:bg-red-600 transition">
-                            Book Session
-                        </button>
+                        <a href="https://wa.me/919535328937?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20Cardio%20session%20with%20James%20Wilson.%20Please%20let%20me%20know%20your%20availability."
+                            target="_blank">
+                            <button
+                                class="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-semibold hover:bg-red-600 transition">
+                                Book Session
+                            </button>
+                        </a>
                     </div>
                 </div>
+                <!-- Trainer 4 - Lisa Thompson -->
                 <div class="glass-effect rounded-2xl overflow-hidden hover-lift">
                     <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658?w=400&h=400&fit=crop"
                         alt="Trainer" class="w-full h-72 object-cover">
@@ -388,15 +573,19 @@
                         <h3 class="text-xl font-bold mb-1">Lisa Thompson</h3>
                         <p class="text-sm text-red-500 mb-3">Nutrition Coach</p>
                         <p class="text-xs text-neutral-400 mb-4">Registered Dietitian (RD)</p>
-                        <button
-                            class="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-semibold hover:bg-red-600 transition">
-                            Book Session
-                        </button>
+                        <a href="https://wa.me/919535328937?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20Nutrition%20session%20with%20Lisa%20Thompson.%20Please%20let%20me%20know%20your%20availability."
+                            target="_blank">
+                            <button
+                                class="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-semibold hover:bg-red-600 transition">
+                                Book Session
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Schedule Section -->
     <section id="schedule" class="section-spacing bg-neutral-950">
@@ -425,6 +614,7 @@
                     </button>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6" id="scheduleContainer">
+                    <!-- Yoga Class - Morning Yoga Flow -->
                     <div class="glass-effect p-6 rounded-2xl schedule-item" data-type="yoga">
                         <div class="flex justify-between items-start mb-4">
                             <div>
@@ -435,11 +625,16 @@
                                 class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-semibold">Yoga</span>
                         </div>
                         <p class="text-2xl font-bold text-red-500 mb-4">6:00 AM</p>
-                        <button
-                            class="w-full bg-neutral-800 text-white py-2 rounded-xl text-sm font-semibold hover:bg-neutral-700 transition">
-                            Reserve Spot
-                        </button>
+                        <a href="https://wa.me/919535328937?text=Hi%2C%20I%27m%20interested%20in%20reserving%20a%20spot%20for%20Morning%20Yoga%20Flow%20with%20Priya%20Sharma%20at%206%3A00%20AM.%20Please%20confirm%20my%20reservation."
+                            target="_blank">
+                            <button
+                                class="w-full bg-neutral-800 text-white py-2 rounded-xl text-sm font-semibold hover:bg-neutral-700 transition">
+                                Reserve Spot
+                            </button>
+                        </a>
                     </div>
+
+                    <!-- Cardio Class - HIIT Cardio Blast -->
                     <div class="glass-effect p-6 rounded-2xl schedule-item" data-type="cardio">
                         <div class="flex justify-between items-start mb-4">
                             <div>
@@ -450,11 +645,16 @@
                                 class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-xs font-semibold">Cardio</span>
                         </div>
                         <p class="text-2xl font-bold text-red-500 mb-4">7:00 AM</p>
-                        <button
-                            class="w-full bg-neutral-800 text-white py-2 rounded-xl text-sm font-semibold hover:bg-neutral-700 transition">
-                            Reserve Spot
-                        </button>
+                        <a href="https://wa.me/919535328937?text=Hi%2C%20I%27m%20interested%20in%20reserving%20a%20spot%20for%20HIIT%20Cardio%20Blast%20with%20James%20Wilson%20at%207%3A00%20AM.%20Please%20confirm%20my%20reservation."
+                            target="_blank">
+                            <button
+                                class="w-full bg-neutral-800 text-white py-2 rounded-xl text-sm font-semibold hover:bg-neutral-700 transition">
+                                Reserve Spot
+                            </button>
+                        </a>
                     </div>
+
+                    <!-- Strength Class - Strength & Power -->
                     <div class="glass-effect p-6 rounded-2xl schedule-item" data-type="strength">
                         <div class="flex justify-between items-start mb-4">
                             <div>
@@ -465,11 +665,16 @@
                                 class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs font-semibold">Strength</span>
                         </div>
                         <p class="text-2xl font-bold text-red-500 mb-4">9:00 AM</p>
-                        <button
-                            class="w-full bg-neutral-800 text-white py-2 rounded-xl text-sm font-semibold hover:bg-neutral-700 transition">
-                            Reserve Spot
-                        </button>
+                        <a href="https://wa.me/919535328937?text=Hi%2C%20I%27m%20interested%20in%20reserving%20a%20spot%20for%20Strength%20%26%20Power%20with%20Alex%20Martinez%20at%209%3A00%20AM.%20Please%20confirm%20my%20reservation."
+                            target="_blank">
+                            <button
+                                class="w-full bg-neutral-800 text-white py-2 rounded-xl text-sm font-semibold hover:bg-neutral-700 transition">
+                                Reserve Spot
+                            </button>
+                        </a>
                     </div>
+
+                    <!-- Yoga Class - Evening Yoga -->
                     <div class="glass-effect p-6 rounded-2xl schedule-item" data-type="yoga">
                         <div class="flex justify-between items-start mb-4">
                             <div>
@@ -480,12 +685,16 @@
                                 class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-semibold">Yoga</span>
                         </div>
                         <p class="text-2xl font-bold text-red-500 mb-4">5:00 PM</p>
-                        <button
-                            class="w-full bg-neutral-800 text-white py-2 rounded-xl text-sm font-semibold hover:bg-neutral-700 transition">
-                            Reserve Spot
-                        </button>
+                        <a href="https://wa.me/919876543210?text=Hi%2C%20I%27m%20interested%20in%20reserving%20a%20spot%20for%20Evening%20Yoga%20with%20Priya%20Sharma%20at%205%3A00%20PM.%20Please%20confirm%20my%20reservation."
+                            target="_blank">
+                            <button
+                                class="w-full bg-neutral-800 text-white py-2 rounded-xl text-sm font-semibold hover:bg-neutral-700 transition">
+                                Reserve Spot
+                            </button>
+                        </a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -500,41 +709,45 @@
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="glass-effect p-8 rounded-2xl">
                     <div class="flex items-center mb-6">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop"
                             alt="Member" class="w-14 h-14 rounded-full mr-4">
                         <div>
-                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <h4 class="font-bold">Rohini Prasad</h4>
                             <p class="text-sm text-neutral-400">Member since 2023</p>
                         </div>
                     </div>
-                    <p class="text-neutral-300 text-sm leading-relaxed">"Life-changing experience! Lost 30 pounds and
-                        gained incredible confidence. The trainers are supportive and the community is amazing."</p>
+                    <p class="text-neutral-300 text-sm leading-relaxed">"Ayyo, this place is too good ya! I lost almost
+                        12 kilos after joining — full energy only now. Trainers are very friendly and they push you
+                        nicely without shouting. Super vibes!"</p>
                 </div>
                 <div class="glass-effect p-8 rounded-2xl">
                     <div class="flex items-center mb-6">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop"
                             alt="Member" class="w-14 h-14 rounded-full mr-4">
                         <div>
-                            <h4 class="font-bold">Mike Peterson</h4>
+                            <h4 class="font-bold">Nikhil Gowda</h4>
                             <p class="text-sm text-neutral-400">Member since 2022</p>
                         </div>
                     </div>
-                    <p class="text-neutral-300 text-sm leading-relaxed">"Best investment I've made. The equipment is
-                        top-notch and personal training sessions helped me achieve goals I never thought possible."</p>
+                    <p class="text-neutral-300 text-sm leading-relaxed">"One of the best decisions I've taken, I swear.
+                        Equipment is top class, and personal trainers here don't let you give up. They’ll say, ‘Oye,
+                        mundhe hogu!’ and you actually feel like going that extra rep."</p>
                 </div>
                 <div class="glass-effect p-8 rounded-2xl">
                     <div class="flex items-center mb-6">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=100&h=100&fit=crop"
                             alt="Member" class="w-14 h-14 rounded-full mr-4">
                         <div>
-                            <h4 class="font-bold">Emily Chen</h4>
+                            <h4 class="font-bold">Pooja Shetty</h4>
                             <p class="text-sm text-neutral-400">Member since 2024</p>
                         </div>
                     </div>
-                    <p class="text-neutral-300 text-sm leading-relaxed">"The yoga classes are fantastic! I love the
-                        variety and the instructors really care about each member's progress. Highly recommend!"</p>
+                    <p class="text-neutral-300 text-sm leading-relaxed">"Their yoga sessions are simply mind-blowing. So
+                        peaceful, I get total peace of mind after class. The instructors are like proper gurus, they
+                        know everything and guide you with full patience. Hegidira? Come join and see!"</p>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -555,7 +768,8 @@
                             </div>
                             <div>
                                 <p class="font-semibold mb-1">Location</p>
-                                <p class="text-sm text-neutral-400">123 Fitness Street, Chennai, Tamil Nadu 600001</p>
+                                <p class="text-sm text-neutral-400">2nd floor, ASION MALL, MULAGUND NAKA ROAD, Hudco
+                                    Colony, Gadag, Karnataka 582103</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -585,7 +799,7 @@
                         <div class="glass-effect p-6 rounded-2xl space-y-3">
                             <div class="flex justify-between">
                                 <span class="text-neutral-400">Monday - Friday</span>
-                                <span class="font-semibold">5:00 AM - 11:00 PM</span>
+                                <span class="font-semibold">5:30 AM - 10:00 PM</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-neutral-400">Saturday - Sunday</span>
@@ -623,6 +837,7 @@
                             Thank you! We'll get back to you soon.
                         </div>
                     </form>
+
                 </div>
             </div>
             <div class="mt-12 rounded-2xl overflow-hidden h-96">
@@ -766,7 +981,7 @@
             });
         }
 
-        // Contact Form
+        // Contact Form Submission with WhatsApp Redirection
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('contactName').value;
@@ -774,23 +989,49 @@
             const message = document.getElementById('contactMessage').value;
 
             if (name && email && message) {
+                // Prepare the message to be sent via WhatsApp
+                const whatsappMessage = `Hi%2C%20I%27m%20${encodeURIComponent(name)}.%20My%20email%20is%20${encodeURIComponent(email)}.%20Here%20is%20my%20message%3A%20${encodeURIComponent(message)}`;
+
+                // Replace '919535328937' with your business WhatsApp number (including country code, no +)
+                const whatsappLink = `https://wa.me/919535328937?text=${whatsappMessage}`;
+
+                // Open WhatsApp with the pre-filled message
+                window.open(whatsappLink, '_blank');
+
+                // Show a success message to the user
                 document.getElementById('contactSuccess').classList.remove('hidden');
-                document.getElementById('contactForm').reset();
+
+                // Reset the form after a short delay
                 setTimeout(() => {
+                    document.getElementById('contactForm').reset();
                     document.getElementById('contactSuccess').classList.add('hidden');
                 }, 5000);
             }
         });
 
-        // Newsletter Form
+
+        // Newsletter Form Submission with WhatsApp Redirection
         document.getElementById('newsletterForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const email = document.getElementById('newsletterEmail').value;
+
             if (email) {
-                alert('Thank you for subscribing to our newsletter!');
+                const message = `Hi%2C%20I%20have%20subscribed%20to%20your%20newsletter%20with%20the%20email%20address%3A%20${encodeURIComponent(email)}.%20Please%20confirm%20my%20subscription.`;
+
+                // Replace '919535328937' with your business WhatsApp number (including country code, no +)
+                const whatsappLink = `https://wa.me/919535328937?text=${message}`;
+
+                // Open WhatsApp with the subscription message
+                window.open(whatsappLink, '_blank');
+
+                // Optionally show a message to the user
+                alert('Thank you for subscribing! You will be redirected to WhatsApp for confirmation.');
+
+                // Reset the form
                 document.getElementById('newsletterForm').reset();
             }
         });
+
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
