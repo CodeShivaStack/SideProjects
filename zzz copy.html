@@ -1,0 +1,2571 @@
+<html lang="en" style="height: 100%;">
+
+<head>
+    <base target="_blank">
+
+
+
+    <title>Arcade | Google Cloud Skills Boost</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Boost your Google Cloud skills with Skills Boost Arcade! Play games, tackle trivia, and earn exclusive Google Cloud credentials to accelerate your certification journey.">
+
+    <!-- CSS Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
+
+    <!-- JS Dependencies: jQuery first, then Bootstrap Bundle (which includes Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /* --- START OF CUSTOM FIREWORKS CSS (Modified for Full Page) --- */
+        #fireworksCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 999;
+            /* CRUCIAL: Allows all mouse clicks/touches to pass through to the elements underneath it. */
+            pointer-events: none;
+        }
+
+        audio {
+            display: none;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        /* --- END OF CUSTOM FIREWORKS CSS --- */
+
+
+        /* --- START OF ORIGINAL SKILLS BOOST CSS --- */
+        hr {
+            border: 1px solid #FFD548;
+            opacity: 100%;
+            border-radius: 2px;
+        }
+
+        #Header1 {
+            display: block;
+        }
+
+        footer.zlaBJ {
+            display: none !important;
+        }
+
+        #Header2 {
+            display: none;
+        }
+
+        @media all and (max-width: 766px) {
+            #Header1 {
+                display: none;
+            }
+
+            #Header2 {
+                display: block;
+            }
+        }
+
+        @media all and (max-width:766px) {
+            .faq-header {
+                font-size: medium;
+            }
+        }
+
+        #mainpage-title {
+            font-family: "Press Start 2P";
+            color: #FFD548;
+        }
+
+        #card-title {
+            font-family: "Press Start 2P";
+            color: #FFD548;
+        }
+
+        .card-title {
+            font-family: "Press Start 2P";
+            color: #FFD548;
+        }
+
+        .card {
+            background-color: #292D33;
+            color: white;
+        }
+
+        img {
+            width: 50%;
+        }
+
+        .dark-back {
+            background-color: #174689;
+        }
+
+        .playlist-bg {
+            background-color: #174689;
+        }
+
+        .black-bg {
+            background-color: #1B1C24;
+        }
+
+        /*Style for the FAQ widget*/
+        section {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Google Sans';
+            background-color: #1B1C24;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px 5px #0c2447;
+            color: #444;
+            cursor: pointer;
+            padding: 60px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 10px;
+            transition: 0.4s;
+            border-bottom: #444;
+        }
+
+        .section {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .active,
+        .faq:hover {
+            background-color: #1B1C24;
+        }
+
+        .section:after {
+            content: '\002B';
+            color: #1B1C24;
+            float: right;
+            margin-left: 5px;
+        }
+
+        title {
+            font-size: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+            color: white;
+        }
+
+        .faq {
+            border-bottom: 2px solid #de5246;
+            cursor: pointer;
+        }
+
+        .question h3 {
+            font-size: 14px;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            color: white;
+        }
+
+        .faq .question h3:after {
+            content: '\002B';
+            -webkit-transition: .3s ease;
+            -moz-transition: .3s ease;
+            -o-transition: .3s ease;
+            transition: .3s ease;
+        }
+
+        .faq.active .question h3:after {
+            content: '\2212';
+            -webkit-transition: .3s ease;
+            -moz-transition: .3s ease;
+            -o-transition: .3s ease;
+            transition: .3s ease;
+        }
+
+        .answer {
+            max-height: 0;
+            overflow: hidden;
+            background-color: #ffffff;
+            transition: max-height 0.25s ease;
+        }
+
+        .answer p {
+            margin: 10px 0;
+            font-size: 14px;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .faq.active .answer {
+            max-height: 1000px;
+            transition: max-height 0.25s ease;
+        }
+
+        .input-faq {
+            font-family: 'Google Sans';
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+            color: #de5246;
+            padding: 6px 10px;
+            margin: 3px 0;
+            box-sizing: border-box;
+            height: 36px;
+            border-style: solid;
+            border-color: #de5246;
+            border-radius: 1px 1px 1px 1px;
+        }
+
+        .imageEmpty {
+            display: none;
+        }
+
+        p {
+            font-family: "Google Sans";
+            color: white;
+        }
+
+        .asterisk {
+            color: red;
+        }
+
+        h5 {
+            color: white;
+            margin-top: 10px;
+        }
+
+        label {
+            color: white;
+        }
+
+        .answer-text {
+            color: #1B1C24;
+        }
+
+        #mce-success-response {
+            color: #34A853;
+            font-weight: bold;
+            font-family: 'Google Sans';
+        }
+
+        #mce-error-response {
+            color: #de5246;
+        }
+
+        .list-marker {
+            font-size: xx-large;
+            padding-right: 12px;
+            font-family: "Press Start 2P";
+        }
+
+        .list-item {
+            padding: 20px;
+        }
+
+        a {
+            color: #FFD548;
+        }
+
+        .communityBg {
+            background-color: #0c2447 !important;
+        }
+
+        .communityText {
+            display: flex !important;
+            flex-direction: column !important;
+            text-align: left !important;
+            justify-content: center !important;
+
+        }
+
+        .communityRhsText {
+            padding-right: 1rem;
+
+        }
+
+        .communityLhsImgContainer {
+            height: 100%
+        }
+
+        .communityLhsImg {
+            height: 100%;
+            padding-left: 1rem;
+            padding-right: 0;
+        }
+
+        .communityUl {
+            text-align: left !important;
+        }
+
+        .btnCommunityContainer {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .background-gradient {
+            background: url('https://i.ibb.co/x33vrk1/actual-backgrd.png'), linear-gradient(#E53C26, #F79E1F);
+            backdrop-filter: blur(100%);
+            background-repeat: repeat, no-repeat;
+            background-position: center;
+            background-blend-mode: multiply;
+        }
+
+        .background-gradient1 {
+            background: url('https://i.ibb.co/FVQ0YVZ/prize-bgc.png');
+            backdrop-filter: blur(100%);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-blend-mode: normal;
+            background-size: cover;
+        }
+
+        .background-gradient2 {
+            background: url('https://i.ibb.co/6bWHjRW/header-bgc.png');
+            backdrop-filter: blur(100%);
+            background-position: center;
+            background-blend-mode: normal;
+            background-size: cover;
+        }
+
+        .background-gradient3 {
+            background: url('https://i.ibb.co/Lxdg1GZ/Dark-Background.png');
+            backdrop-filter: blur(100%);
+            background-position: center;
+            background-blend-mode: normal;
+            background-size: cover;
+        }
+
+        .prize-section-header {
+            font-family: "Press Start 2P";
+            color: #FFD548;
+        }
+
+        .point-marker {
+            font-size: medium;
+            padding-right: 12px;
+            font-family: "Press Start 2P";
+        }
+
+        .second-row {
+            padding-bottom: 100px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #E53C26, #F79E1F);
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="20" font-size="20" fill="red">♥</text></svg>') 16 16, auto;
+
+            font-family: "Press Start 2P";
+            font-size: medium;
+            color: #1B1C24;
+            border: none;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #F5BB11, #F5BB11);
+            cursor: pointer
+        }
+
+        table {
+            color: white;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        #result1,
+        #result2 {
+            text-align: center;
+            margin-top: 20px;
+            color: antiquewhite;
+        }
+
+        .spinner-border {
+            display: none;
+        }
+
+        .bannerFix {
+            margin-top: 70px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .bannerFix {
+                margin-top: 0px;
+            }
+        }
+
+        .hBW7Hb {
+            background-color: #34A853;
+        }
+
+        .img-skill {
+            border-radius: 8px;
+        }
+
+        .img-skill1 {
+            border-radius: 4px;
+            width: 80%;
+        }
+
+        /* revolving border */
+        .borderCards {
+            position: relative;
+            box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
+            color: #999;
+            overflow: hidden;
+        }
+
+        .borderCards span:nth-child(1) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #171618, #fff53b);
+            animation: animate1 2s linear infinite;
+        }
+
+        @keyframes animate1 {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .borderCards span:nth-child(2) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, #171618, #fff53b);
+            animation: animate2 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes animate2 {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        .borderCards span:nth-child(3) {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to left, #171618, #fff53b);
+            animation: animate3 2s linear infinite;
+        }
+
+        @keyframes animate3 {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .borderCards span:nth-child(4) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to top, #171618, #fff53b);
+            animation: animate4 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        .MileStone {
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        @keyframes animate4 {
+            0% {
+                transform: translateY(100%);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .navbarUlParent {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media screen and (max-width: 800px) {
+            .CloudCommunity {
+                padding-left: 2rem;
+            }
+        }
+
+        .milestoneCards .card {
+            height: 350px;
+        }
+
+        .scrollBox {
+            overflow: hidden;
+        }
+
+        .custom-modal-content {
+            background-color: white !important;
+        }
+
+        .modal-backdrop.show {
+            opacity: 0.8 !important;
+        }
+
+        .custom-modal-size {
+            max-width: 90% !important;
+        }
+
+        .custom-modal-size .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .go-row {
+            max-height: 50vh;
+            overflow: auto;
+            padding: 1rem;
+            border: 4px solid #FFD548;
+            border-radius: 5px;
+        }
+
+        .go-row::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+        }
+
+        .go-row::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+        .go-row::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
+
+        .go-row::-webkit-scrollbar-thumb {
+            background-color: #E53C26;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #071C35 !important;
+        }
+
+        #google_translate_element {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+        }
+
+        .navbar-nav .nav-link {
+            padding: 1rem;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+            height: 1px;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd img {
+            height: 14px !important;
+            width: 37px !important;
+        }
+
+        .specialBadge:hover {
+            box-shadow: 1px 1px 5px 5px #F5BB11;
+            cursor: pointer;
+        }
+
+        #scrollImage,
+        #scrollImageRight {
+            position: fixed;
+            top: 100%;
+            width: 300px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in, top 0.5s ease-in;
+            z-index: 40000000;
+        }
+
+        #scrollImageRight {
+            right: -9rem;
+        }
+
+        #scrollImage.show,
+        #scrollImageRight.show {
+            top: 6rem;
+            opacity: 1;
+        }
+
+        .firework-rounded {
+            width: 75px;
+            height: 75px;
+            position: relative;
+            align-self: center;
+        }
+
+        .firework-rounded-light {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border-color: #fbbc04 !important;
+            animation: fireworksAnimation 1.5s ease-out infinite alternate;
+            opacity: 0;
+        }
+
+        .firework-rounded-light:nth-child(1) {
+            width: 15px;
+            height: 15px;
+            border: 1px dotted #f9a600;
+            animation-delay: 0.3s;
+        }
+
+        .firework-rounded-light:nth-child(2) {
+            width: 25px;
+            height: 25px;
+            border: 2px dotted #ffbb33;
+            animation-delay: 0.5s;
+        }
+
+        .firework-rounded-light:nth-child(3) {
+            width: 35px;
+            height: 35px;
+            border: 3px dotted #ffcc66;
+            animation-delay: 0.7s;
+        }
+
+        .firework-rounded-light:nth-child(4) {
+            width: 45px;
+            height: 45px;
+            border: 4px dotted #ffdd99;
+            animation-delay: 0.9s;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .firework-rounded-light:nth-child(5) {
+            width: 55px;
+            height: 55px;
+            border: 5px dotted #ffe5b3;
+            animation-delay: 1.1s;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .firework-rounded-light:nth-child(6) {
+            width: 65px;
+            height: 65px;
+            border: 6px dotted #fff2cc;
+            animation-delay: 1.3s;
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        @keyframes fireworksAnimation {
+
+            0%,
+            100% {
+                opacity: 0;
+                border-color: #fbbc04;
+            }
+
+            50% {
+                opacity: 1;
+                border-color: #fbbc04;
+            }
+        }
+
+        /* --- END OF ORIGINAL SKILLS BOOST CSS --- */
+    </style>
+    <link type="text/css" rel="stylesheet" charset="UTF-8"
+        href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.2f3WBw8L4SI.L.W.O/am=AMA/d=0/rs=AN8SPfqL6PS6PNiXkx_tGkEQOOALUonRKQ/m=el_main_css">
+    <script type="text/javascript" charset="UTF-8"
+        src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.Ave5G-fc6T8.O/am=AAAE/d=1/exm=el_conf/ed=1/rs=AN8SPfpt1Q8XCdW2oUbuWyHhrOwUc3_S-w/m=el_main"></script>
+</head>
+
+<body style="position: relative; min-height: 100%; top: 0px;">
+    <!-- Canvas for fireworks effect -->
+    <canvas id="fireworksCanvas" width="1024" height="1286"></canvas>
+    <audio type="audio/wav" controls="none" id="audio1"
+        src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSAAAAAB"></audio>
+
+    <div class="splash-container"></div>
+
+    <!-- NAVBAR: CORRECTED with Bootstrap 5 attributes (data-bs-*) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"
+                        style="font-family: 'Google Sans'; color: white;">
+                        Play Now
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-family: 'Google Sans';">
+                        <a class="dropdown-item" href="#level1">Level 1</a>
+                        <a class="dropdown-item" href="#level2">Level 2</a>
+                        <a class="dropdown-item" href="#level3">Level 3</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#faq" style="color: white; font-family: 'Google Sans';">FAQs</a>
+                </li>
+            </ul>
+            <div class="ms-auto">
+                <div id="google_translate_element">
+                    <div class="skiptranslate goog-te-gadget" dir="ltr" style="">
+                        <div id=":0.targetLanguage"><select class="goog-te-combo"
+                                aria-label="Language Translate Widget">
+                                <option value="">Select Language</option>
+                                <option value="ab">Abkhaz</option>
+                                <option value="ace">Acehnese</option>
+                                <option value="ach">Acholi</option>
+                                <option value="aa">Afar</option>
+                                <option value="af">Afrikaans</option>
+                                <option value="sq">Albanian</option>
+                                <option value="alz">Alur</option>
+                                <option value="am">Amharic</option>
+                                <option value="ar">Arabic</option>
+                                <option value="hy">Armenian</option>
+                                <option value="as">Assamese</option>
+                                <option value="av">Avar</option>
+                                <option value="awa">Awadhi</option>
+                                <option value="ay">Aymara</option>
+                                <option value="az">Azerbaijani</option>
+                                <option value="ban">Balinese</option>
+                                <option value="bal">Baluchi</option>
+                                <option value="bm">Bambara</option>
+                                <option value="bci">Baoulé</option>
+                                <option value="ba">Bashkir</option>
+                                <option value="eu">Basque</option>
+                                <option value="btx">Batak Karo</option>
+                                <option value="bts">Batak Simalungun</option>
+                                <option value="bbc">Batak Toba</option>
+                                <option value="be">Belarusian</option>
+                                <option value="bem">Bemba</option>
+                                <option value="bn">Bengali</option>
+                                <option value="bew">Betawi</option>
+                                <option value="bho">Bhojpuri</option>
+                                <option value="bik">Bikol</option>
+                                <option value="bs">Bosnian</option>
+                                <option value="br">Breton</option>
+                                <option value="bg">Bulgarian</option>
+                                <option value="bua">Buryat</option>
+                                <option value="yue">Cantonese</option>
+                                <option value="ca">Catalan</option>
+                                <option value="ceb">Cebuano</option>
+                                <option value="ch">Chamorro</option>
+                                <option value="ce">Chechen</option>
+                                <option value="ny">Chichewa</option>
+                                <option value="zh-CN">Chinese (Simplified)</option>
+                                <option value="zh-TW">Chinese (Traditional)</option>
+                                <option value="chk">Chuukese</option>
+                                <option value="cv">Chuvash</option>
+                                <option value="co">Corsican</option>
+                                <option value="crh">Crimean Tatar (Cyrillic)</option>
+                                <option value="crh-Latn">Crimean Tatar (Latin)</option>
+                                <option value="hr">Croatian</option>
+                                <option value="cs">Czech</option>
+                                <option value="da">Danish</option>
+                                <option value="fa-AF">Dari</option>
+                                <option value="dv">Dhivehi</option>
+                                <option value="din">Dinka</option>
+                                <option value="doi">Dogri</option>
+                                <option value="dov">Dombe</option>
+                                <option value="nl">Dutch</option>
+                                <option value="dyu">Dyula</option>
+                                <option value="dz">Dzongkha</option>
+                                <option value="eo">Esperanto</option>
+                                <option value="et">Estonian</option>
+                                <option value="ee">Ewe</option>
+                                <option value="fo">Faroese</option>
+                                <option value="fj">Fijian</option>
+                                <option value="tl">Filipino</option>
+                                <option value="fi">Finnish</option>
+                                <option value="fon">Fon</option>
+                                <option value="fr">French</option>
+                                <option value="fr-CA">French (Canada)</option>
+                                <option value="fy">Frisian</option>
+                                <option value="fur">Friulian</option>
+                                <option value="ff">Fulani</option>
+                                <option value="gaa">Ga</option>
+                                <option value="gl">Galician</option>
+                                <option value="ka">Georgian</option>
+                                <option value="de">German</option>
+                                <option value="el">Greek</option>
+                                <option value="gn">Guarani</option>
+                                <option value="gu">Gujarati</option>
+                                <option value="ht">Haitian Creole</option>
+                                <option value="cnh">Hakha Chin</option>
+                                <option value="ha">Hausa</option>
+                                <option value="haw">Hawaiian</option>
+                                <option value="iw">Hebrew</option>
+                                <option value="hil">Hiligaynon</option>
+                                <option value="hi">Hindi</option>
+                                <option value="hmn">Hmong</option>
+                                <option value="hu">Hungarian</option>
+                                <option value="hrx">Hunsrik</option>
+                                <option value="iba">Iban</option>
+                                <option value="is">Icelandic</option>
+                                <option value="ig">Igbo</option>
+                                <option value="ilo">Ilocano</option>
+                                <option value="id">Indonesian</option>
+                                <option value="iu-Latn">Inuktut (Latin)</option>
+                                <option value="iu">Inuktut (Syllabics)</option>
+                                <option value="ga">Irish Gaelic</option>
+                                <option value="it">Italian</option>
+                                <option value="jam">Jamaican Patois</option>
+                                <option value="ja">Japanese</option>
+                                <option value="jw">Javanese</option>
+                                <option value="kac">Jingpo</option>
+                                <option value="kl">Kalaallisut</option>
+                                <option value="kn">Kannada</option>
+                                <option value="kr">Kanuri</option>
+                                <option value="pam">Kapampangan</option>
+                                <option value="kk">Kazakh</option>
+                                <option value="kha">Khasi</option>
+                                <option value="km">Khmer</option>
+                                <option value="cgg">Kiga</option>
+                                <option value="kg">Kikongo</option>
+                                <option value="rw">Kinyarwanda</option>
+                                <option value="ktu">Kituba</option>
+                                <option value="trp">Kokborok</option>
+                                <option value="kv">Komi</option>
+                                <option value="gom">Konkani</option>
+                                <option value="ko">Korean</option>
+                                <option value="kri">Krio</option>
+                                <option value="ku">Kurdish (Kurmanji)</option>
+                                <option value="ckb">Kurdish (Sorani)</option>
+                                <option value="ky">Kyrgyz</option>
+                                <option value="lo">Lao</option>
+                                <option value="ltg">Latgalian</option>
+                                <option value="la">Latin</option>
+                                <option value="lv">Latvian</option>
+                                <option value="lij">Ligurian</option>
+                                <option value="li">Limburgish</option>
+                                <option value="ln">Lingala</option>
+                                <option value="lt">Lithuanian</option>
+                                <option value="lmo">Lombard</option>
+                                <option value="lg">Luganda</option>
+                                <option value="luo">Luo</option>
+                                <option value="lb">Luxembourgish</option>
+                                <option value="mk">Macedonian</option>
+                                <option value="mad">Madurese</option>
+                                <option value="mai">Maithili</option>
+                                <option value="mak">Makassar</option>
+                                <option value="mg">Malagasy</option>
+                                <option value="ms">Malay</option>
+                                <option value="ms-Arab">Malay (Jawi)</option>
+                                <option value="ml">Malayalam</option>
+                                <option value="mt">Maltese</option>
+                                <option value="mam">Mam</option>
+                                <option value="gv">Manx</option>
+                                <option value="mi">Maori</option>
+                                <option value="mr">Marathi</option>
+                                <option value="mh">Marshallese</option>
+                                <option value="mwr">Marwadi</option>
+                                <option value="mfe">Mauritian Creole</option>
+                                <option value="chm">Meadow Mari</option>
+                                <option value="mni-Mtei">Meiteilon (Manipuri)</option>
+                                <option value="min">Minang</option>
+                                <option value="lus">Mizo</option>
+                                <option value="mn">Mongolian</option>
+                                <option value="my">Myanmar (Burmese)</option>
+                                <option value="bm-Nkoo">N'Ko</option>
+                                <option value="nhe">Nahuatl (Eastern Huasteca)</option>
+                                <option value="ndc-ZW">Ndau</option>
+                                <option value="nr">Ndebele (South)</option>
+                                <option value="new">Nepal Bhasa (Newari)</option>
+                                <option value="ne">Nepali</option>
+                                <option value="no">Norwegian</option>
+                                <option value="nus">Nuer</option>
+                                <option value="oc">Occitan</option>
+                                <option value="or">Odia (Oriya)</option>
+                                <option value="om">Oromo</option>
+                                <option value="os">Ossetian</option>
+                                <option value="pag">Pangasinan</option>
+                                <option value="pap">Papiamento</option>
+                                <option value="ps">Pashto</option>
+                                <option value="fa">Persian</option>
+                                <option value="pl">Polish</option>
+                                <option value="pt">Portuguese (Brazil)</option>
+                                <option value="pt-PT">Portuguese (Portugal)</option>
+                                <option value="pa">Punjabi (Gurmukhi)</option>
+                                <option value="pa-Arab">Punjabi (Shahmukhi)</option>
+                                <option value="qu">Quechua</option>
+                                <option value="kek">Qʼeqchiʼ</option>
+                                <option value="rom">Romani</option>
+                                <option value="ro">Romanian</option>
+                                <option value="rn">Rundi</option>
+                                <option value="ru">Russian</option>
+                                <option value="se">Sami (North)</option>
+                                <option value="sm">Samoan</option>
+                                <option value="sg">Sango</option>
+                                <option value="sa">Sanskrit</option>
+                                <option value="sat-Latn">Santali (Latin)</option>
+                                <option value="sat">Santali (Ol Chiki)</option>
+                                <option value="gd">Scots Gaelic</option>
+                                <option value="nso">Sepedi</option>
+                                <option value="sr">Serbian</option>
+                                <option value="st">Sesotho</option>
+                                <option value="crs">Seychellois Creole</option>
+                                <option value="shn">Shan</option>
+                                <option value="sn">Shona</option>
+                                <option value="scn">Sicilian</option>
+                                <option value="szl">Silesian</option>
+                                <option value="sd">Sindhi</option>
+                                <option value="si">Sinhala</option>
+                                <option value="sk">Slovak</option>
+                                <option value="sl">Slovenian</option>
+                                <option value="so">Somali</option>
+                                <option value="es">Spanish</option>
+                                <option value="su">Sundanese</option>
+                                <option value="sus">Susu</option>
+                                <option value="sw">Swahili</option>
+                                <option value="ss">Swati</option>
+                                <option value="sv">Swedish</option>
+                                <option value="ty">Tahitian</option>
+                                <option value="tg">Tajik</option>
+                                <option value="ber-Latn">Tamazight</option>
+                                <option value="ber">Tamazight (Tifinagh)</option>
+                                <option value="ta">Tamil</option>
+                                <option value="tt">Tatar</option>
+                                <option value="te">Telugu</option>
+                                <option value="tet">Tetum</option>
+                                <option value="th">Thai</option>
+                                <option value="bo">Tibetan</option>
+                                <option value="ti">Tigrinya</option>
+                                <option value="tiv">Tiv</option>
+                                <option value="tpi">Tok Pisin</option>
+                                <option value="to">Tongan</option>
+                                <option value="lua">Tshiluba</option>
+                                <option value="ts">Tsonga</option>
+                                <option value="tn">Tswana</option>
+                                <option value="tcy">Tulu</option>
+                                <option value="tum">Tumbuka</option>
+                                <option value="tr">Turkish</option>
+                                <option value="tk">Turkmen</option>
+                                <option value="tyv">Tuvan</option>
+                                <option value="ak">Twi</option>
+                                <option value="udm">Udmurt</option>
+                                <option value="uk">Ukrainian</option>
+                                <option value="ur">Urdu</option>
+                                <option value="ug">Uyghur</option>
+                                <option value="uz">Uzbek</option>
+                                <option value="ve">Venda</option>
+                                <option value="vec">Venetian</option>
+                                <option value="vi">Vietnamese</option>
+                                <option value="war">Waray</option>
+                                <option value="cy">Welsh</option>
+                                <option value="wo">Wolof</option>
+                                <option value="xh">Xhosa</option>
+                                <option value="sah">Yakut</option>
+                                <option value="yi">Yiddish</option>
+                                <option value="yo">Yoruba</option>
+                                <option value="yua">Yucatec Maya</option>
+                                <option value="zap">Zapotec</option>
+                                <option value="zu">Zulu</option>
+                            </select></div>Powered by <span style="white-space:nowrap"><a
+                                class="VIpgJd-ZVi9od-l4eHX-hSRGPd" href="https://translate.google.com"
+                                target="_blank"><img
+                                    src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png"
+                                    width="37px" height="14px" style="padding-right: 3px"
+                                    alt="Google Translate">Translate</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div>
+        <img src="https://services.google.com/fh/files/misc/gc_header_desktop.png" alt="GC-arcade-header-desktop-Edited"
+            style="width: 100%;" class="responsive" id="Header1">
+        <img src="https://services.google.com/fh/files/misc/gc_header_mobile.png" alt="GC-arcade-header-mobile-Edited"
+            style="width: 100%;" class="responsive" id="Header2">
+    </div>
+
+    <!-- Subscription Form -->
+    <div class="dark-back p-1" style="background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-8">
+                    <h5 style="font-family: 'Google Sans';">Subscription to the Skills Boost Arcade is necessary to
+                        receive important email updates and perks. However, you can unsubscribe anytime you want.</h5>
+                </div>
+                <div class="col-md-4 text-center text-md-start">
+                    <a href="https://forms.gle/FDTDuYYuRzT4KLNU7"><button class="btn mt-3 px-5">Subscribe
+                            here!</button></a>
+                </div>
+                <div class="col-md-12 mt-3">
+                    <p style="text-align: center;">I understand my personal data will be processed in accordance with <a
+                            href="https://policies.google.com/privacy">Google’s Privacy Policy</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Prize Div -->
+    <div class="dark-back pt-4 py-3" style="background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="row py-2">
+                    <div class="col-sm-12">
+                        <div class="card background-gradient2">
+                            <div class="card-body">
+                                <div style="display: flex; align-items: center; justify-content: center;">
+                                    <div class="firework-rounded">
+                                        <div class="firework-rounded-light"></div>
+                                        <div class="firework-rounded-light"></div>
+                                        <div class="firework-rounded-light"></div>
+                                        <div class="firework-rounded-light"></div>
+                                        <div class="firework-rounded-light"></div>
+                                        <div class="firework-rounded-light"></div>
+                                    </div>
+                                    <h3 class="prize-section-header text-center p-1">ARCADE PRIZE TIERS</h3>
+                                    <div class="firework-rounded">
+                                        <div class="firework-rounded-light"></div>
+                                        <div class="firework-rounded-light"></div>
+                                        <div class="firework-rounded-light"></div>
+                                        <div class="firework-rounded-light"></div>
+                                        <div class="firework-rounded-light"></div>
+                                        <div class="firework-rounded-light"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prize Image Section -->
+    <div class="dark-back pt-4 py-3" style="background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');">
+        <div class="container">
+            <div class="card scrollBox">
+                <div class="card-body">
+                    <img src="https://i.ibb.co/gbWmVrQy/Untitled-4-19.png" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalCenter" alt="" style="width: 100%; border-radius: 2px"
+                        class="specialBadge">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog custom-modal-size modal-dialog-centered" role="document">
+            <div class="modal-content custom-modal-content">
+                <img src="https://i.ibb.co/gbWmVrQy/Untitled-4-19.png" style="width: 100%; border-radius: 2px">
+            </div>
+        </div>
+    </div>
+
+    <!-- Diwali Dialogues Section -->
+    <div class="dark-back pt-4 py-3" style="background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');">
+        <div class="container ">
+            <div class="card scrollBox">
+                <div class="row g-0">
+                    <div class="col-lg-6 align-items-center">
+                        <div class="card-body">
+                            <a
+                                href="https://www.cloudskillsboost.google/games/6570?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=diwali-oct-arcade25">
+                                <img src="https://services.google.com/fh/files/misc/diwali_dialogues.png"
+                                    alt="Diwali Dialogues" class="card-img-top specialBadge"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-5">
+                        <br>
+                        <h3 class="card-title"> Diwali Dialogues </h3>
+                        <p class="pt-2">Chat your way to brighter skills!<br><span style="color:#F5BB11" ;=""> Limited
+                                spots available. Claim yours now!</span></p>
+                        <p class="pt-2"><span style="color:#F5BB11;">Access code:</span> 1q-diwali-102017</p>
+                        <p>Arcade points: 3</p>
+                        <a
+                            href="https://www.cloudskillsboost.google/games/6570?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=diwali-oct-arcade25">
+                            <button class="btn mt-1 subsBtn">START!</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="diwali1"></div>
+        <br>
+    </div>
+
+    <!-- Lights & Logics Section -->
+    <div class="dark-back pt-4 py-3" style="background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');">
+        <div class="container ">
+            <div class="card scrollBox">
+                <div class="row g-0">
+                    <div class="col-lg-6 align-items-center">
+                        <div class="card-body">
+                            <a
+                                href="https://www.cloudskillsboost.google/games/6571?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=diwali1-oct-arcade25"><img
+                                    src="https://services.google.com/fh/files/misc/light_logic.png"
+                                    alt="Lights &amp; Logic" class="card-img-top specialBadge"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-5">
+                        <br>
+                        <h3 class="card-title"> Lights &amp; Logics </h3>
+                        <p class="pt-2">Add a little more light to your Diwali celebrations with every right answer!
+                            <span style="color:#F5BB11" ;=""> Limited spots available. Claim yours now!</span></p>
+                        <p class="pt-2"><span style="color:#F5BB11;">Access code:</span> 1q-lights-52021</p>
+                        <p>Arcade points: 3</p>
+                        <a
+                            href="https://www.cloudskillsboost.google/games/6571?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=diwali1-oct-arcade25">
+                            <button class="btn mt-1 subsBtn">START!</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="basecamp"></div>
+        <br>
+    </div>
+
+    <!-- Base Camp & Gen AI Section -->
+    <div class="dark-back " style="background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');">
+        <div class="container scrollBox">
+            <center>
+                <div class="row pt-5 align-items-center style=" display:="" flex;="" align-items:="" stretch;=""
+                    min-height:="" 400px;"="">
+                    <div id="level3" class="col-md-6 mb-3">
+                        <div
+                            style="display: flex; flex-direction: row; align-items: center; justify-content: space-around; width: 66%;">
+                            <img src="https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif" alt="Left GIF"
+                                class="side-gif left" style="width: 70px; height: 70px;">
+                            <h5 class="card-title"> Arcade Base Camp </h5>
+                            <img src="https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif" alt="Right GIF"
+                                class="side-gif right" style="width: 70px; height: 70px;">
+                        </div>
+                        <br>
+                        <p class="card-text">Welcome to Base Camp! Gain essential Google Cloud skills without prior
+                            experience. </p>
+                        <div class="card style=" height:="" 100%;"="">
+                            <div class="card-body">
+                                <a
+                                    href="https://www.cloudskillsboost.google/games/6551?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=basecamp-oct-arcade25"><img
+                                        src="https://services.google.com/fh/files/misc/basecamp_oct_25.png"
+                                        class="card-img-top specialBadge" alt="Card Image 1"></a>
+                            </div>
+                        </div>
+                        <p class="pt-2"><span style="color:#F5BB11;">Access code:</span> 1q-basecamp-01202 </p>
+                        <p>Arcade points: 1</p>
+                        <a
+                            href="https://www.cloudskillsboost.google/games/6551?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=basecamp-oct-arcade25"><button
+                                class="btn mt-1 subsBtn">START!</button></a>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div
+                            style="display: flex; flex-direction: row; align-items: center; justify-content: space-around; width: 66%;">
+                            <img src="https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif" alt="Left GIF"
+                                class="side-gif left" style="width: 70px; height: 70px;">
+                            <h5 class="card-title">Generative AI</h5>
+                            <img src="https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif" alt="Right GIF"
+                                class="side-gif right" style="width: 70px; height: 70px;">
+                        </div>
+                        <br>
+                        <p class="card-text">Turn fun chats into real-world skills and grow with every conversation!</p>
+
+
+                        <div class="card style=" height:="" 100%;"="">
+                            <div class="card-body">
+                                <a
+                                    href="https://www.cloudskillsboost.google/games/6554?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level3-oct-arcade25"><img
+                                        src="https://services.google.com/fh/files/misc/l3_oct_25.png"
+                                        class="card-img-top specialBadge" alt="Card Image 1"></a>
+                            </div>
+                        </div>
+                        <p class="pt-2"><span style="color:#F5BB11;">Access code:</span> 1q-genai-10091 </p>
+                        <p>Arcade points: 1</p>
+                        <a
+                            href="https://www.cloudskillsboost.google/games/6554?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level3-oct-arcade25"><button
+                                class="btn mt-1 subsBtn">START!</button></a>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <br>
+        <br>
+        <div id="level1"></div>
+        <div id="level2"></div>
+        <br>
+    </div>
+
+    <!-- Levels Section -->
+    <div class="dark-back " style="background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');">
+        <div class="container scrollBox">
+            <center>
+                <div class="row pt-5 align-items-center">
+                    <div class="col-md-6 mb-3">
+                        <div style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-around;
+                        width: 66%;">
+                            <img src="https://i.ibb.co/G4znMB0k/output-onlinegiftools-1.gif" alt="Left GIF"
+                                class="side-gif left" style="width: 70px;height: 70px;/* margin-right: 10px; */">
+                            <h5 class="card-title">LEVEL 1</h5>
+                            <img src="https://i.ibb.co/G4znMB0k/output-onlinegiftools-1.gif" alt="Right GIF"
+                                class="side-gif right" style="width: 70px;height: 70px;">
+                        </div>
+
+                        <p class="card-text">Start a new Google Cloud Badge!</p>
+                        <div class="card">
+                            <div class="card-body">
+                                <a
+                                    href="https://www.cloudskillsboost.google/games/6560?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level1-oct-arcade25"><img
+                                        src="https://services.google.com/fh/files/misc/level1_oct_25.png"
+                                        class="card-img-top specialBadge" alt="Card Image 1"></a>
+                            </div>
+                        </div>
+                        <p class="pt-2"><span style="color:#F5BB11;">Access code:</span> 1q-scalability-14841</p>
+                        <p>Arcade points: 1</p>
+                        <a
+                            href="https://www.cloudskillsboost.google/games/6560?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level1-oct-arcade25"><button
+                                class="btn mt-1 subsBtn">START!</button></a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div style="
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-around;
+                        width: 66%;">
+                            <img src="https://i.ibb.co/G4znMB0k/output-onlinegiftools-1.gif" alt="Left GIF"
+                                class="side-gif left" style="width: 70px;height: 70px;/* margin-right: 10px; */">
+                            <h5 class="card-title">LEVEL 2</h5>
+                            <img src="https://i.ibb.co/G4znMB0k/output-onlinegiftools-1.gif" alt="Right GIF"
+                                class="side-gif right" style="width: 70px;height: 70px;">
+                        </div>
+
+                        <p class="card-text">Earn an advanced Google Cloud badge!</p>
+                        <div class="card">
+                            <div class="card-body">
+                                <a
+                                    href="https://www.cloudskillsboost.google/games/6550?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level2-oct-arcade25"><img
+                                        src="https://services.google.com/fh/files/misc/l2_oct_25.png"
+                                        class="card-img-top specialBadge" alt="Card Image 1"></a>
+                            </div>
+                        </div>
+                        <p class="pt-2"><span style="color:#F5BB11;">Access code:</span> 1q-cloudops-103102</p>
+                        <p>Arcade points: 1</p>
+                        <a
+                            href="https://www.cloudskillsboost.google/games/6550?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level2-oct-arcade25"><button
+                                class="btn mt-1 subsBtn">START!</button></a>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+
+    <!-- Trivia Section -->
+    <div class="dark-back " style="background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');">
+        <div class="container scrollBox">
+            <center>
+                <div class="diwali-banner" style=" display: flex;justify-content: center; align-items: center;">
+                    <img src="https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif" class="diwali-gif left"
+                        alt="Diwali GIF Left" style="width: 100px;height: 100px;">
+                    <div class="text-center">
+                        <h3 class="card-title pt-5">Trivia October 2025</h3>
+                        <p class="pt-3">Take your cloud knowledge for a spin and earn exclusive Trivia October Badges!
+                        </p>
+                    </div>
+                    <img src="https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif" class="diwali-gif right"
+                        alt="Diwali GIF Right" style="width: 100px; height: 100px;">
+                </div>
+                <div class="row pt-5 align-items-stretch">
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-2 d-flex flex-column">
+                        <h5 class="card-title pb-2">Week 1</h5>
+                        <div class="card flex-grow-1">
+                            <div class="card-body">
+                                <a
+                                    href="https://www.cloudskillsboost.google/games/6556?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia"><img
+                                        src="https://services.google.com/fh/files/misc/t1_oct_25.png"
+                                        class="card-img-top specialBadge" alt="Card Image 1"></a>
+                            </div>
+                        </div>
+                        <br>
+                        <p class="mt-2"><span style="color:#F5BB11;">Access code:</span> 1q-trivia-22930</p>
+                        <p>Arcade points: 1</p>
+                        <a
+                            href="https://www.cloudskillsboost.google/games/6556?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia"><button
+                                class="btn mt-1 subsBtn"> START!</button></a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-2 d-flex flex-column">
+                        <h5 class="card-title pb-2">Week 2</h5>
+                        <div class="card flex-grow-1">
+                            <div class="card-body">
+                                <a
+                                    href="https://www.cloudskillsboost.google/games/6557?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia"><img
+                                        src="https://services.google.com/fh/files/misc/t2_oct_25.png"
+                                        class="card-img-top specialBadge" alt="Card Image 1"></a>
+                            </div>
+                        </div>
+                        <br>
+                        <p><span style="color:#F5BB11;">Access code:</span> 1q-trivia-10310</p>
+                        <p>Arcade points: 1</p>
+                        <a
+                            href="https://www.cloudskillsboost.google/games/6557?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia">
+                            <button class="btn mt-1 subsBtn"> START!</button></a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-2 d-flex flex-column">
+                        <h5 class="card-title pb-2">Week 3</h5>
+                        <div class="card flex-grow-1">
+                            <div class="card-body">
+                                <a
+                                    href="https://www.cloudskillsboost.google/games/6558?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia"><img
+                                        src="https://services.google.com/fh/files/misc/t3_oct_25.png"
+                                        class="card-img-top specialBadge" alt="Card Image 1"></a>
+                            </div>
+                        </div>
+                        <br>
+                        <p><span style="color:#F5BB11;">Access code:</span> 1q-trivia-29579</p>
+                        <p>Arcade points: 1</p>
+                        <a
+                            href="https://www.cloudskillsboost.google/games/6558?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia">
+                            <button class="btn mt-1 subsBtn"> START!</button></a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-2 d-flex flex-column">
+                        <h5 class="card-title pb-2">Week 4</h5>
+                        <div class="card flex-grow-1">
+                            <div class="card-body">
+                                <a
+                                    href="https://www.cloudskillsboost.google/games/6559?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia"><img
+                                        src="https://services.google.com/fh/files/misc/t4_oct_25.png"
+                                        class="card-img-top specialBadge" alt="Card Image 1"></a>
+                            </div>
+                        </div>
+                        <br>
+                        <p><span style="color:#F5BB11;">Access code:</span> 1q-trivia-32105</p>
+                        <p>Arcade points: 1</p>
+                        <a
+                            href="https://www.cloudskillsboost.google/games/6559?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia">
+                            <button class="btn mt-1 subsBtn">START!</button></a>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div id="collab"></div>
+        <div id="how it works"></div>
+        <br><br>
+    </div>
+
+    <!-- How it works Section -->
+    <div class="dark-back" style="background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');">
+        <div class="container scrollBox">
+            <div class="row pt-2 pb-2 instRow bg-transparent background-gradient"
+                style="display:flex;border-radius: 4px;">
+                <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-2 " style="display:flex">
+                    <div class="instCard1Container card" style="display:flex">
+                        <div class="card-body d-flex align-items-start" style="flex-direction: column">
+                            <h5 class="card-title">HOW IT WORKS</h5>
+                            <div class=" py-2">
+                                <div>
+                                    <img src="https://i.ibb.co/MhsMvRw/borderline-removebg-preview.png" alt="">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td class="list-marker" colspan="2">01</td>
+                                                <td class="list-item">Subscribe to active Arcade emails for your account
+                                                    including prizes and codes</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="list-marker" colspan="2">02</td>
+                                                <td class="list-item">Join Google Cloud Skills Boost. You don't need a
+                                                    new account if you’re already registered.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="list-marker" colspan="2">03</td>
+                                                <td class="list-item">Play games to learn skills, earn badges and get
+                                                    arcade points. We suggest starting at level 1 if you're new to
+                                                    cloud!</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="list-marker" colspan="2">04</td>
+                                                <td class="list-item">Enroll in Skill Badges to help you complete game
+                                                    tasks and get more Arcade points.</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="list-marker" colspan="2">05</td>
+                                                <td class="list-item first-card">REDEEM points at the prize counter.
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-6 col-md-6 col-sm-12 col-12 mb-2" style="display:flex">
+                    <div class="instCard2Container card" style="display:flex; ">
+                        <div class="card-body text-left d-flex align-items-start" style="flex-direction: column">
+                            <h5 class="card-title">POINTS SYSTEM</h5>
+                            <div class=" py-2">
+                                <div>
+                                    <img src="https://i.ibb.co/MhsMvRw/borderline-removebg-preview.png" alt="">
+                                </div>
+                            </div>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="point-marker">LEVEL 1</td>
+                                        <td class="img-list-item"><img
+                                                src="https://i.ibb.co/dpRNn04/Coin-Image-removebg-preview.png" alt=""
+                                                style="width: 60px;"></td>
+                                        <td style="padding-left: 10px;"> x1 game badge = 1 point</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="point-marker">LEVEL 2</td>
+                                        <td class="img-list-item"><img
+                                                src="https://i.ibb.co/dpRNn04/Coin-Image-removebg-preview.png" alt=""
+                                                style="width: 60px;"></td>
+                                        <td style="padding-left: 10px;"> x1 game badge = 1 point</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="point-marker">LEVEL 3</td>
+                                        <td class="img-list-item"><img
+                                                src="https://i.ibb.co/dpRNn04/Coin-Image-removebg-preview.png" alt=""
+                                                style="width: 60px;"></td>
+                                        <td style="padding-left: 10px;"> x1 game badge = 1 point</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="point-marker">TRIVIA</td>
+                                        <td class="img-list-item"><img
+                                                src="https://i.ibb.co/hMHPYzV/triviaicon-removebg-preview.png" alt=""
+                                                style="width: 60px;"></td>
+                                        <td style="padding-left: 10px;"> x1 game badge = 1 point</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="point-marker">SKILL BADGE</td>
+                                        <td class="img-list-item"><img
+                                                src="https://i.ibb.co/Sc3wx7S/GC-arcade-skill-badge.png" alt=""
+                                                style="width: 60px;"></td>
+                                        <td style="padding-left: 10px;"> x2 badges = 1 point</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="py-4">
+                                <div class="instCard2S2ParentContainer ">
+                                    <div><img src="https://i.ibb.co/MhsMvRw/borderline-removebg-preview.png" alt="">
+                                    </div>
+                                    <p class="point-marker card-title" style="margin-bottom: 13px;">EXAMPLE</p>
+                                </div>
+                                <div class="instCard2S2Container">
+                                    <div class="instCard2S2Pts row">
+                                        <div class="col-lg-8 col-md-6 col-sm-12 col-12">
+                                            <img src="https://i.ibb.co/Sc3wx7S/GC-arcade-skill-badge.png" alt=""
+                                                style="width:70px;height: min-content;padding-right: 3px;">
+                                            <img src="https://i.ibb.co/Sc3wx7S/GC-arcade-skill-badge.png" alt=""
+                                                style="width:70px;height: min-content;padding-right: 3px;">
+                                            <img src="https://i.ibb.co/hMHPYzV/triviaicon-removebg-preview.png" alt=""
+                                                style="width:70px;height: min-content;padding-right: 3px;">
+                                            <img src="https://i.ibb.co/dpRNn04/Coin-Image-removebg-preview.png" alt=""
+                                                style="width:70px;height: min-content">
+                                        </div>
+                                        <div style="font-size: 19px;padding-top: 10px;text-align: left; padding-right: 0px"
+                                            class="points- list-marker exPts col-lg-4 col-md-6 col-sm-12 col-12"> = 3
+                                            points</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Community Section -->
+    <div class="dark-back pt-5"
+        style="background-image: url('https://i.ibb.co/YXM4j7h/Finaltry-this.png');background-position:left;background-size: cover;">
+        <div class="container scrollBox">
+            <div class="card bg-transparent communityBg">
+                <div class="row g-0">
+                    <div class="col-lg-4 align-items-center">
+                        <div class="card-body communityLhsImgContainer">
+                            <img src="https://i.ibb.co/Y2THjnr/community-Image-page.png" alt="Community Image"
+                                class="card-img-top communityLhsImg">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 p-2 communityText">
+                        <br>
+                        <h3 class="card-title communityRhsText CloudCommunity">Stay on top of everything happening in
+                            The Arcade.</h3>
+                        <p class="CloudCommunity">Be a part of the Skills Boost Arcade Community on the Google Developer
+                            Program forums.</p>
+                        <div class="pt-2">
+                            <ul class="communityUl">
+                                <li style="font-size: 16px;"><a
+                                        href="https://discuss.google.dev/t/the-google-cloud-communities-have-a-new-home/247603/1">The
+                                        Google Cloud Communities have a new home!</a></li>
+                            </ul>
+                        </div>
+                        <div class="btnCommunityContainer">
+                            <a href="https://discuss.google.dev/tag/learning"><button
+                                    class="btn btn-primary btn-block subsBtn ">Join here</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="faq"></div>
+        </div>
+        <br><br><br>
+    </div>
+
+    <!-- Game Over Section -->
+    <div class="container-fluid dark-back align-items-center p-3 pt-5" style="background-color: #19283C;">
+        <center>
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 5px;">
+                <div class="firework-rounded" style="align-self: center;">
+                    <div class="firework-rounded-light"></div>
+                    <div class="firework-rounded-light"></div>
+                    <div class="firework-rounded-light"></div>
+                    <div class="firework-rounded-light"></div>
+                    <div class="firework-rounded-light"></div>
+                    <div class="firework-rounded-light"></div>
+                </div>
+                <div style="display: flex; flex-direction: column; text-align: center; margin: 0 20px;">
+                    <span id="card-title"
+                        style="margin: 0; font-size: 20px !important; color: #FFD548 !important; line-height: 1.2;">Google
+                        Cloud Skills Boost Arcade</span>
+                    <span id="card-title"
+                        style="margin-top: 5px; font-size: 28px!important; color: #FFD548 !important; line-height: 1;">Game
+                        over!</span>
+                </div>
+                <div class="firework-rounded" style="align-self: center;">
+                    <div class="firework-rounded-light"></div>
+                    <div class="firework-rounded-light"></div>
+                    <div class="firework-rounded-light"></div>
+                    <div class="firework-rounded-light"></div>
+                    <div class="firework-rounded-light"></div>
+                    <div class="firework-rounded-light"></div>
+                </div>
+            </div>
+        </center>
+    </div>
+    <!-- Row 1 -->
+    <div class="dark-back p-6 text-center" style="background-color: #19283C;">
+        <div class="container goContainer text-center p-4 scrollBox">
+
+            <div class=" row go-row">
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/fzfdgrd6/Arcade-Game-Coin-speciaity-Jul.png" alt="Image 1"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Arcade ExtraSkillesTrail July</p>
+
+                    <p>Arcade points: 2</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/BKKrNQ1q/Arcade-Game-Work-Meets-Play-Jul.png" alt="Image 2"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5"> Arcade Banking With Empathy</p>
+
+                    <!-- <p>Arcade points: 1</p>-->
+                    <br>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/PvrDJDZ4/Arcade-Game-Coin-Base-Camp-Jul.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Arcade Base Camp July</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/Z66jmLvk/Arcade-Game-Coin-cert-Jul.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Arcade Certification Zone</p>
+                    <p>Arcade points: 1</p>
+                </div>
+
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/m5s090Ns/Arcade-Game-Coin-L1-07-25.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Level 1: July 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/1fYrnt0V/Arcade-Game-Coin-L2-07-25.png" alt="Image 1"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Level 2: July 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/BKqYjc9t/Arcade-Game-Coin-L3-07-25.png" alt="Image 2"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5"> Level 3: July 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/wNpvPhGX/Arcade-Trivia-Coin-07-25-week-1.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 1: July 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/5gwcR9DY/Arcade-Trivia-Coin-07-25-week-2.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 2: July 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/8g3xKt4T/Arcade-Trivia-Coin-07-25-week-3.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 3: July 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://i.ibb.co/jZqD4TXC/Arcade-Trivia-Coin-07-25-week-4.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 4: July 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+
+                <!--August game over-->
+
+
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_fr_sb.png" alt="Image 1"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Arcade FutureReady Skills August</p>
+
+                    <p>Arcade points: 2</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_ff.png" alt="Image 2"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5"> Arcade Faster Finance</p>
+
+                    <!-- <p>Arcade points: 1</p>-->
+                    <br>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_aug_bc.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Arcade Base Camp August</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_cz.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Arcade Certification Zone</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_aug_l1.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Level 1: August 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_l2_aug.png" alt="Image 1"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Level 2: August 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_l3_aug.png" alt="Image 2"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5"> Level 3: August 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/aug_trivia_1.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 1: August 2025</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_t2_aug.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 2: August 2025</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_t3_aug.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 3: August 2025</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_aug_t4.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 4: August 2025</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+
+
+
+                <!--Sep game over-->
+
+
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_sep_special.png" alt="Image 1"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Arcade Skills Scribble September</p>
+
+                    <p>Arcade points: 2</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_sep_wmp.png" alt="Image 2"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5"> Arcade Scaling Success</p>
+
+                    <!-- <p>Arcade points: 1</p>-->
+                    <br>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_sep_bc.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Arcade Base Camp September</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_sep_cert.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Arcade Certification Zone</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_sep_l1.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Level 1: September 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_sep_l2.png" alt="Image 1"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Level 2: September 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_se_l3.png" alt="Image 2"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5"> Level 3: September 2025</p>
+                    <br>
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_sep_t1.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 1: September 2025</p>
+
+                    <p class="pt-4">Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_sep_t2.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 2: September 2025</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_sep_t3.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 3: September 2025</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <img src="https://services.google.com/fh/files/misc/arcade_sep_t4.png" alt="Image 3"
+                        id="game-over-image" style="width:80%">
+                    <p class="pt-5">Week 4: September 2025</p>
+
+                    <p>Arcade points: 1</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div style="background-color: #19283C;">
+        <section>
+            <h2 id="card-title" class="faq-header">Frequently Asked Questions</h2>
+            <input type="text" id="search" placeholder="search" name="search" class="input-faq">
+            <div class="faqSection">
+                <div id="faq"></div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">How many points will I get when I complete a skill badge?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">After you complete 2 skill badges you are eligible to earn 1 Arcade
+                            point. For every
+                            6 skills badges you will get 3 Arcade points and so on...</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">I have earned only 1 skill badges. How many points will I get?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Unfortunately, earning 1 skill badges will not be enough to claim an
+                            Arcade point.
+                            You will need to complete at least 2 Skill Badges to earn one point.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">Where do I get credits to complete the skill badges?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Users who have subscribed to Arcade receive Arcade Insider mails once
+                            every month
+                            which contain unique codes that can be redeemed to get no cost GCSB credits which can be
+                            used to complete Skill badge courses.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">Will I receive any swags or physical certificates for the games?
+                        </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Users will get a special badge for each game they complete in this
+                            event and for each badge earned user will also receive 1 Arcade point which in turn will
+                            be used to redeem goodies when the prize counter opens. Please note there won’t be any
+                            physical
+                            certificates or goodies just for completing the game.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">Are there prizes? What are the prizes?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Yes! The more badges you earn, the more arcade points you accumulate.
+                            Redeem points for prizes at the prize counter. The prize counter will be open at
+                            specific times throughout the year.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">Do I get a prize as soon as I earn a badge?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">No. You will not be able to claim a prize immediately. You'll be able
+                            to claim prizes when the prize counter opens.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">When does the prize counter open?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Great question. The prize counter dates would be announced soon. Stay
+                            tuned for exact dates.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">What do I have to do to get a prize?
+                        </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Activate the Arcade for your account. Then join games, complete labs,
+                            learn skills, and earn badges! Each challenge consists of multiple labs. Complete all
+                            the labs successfully to earn the badge. Each badge gets you one point. Periodically,
+                            the prize counter will open and you'll be able to use points to claim swag.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">How will I know when the prize counter opens?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">There are many ways to stay up to date. Add us to your calendar. Keep
+                            an eye on your email. And, follow @Qwiklabs on your choice of social network.
+                        </p>
+                    </div>
+                </div>
+                <!-- <div class="faq">
+                      <div class="question">
+                         <h3 class="question-text">What if I miss the prize counter opening?</h3>
+                      </div>
+                      <div class="answer">
+                         <p class="answer-text">Unused points expire every 6 months. No exceptions. Please help us
+                            keep you informed via the options listed above.
+                         </p>
+                      </div>
+                      </div> -->
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">How do arcade points work?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text"> One point per eligible game/trivia badge. All eligible game/trivia
+                            badges are listed
+                            on this
+                            page. If it's not listed here, it's not eligible. Points expire after 6 months. You'll
+                            have at least one opportunity to redeem points, so please use it, don't lose it!
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">How do I know how many arcade points I have?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text"> Compare the list of eligible arcade games to <a style="color:#1e8e3e"
+                                href="https://support.google.com/qwiklabs/answer/9222527">your
+                                Google Cloud Skills Boost profile </a> to calculate points.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">How can I get more arcade points?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text"> Play more games! The more you learn, the more you earn.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">What are the upcoming arcade games?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text"> Keep an eye on this page for current and upcoming games.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">I don't want a prize. Can I still play?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Yes! When the prize counter opens, participation is totally optional.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">What is the cost? Do I need quarters?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">There is no cost to participate in Arcade games. No quarters needed!
+                            (Or any other currency!)
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">Can I participate if I'm already in another Google program? (Ex:
+                            Innovators, education programs, Learn to Earn, OnAir, Study Jams, DevFest)
+                        </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Yes! Please keep in mind that different programs have varying
+                            requirements so check with other programs as well.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">Can I participate if I'm located in [your country of residence,
+                            whatever that may be]?
+                        </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Yes, you may participate within the Google Cloud Skills Boost Terms
+                            of Service!
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">What about sending prizes to [your country of residence, whatever
+                            that may be]?
+                        </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">We make every effort to reach you wherever you are, whenever
+                            possible. Items cannot be shipped to countries on the list of<a style="color:#1e8e3e"
+                                href="https://home.treasury.gov/policy-issues/financial-sanctions/sanctions-programs-and-country-information">
+                                US Treasury Department’s Sanctions Programs </a> and the following countries:
+                            Pakistan, Bangladesh, Iraq, Iran, North Korea, Crimea, Cuba, Sevastopol city and Syria.
+                            Each challenge includes details about prizes and shipping availability, as this list may
+                            change at any time (locations may be added or removed based on unforeseen events). If
+                            you’re in one of these countries, you are welcome to participate within the Terms of
+                            Service. You may decline a prize, select an address in a country where shipping is
+                            available.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">What if a lab isn't working?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text"> Great question. The community is a great place to get questions
+                            answered. Or, you can request assistance from our support team directly within the
+                            Skills Boost platform.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">What if there are no more seats in a game?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">That happens sometimes! Seats are available on a first come, first
+                            serve basis. Sometimes additional seats open up, so keep an eye out for more
+                            opportunities to join if you miss the first round.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div id="faq"></div>
+
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">How does Skills Boost Arcade ensure a safe and supportive community?
+                        </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">The platform promotes a culture of respect, integrity, and fairness.
+                            Policies are in place to deter misconduct and maintain a positive learning environment for
+                            all participants.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">How can I ensure my participation is meaningful and aligned with the
+                            program’s goals?
+                        </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Focus on learning, avoid shortcuts, and fully engage with the labs and
+                            games to develop genuine skills. Upholding the values of fairness and integrity is key to
+                            making the most of your experience in Skills Boost Arcade.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">What should I do if I suspect someone is using unfair practices? </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">If you suspect someone is violating the rules, raise your concern with
+                            the Skills Boost Arcade Team via Google Cloud Communities or report it to the support team.
+                            All reports are handled confidentially, and appropriate actions will be taken after
+                            investigation.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">Are there any learning resources available to help me complete labs?
+                        </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">The lab instructions provided are sufficient to help you complete the
+                            labs. If you still face challenges, you can reach out to the support team for assistance.
+
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">Can I appeal a disqualification decision?
+                        </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Yes, if you believe you were disqualified unfairly, contact the Arcade
+                            Team via Google Cloud Communities or the support team with relevant details. They will
+                            review your case and provide a resolution based on the evidence.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">How does Skills Boost Arcade handle violations of its policies?
+                        </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Violations, such as using scripts or engaging in unfair practices, result
+                            in immediate disqualification and exclusion from Skills Boost Arcade and related programs.
+                            This strict approach ensures a fair and equitable environment for all participants.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">I've never used Skills Boost before. Help!</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Welcome, I'm so glad you're here. <a style="color:#1e8e3e"
+                                href="https://www.cloudskillsboost.google/catalog_lab/1281?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=a23">This
+                                tour of Google Cloud and the Skills Boost platform</a> will help you get oriented.
+                            It's available at no cost.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">Are Arcade Facilitator Milestones different from the Skills Boost
+                            Arcade Player achievements? </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">Yes! They are completely different. The milestones in the Arcade
+                            Facilitator program are different from the Arcade Player achievements.</p>
+                        <p class="answer-text">Note that, under the facilitator program, you mainly earn <strong>"Bonus"
+                                points </strong> when you complete a milestone and you earn <stong>"Arcade" points
+                                according to the Skills Boost Arcade points system.
+                                Thus you can <strong>accumulate the Bonus points earned in the facilitator program and
+                                    add that to your actual Arcade points to reach any of the mentioned player
+                                    achievements </strong> and receive swags for that particular swag tier at the end of
+                                an Arcade season.
+                            </stong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text"> Will there be more swag items in the Arcade? </h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">YES absolutely! Please note that until you specifically hear from us in
+                            any of our community posts that this wraps up for swag drops, those will keep happening on
+                            GCC. </p>
+
+                    </div>
+                </div>
+
+
+
+                <div class="faq">
+                    <div class="question">
+                        <h3 class="question-text">Can I share or gift my Arcade points with someone else?</h3>
+                    </div>
+                    <div class="answer">
+                        <p class="answer-text">No. Because points are based on your learning record, they stick with
+                            you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="imageEmpty">
+                <img src="https://i.ibb.co/RBcL936/Emptyimage.png" alt="Emptyimage">
+            </div>
+        </section>
+        <br>
+    </div>
+
+    <!-- Scroll Lanterns -->
+    <div id="scrollImage" class="show">
+        <img src="https://i.ibb.co/BrRCNsf/Untitled-5-1.png" alt="Floating Lantern" border="0">
+    </div>
+    <div id="scrollImageRight" class="show">
+        <img src="https://i.ibb.co/BrRCNsf/Untitled-5-1.png" alt="Floating Lantern" border="0">
+    </div>
+
+    <!-- SCRIPT SECTION -->
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+        // Google Translate Initialization
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+
+        // Scroll-activated Lanterns
+        window.addEventListener('scroll', function () {
+            var image = document.getElementById('scrollImage');
+            var imageRight = document.getElementById('scrollImageRight');
+            if (window.scrollY > (window.innerHeight * 0.1)) {
+                image.classList.add('show');
+                imageRight.classList.add('show');
+            } else {
+                image.classList.remove('show');
+                imageRight.classList.remove('show');
+            }
+        });
+
+        // DOMContentLoaded block for FAQ, Footer Hiding, and Smooth Scroll
+        document.addEventListener("DOMContentLoaded", function () {
+            const faqs = document.querySelectorAll('.faq');
+            const searchInput = document.getElementById('search');
+
+            faqs.forEach(faq => {
+                faq.addEventListener("click", () => {
+                    faq.classList.toggle("active");
+                    const answer = faq.querySelector('.answer');
+                    answer.style.maxHeight = faq.classList.contains('active') ? answer.scrollHeight + "px" : null;
+                });
+            });
+
+            searchInput.addEventListener("keyup", function (event) {
+                let searchString = event.target.value.toLowerCase();
+                faqs.forEach(item => {
+                    const questionText = item.querySelector('.question-text').textContent.toLowerCase();
+                    const answerText = item.querySelector('.answer-text').textContent.toLowerCase();
+                    item.style.display = (questionText.includes(searchString) || answerText.includes(searchString)) ? "" : "none";
+                });
+            });
+
+            function hideFooter() {
+                const footer = document.querySelector('div[jsname="sMTyfe"]');
+                if (footer) footer.style.display = "none";
+            }
+            hideFooter();
+            const footerCheckInterval = setInterval(hideFooter, 500);
+            setTimeout(() => clearInterval(footerCheckInterval), 10000);
+
+            $('a[href^="#"]:not(.dropdown-toggle)').on('click', function (event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').animate({ scrollTop: target.offset().top - 70 }, 500);
+                }
+            });
+        });
+    </script>
+
+    <!-- FIREWORKS ANIMATION JAVASCRIPT -->
+    <script>
+        $(function () {
+            var Fireworks = function () {
+                var self = this;
+                var rand = (rMi, rMa) => ~~((Math.random() * (rMa - rMi + 1)) + rMi);
+                var hitTest = (x1, y1, w1, h1, x2, y2, w2, h2) => !(x1 + w1 < x2 || x2 + w2 < x1 || y1 + h1 < y2 || y2 + h2 < y1);
+                window.requestAnimFrame = (() => window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (a) { window.setTimeout(a, 1E3 / 60) })();
+
+                const audio = document.getElementById('audio1');
+                const tryAudioPlay = function () {
+                    if (audio && audio.play) {
+                        audio.play().then(() => $(window).off('mousedown', tryAudioPlay)).catch(e => console.warn("Audio playback currently blocked:", e));
+                    }
+                };
+
+                self.init = function () {
+                    self.canvas = document.getElementById('fireworksCanvas');
+                    self.canvas.width = self.cw = window.innerWidth;
+                    self.canvas.height = self.ch = window.innerHeight;
+                    self.particles = [];
+                    self.partCount = 150;
+                    self.fireworks = [];
+                    self.mx = self.cw / 2;
+                    self.my = self.ch / 2;
+                    self.partSpeed = 5;
+                    self.partSpeedVariance = 10;
+                    self.partWind = 50;
+                    self.partFriction = 5;
+                    self.partGravity = 1;
+                    self.fworkSpeed = 4;
+                    self.fworkAccel = 10;
+                    self.hueVariance = 0;
+                    self.flickerDensity = 25;
+                    self.clearAlpha = 25;
+                    self.ctx = self.canvas.getContext('2d');
+                    self.ctx.lineCap = 'round';
+                    self.ctx.lineJoin = 'round';
+                    self.lineWidth = 1;
+                    self.bindEvents();
+                    self.canvasLoop();
+                    self.canvas.onselectstart = () => false;
+                };
+
+                self.createParticles = function (x, y, hue) {
+                    if (audio.currentTime > 0) audio.currentTime = 0;
+                    audio.play().catch(e => { });
+                    var countdown = self.partCount;
+                    while (countdown--) {
+                        self.particles.push({
+                            x: x, y: y,
+                            coordLast: [{ x: x, y: y }, { x: x, y: y }, { x: x, y: y }],
+                            angle: rand(0, 360),
+                            speed: rand(((self.partSpeed - self.partSpeedVariance) <= 0) ? 1 : self.partSpeed - self.partSpeedVariance, (self.partSpeed + self.partSpeedVariance)),
+                            friction: 1 - self.partFriction / 100,
+                            gravity: self.partGravity / 2,
+                            hue: rand(hue - self.hueVariance, hue + self.hueVariance),
+                            brightness: rand(50, 80),
+                            alpha: rand(40, 100) / 100,
+                            decay: rand(10, 50) / 1000,
+                            wind: (rand(0, self.partWind) - (self.partWind / 2)) / 25,
+                            lineWidth: self.lineWidth
+                        });
+                    }
+                };
+
+                self.updateParticles = function () {
+                    for (var i = self.particles.length - 1; i >= 0; i--) {
+                        var p = self.particles[i];
+                        var radians = p.angle * Math.PI / 180;
+                        var vx = Math.cos(radians) * p.speed;
+                        var vy = Math.sin(radians) * p.speed;
+                        p.speed *= p.friction;
+                        p.coordLast.pop();
+                        p.coordLast.unshift({ x: p.x, y: p.y });
+                        p.x += vx;
+                        p.y += vy + p.gravity;
+                        p.angle += p.wind;
+                        p.alpha -= p.decay;
+                        if (!hitTest(0, 0, self.cw, self.ch, p.x, p.y, 0, 0) || p.alpha < .05) {
+                            self.particles.splice(i, 1);
+                        }
+                    }
+                };
+
+                self.drawParticles = function () {
+                    for (var i = self.particles.length - 1; i >= 0; i--) {
+                        var p = self.particles[i];
+                        var coordRand = rand(0, p.coordLast.length - 1);
+                        self.ctx.beginPath();
+                        self.ctx.moveTo(p.coordLast[coordRand].x, p.coordLast[coordRand].y);
+                        self.ctx.lineTo(p.x, p.y);
+                        self.ctx.strokeStyle = `hsla(${p.hue}, 100%, ${p.brightness}%, ${p.alpha})`;
+                        self.ctx.stroke();
+                        if (self.flickerDensity > 0 && rand(0, 50 - self.flickerDensity) === 0) {
+                            self.ctx.beginPath();
+                            self.ctx.arc(p.x, p.y, rand(p.lineWidth, p.lineWidth + 3) / 2, 0, Math.PI * 2);
+                            self.ctx.fillStyle = `hsla(${p.hue}, 100%, ${p.brightness}%, ${rand(50, 100) / 100})`;
+                            self.ctx.fill();
+                        }
+                    }
+                };
+
+                self.createFireworks = function (startX, startY, targetX, targetY) {
+                    var googleHues = [217, 5, 45, 136];
+                    self.fireworks.push({
+                        x: startX, y: startY, startX: startX, startY: startY,
+                        hitX: false, hitY: false,
+                        coordLast: [{ x: startX, y: startY }, { x: startX, y: startY }, { x: startX, y: startY }],
+                        targetX: targetX, targetY: targetY,
+                        speed: self.fworkSpeed,
+                        angle: Math.atan2(targetY - startY, targetX - startX),
+                        acceleration: self.fworkAccel / 100,
+                        hue: googleHues[rand(0, googleHues.length - 1)],
+                        brightness: rand(50, 80),
+                        alpha: rand(50, 100) / 100,
+                        lineWidth: self.lineWidth
+                    });
+                };
+
+                self.updateFireworks = function () {
+                    for (var i = self.fireworks.length - 1; i >= 0; i--) {
+                        var f = self.fireworks[i];
+                        f.speed *= 1 + f.acceleration;
+                        var vx = Math.cos(f.angle) * f.speed, vy = Math.sin(f.angle) * f.speed;
+                        f.coordLast.pop();
+                        f.coordLast.unshift({ x: f.x, y: f.y });
+                        if (f.startX >= f.targetX) { if (f.x + vx <= f.targetX) { f.x = f.targetX; f.hitX = true; } else { f.x += vx; } }
+                        else { if (f.x + vx >= f.targetX) { f.x = f.targetX; f.hitX = true; } else { f.x += vx; } }
+                        if (f.startY >= f.targetY) { if (f.y + vy <= f.targetY) { f.y = f.targetY; f.hitY = true; } else { f.y += vy; } }
+                        else { if (f.y + vy >= f.targetY) { f.y = f.targetY; f.hitY = true; } else { f.y += vy; } }
+
+                        if (f.hitX && f.hitY) {
+                            self.createParticles(f.targetX, f.targetY, f.hue);
+                            self.fireworks.splice(i, 1);
+                        }
+                    }
+                };
+
+                self.drawFireworks = function () {
+                    self.ctx.globalCompositeOperation = 'lighter';
+                    for (var i = self.fireworks.length - 1; i >= 0; i--) {
+                        var f = self.fireworks[i];
+                        self.ctx.lineWidth = f.lineWidth;
+                        var coordRand = rand(0, f.coordLast.length - 1);
+                        self.ctx.beginPath();
+                        self.ctx.moveTo(f.coordLast[coordRand].x, f.coordLast[coordRand].y);
+                        self.ctx.lineTo(f.x, f.y);
+                        self.ctx.strokeStyle = `hsla(${f.hue}, 100%, ${f.brightness}%, ${f.alpha})`;
+                        self.ctx.stroke();
+                    }
+                };
+
+                self.bindEvents = function () {
+                    const targetElement = $(window);
+                    targetElement.on('mousedown', tryAudioPlay);
+                    $(window).on('resize', () => {
+                        clearTimeout(self.timeout);
+                        self.timeout = setTimeout(() => {
+                            self.canvas.width = self.cw = window.innerWidth;
+                            self.canvas.height = self.ch = window.innerHeight;
+                            self.ctx.lineCap = 'round';
+                            self.ctx.lineJoin = 'round';
+                        }, 100);
+                    });
+                    targetElement.on('mousedown', e => {
+                        if ($(e.target).closest('a, button, input, .dropdown-menu').length) return;
+                        self.mx = e.clientX;
+                        self.my = e.clientY;
+                        self.createFireworks(self.cw / 2, self.ch, self.mx, self.my);
+                        targetElement.on('mousemove.fireworks', e => {
+                            if ($(e.target).closest('a, button, input').length) return;
+                            self.mx = e.clientX;
+                            self.my = e.clientY;
+                            self.createFireworks(self.cw / 2, self.ch, self.mx, self.my);
+                        });
+                    }).on('mouseup', () => targetElement.off('mousemove.fireworks'));
+                };
+
+                self.canvasLoop = function () {
+                    requestAnimFrame(self.canvasLoop, self.canvas);
+                    self.ctx.globalCompositeOperation = 'destination-out';
+                    self.ctx.fillStyle = `rgba(0,0,0,${self.clearAlpha / 100})`;
+                    self.ctx.fillRect(0, 0, self.cw, self.ch);
+                    self.updateFireworks();
+                    self.updateParticles();
+                    self.drawFireworks();
+                    self.drawParticles();
+                };
+                self.init();
+            }
+            new Fireworks();
+        });
+    </script>
+    <div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate"
+        style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;"
+        data-id="">
+        <div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd">
+            <div class="VIpgJd-yAWNEb-hvhgNd-Ud7fr"><img
+                    src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24"
+                    alt="">
+                <div class=" VIpgJd-yAWNEb-hvhgNd-IuizWc-i3jM8c " dir="ltr">Original text</div>
+            </div>
+            <div class="VIpgJd-yAWNEb-hvhgNd-k77Iif">
+                <div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div>
+            </div>
+            <div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr">
+                <div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr">
+                    <div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Rate this translation</div>
+                    <div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Your feedback will be used to help improve Google Translate
+                    </div>
+                </div>
+                <div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button"
+                        class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Good translation" aria-label="Good translation"
+                        aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24"
+                                viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M">
+                                <path
+                                    d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z">
+                                </path>
+                            </svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24"
+                                viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M">
+                                <path
+                                    d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z">
+                                </path>
+                            </svg></span></button><button id="goog-gt-thumbDownButton" type="button"
+                        class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Poor translation" aria-label="Poor translation"
+                        aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24"
+                                viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M">
+                                <path
+                                    d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z">
+                                </path>
+                            </svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24"
+                                viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M">
+                                <path
+                                    d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z">
+                                </path>
+                            </svg></span></button></div>
+            </div>
+            <div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce">
+                <form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te"
+                    method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl"
+                        id="goog-gt-votingInputSrcLang"><input type="text" name="tl"
+                        id="goog-gt-votingInputTrgLang"><input type="text" name="query"
+                        id="goog-gt-votingInputSrcText"><input type="text" name="gtrans"
+                        id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote">
+                </form><iframe name="votingFrame" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf">
+        <div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe"
+                width="96px" height="96px" viewBox="0 0 66 66">
+                <circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33"
+                    cy="33" r="30"></circle>
+            </svg></div>
+    </div>
+</body>
+
+</html>

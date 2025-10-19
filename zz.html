@@ -1,0 +1,2641 @@
+<div jsname="jkaScf" jscontroller="szRU7e" class="w536ob" data-enable-interaction="true" data-url="https://1190913178-atari-embeds.googleusercontent.com/embeds/16cb204cf3a9d4d223a0a3fd8b0eec5d/inner-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.G0GbPrbxPQI.O%2Fd%3D1%2Frs%3DAHpOoo9HygV5JFIQoP_uqLz_KOOic28zTQ%2Fm%3D__features__" data-code="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;title&gt;Arcade | Google Cloud Skills Boost&lt;/title&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Boost your Google Cloud skills with Skills Boost Arcade! Play games, tackle trivia, and earn exclusive Google Cloud credentials to accelerate your certification journey.&quot;&gt;
+
+    &lt;!-- CSS Dependencies --&gt;
+    &lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css?family=Google+Sans&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css?family=Press+Start+2P&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&quot;&gt;
+    &lt;link href=&quot;https://cdn-images.mailchimp.com/embedcode/classic-071822.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+    
+    &lt;!-- JS Dependencies: jQuery first, then Bootstrap Bundle (which includes Popper.js) --&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.5.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;style&gt;
+        /* --- START OF CUSTOM FIREWORKS CSS (Modified for Full Page) --- */
+        #fireworksCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 999;
+            /* CRUCIAL: Allows all mouse clicks/touches to pass through to the elements underneath it. */
+            pointer-events: none;
+        }
+
+        audio {
+            display: none;
+        }
+
+        canvas {
+            display: block;
+        }
+        /* --- END OF CUSTOM FIREWORKS CSS --- */
+
+
+        /* --- START OF ORIGINAL SKILLS BOOST CSS --- */
+        hr {
+            border: 1px solid #FFD548;
+            opacity: 100%;
+            border-radius: 2px;
+        }
+
+        #Header1 {
+            display: block;
+        }
+
+        footer.zlaBJ {
+            display: none !important;
+        }
+
+        #Header2 {
+            display: none;
+        }
+
+        @media all and (max-width: 766px) {
+            #Header1 {
+                display: none;
+            }
+
+            #Header2 {
+                display: block;
+            }
+        }
+
+        @media all and (max-width:766px) {
+            .faq-header {
+                font-size: medium;
+            }
+        }
+
+        #mainpage-title {
+            font-family: &quot;Press Start 2P&quot;;
+            color: #FFD548;
+        }
+
+        #card-title {
+            font-family: &quot;Press Start 2P&quot;;
+            color: #FFD548;
+        }
+
+        .card-title {
+            font-family: &quot;Press Start 2P&quot;;
+            color: #FFD548;
+        }
+
+        .card {
+            background-color: #292D33;
+            color: white;
+        }
+
+        img {
+            width: 50%;
+        }
+
+        .dark-back {
+            background-color: #174689;
+        }
+
+        .playlist-bg {
+            background-color: #174689;
+        }
+
+        .black-bg {
+            background-color: #1B1C24;
+        }
+
+        /*Style for the FAQ widget*/
+        section {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Google Sans';
+            background-color: #1B1C24;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px 5px #0c2447;
+            color: #444;
+            cursor: pointer;
+            padding: 60px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 10px;
+            transition: 0.4s;
+            border-bottom: #444;
+        }
+
+        .section {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .active,
+        .faq:hover {
+            background-color: #1B1C24;
+        }
+
+        .section:after {
+            content: '\002B';
+            color: #1B1C24;
+            float: right;
+            margin-left: 5px;
+        }
+
+        title {
+            font-size: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+            color: white;
+        }
+
+        .faq {
+            border-bottom: 2px solid #de5246;
+            cursor: pointer;
+        }
+
+        .question h3 {
+            font-size: 14px;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            color: white;
+        }
+
+        .faq .question h3:after {
+            content: '\002B';
+            -webkit-transition: .3s ease;
+            -moz-transition: .3s ease;
+            -o-transition: .3s ease;
+            transition: .3s ease;
+        }
+
+        .faq.active .question h3:after {
+            content: '\2212';
+            -webkit-transition: .3s ease;
+            -moz-transition: .3s ease;
+            -o-transition: .3s ease;
+            transition: .3s ease;
+        }
+
+        .answer {
+            max-height: 0;
+            overflow: hidden;
+            background-color: #ffffff;
+            transition: max-height 0.25s ease;
+        }
+
+        .answer p {
+            margin: 10px 0;
+            font-size: 14px;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .faq.active .answer {
+            max-height: 1000px;
+            transition: max-height 0.25s ease;
+        }
+
+        .input-faq {
+            font-family: 'Google Sans';
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+            color: #de5246;
+            padding: 6px 10px;
+            margin: 3px 0;
+            box-sizing: border-box;
+            height: 36px;
+            border-style: solid;
+            border-color: #de5246;
+            border-radius: 1px 1px 1px 1px;
+        }
+
+        .imageEmpty {
+            display: none;
+        }
+
+        p {
+            font-family: &quot;Google Sans&quot;;
+            color: white;
+        }
+
+        .asterisk {
+            color: red;
+        }
+
+        h5 {
+            color: white;
+            margin-top: 10px;
+        }
+
+        label {
+            color: white;
+        }
+
+        .answer-text {
+            color: #1B1C24;
+        }
+
+        #mce-success-response {
+            color: #34A853;
+            font-weight: bold;
+            font-family: 'Google Sans';
+        }
+
+        #mce-error-response {
+            color: #de5246;
+        }
+
+        .list-marker {
+            font-size: xx-large;
+            padding-right: 12px;
+            font-family: &quot;Press Start 2P&quot;;
+        }
+
+        .list-item {
+            padding: 20px;
+        }
+
+        a {
+            color: #FFD548;
+        }
+
+        .communityBg {
+            background-color: #0c2447 !important;
+        }
+
+        .communityText {
+            display: flex !important;
+            flex-direction: column !important;
+            text-align: left !important;
+            justify-content: center !important;
+
+        }
+
+        .communityRhsText {
+            padding-right: 1rem;
+
+        }
+
+        .communityLhsImgContainer {
+            height: 100%
+        }
+
+        .communityLhsImg {
+            height: 100%;
+            padding-left: 1rem;
+            padding-right: 0;
+        }
+
+        .communityUl {
+            text-align: left !important;
+        }
+
+        .btnCommunityContainer {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .background-gradient {
+            background: url('https://i.ibb.co/x33vrk1/actual-backgrd.png'), linear-gradient( #E53C26, #F79E1F);
+            backdrop-filter: blur(100%);
+            background-repeat: repeat, no-repeat;
+            background-position: center;
+            background-blend-mode: multiply;
+        }
+
+        .background-gradient1 {
+            background: url('https://i.ibb.co/FVQ0YVZ/prize-bgc.png');
+            backdrop-filter: blur(100%);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-blend-mode: normal;
+            background-size: cover;
+        }
+
+        .background-gradient2 {
+            background: url('https://i.ibb.co/6bWHjRW/header-bgc.png');
+            backdrop-filter: blur(100%);
+            background-position: center;
+            background-blend-mode: normal;
+            background-size: cover;
+        }
+
+        .background-gradient3 {
+            background: url('https://i.ibb.co/Lxdg1GZ/Dark-Background.png');
+            backdrop-filter: blur(100%);
+            background-position: center;
+            background-blend-mode: normal;
+            background-size: cover;
+        }
+
+        .prize-section-header {
+            font-family: &quot;Press Start 2P&quot;;
+            color: #FFD548;
+        }
+
+        .point-marker {
+            font-size: medium;
+            padding-right: 12px;
+            font-family: &quot;Press Start 2P&quot;;
+        }
+
+        .second-row {
+            padding-bottom: 100px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #E53C26, #F79E1F);
+            cursor: url('data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;32&quot; height=&quot;32&quot; viewBox=&quot;0 0 32 32&quot;&gt;&lt;text x=&quot;0&quot; y=&quot;20&quot; font-size=&quot;20&quot; fill=&quot;red&quot;&gt;♥&lt;/text&gt;&lt;/svg&gt;') 16 16, auto;
+
+            font-family: &quot;Press Start 2P&quot;;
+            font-size: medium;
+            color: #1B1C24;
+            border: none;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #F5BB11, #F5BB11);
+            cursor: pointer
+        }
+
+        table {
+            color: white;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        #result1, #result2 {
+            text-align: center;
+            margin-top: 20px;
+            color: antiquewhite;
+        }
+
+        .spinner-border {
+            display: none;
+        }
+
+        .bannerFix {
+            margin-top: 70px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .bannerFix {
+                margin-top: 0px;
+            }
+        }
+
+        .hBW7Hb {
+            background-color: #34A853;
+        }
+
+        .img-skill {
+            border-radius: 8px;
+        }
+
+        .img-skill1 {
+            border-radius: 4px;
+            width: 80%;
+        }
+
+        /* revolving border */
+        .borderCards {
+            position: relative;
+            box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
+            color: #999;
+            overflow: hidden;
+        }
+
+        .borderCards span:nth-child(1) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #171618, #fff53b);
+            animation: animate1 2s linear infinite;
+        }
+
+        @keyframes animate1 {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .borderCards span:nth-child(2) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, #171618, #fff53b);
+            animation: animate2 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes animate2 {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .borderCards span:nth-child(3) {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to left, #171618, #fff53b);
+            animation: animate3 2s linear infinite;
+        }
+
+        @keyframes animate3 {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .borderCards span:nth-child(4) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to top, #171618, #fff53b);
+            animation: animate4 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        .MileStone {
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        @keyframes animate4 {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+
+        .navbarUlParent {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media screen and (max-width: 800px) {
+            .CloudCommunity {
+                padding-left: 2rem;
+            }
+        }
+        
+        .milestoneCards .card {
+            height: 350px;
+        }
+
+        .scrollBox {
+            overflow: hidden;
+        }
+
+        .custom-modal-content {
+            background-color: white !important;
+        }
+
+        .modal-backdrop.show {
+            opacity: 0.8 !important;
+        }
+
+        .custom-modal-size {
+            max-width: 90% !important;
+        }
+
+        .custom-modal-size .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .go-row {
+            max-height: 50vh;
+            overflow: auto;
+            padding: 1rem;
+            border: 4px solid #FFD548;
+            border-radius: 5px;
+        }
+
+        .go-row::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+        }
+
+        .go-row::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+        .go-row::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
+
+        .go-row::-webkit-scrollbar-thumb {
+            background-color: #E53C26;
+        }
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #071C35 !important;
+        }
+
+        #google_translate_element {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+        }
+
+        .navbar-nav .nav-link {
+            padding: 1rem;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+            height: 1px;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd img {
+            height: 14px !important;
+            width: 37px !important;
+        }
+
+        .specialBadge:hover {
+            box-shadow: 1px 1px 5px 5px #F5BB11;
+            cursor: pointer;
+        }
+        
+        #scrollImage, #scrollImageRight {
+            position: fixed;
+            top: 100%;
+            width: 300px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in, top 0.5s ease-in;
+            z-index: 40000000;
+        }
+        #scrollImageRight {
+            right: -9rem;
+        }
+
+        #scrollImage.show, #scrollImageRight.show {
+            top: 6rem;
+            opacity: 1;
+        }
+
+        .firework-rounded {
+            width: 75px;
+            height: 75px;
+            position: relative;
+            align-self: center;
+        }
+
+        .firework-rounded-light {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border-color: #fbbc04 !important;
+            animation: fireworksAnimation 1.5s ease-out infinite alternate;
+            opacity: 0;
+        }
+
+        .firework-rounded-light:nth-child(1) { width: 15px; height: 15px; border: 1px dotted #f9a600; animation-delay: 0.3s; }
+        .firework-rounded-light:nth-child(2) { width: 25px; height: 25px; border: 2px dotted #ffbb33; animation-delay: 0.5s; }
+        .firework-rounded-light:nth-child(3) { width: 35px; height: 35px; border: 3px dotted #ffcc66; animation-delay: 0.7s; }
+        .firework-rounded-light:nth-child(4) { width: 45px; height: 45px; border: 4px dotted #ffdd99; animation-delay: 0.9s; transform: translate(-50%, -50%) rotate(45deg); }
+        .firework-rounded-light:nth-child(5) { width: 55px; height: 55px; border: 5px dotted #ffe5b3; animation-delay: 1.1s; transform: translate(-50%, -50%) rotate(45deg); }
+        .firework-rounded-light:nth-child(6) { width: 65px; height: 65px; border: 6px dotted #fff2cc; animation-delay: 1.3s; transform: translate(-50%, -50%) rotate(90deg); }
+
+        @keyframes fireworksAnimation {
+            0%, 100% { opacity: 0; border-color: #fbbc04; }
+            50% { opacity: 1; border-color: #fbbc04; }
+        }
+        /* --- END OF ORIGINAL SKILLS BOOST CSS --- */
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;!-- Canvas for fireworks effect --&gt;
+    &lt;canvas id=&quot;fireworksCanvas&quot;&gt;&lt;/canvas&gt;
+    &lt;audio type=&quot;audio/wav&quot; controls=&quot;none&quot; id=&quot;audio1&quot; src=&quot;data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YSAAAAAB&quot;&gt;&lt;/audio&gt;
+
+    &lt;div class=&quot;splash-container&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- NAVBAR: CORRECTED with Bootstrap 5 attributes (data-bs-*) --&gt;
+    &lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark p-3&quot;&gt;
+        &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#navbarNav&quot; aria-controls=&quot;navbarNav&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+            &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarNav&quot;&gt;
+            &lt;ul class=&quot;navbar-nav me-auto&quot;&gt;
+                &lt;li class=&quot;nav-item dropdown&quot;&gt;
+                    &lt;a class=&quot;nav-link dropdown-toggle&quot; href=&quot;#&quot; id=&quot;navbarDropdown&quot; role=&quot;button&quot; data-bs-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot; style=&quot;font-family: 'Google Sans'; color: white;&quot;&gt;
+                        Play Now
+                    &lt;/a&gt;
+                    &lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;navbarDropdown&quot; style=&quot;font-family: 'Google Sans';&quot;&gt;
+                        &lt;a class=&quot;dropdown-item&quot; href=&quot;#level1&quot;&gt;Level 1&lt;/a&gt;
+                        &lt;a class=&quot;dropdown-item&quot; href=&quot;#level2&quot;&gt;Level 2&lt;/a&gt;
+                        &lt;a class=&quot;dropdown-item&quot; href=&quot;#level3&quot;&gt;Level 3&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class=&quot;nav-item&quot;&gt;
+                    &lt;a class=&quot;nav-link&quot; href=&quot;#faq&quot; style=&quot;color: white; font-family: 'Google Sans';&quot;&gt;FAQs&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;div class=&quot;ms-auto&quot;&gt;
+                &lt;div id=&quot;google_translate_element&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+
+    &lt;div&gt;
+        &lt;img src=&quot;https://services.google.com/fh/files/misc/gc_header_desktop.png&quot; alt=&quot;GC-arcade-header-desktop-Edited&quot; style=&quot;width: 100%;&quot; class=&quot;responsive&quot; id=&quot;Header1&quot;&gt;
+        &lt;img src=&quot;https://services.google.com/fh/files/misc/gc_header_mobile.png&quot; alt=&quot;GC-arcade-header-mobile-Edited&quot; style=&quot;width: 100%;&quot; class=&quot;responsive&quot; id=&quot;Header2&quot;&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Subscription Form --&gt;
+    &lt;div class=&quot;dark-back p-1&quot; style=&quot;background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;row justify-content-center align-items-center&quot;&gt;
+                &lt;div class=&quot;col-md-8&quot;&gt;
+                    &lt;h5 style=&quot;font-family: 'Google Sans';&quot;&gt;Subscription to the Skills Boost Arcade is necessary to receive important email updates and perks. However, you can unsubscribe anytime you want.&lt;/h5&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-4 text-center text-md-start&quot;&gt;
+                    &lt;a href=&quot;https://forms.gle/FDTDuYYuRzT4KLNU7&quot;&gt;&lt;button class=&quot;btn mt-3 px-5&quot;&gt;Subscribe here!&lt;/button&gt;&lt;/a&gt;
+                &lt;/div&gt;
+                 &lt;div class=&quot;col-md-12 mt-3&quot;&gt;
+                    &lt;p style=&quot;text-align: center;&quot;&gt;I understand my personal data will be processed in accordance with &lt;a href=&quot;https://policies.google.com/privacy&quot;&gt;Google’s Privacy Policy&lt;/a&gt;.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+        
+    &lt;!--Prize Div --&gt;
+    &lt;div class=&quot;dark-back pt-4 py-3&quot; style=&quot;background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;container-fluid&quot;&gt;
+                &lt;div class=&quot;row py-2&quot;&gt;
+                    &lt;div class=&quot;col-sm-12&quot;&gt;
+                        &lt;div class=&quot;card background-gradient2&quot;&gt;
+                            &lt;div class=&quot;card-body&quot;&gt;
+                                &lt;div style=&quot;display: flex; align-items: center; justify-content: center;&quot;&gt;
+                                    &lt;div class=&quot;firework-rounded&quot;&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;h3 class=&quot;prize-section-header text-center p-1&quot;&gt;ARCADE PRIZE TIERS&lt;/h3&gt;
+                                    &lt;div class=&quot;firework-rounded&quot;&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                        &lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Prize Image Section --&gt;
+    &lt;div class=&quot;dark-back pt-4 py-3&quot; style=&quot;background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;card scrollBox&quot;&gt;
+                &lt;div class=&quot;card-body&quot;&gt;
+                    &lt;img src=&quot;https://i.ibb.co/gbWmVrQy/Untitled-4-19.png&quot; data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#exampleModalCenter&quot; alt=&quot;&quot; style=&quot;width: 100%; border-radius: 2px&quot; class=&quot;specialBadge&quot;&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Modal --&gt;
+    &lt;div class=&quot;modal fade&quot; id=&quot;exampleModalCenter&quot; tabindex=&quot;-1&quot; aria-labelledby=&quot;exampleModalCenterTitle&quot; aria-hidden=&quot;true&quot;&gt;
+        &lt;div class=&quot;modal-dialog custom-modal-size modal-dialog-centered&quot; role=&quot;document&quot;&gt;
+            &lt;div class=&quot;modal-content custom-modal-content&quot;&gt;
+                &lt;img src=&quot;https://i.ibb.co/gbWmVrQy/Untitled-4-19.png&quot; style=&quot;width: 100%; border-radius: 2px&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Diwali Dialogues Section --&gt;
+    &lt;div class=&quot;dark-back pt-4 py-3&quot; style=&quot;background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');&quot;&gt;
+        &lt;div class=&quot;container &quot;&gt;
+            &lt;div class=&quot;card scrollBox&quot;&gt;
+                &lt;div class=&quot;row g-0&quot;&gt;
+                    &lt;div class=&quot;col-lg-6 align-items-center&quot;&gt;
+                        &lt;div class=&quot;card-body&quot;&gt;
+                            &lt;a href=&quot;https://www.cloudskillsboost.google/games/6570?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=diwali-oct-arcade25&quot;&gt;
+                                &lt;img src=&quot;https://services.google.com/fh/files/misc/diwali_dialogues.png&quot; alt=&quot;Diwali Dialogues&quot; class=&quot;card-img-top specialBadge&quot;&gt;&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-lg-6 p-5&quot;&gt;
+                        &lt;br&gt;
+                        &lt;h3 class=&quot;card-title&quot;&gt; Diwali Dialogues &lt;/h3&gt;
+                        &lt;p class=&quot;pt-2&quot;&gt;Chat your way to brighter skills!&lt;br&gt;&lt;span style=&quot;color:#F5BB11&quot;;&gt; Limited spots available. Claim yours now!&lt;/span&gt;&lt;/p&gt;
+                        &lt;p class=&quot;pt-2&quot;&gt;&lt;span style=&quot;color:#F5BB11;&quot;&gt;Access code:&lt;/span&gt; 1q-diwali-102017&lt;/p&gt;
+                        &lt;p&gt;Arcade points: 3&lt;/p&gt;
+                        &lt;a href=&quot;https://www.cloudskillsboost.google/games/6570?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=diwali-oct-arcade25&quot;&gt;
+                            &lt;button class=&quot;btn mt-1 subsBtn&quot;&gt;START!&lt;/button&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;diwali1&quot;&gt;&lt;/div&gt;
+        &lt;br&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Lights &amp; Logics Section --&gt;
+    &lt;div class=&quot;dark-back pt-4 py-3&quot; style=&quot;background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');&quot;&gt;
+      &lt;div class=&quot;container &quot;&gt;
+          &lt;div class=&quot;card scrollBox&quot;&gt;
+              &lt;div class=&quot;row g-0&quot;&gt;
+                  &lt;div class=&quot;col-lg-6 align-items-center&quot;&gt;
+                      &lt;div class=&quot;card-body&quot;&gt;
+                          &lt;a
+                              href=&quot;https://www.cloudskillsboost.google/games/6571?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=diwali1-oct-arcade25&quot;&gt;&lt;img
+                                  src=&quot;https://services.google.com/fh/files/misc/light_logic.png&quot; alt=&quot;Lights &amp; Logic&quot;
+                                  class=&quot;card-img-top specialBadge&quot;&gt;&lt;/a&gt;
+                      &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;col-lg-6 p-5&quot;&gt;
+                      &lt;br&gt;
+                      &lt;h3 class=&quot;card-title&quot;&gt; Lights &amp; Logics &lt;/h3&gt;
+                      &lt;p class=&quot;pt-2&quot;&gt;Add a little more light to your Diwali celebrations with every right answer! &lt;span style=&quot;color:#F5BB11&quot;;&gt; Limited spots available. Claim yours now!&lt;/span&gt;&lt;/p&gt;
+                      &lt;p class=&quot;pt-2&quot;&gt;&lt;span style=&quot;color:#F5BB11;&quot;&gt;Access code:&lt;/span&gt; 1q-lights-52021&lt;/p&gt;
+                      &lt;p&gt;Arcade points: 3&lt;/p&gt;
+                      &lt;a
+                          href=&quot;https://www.cloudskillsboost.google/games/6571?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=diwali1-oct-arcade25&quot;&gt;
+                          &lt;button class=&quot;btn mt-1 subsBtn&quot;&gt;START!&lt;/button&gt;&lt;/a&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;basecamp&quot;&gt;&lt;/div&gt;
+      &lt;br&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Base Camp &amp; Gen AI Section --&gt;
+    &lt;div class=&quot;dark-back &quot; style=&quot;background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');&quot;&gt;
+        &lt;div class=&quot;container scrollBox&quot;&gt;
+            &lt;center&gt;
+                &lt;div class=&quot;row pt-5 align-items-center style=&quot;display: flex; align-items: stretch; min-height: 400px;&quot;&gt;
+                    &lt;div id=&quot;level3&quot;  class=&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;div style=&quot;display: flex; flex-direction: row; align-items: center; justify-content: space-around; width: 66%;&quot;&gt;
+                            &lt;img src=&quot;https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif&quot; alt=&quot;Left GIF&quot; class=&quot;side-gif left&quot; style=&quot;width: 70px; height: 70px;&quot;&gt;
+                        &lt;h5 class=&quot;card-title&quot;&gt; Arcade Base Camp &lt;/h5&gt;
+                        &lt;img src=&quot;https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif&quot; alt=&quot;Right GIF&quot; class=&quot;side-gif right&quot; style=&quot;width: 70px; height: 70px;&quot;&gt;
+                    &lt;/div&gt;
+                      &lt;br&gt;
+                        &lt;p class=&quot;card-text&quot;&gt;Welcome to Base Camp! Gain essential Google Cloud skills without prior experience.                    &lt;/p&gt;
+                        &lt;div class=&quot;card style=&quot;height: 100%;&quot;&gt;
+                            &lt;div class=&quot;card-body&quot;&gt;
+                                &lt;a
+                                    href=&quot;https://www.cloudskillsboost.google/games/6551?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=basecamp-oct-arcade25&quot;&gt;&lt;img
+                                        src=&quot;https://services.google.com/fh/files/misc/basecamp_oct_25.png&quot;
+                                        class=&quot;card-img-top specialBadge&quot; alt=&quot;Card Image 1&quot;&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;pt-2&quot;&gt;&lt;span style=&quot;color:#F5BB11;&quot;&gt;Access code:&lt;/span&gt; 1q-basecamp-01202 &lt;/p&gt;
+                        &lt;p&gt;Arcade points: 1&lt;/p&gt;
+                        &lt;a
+                            href=&quot;https://www.cloudskillsboost.google/games/6551?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=basecamp-oct-arcade25&quot;&gt;&lt;button
+                                class=&quot;btn mt-1 subsBtn&quot;&gt;START!&lt;/button&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;div style=&quot;display: flex; flex-direction: row; align-items: center; justify-content: space-around; width: 66%;&quot;&gt;
+                            &lt;img src=&quot;https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif&quot; alt=&quot;Left GIF&quot; class=&quot;side-gif left&quot; style=&quot;width: 70px; height: 70px;&quot;&gt;
+                        &lt;h5 class=&quot;card-title&quot;&gt;Generative AI&lt;/h5&gt;
+                        &lt;img src=&quot;https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif&quot; alt=&quot;Right GIF&quot; class=&quot;side-gif right&quot; style=&quot;width: 70px; height: 70px;&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;br&gt;
+                        &lt;p class=&quot;card-text&quot;&gt;Turn fun chats into real-world skills and grow with every conversation!&lt;/p&gt;
+                        
+            
+                        &lt;div class=&quot;card style=&quot;height: 100%;&quot;&gt;
+                            &lt;div class=&quot;card-body&quot;&gt;
+                                &lt;a
+                                    href=&quot;https://www.cloudskillsboost.google/games/6554?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level3-oct-arcade25&quot;&gt;&lt;img
+                                        src=&quot;https://services.google.com/fh/files/misc/l3_oct_25.png&quot;
+                                        class=&quot;card-img-top specialBadge&quot; alt=&quot;Card Image 1&quot;&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;pt-2&quot;&gt;&lt;span style=&quot;color:#F5BB11;&quot;&gt;Access code:&lt;/span&gt; 1q-genai-10091  &lt;/p&gt;
+                        &lt;p&gt;Arcade points: 1&lt;/p&gt;
+                        &lt;a
+                            href=&quot;https://www.cloudskillsboost.google/games/6554?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level3-oct-arcade25&quot;&gt;&lt;button
+                                class=&quot;btn mt-1 subsBtn&quot;&gt;START!&lt;/button&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/center&gt;
+        &lt;/div&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+        &lt;div id=&quot;level1&quot;&gt;&lt;/div&gt;
+        &lt;div id=&quot;level2&quot;&gt;&lt;/div&gt;
+        &lt;br&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Levels Section --&gt;
+    &lt;div class=&quot;dark-back &quot; style=&quot;background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');&quot;&gt;
+        &lt;div class=&quot;container scrollBox&quot;&gt;
+            &lt;center&gt;
+                &lt;div class=&quot;row pt-5 align-items-center&quot;&gt;
+                    &lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;div style=&quot;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-around;
+                        width: 66%;&quot;&gt;
+              &lt;img src=&quot;https://i.ibb.co/G4znMB0k/output-onlinegiftools-1.gif&quot; alt=&quot;Left GIF&quot; class=&quot;side-gif left&quot; style=&quot;width: 70px;height: 70px;/* margin-right: 10px; */&quot;&gt;
+                        &lt;h5 class=&quot;card-title&quot;&gt;LEVEL 1&lt;/h5&gt;
+                        &lt;img src=&quot;https://i.ibb.co/G4znMB0k/output-onlinegiftools-1.gif&quot; alt=&quot;Right GIF&quot; class=&quot;side-gif right&quot; style=&quot;width: 70px;height: 70px;&quot;&gt;&lt;/div&gt;
+
+                        &lt;p class=&quot;card-text&quot;&gt;Start a new Google Cloud Badge!&lt;/p&gt;
+                        &lt;div class=&quot;card&quot;&gt;
+                            &lt;div class=&quot;card-body&quot;&gt;
+                                &lt;a
+                                    href=&quot;https://www.cloudskillsboost.google/games/6560?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level1-oct-arcade25&quot;&gt;&lt;img
+                                        src=&quot;https://services.google.com/fh/files/misc/level1_oct_25.png&quot;
+                                        class=&quot;card-img-top specialBadge&quot; alt=&quot;Card Image 1&quot;&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;pt-2&quot;&gt;&lt;span style=&quot;color:#F5BB11;&quot;&gt;Access code:&lt;/span&gt; 1q-scalability-14841&lt;/p&gt;
+                        &lt;p&gt;Arcade points: 1&lt;/p&gt;
+                        &lt;a
+                            href=&quot;https://www.cloudskillsboost.google/games/6560?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level1-oct-arcade25&quot;&gt;&lt;button
+                                class=&quot;btn mt-1 subsBtn&quot;&gt;START!&lt;/button&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-md-6 mb-3&quot;&gt;
+                        &lt;div style=&quot;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-around;
+                        width: 66%;&quot;&gt;
+              &lt;img src=&quot;https://i.ibb.co/G4znMB0k/output-onlinegiftools-1.gif&quot; alt=&quot;Left GIF&quot; class=&quot;side-gif left&quot; style=&quot;width: 70px;height: 70px;/* margin-right: 10px; */&quot;&gt;
+                        &lt;h5 class=&quot;card-title&quot;&gt;LEVEL 2&lt;/h5&gt;
+                        &lt;img src=&quot;https://i.ibb.co/G4znMB0k/output-onlinegiftools-1.gif&quot; alt=&quot;Right GIF&quot; class=&quot;side-gif right&quot; style=&quot;width: 70px;height: 70px;&quot;&gt;&lt;/div&gt;
+
+                        &lt;p class=&quot;card-text&quot;&gt;Earn an advanced Google Cloud badge!&lt;/p&gt;
+                        &lt;div class=&quot;card&quot;&gt;
+                            &lt;div class=&quot;card-body&quot;&gt;
+                                &lt;a
+                                    href=&quot;https://www.cloudskillsboost.google/games/6550?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level2-oct-arcade25&quot;&gt;&lt;img
+                                        src=&quot;https://services.google.com/fh/files/misc/l2_oct_25.png&quot;
+                                        class=&quot;card-img-top specialBadge&quot; alt=&quot;Card Image 1&quot;&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;pt-2&quot;&gt;&lt;span style=&quot;color:#F5BB11;&quot;&gt;Access code:&lt;/span&gt; 1q-cloudops-103102&lt;/p&gt;
+                        &lt;p&gt;Arcade points: 1&lt;/p&gt;
+                        &lt;a
+                            href=&quot;https://www.cloudskillsboost.google/games/6550?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=level2-oct-arcade25&quot;&gt;&lt;button
+                                class=&quot;btn mt-1 subsBtn&quot;&gt;START!&lt;/button&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/center&gt;
+        &lt;/div&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Trivia Section --&gt;
+    &lt;div class=&quot;dark-back &quot; style=&quot;background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');&quot;&gt;
+        &lt;div class=&quot;container scrollBox&quot;&gt;
+            &lt;center&gt;
+                &lt;div class=&quot;diwali-banner&quot; style=&quot; display: flex;justify-content: center; align-items: center;&quot;&gt;
+                    &lt;img src=&quot;https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif&quot; class=&quot;diwali-gif left&quot; alt=&quot;Diwali GIF Left&quot; style=&quot;width: 100px;height: 100px;&quot;&gt;
+                    &lt;div class=&quot;text-center&quot;&gt;
+                        &lt;h3 class=&quot;card-title pt-5&quot;&gt;Trivia October 2025&lt;/h3&gt;
+                        &lt;p class=&quot;pt-3&quot;&gt;Take your cloud knowledge for a spin and earn exclusive Trivia October Badges!&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;img src=&quot;https://i.ibb.co/7t2xBX39/output-onlinegiftools-3.gif&quot; class=&quot;diwali-gif right&quot; alt=&quot;Diwali GIF Right&quot; style=&quot;width: 100px; height: 100px;&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;row pt-5 align-items-stretch&quot;&gt;
+                    &lt;div class=&quot;col-lg-3 col-md-6 col-sm-12 mb-2 d-flex flex-column&quot;&gt;
+                        &lt;h5 class=&quot;card-title pb-2&quot;&gt;Week 1&lt;/h5&gt;
+                        &lt;div class=&quot;card flex-grow-1&quot;&gt;
+                            &lt;div class=&quot;card-body&quot;&gt;
+                                &lt;a href=&quot;https://www.cloudskillsboost.google/games/6556?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia&quot;&gt;&lt;img
+                                        src=&quot;https://services.google.com/fh/files/misc/t1_oct_25.png&quot;
+                                        class=&quot;card-img-top specialBadge&quot; alt=&quot;Card Image 1&quot;&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;br&gt;
+                        &lt;p class=&quot;mt-2&quot;&gt;&lt;span style=&quot;color:#F5BB11;&quot;&gt;Access code:&lt;/span&gt; 1q-trivia-22930&lt;/p&gt;
+                        &lt;p&gt;Arcade points: 1&lt;/p&gt;
+                        &lt;a href=&quot;https://www.cloudskillsboost.google/games/6556?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia&quot;&gt;&lt;button
+                                class=&quot;btn mt-1 subsBtn&quot;&gt; START!&lt;/button&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-lg-3 col-md-6 col-sm-12 mb-2 d-flex flex-column&quot;&gt;
+                        &lt;h5 class=&quot;card-title pb-2&quot;&gt;Week 2&lt;/h5&gt;
+                        &lt;div class=&quot;card flex-grow-1&quot;&gt;
+                            &lt;div class=&quot;card-body&quot;&gt;
+                                &lt;a href=&quot;https://www.cloudskillsboost.google/games/6557?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia&quot;&gt;&lt;img
+                                        src=&quot;https://services.google.com/fh/files/misc/t2_oct_25.png&quot;
+                                        class=&quot;card-img-top specialBadge&quot; alt=&quot;Card Image 1&quot;&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;br&gt;
+                        &lt;p&gt;&lt;span style=&quot;color:#F5BB11;&quot;&gt;Access code:&lt;/span&gt; 1q-trivia-10310&lt;/p&gt;
+                        &lt;p&gt;Arcade points: 1&lt;/p&gt;
+                        &lt;a href=&quot;https://www.cloudskillsboost.google/games/6557?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia&quot;&gt;
+                            &lt;button class=&quot;btn mt-1 subsBtn&quot;&gt; START!&lt;/button&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-lg-3 col-md-6 col-sm-12 mb-2 d-flex flex-column&quot;&gt;
+                        &lt;h5 class=&quot;card-title pb-2&quot;&gt;Week 3&lt;/h5&gt;
+                        &lt;div class=&quot;card flex-grow-1&quot;&gt;
+                            &lt;div class=&quot;card-body&quot;&gt;
+                                &lt;a href=&quot;https://www.cloudskillsboost.google/games/6558?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia&quot;&gt;&lt;img
+                                        src=&quot;https://services.google.com/fh/files/misc/t3_oct_25.png&quot;
+                                        class=&quot;card-img-top specialBadge&quot; alt=&quot;Card Image 1&quot;&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;br&gt;
+                        &lt;p&gt;&lt;span style=&quot;color:#F5BB11;&quot;&gt;Access code:&lt;/span&gt; 1q-trivia-29579&lt;/p&gt;
+                        &lt;p&gt;Arcade points: 1&lt;/p&gt;
+                        &lt;a href=&quot;https://www.cloudskillsboost.google/games/6558?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia&quot;&gt;
+                            &lt;button class=&quot;btn mt-1 subsBtn&quot;&gt; START!&lt;/button&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-lg-3 col-md-6 col-sm-12 mb-2 d-flex flex-column&quot;&gt;
+                        &lt;h5 class=&quot;card-title pb-2&quot;&gt;Week 4&lt;/h5&gt;
+                        &lt;div class=&quot;card flex-grow-1&quot;&gt;
+                            &lt;div class=&quot;card-body&quot;&gt;
+                                &lt;a href=&quot;https://www.cloudskillsboost.google/games/6559?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia&quot;&gt;&lt;img
+                                        src=&quot;https://services.google.com/fh/files/misc/t4_oct_25.png&quot;
+                                        class=&quot;card-img-top specialBadge&quot; alt=&quot;Card Image 1&quot;&gt;&lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;br&gt;
+                        &lt;p&gt;&lt;span style=&quot;color:#F5BB11;&quot;&gt;Access code:&lt;/span&gt; 1q-trivia-32105&lt;/p&gt;
+                        &lt;p&gt;Arcade points: 1&lt;/p&gt;
+                        &lt;a href=&quot;https://www.cloudskillsboost.google/games/6559?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=arcade25-oct-trivia&quot;&gt;
+                            &lt;button class=&quot;btn mt-1 subsBtn&quot;&gt;START!&lt;/button&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/center&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;collab&quot;&gt;&lt;/div&gt;
+        &lt;div id=&quot;how it works&quot;&gt;&lt;/div&gt;
+        &lt;br&gt;&lt;br&gt;
+    &lt;/div&gt;
+
+    &lt;!-- How it works Section --&gt;
+    &lt;div class=&quot;dark-back&quot; style=&quot;background-image: url('https://i.ibb.co/SRMTB41/BGimg-form.png');&quot;&gt;
+        &lt;div class=&quot;container scrollBox&quot;&gt;
+            &lt;div class=&quot;row pt-2 pb-2 instRow bg-transparent background-gradient&quot; style=&quot;display:flex;border-radius: 4px;&quot;&gt;
+                &lt;div class=&quot;col col-lg-6 col-md-6 col-sm-12 col-12 mb-2 &quot; style=&quot;display:flex&quot;&gt;
+                    &lt;div class=&quot;instCard1Container card&quot; style=&quot;display:flex&quot;&gt;
+                        &lt;div class=&quot;card-body d-flex align-items-start&quot; style=&quot;flex-direction: column&quot;&gt;
+                            &lt;h5 class=&quot;card-title&quot;&gt;HOW IT WORKS&lt;/h5&gt;
+                            &lt;div class=&quot; py-2&quot;&gt;
+                                &lt;div&gt;
+                                    &lt;img src=&quot;https://i.ibb.co/MhsMvRw/borderline-removebg-preview.png&quot; alt=&quot;&quot;&gt;
+                                    &lt;table&gt;
+                                        &lt;tr&gt;&lt;td class=&quot;list-marker&quot; colspan=&quot;2&quot;&gt;01&lt;/td&gt;&lt;td class=&quot;list-item&quot;&gt;Subscribe to active Arcade emails for your account including prizes and codes&lt;/td&gt;&lt;/tr&gt;
+                                        &lt;tr&gt;&lt;td class=&quot;list-marker&quot; colspan=&quot;2&quot;&gt;02&lt;/td&gt;&lt;td class=&quot;list-item&quot;&gt;Join Google Cloud Skills Boost. You don't need a new account if you’re already registered.&lt;/td&gt;&lt;/tr&gt;
+                                        &lt;tr&gt;&lt;td class=&quot;list-marker&quot; colspan=&quot;2&quot;&gt;03&lt;/td&gt;&lt;td class=&quot;list-item&quot;&gt;Play games to learn skills, earn badges and get arcade points. We suggest starting at level 1 if you're new to cloud!&lt;/td&gt;&lt;/tr&gt;
+                                        &lt;tr&gt;&lt;td class=&quot;list-marker&quot; colspan=&quot;2&quot;&gt;04&lt;/td&gt;&lt;td class=&quot;list-item&quot;&gt;Enroll in Skill Badges to help you complete game tasks and get more Arcade points.&lt;/td&gt;&lt;/tr&gt;
+                                        &lt;tr&gt;&lt;td class=&quot;list-marker&quot; colspan=&quot;2&quot;&gt;05&lt;/td&gt;&lt;td class=&quot;list-item first-card&quot;&gt;REDEEM points at the prize counter.&lt;/tr&gt;
+                                    &lt;/table&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;col col-lg-6 col-md-6 col-sm-12 col-12 mb-2&quot; style=&quot;display:flex&quot;&gt;
+                    &lt;div class=&quot;instCard2Container card&quot; style=&quot;display:flex; &quot;&gt;
+                        &lt;div class=&quot;card-body text-left d-flex align-items-start&quot; style=&quot;flex-direction: column&quot;&gt;
+                            &lt;h5 class=&quot;card-title&quot;&gt;POINTS SYSTEM&lt;/h5&gt;
+                            &lt;div class=&quot; py-2&quot;&gt;
+                                &lt;div&gt;
+                                    &lt;img src=&quot;https://i.ibb.co/MhsMvRw/borderline-removebg-preview.png&quot; alt=&quot;&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;table&gt;
+                                &lt;tr&gt;&lt;td class=&quot;point-marker&quot;&gt;LEVEL 1&lt;/td&gt;&lt;td class=&quot;img-list-item&quot;&gt;&lt;img src=&quot;https://i.ibb.co/dpRNn04/Coin-Image-removebg-preview.png&quot; alt=&quot;&quot; style=&quot;width: 60px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding-left: 10px;&quot;&gt; x1 game badge = 1 point&lt;/td&gt;&lt;/tr&gt;
+                                &lt;tr&gt;&lt;td class=&quot;point-marker&quot;&gt;LEVEL 2&lt;/td&gt;&lt;td class=&quot;img-list-item&quot;&gt;&lt;img src=&quot;https://i.ibb.co/dpRNn04/Coin-Image-removebg-preview.png&quot; alt=&quot;&quot; style=&quot;width: 60px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding-left: 10px;&quot;&gt; x1 game badge = 1 point&lt;/td&gt;&lt;/tr&gt;
+                                &lt;tr&gt;&lt;td class=&quot;point-marker&quot;&gt;LEVEL 3&lt;/td&gt;&lt;td class=&quot;img-list-item&quot;&gt;&lt;img src=&quot;https://i.ibb.co/dpRNn04/Coin-Image-removebg-preview.png&quot; alt=&quot;&quot; style=&quot;width: 60px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding-left: 10px;&quot;&gt; x1 game badge = 1 point&lt;/td&gt;&lt;/tr&gt;
+                                &lt;tr&gt;&lt;td class=&quot;point-marker&quot;&gt;TRIVIA&lt;/td&gt;&lt;td class=&quot;img-list-item&quot;&gt;&lt;img src=&quot;https://i.ibb.co/hMHPYzV/triviaicon-removebg-preview.png&quot; alt=&quot;&quot; style=&quot;width: 60px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding-left: 10px;&quot;&gt; x1 game badge = 1 point&lt;/td&gt;&lt;/tr&gt;
+                                &lt;tr&gt;&lt;td class=&quot;point-marker&quot;&gt;SKILL BADGE&lt;/td&gt;&lt;td class=&quot;img-list-item&quot;&gt;&lt;img src=&quot;https://i.ibb.co/Sc3wx7S/GC-arcade-skill-badge.png&quot; alt=&quot;&quot; style=&quot;width: 60px;&quot;&gt;&lt;/td&gt;&lt;td style=&quot;padding-left: 10px;&quot;&gt; x2 badges = 1 point&lt;/td&gt;&lt;/tr&gt;
+                            &lt;/table&gt;
+                            &lt;div class=&quot;py-4&quot;&gt;
+                                &lt;div class=&quot;instCard2S2ParentContainer &quot;&gt;
+                                    &lt;div&gt;&lt;img src=&quot;https://i.ibb.co/MhsMvRw/borderline-removebg-preview.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+                                    &lt;p class=&quot;point-marker card-title&quot; style=&quot;margin-bottom: 13px;&quot;&gt;EXAMPLE&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;instCard2S2Container&quot;&gt;
+                                    &lt;div class=&quot;instCard2S2Pts row&quot;&gt;
+                                        &lt;div class=&quot;col-lg-8 col-md-6 col-sm-12 col-12&quot;&gt;
+                                            &lt;img src=&quot;https://i.ibb.co/Sc3wx7S/GC-arcade-skill-badge.png&quot; alt=&quot;&quot; style=&quot;width:70px;height: min-content;padding-right: 3px;&quot;&gt;
+                                            &lt;img src=&quot;https://i.ibb.co/Sc3wx7S/GC-arcade-skill-badge.png&quot; alt=&quot;&quot; style=&quot;width:70px;height: min-content;padding-right: 3px;&quot;&gt;
+                                            &lt;img src=&quot;https://i.ibb.co/hMHPYzV/triviaicon-removebg-preview.png&quot; alt=&quot;&quot; style=&quot;width:70px;height: min-content;padding-right: 3px;&quot;&gt;
+                                            &lt;img src=&quot;https://i.ibb.co/dpRNn04/Coin-Image-removebg-preview.png&quot; alt=&quot;&quot; style=&quot;width:70px;height: min-content&quot;&gt;
+                                        &lt;/div&gt;
+                                        &lt;div style=&quot;font-size: 19px;padding-top: 10px;text-align: left; padding-right: 0px&quot; class=&quot;points- list-marker exPts col-lg-4 col-md-6 col-sm-12 col-12&quot;&gt; = 3 points&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Community Section --&gt;
+    &lt;div class=&quot;dark-back pt-5&quot; style=&quot;background-image: url('https://i.ibb.co/YXM4j7h/Finaltry-this.png');background-position:left;background-size: cover;&quot;&gt;
+        &lt;div class=&quot;container scrollBox&quot;&gt;
+            &lt;div class=&quot;card bg-transparent communityBg&quot;&gt;
+                &lt;div class=&quot;row g-0&quot;&gt;
+                    &lt;div class=&quot;col-lg-4 align-items-center&quot;&gt;
+                        &lt;div class=&quot;card-body communityLhsImgContainer&quot;&gt;
+                            &lt;img src=&quot;https://i.ibb.co/Y2THjnr/community-Image-page.png&quot; alt=&quot;Community Image&quot; class=&quot;card-img-top communityLhsImg&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;col-lg-8 p-2 communityText&quot;&gt;
+                        &lt;br&gt;
+                        &lt;h3 class=&quot;card-title communityRhsText CloudCommunity&quot;&gt;Stay on top of everything happening in The Arcade.&lt;/h3&gt;
+                        &lt;p class=&quot;CloudCommunity&quot;&gt;Be a part of the Skills Boost Arcade Community on the Google Developer Program forums.&lt;/p&gt;
+                        &lt;div class=&quot;pt-2&quot;&gt;
+                            &lt;ul class=&quot;communityUl&quot;&gt;
+                                &lt;li style=&quot;font-size: 16px;&quot;&gt;&lt;a href=&quot;https://discuss.google.dev/t/the-google-cloud-communities-have-a-new-home/247603/1&quot;&gt;The Google Cloud Communities have a new home!&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;btnCommunityContainer&quot;&gt;
+                            &lt;a href=&quot;https://discuss.google.dev/tag/learning&quot;&gt;&lt;button class=&quot;btn btn-primary btn-block subsBtn &quot;&gt;Join here&lt;/button&gt;&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div id=&quot;faq&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;br&gt;&lt;br&gt;&lt;br&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Game Over Section --&gt;
+    &lt;div class=&quot;container-fluid dark-back align-items-center p-3 pt-5&quot; style=&quot;background-color: #19283C;&quot;&gt;
+        &lt;center&gt;
+            &lt;div style=&quot;display: flex; align-items: center; justify-content: center; margin-bottom: 5px;&quot;&gt;
+                &lt;div class=&quot;firework-rounded&quot; style=&quot;align-self: center;&quot;&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+                &lt;div style=&quot;display: flex; flex-direction: column; text-align: center; margin: 0 20px;&quot;&gt;
+                    &lt;span id=&quot;card-title&quot; style=&quot;margin: 0; font-size: 20px !important; color: #FFD548 !important; line-height: 1.2;&quot;&gt;Google Cloud Skills Boost Arcade&lt;/span&gt;
+                    &lt;span id=&quot;card-title&quot; style=&quot;margin-top: 5px; font-size: 28px!important; color: #FFD548 !important; line-height: 1;&quot;&gt;Game over!&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;firework-rounded&quot; style=&quot;align-self: center;&quot;&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;div class=&quot;firework-rounded-light&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/center&gt;
+    &lt;/div&gt;
+      &lt;!-- Row 1 --&gt;
+      &lt;div class=&quot;dark-back p-6 text-center&quot; style=&quot;background-color: #19283C;&quot;&gt;
+        &lt;div class=&quot;container goContainer text-center p-4 scrollBox&quot;&gt;
+    
+          &lt;div class=&quot; row go-row&quot;&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+          &lt;img src=&quot;https://i.ibb.co/fzfdgrd6/Arcade-Game-Coin-speciaity-Jul.png&quot; alt=&quot;Image 1&quot; id=&quot;game-over-image&quot;
+            style=&quot;width:80%&quot;&gt;
+          &lt;p class=&quot;pt-5&quot;&gt;Arcade ExtraSkillesTrail July&lt;/p&gt;
+          
+          &lt;p&gt;Arcade points: 2&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+          &lt;img src=&quot;https://i.ibb.co/BKKrNQ1q/Arcade-Game-Work-Meets-Play-Jul.png&quot; alt=&quot;Image 2&quot; id=&quot;game-over-image&quot;
+            style=&quot;width:80%&quot;&gt;
+          &lt;p class=&quot;pt-5&quot;&gt; Arcade Banking With Empathy&lt;/p&gt;
+          
+         &lt;!-- &lt;p&gt;Arcade points: 1&lt;/p&gt;--&gt;
+          &lt;br&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+          &lt;img src=&quot;https://i.ibb.co/PvrDJDZ4/Arcade-Game-Coin-Base-Camp-Jul.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+            style=&quot;width:80%&quot;&gt;
+          &lt;p class=&quot;pt-5&quot;&gt;Arcade Base Camp July&lt;/p&gt;
+          &lt;br&gt;
+          &lt;p&gt;Arcade points: 1&lt;/p&gt;
+        &lt;/div&gt;
+    
+        &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+          &lt;img src=&quot;https://i.ibb.co/Z66jmLvk/Arcade-Game-Coin-cert-Jul.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+            style=&quot;width:80%&quot;&gt;
+          &lt;p class=&quot;pt-5&quot;&gt;Arcade Certification Zone&lt;/p&gt;
+          &lt;p&gt;Arcade points: 1&lt;/p&gt;
+        &lt;/div&gt;
+    
+        &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+          &lt;img src=&quot;https://i.ibb.co/m5s090Ns/Arcade-Game-Coin-L1-07-25.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+            style=&quot;width:80%&quot;&gt;
+          &lt;p class=&quot;pt-5&quot;&gt;Level 1: July 2025&lt;/p&gt;
+          &lt;br&gt;
+          &lt;p&gt;Arcade points: 1&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+          &lt;img src=&quot;https://i.ibb.co/1fYrnt0V/Arcade-Game-Coin-L2-07-25.png&quot; alt=&quot;Image 1&quot;
+            id=&quot;game-over-image&quot; style=&quot;width:80%&quot;&gt;
+          &lt;p class=&quot;pt-5&quot;&gt;Level 2: July 2025&lt;/p&gt;
+          &lt;br&gt;
+          &lt;p&gt;Arcade points: 1&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+          &lt;img src=&quot;https://i.ibb.co/BKqYjc9t/Arcade-Game-Coin-L3-07-25.png&quot; alt=&quot;Image 2&quot; id=&quot;game-over-image&quot;
+            style=&quot;width:80%&quot;&gt;
+          &lt;p class=&quot;pt-5&quot;&gt; Level 3: July 2025&lt;/p&gt;
+          &lt;br&gt;
+          &lt;p&gt;Arcade points: 1&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+          &lt;img src=&quot;https://i.ibb.co/wNpvPhGX/Arcade-Trivia-Coin-07-25-week-1.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+            style=&quot;width:80%&quot;&gt;
+          &lt;p class=&quot;pt-5&quot;&gt;Week 1: July 2025&lt;/p&gt;
+          &lt;br&gt;
+          &lt;p&gt;Arcade points: 1&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+          &lt;img src=&quot;https://i.ibb.co/5gwcR9DY/Arcade-Trivia-Coin-07-25-week-2.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+            style=&quot;width:80%&quot;&gt;
+          &lt;p class=&quot;pt-5&quot;&gt;Week 2: July 2025&lt;/p&gt;
+          &lt;br&gt;
+          &lt;p&gt;Arcade points: 1&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://i.ibb.co/8g3xKt4T/Arcade-Trivia-Coin-07-25-week-3.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Week 3: July 2025&lt;/p&gt;
+            &lt;br&gt;
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://i.ibb.co/jZqD4TXC/Arcade-Trivia-Coin-07-25-week-4.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Week 4: July 2025&lt;/p&gt;
+            &lt;br&gt;
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+    
+          &lt;!--August game over--&gt;
+    
+    
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_fr_sb.png&quot; alt=&quot;Image 1&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Arcade FutureReady Skills August&lt;/p&gt;
+           
+            &lt;p&gt;Arcade points: 2&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_ff.png&quot; alt=&quot;Image 2&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt; Arcade Faster Finance&lt;/p&gt;
+           
+           &lt;!-- &lt;p&gt;Arcade points: 1&lt;/p&gt;--&gt;
+            &lt;br&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_aug_bc.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Arcade Base Camp August&lt;/p&gt;
+        
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+           &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_cz.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Arcade Certification Zone&lt;/p&gt;
+            
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+           &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_aug_l1.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Level 1: August 2025&lt;/p&gt;
+            &lt;br&gt;
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_l2_aug.png&quot; alt=&quot;Image 1&quot;
+              id=&quot;game-over-image&quot; style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Level 2: August 2025&lt;/p&gt;
+            &lt;br&gt;
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_l3_aug.png&quot; alt=&quot;Image 2&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt; Level 3: August 2025&lt;/p&gt;
+           &lt;br&gt;
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/aug_trivia_1.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Week 1: August 2025&lt;/p&gt;
+           
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_t2_aug.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Week 2: August 2025&lt;/p&gt;
+           
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+              &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_t3_aug.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+                style=&quot;width:80%&quot;&gt;
+              &lt;p class=&quot;pt-5&quot;&gt;Week 3: August 2025&lt;/p&gt;
+             
+              &lt;p&gt;Arcade points: 1&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+              &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_aug_t4.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+                style=&quot;width:80%&quot;&gt;
+              &lt;p class=&quot;pt-5&quot;&gt;Week 4: August 2025&lt;/p&gt;
+             
+              &lt;p&gt;Arcade points: 1&lt;/p&gt;
+            &lt;/div&gt;
+    
+    
+    
+            &lt;!--Sep game over--&gt;
+    
+    
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_sep_special.png&quot; alt=&quot;Image 1&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Arcade Skills Scribble September&lt;/p&gt;
+           
+            &lt;p&gt;Arcade points: 2&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_sep_wmp.png&quot; alt=&quot;Image 2&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt; Arcade Scaling Success&lt;/p&gt;
+           
+           &lt;!-- &lt;p&gt;Arcade points: 1&lt;/p&gt;--&gt;
+            &lt;br&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_sep_bc.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Arcade Base Camp September&lt;/p&gt;
+        
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+           &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_sep_cert.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Arcade Certification Zone&lt;/p&gt;
+            
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+           &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_sep_l1.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Level 1: September 2025&lt;/p&gt;
+            &lt;br&gt;
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_sep_l2.png&quot; alt=&quot;Image 1&quot;
+              id=&quot;game-over-image&quot; style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Level 2: September 2025&lt;/p&gt;
+            &lt;br&gt;
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_se_l3.png&quot; alt=&quot;Image 2&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt; Level 3: September 2025&lt;/p&gt;
+           &lt;br&gt;
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_sep_t1.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Week 1: September 2025&lt;/p&gt;
+           
+            &lt;p class=&quot;pt-4&quot;&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+            &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_sep_t2.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+              style=&quot;width:80%&quot;&gt;
+            &lt;p class=&quot;pt-5&quot;&gt;Week 2: September 2025&lt;/p&gt;
+           
+            &lt;p&gt;Arcade points: 1&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+              &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_sep_t3.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+                style=&quot;width:80%&quot;&gt;
+              &lt;p class=&quot;pt-5&quot;&gt;Week 3: September 2025&lt;/p&gt;
+             
+              &lt;p&gt;Arcade points: 1&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-lg-2 col-md-3 col-sm-6&quot;&gt;
+              &lt;img src=&quot;https://services.google.com/fh/files/misc/arcade_sep_t4.png&quot; alt=&quot;Image 3&quot; id=&quot;game-over-image&quot;
+                style=&quot;width:80%&quot;&gt;
+              &lt;p class=&quot;pt-5&quot;&gt;Week 4: September 2025&lt;/p&gt;
+             
+              &lt;p&gt;Arcade points: 1&lt;/p&gt;
+            &lt;/div&gt;
+    
+    
+      &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;  
+
+    &lt;!-- FAQ Section --&gt;
+    &lt;div style=&quot;background-color: #19283C;&quot;&gt;
+        &lt;section&gt;
+          &lt;h2 id=&quot;card-title&quot; class=&quot;faq-header&quot;&gt;Frequently Asked Questions&lt;/h2&gt;
+          &lt;input type=&quot;text&quot; id=&quot;search&quot; placeholder=&quot;search&quot; name=&quot;search&quot; class=&quot;input-faq&quot;&gt;
+          &lt;div class=&quot;faqSection&quot;&gt;
+          &lt;div id=&quot;faq&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;How many points will I get when I complete a skill badge?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;After you complete 2 skill badges you are eligible to earn 1 Arcade point. For every
+                  6 skills badges you will get 3 Arcade points and so on...&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;I have earned only 1 skill badges. How many points will I get?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;Unfortunately, earning 1 skill badges will not be enough to claim an Arcade point.
+                  You will need to complete at least 2 Skill Badges to earn one point.&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;Where do I get credits to complete the skill badges?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;Users who have subscribed to Arcade receive Arcade Insider mails once every month
+                  which contain unique codes that can be redeemed to get no cost GCSB credits which can be used to complete Skill badge courses.&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;Will I receive any swags or physical certificates for the games?
+                &lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;Users will get a special badge for each game they complete in this
+                  event and for each badge earned user will also receive 1 Arcade point which in turn will
+                  be used to redeem goodies when the prize counter opens. Please note there won’t be any physical
+                  certificates or goodies just for completing the game.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;Are there prizes? What are the prizes?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;Yes! The more badges you earn, the more arcade points you accumulate.
+                  Redeem points for prizes at the prize counter. The prize counter will be open at
+                  specific times throughout the year.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;Do I get a prize as soon as I earn a badge?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;No. You will not be able to claim a prize immediately. You'll be able
+                  to claim prizes when the prize counter opens.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;When does the prize counter open?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;Great question. The prize counter dates would be announced soon. Stay
+                  tuned for exact dates.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;What do I have to do to get a prize?
+                &lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;Activate the Arcade for your account. Then join games, complete labs,
+                  learn skills, and earn badges! Each challenge consists of multiple labs. Complete all
+                  the labs successfully to earn the badge. Each badge gets you one point. Periodically,
+                  the prize counter will open and you'll be able to use points to claim swag.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;How will I know when the prize counter opens?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;There are many ways to stay up to date. Add us to your calendar. Keep
+                  an eye on your email. And, follow @Qwiklabs on your choice of social network.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- &lt;div class=&quot;faq&quot;&gt;
+                      &lt;div class=&quot;question&quot;&gt;
+                         &lt;h3 class=&quot;question-text&quot;&gt;What if I miss the prize counter opening?&lt;/h3&gt;
+                      &lt;/div&gt;
+                      &lt;div class=&quot;answer&quot;&gt;
+                         &lt;p class=&quot;answer-text&quot;&gt;Unused points expire every 6 months. No exceptions. Please help us
+                            keep you informed via the options listed above.
+                         &lt;/p&gt;
+                      &lt;/div&gt;
+                      &lt;/div&gt; --&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;How do arcade points work?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt; One point per eligible game/trivia badge. All eligible game/trivia badges are listed
+                  on this
+                  page. If it's not listed here, it's not eligible. Points expire after 6 months. You'll
+                  have at least one opportunity to redeem points, so please use it, don't lose it!
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;How do I know how many arcade points I have?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt; Compare the list of eligible arcade games to &lt;a style=&quot;color:#1e8e3e&quot;
+                    href=&quot;https://support.google.com/qwiklabs/answer/9222527&quot;&gt;your
+                    Google Cloud Skills Boost profile &lt;/a&gt; to calculate points.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;How can I get more arcade points?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt; Play more games! The more you learn, the more you earn.&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;What are the upcoming arcade games?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt; Keep an eye on this page for current and upcoming games.&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;I don't want a prize. Can I still play?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;Yes! When the prize counter opens, participation is totally optional.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;What is the cost? Do I need quarters?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;There is no cost to participate in Arcade games. No quarters needed!
+                  (Or any other currency!)
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;Can I participate if I'm already in another Google program? (Ex:
+                  Innovators, education programs, Learn to Earn, OnAir, Study Jams, DevFest)
+                &lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;Yes! Please keep in mind that different programs have varying
+                  requirements so check with other programs as well.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;Can I participate if I'm located in [your country of residence,
+                  whatever that may be]?
+                &lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;Yes, you may participate within the Google Cloud Skills Boost Terms
+                  of Service!
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;What about sending prizes to [your country of residence, whatever
+                  that may be]?
+                &lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;We make every effort to reach you wherever you are, whenever
+                  possible. Items cannot be shipped to countries on the list of&lt;a style=&quot;color:#1e8e3e&quot;
+                    href=&quot;https://home.treasury.gov/policy-issues/financial-sanctions/sanctions-programs-and-country-information&quot;&gt;
+                    US Treasury Department’s Sanctions Programs &lt;/a&gt; and the following countries:
+                  Pakistan, Bangladesh, Iraq, Iran, North Korea, Crimea, Cuba, Sevastopol city and Syria.
+                  Each challenge includes details about prizes and shipping availability, as this list may
+                  change at any time (locations may be added or removed based on unforeseen events). If
+                  you’re in one of these countries, you are welcome to participate within the Terms of
+                  Service. You may decline a prize, select an address in a country where shipping is
+                  available.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;What if a lab isn't working?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt; Great question. The community is a great place to get questions
+                  answered. Or, you can request assistance from our support team directly within the
+                  Skills Boost platform.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;What if there are no more seats in a game?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;That happens sometimes! Seats are available on a first come, first
+                  serve basis. Sometimes additional seats open up, so keep an eye out for more
+                  opportunities to join if you miss the first round.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+        
+    
+    &lt;div id=&quot;faq&quot;&gt;&lt;/div&gt;
+    
+          &lt;div class=&quot;faq&quot;&gt;
+            &lt;div class=&quot;question&quot;&gt;
+              &lt;h3 class=&quot;question-text&quot;&gt;How does Skills Boost Arcade ensure a safe and supportive community?&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;answer&quot;&gt;
+              &lt;p class=&quot;answer-text&quot;&gt;The platform promotes a culture of respect, integrity, and fairness. Policies are in place to deter misconduct and maintain a positive learning environment for all participants.
+              &lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+    
+          &lt;div class=&quot;faq&quot;&gt;
+          &lt;div class=&quot;question&quot;&gt;
+            &lt;h3 class=&quot;question-text&quot;&gt;How can I ensure my participation is meaningful and aligned with the program’s goals?
+            &lt;/h3&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;answer&quot;&gt;
+            &lt;p class=&quot;answer-text&quot;&gt;Focus on learning, avoid shortcuts, and fully engage with the labs and games to develop genuine skills. Upholding the values of fairness and integrity is key to making the most of your experience in Skills Boost Arcade.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;faq&quot;&gt;
+        &lt;div class=&quot;question&quot;&gt;
+          &lt;h3 class=&quot;question-text&quot;&gt;What should I do if I suspect someone is using unfair practices? &lt;/h3&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;answer&quot;&gt;
+          &lt;p class=&quot;answer-text&quot;&gt;If you suspect someone is violating the rules, raise your concern with the Skills Boost Arcade Team via Google Cloud Communities or report it to the support team. All reports are handled confidentially, and appropriate actions will be taken after investigation.
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;faq&quot;&gt;
+        &lt;div class=&quot;question&quot;&gt;
+          &lt;h3 class=&quot;question-text&quot;&gt;Are there any learning resources available to help me complete labs?
+        &lt;/h3&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;answer&quot;&gt;
+          &lt;p class=&quot;answer-text&quot;&gt;The lab instructions provided are sufficient to help you complete the labs. If you still face challenges, you can reach out to the support team for assistance.
+    
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    
+      &lt;div class=&quot;faq&quot;&gt;
+      &lt;div class=&quot;question&quot;&gt;
+        &lt;h3 class=&quot;question-text&quot;&gt;Can I appeal a disqualification decision?
+        &lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;answer&quot;&gt;
+        &lt;p class=&quot;answer-text&quot;&gt;Yes, if you believe you were disqualified unfairly, contact the Arcade Team via Google Cloud Communities or the support team with relevant details. They will review your case and provide a resolution based on the evidence.
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;faq&quot;&gt;
+    &lt;div class=&quot;question&quot;&gt;
+      &lt;h3 class=&quot;question-text&quot;&gt;How does Skills Boost Arcade handle violations of its policies?
+    &lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;answer&quot;&gt;
+      &lt;p class=&quot;answer-text&quot;&gt;Violations, such as using scripts or engaging in unfair practices, result in immediate disqualification and exclusion from Skills Boost Arcade and related programs. This strict approach ensures a fair and equitable environment for all participants.
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    
+    
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;I've never used Skills Boost before. Help!&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;Welcome, I'm so glad you're here. &lt;a style=&quot;color:#1e8e3e&quot;
+                    href=&quot;https://www.cloudskillsboost.google/catalog_lab/1281?utm_source=qwiklabs&amp;utm_medium=lp&amp;utm_campaign=a23&quot;&gt;This
+                    tour of Google Cloud and the Skills Boost platform&lt;/a&gt; will help you get oriented.
+                  It's available at no cost.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+    
+            &lt;div class=&quot;faq&quot;&gt;
+                &lt;div class=&quot;question&quot;&gt;
+                  &lt;h3 class=&quot;question-text&quot;&gt;Are Arcade Facilitator Milestones different from the Skills Boost Arcade Player achievements? &lt;/h3&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;answer&quot;&gt;
+                  &lt;p class=&quot;answer-text&quot;&gt;Yes! They are completely different. The milestones in the Arcade Facilitator program are different from the Arcade Player achievements.&lt;/p&gt;
+                    &lt;p class=&quot;answer-text&quot;&gt;Note that, under the facilitator program, you mainly earn &lt;strong&gt;&quot;Bonus&quot; points &lt;/strong&gt; when you complete a milestone and you earn &lt;stong&gt;&quot;Arcade&quot; points&lt;/strong&gt; according to the Skills Boost Arcade points system.
+                    Thus you can &lt;strong&gt;accumulate the Bonus points earned in the facilitator program and add that to your actual Arcade points to reach any of the mentioned player achievements &lt;/strong&gt; and receive swags for that particular swag tier at the end of an Arcade season.
+                  &lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+      
+              &lt;div class=&quot;faq&quot;&gt;
+                  &lt;div class=&quot;question&quot;&gt;
+                    &lt;h3 class=&quot;question-text&quot;&gt; Will there be more swag items in the Arcade? &lt;/h3&gt;
+                  &lt;/div&gt;
+                  &lt;div class=&quot;answer&quot;&gt;
+                    &lt;p class=&quot;answer-text&quot;&gt;YES absolutely! Please note that until you specifically hear from us in any of our community posts that this wraps up for swag drops, those will keep happening on GCC. &lt;/p&gt;
+                     
+                  &lt;/div&gt;
+                &lt;/div&gt;
+    
+    
+    
+            &lt;div class=&quot;faq&quot;&gt;
+              &lt;div class=&quot;question&quot;&gt;
+                &lt;h3 class=&quot;question-text&quot;&gt;Can I share or gift my Arcade points with someone else?&lt;/h3&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;answer&quot;&gt;
+                &lt;p class=&quot;answer-text&quot;&gt;No. Because points are based on your learning record, they stick with
+                  you.
+                &lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;imageEmpty&quot;&gt;
+            &lt;img src=&quot;https://i.ibb.co/RBcL936/Emptyimage.png&quot; alt=&quot;Emptyimage&quot;&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;br&gt;
+      &lt;/div&gt;
+
+    &lt;!-- Scroll Lanterns --&gt;
+    &lt;div id=&quot;scrollImage&quot;&gt;
+        &lt;img src=&quot;https://i.ibb.co/BrRCNsf/Untitled-5-1.png&quot; alt=&quot;Floating Lantern&quot; border=&quot;0&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;scrollImageRight&quot;&gt;
+        &lt;img src=&quot;https://i.ibb.co/BrRCNsf/Untitled-5-1.png&quot; alt=&quot;Floating Lantern&quot; border=&quot;0&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;!-- SCRIPT SECTION --&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&quot;&gt;&lt;/script&gt;
+
+    &lt;script&gt;
+        // Google Translate Initialization
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+
+        // Scroll-activated Lanterns
+        window.addEventListener('scroll', function () {
+            var image = document.getElementById('scrollImage');
+            var imageRight = document.getElementById('scrollImageRight');
+            if (window.scrollY &gt; (window.innerHeight * 0.1)) {
+                image.classList.add('show');
+                imageRight.classList.add('show');
+            } else {
+                image.classList.remove('show');
+                imageRight.classList.remove('show');
+            }
+        });
+
+        // DOMContentLoaded block for FAQ, Footer Hiding, and Smooth Scroll
+        document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
+            const faqs = document.querySelectorAll('.faq');
+            const searchInput = document.getElementById('search');
+
+            faqs.forEach(faq =&gt; {
+                faq.addEventListener(&quot;click&quot;, () =&gt; {
+                    faq.classList.toggle(&quot;active&quot;);
+                    const answer = faq.querySelector('.answer');
+                    answer.style.maxHeight = faq.classList.contains('active') ? answer.scrollHeight + &quot;px&quot; : null;
+                });
+            });
+
+            searchInput.addEventListener(&quot;keyup&quot;, function (event) {
+                let searchString = event.target.value.toLowerCase();
+                faqs.forEach(item =&gt; {
+                    const questionText = item.querySelector('.question-text').textContent.toLowerCase();
+                    const answerText = item.querySelector('.answer-text').textContent.toLowerCase();
+                    item.style.display = (questionText.includes(searchString) || answerText.includes(searchString)) ? &quot;&quot; : &quot;none&quot;;
+                });
+            });
+            
+            function hideFooter() {
+                const footer = document.querySelector('div[jsname=&quot;sMTyfe&quot;]');
+                if (footer) footer.style.display = &quot;none&quot;;
+            }
+            hideFooter();
+            const footerCheckInterval = setInterval(hideFooter, 500);
+            setTimeout(() =&gt; clearInterval(footerCheckInterval), 10000);
+
+            $('a[href^=&quot;#&quot;]:not(.dropdown-toggle)').on('click', function (event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').animate({ scrollTop: target.offset().top - 70 }, 500);
+                }
+            });
+        });
+    &lt;/script&gt;
+
+    &lt;!-- FIREWORKS ANIMATION JAVASCRIPT --&gt;
+    &lt;script&gt;
+        $(function () {
+            var Fireworks = function () {
+                var self = this;
+                var rand = (rMi, rMa) =&gt; ~~((Math.random() * (rMa - rMi + 1)) + rMi);
+                var hitTest = (x1, y1, w1, h1, x2, y2, w2, h2) =&gt; !(x1 + w1 &lt; x2 || x2 + w2 &lt; x1 || y1 + h1 &lt; y2 || y2 + h2 &lt; y1);
+                window.requestAnimFrame = (() =&gt; window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (a) { window.setTimeout(a, 1E3 / 60) })();
+
+                const audio = document.getElementById('audio1');
+                const tryAudioPlay = function() {
+                    if (audio &amp;&amp; audio.play) {
+                        audio.play().then(() =&gt; $(window).off('mousedown', tryAudioPlay)).catch(e =&gt; console.warn(&quot;Audio playback currently blocked:&quot;, e));
+                    }
+                };
+
+                self.init = function () {
+                    self.canvas = document.getElementById('fireworksCanvas');
+                    self.canvas.width = self.cw = window.innerWidth;
+                    self.canvas.height = self.ch = window.innerHeight;
+                    self.particles = [];
+                    self.partCount = 150;
+                    self.fireworks = [];
+                    self.mx = self.cw / 2;
+                    self.my = self.ch / 2;
+                    self.partSpeed = 5;
+                    self.partSpeedVariance = 10;
+                    self.partWind = 50;
+                    self.partFriction = 5;
+                    self.partGravity = 1;
+                    self.fworkSpeed = 4;
+                    self.fworkAccel = 10;
+                    self.hueVariance = 0;
+                    self.flickerDensity = 25;
+                    self.clearAlpha = 25;
+                    self.ctx = self.canvas.getContext('2d');
+                    self.ctx.lineCap = 'round';
+                    self.ctx.lineJoin = 'round';
+                    self.lineWidth = 1;
+                    self.bindEvents();
+                    self.canvasLoop();
+                    self.canvas.onselectstart = () =&gt; false;
+                };
+
+                self.createParticles = function (x, y, hue) {
+                    if (audio.currentTime &gt; 0) audio.currentTime = 0;
+                    audio.play().catch(e =&gt; {});
+                    var countdown = self.partCount;
+                    while (countdown--) {
+                        self.particles.push({
+                            x: x, y: y,
+                            coordLast: [{ x: x, y: y }, { x: x, y: y }, { x: x, y: y }],
+                            angle: rand(0, 360),
+                            speed: rand(((self.partSpeed - self.partSpeedVariance) &lt;= 0) ? 1 : self.partSpeed - self.partSpeedVariance, (self.partSpeed + self.partSpeedVariance)),
+                            friction: 1 - self.partFriction / 100,
+                            gravity: self.partGravity / 2,
+                            hue: rand(hue - self.hueVariance, hue + self.hueVariance),
+                            brightness: rand(50, 80),
+                            alpha: rand(40, 100) / 100,
+                            decay: rand(10, 50) / 1000,
+                            wind: (rand(0, self.partWind) - (self.partWind / 2)) / 25,
+                            lineWidth: self.lineWidth
+                        });
+                    }
+                };
+
+                self.updateParticles = function () {
+                    for (var i = self.particles.length - 1; i &gt;= 0; i--) {
+                        var p = self.particles[i];
+                        var radians = p.angle * Math.PI / 180;
+                        var vx = Math.cos(radians) * p.speed;
+                        var vy = Math.sin(radians) * p.speed;
+                        p.speed *= p.friction;
+                        p.coordLast.pop();
+                        p.coordLast.unshift({ x: p.x, y: p.y });
+                        p.x += vx;
+                        p.y += vy + p.gravity;
+                        p.angle += p.wind;
+                        p.alpha -= p.decay;
+                        if (!hitTest(0, 0, self.cw, self.ch, p.x, p.y, 0, 0) || p.alpha &lt; .05) {
+                            self.particles.splice(i, 1);
+                        }
+                    }
+                };
+                
+                self.drawParticles = function () {
+                    for (var i = self.particles.length - 1; i &gt;= 0; i--) {
+                        var p = self.particles[i];
+                        var coordRand = rand(0, p.coordLast.length - 1);
+                        self.ctx.beginPath();
+                        self.ctx.moveTo(p.coordLast[coordRand].x, p.coordLast[coordRand].y);
+                        self.ctx.lineTo(p.x, p.y);
+                        self.ctx.strokeStyle = `hsla(${p.hue}, 100%, ${p.brightness}%, ${p.alpha})`;
+                        self.ctx.stroke();
+                        if (self.flickerDensity &gt; 0 &amp;&amp; rand(0, 50-self.flickerDensity) === 0) {
+                            self.ctx.beginPath();
+                            self.ctx.arc(p.x, p.y, rand(p.lineWidth, p.lineWidth + 3) / 2, 0, Math.PI * 2);
+                            self.ctx.fillStyle = `hsla(${p.hue}, 100%, ${p.brightness}%, ${rand(50, 100) / 100})`;
+                            self.ctx.fill();
+                        }
+                    }
+                };
+
+                self.createFireworks = function (startX, startY, targetX, targetY) {
+                    var googleHues = [217, 5, 45, 136];
+                    self.fireworks.push({
+                        x: startX, y: startY, startX: startX, startY: startY,
+                        hitX: false, hitY: false,
+                        coordLast: [{ x: startX, y: startY }, { x: startX, y: startY }, { x: startX, y: startY }],
+                        targetX: targetX, targetY: targetY,
+                        speed: self.fworkSpeed,
+                        angle: Math.atan2(targetY - startY, targetX - startX),
+                        acceleration: self.fworkAccel / 100,
+                        hue: googleHues[rand(0, googleHues.length - 1)],
+                        brightness: rand(50, 80),
+                        alpha: rand(50, 100) / 100,
+                        lineWidth: self.lineWidth
+                    });
+                };
+
+                self.updateFireworks = function () {
+                    for (var i = self.fireworks.length - 1; i &gt;= 0; i--) {
+                        var f = self.fireworks[i];
+                        f.speed *= 1 + f.acceleration;
+                        var vx = Math.cos(f.angle) * f.speed, vy = Math.sin(f.angle) * f.speed;
+                        f.coordLast.pop();
+                        f.coordLast.unshift({ x: f.x, y: f.y });
+                        if (f.startX &gt;= f.targetX) { if(f.x + vx &lt;= f.targetX) { f.x = f.targetX; f.hitX = true; } else {f.x += vx;} } 
+                        else { if(f.x + vx &gt;= f.targetX) { f.x = f.targetX; f.hitX = true; } else {f.x += vx;} }
+                        if (f.startY &gt;= f.targetY) { if(f.y + vy &lt;= f.targetY) { f.y = f.targetY; f.hitY = true; } else {f.y += vy;} }
+                        else { if(f.y + vy &gt;= f.targetY) { f.y = f.targetY; f.hitY = true; } else {f.y += vy;} }
+
+                        if (f.hitX &amp;&amp; f.hitY) {
+                            self.createParticles(f.targetX, f.targetY, f.hue);
+                            self.fireworks.splice(i, 1);
+                        }
+                    }
+                };
+                
+                self.drawFireworks = function () {
+                    self.ctx.globalCompositeOperation = 'lighter';
+                    for (var i = self.fireworks.length - 1; i &gt;= 0; i--) {
+                        var f = self.fireworks[i];
+                        self.ctx.lineWidth = f.lineWidth;
+                        var coordRand = rand(0, f.coordLast.length - 1);
+                        self.ctx.beginPath();
+                        self.ctx.moveTo(f.coordLast[coordRand].x, f.coordLast[coordRand].y);
+                        self.ctx.lineTo(f.x, f.y);
+                        self.ctx.strokeStyle = `hsla(${f.hue}, 100%, ${f.brightness}%, ${f.alpha})`;
+                        self.ctx.stroke();
+                    }
+                };
+
+                self.bindEvents = function () {
+                    const targetElement = $(window);
+                    targetElement.on('mousedown', tryAudioPlay);
+                    $(window).on('resize', () =&gt; {
+                        clearTimeout(self.timeout);
+                        self.timeout = setTimeout(() =&gt; {
+                            self.canvas.width = self.cw = window.innerWidth;
+                            self.canvas.height = self.ch = window.innerHeight;
+                            self.ctx.lineCap = 'round';
+                            self.ctx.lineJoin = 'round';
+                        }, 100);
+                    });
+                    targetElement.on('mousedown', e =&gt; {
+                        if ($(e.target).closest('a, button, input, .dropdown-menu').length) return;
+                        self.mx = e.clientX;
+                        self.my = e.clientY;
+                        self.createFireworks(self.cw / 2, self.ch, self.mx, self.my);
+                        targetElement.on('mousemove.fireworks', e =&gt; {
+                            if ($(e.target).closest('a, button, input').length) return;
+                            self.mx = e.clientX;
+                            self.my = e.clientY;
+                            self.createFireworks(self.cw / 2, self.ch, self.mx, self.my);
+                        });
+                    }).on('mouseup', () =&gt; targetElement.off('mousemove.fireworks'));
+                };
+                
+                self.canvasLoop = function () {
+                    requestAnimFrame(self.canvasLoop, self.canvas);
+                    self.ctx.globalCompositeOperation = 'destination-out';
+                    self.ctx.fillStyle = `rgba(0,0,0,${self.clearAlpha / 100})`;
+                    self.ctx.fillRect(0, 0, self.cw, self.ch);
+                    self.updateFireworks();
+                    self.updateParticles();
+                    self.drawFireworks();
+                    self.drawParticles();
+                };
+                self.init();
+            }
+            new Fireworks();
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;" jsaction="rcuQ6b:WYd;"><div class="EmVfjc qs41qe UzswCe" data-loadingmessage=" " jscontroller="qAKInc" jsaction="animationend:kWijWc;dyRcpb:dyRcpb" data-active="true" jsname="Hy6Uif" style="display: none;"><div class="Cg7hO" aria-live="assertive" jsname="vyyg5"> </div><div jsname="Hxlbvc" class="xu46lf"><div class="ir3uv uWlRce co39ub"><div class="xq3j6 ERcjC"><div class="X6jHbb GOJTSe"></div></div><div class="HBnAAc"><div class="X6jHbb GOJTSe"></div></div><div class="xq3j6 dj3yTd"><div class="X6jHbb GOJTSe"></div></div></div><div class="ir3uv GFoASc Cn087"><div class="xq3j6 ERcjC"><div class="X6jHbb GOJTSe"></div></div><div class="HBnAAc"><div class="X6jHbb GOJTSe"></div></div><div class="xq3j6 dj3yTd"><div class="X6jHbb GOJTSe"></div></div></div><div class="ir3uv WpeOqd hfsr6b"><div class="xq3j6 ERcjC"><div class="X6jHbb GOJTSe"></div></div><div class="HBnAAc"><div class="X6jHbb GOJTSe"></div></div><div class="xq3j6 dj3yTd"><div class="X6jHbb GOJTSe"></div></div></div><div class="ir3uv rHV3jf EjXFBf"><div class="xq3j6 ERcjC"><div class="X6jHbb GOJTSe"></div></div><div class="HBnAAc"><div class="X6jHbb GOJTSe"></div></div><div class="xq3j6 dj3yTd"><div class="X6jHbb GOJTSe"></div></div></div></div></div><iframe jsname="WMhH6e" class=" YMEQtf" frameborder="0" sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-storage-access-by-user-activation" id="32f0ca1f70f20efb_10" name="32f0ca1f70f20efb_10" scrolling="no" title="Custom embed" aria-label="Custom embed" src="https://www.gstatic.com/atari/embeds/83a60601c213b72fb19c1855fb0c5f26/intermediate-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.G0GbPrbxPQI.O%2Fd%3D1%2Frs%3DAHpOoo9HygV5JFIQoP_uqLz_KOOic28zTQ%2Fm%3D__features__&amp;r=549855708"></iframe></div>
+
+
+
+<style>
+        /* --- START OF CUSTOM FIREWORKS CSS (Modified for Full Page) --- */
+        #fireworksCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 999;
+            /* CRUCIAL: Allows all mouse clicks/touches to pass through to the elements underneath it. */
+            pointer-events: none;
+        }
+
+        audio {
+            display: none;
+        }
+
+        canvas {
+            display: block;
+        }
+        /* --- END OF CUSTOM FIREWORKS CSS --- */
+
+
+        /* --- START OF ORIGINAL SKILLS BOOST CSS --- */
+        hr {
+            border: 1px solid #FFD548;
+            opacity: 100%;
+            border-radius: 2px;
+        }
+
+        #Header1 {
+            display: block;
+        }
+
+        footer.zlaBJ {
+            display: none !important;
+        }
+
+        #Header2 {
+            display: none;
+        }
+
+        @media all and (max-width: 766px) {
+            #Header1 {
+                display: none;
+            }
+
+            #Header2 {
+                display: block;
+            }
+        }
+
+        @media all and (max-width:766px) {
+            .faq-header {
+                font-size: medium;
+            }
+        }
+
+        #mainpage-title {
+            font-family: "Press Start 2P";
+            color: #FFD548;
+        }
+
+        #card-title {
+            font-family: "Press Start 2P";
+            color: #FFD548;
+        }
+
+        .card-title {
+            font-family: "Press Start 2P";
+            color: #FFD548;
+        }
+
+        .card {
+            background-color: #292D33;
+            color: white;
+        }
+
+        img {
+            width: 50%;
+        }
+
+        .dark-back {
+            background-color: #174689;
+        }
+
+        .playlist-bg {
+            background-color: #174689;
+        }
+
+        .black-bg {
+            background-color: #1B1C24;
+        }
+
+        /*Style for the FAQ widget*/
+        section {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Google Sans';
+            background-color: #1B1C24;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px 5px #0c2447;
+            color: #444;
+            cursor: pointer;
+            padding: 60px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 10px;
+            transition: 0.4s;
+            border-bottom: #444;
+        }
+
+        .section {
+            padding: 0 15px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .active,
+        .faq:hover {
+            background-color: #1B1C24;
+        }
+
+        .section:after {
+            content: '\002B';
+            color: #1B1C24;
+            float: right;
+            margin-left: 5px;
+        }
+
+        title {
+            font-size: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+            color: white;
+        }
+
+        .faq {
+            border-bottom: 2px solid #de5246;
+            cursor: pointer;
+        }
+
+        .question h3 {
+            font-size: 14px;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            color: white;
+        }
+
+        .faq .question h3:after {
+            content: '\002B';
+            -webkit-transition: .3s ease;
+            -moz-transition: .3s ease;
+            -o-transition: .3s ease;
+            transition: .3s ease;
+        }
+
+        .faq.active .question h3:after {
+            content: '\2212';
+            -webkit-transition: .3s ease;
+            -moz-transition: .3s ease;
+            -o-transition: .3s ease;
+            transition: .3s ease;
+        }
+
+        .answer {
+            max-height: 0;
+            overflow: hidden;
+            background-color: #ffffff;
+            transition: max-height 0.25s ease;
+        }
+
+        .answer p {
+            margin: 10px 0;
+            font-size: 14px;
+            text-align: left;
+            padding: 10px;
+        }
+
+        .faq.active .answer {
+            max-height: 1000px;
+            transition: max-height 0.25s ease;
+        }
+
+        .input-faq {
+            font-family: 'Google Sans';
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+            color: #de5246;
+            padding: 6px 10px;
+            margin: 3px 0;
+            box-sizing: border-box;
+            height: 36px;
+            border-style: solid;
+            border-color: #de5246;
+            border-radius: 1px 1px 1px 1px;
+        }
+
+        .imageEmpty {
+            display: none;
+        }
+
+        p {
+            font-family: "Google Sans";
+            color: white;
+        }
+
+        .asterisk {
+            color: red;
+        }
+
+        h5 {
+            color: white;
+            margin-top: 10px;
+        }
+
+        label {
+            color: white;
+        }
+
+        .answer-text {
+            color: #1B1C24;
+        }
+
+        #mce-success-response {
+            color: #34A853;
+            font-weight: bold;
+            font-family: 'Google Sans';
+        }
+
+        #mce-error-response {
+            color: #de5246;
+        }
+
+        .list-marker {
+            font-size: xx-large;
+            padding-right: 12px;
+            font-family: "Press Start 2P";
+        }
+
+        .list-item {
+            padding: 20px;
+        }
+
+        a {
+            color: #FFD548;
+        }
+
+        .communityBg {
+            background-color: #0c2447 !important;
+        }
+
+        .communityText {
+            display: flex !important;
+            flex-direction: column !important;
+            text-align: left !important;
+            justify-content: center !important;
+
+        }
+
+        .communityRhsText {
+            padding-right: 1rem;
+
+        }
+
+        .communityLhsImgContainer {
+            height: 100%
+        }
+
+        .communityLhsImg {
+            height: 100%;
+            padding-left: 1rem;
+            padding-right: 0;
+        }
+
+        .communityUl {
+            text-align: left !important;
+        }
+
+        .btnCommunityContainer {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .background-gradient {
+            background: url('https://i.ibb.co/x33vrk1/actual-backgrd.png'), linear-gradient( #E53C26, #F79E1F);
+            backdrop-filter: blur(100%);
+            background-repeat: repeat, no-repeat;
+            background-position: center;
+            background-blend-mode: multiply;
+        }
+
+        .background-gradient1 {
+            background: url('https://i.ibb.co/FVQ0YVZ/prize-bgc.png');
+            backdrop-filter: blur(100%);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-blend-mode: normal;
+            background-size: cover;
+        }
+
+        .background-gradient2 {
+            background: url('https://i.ibb.co/6bWHjRW/header-bgc.png');
+            backdrop-filter: blur(100%);
+            background-position: center;
+            background-blend-mode: normal;
+            background-size: cover;
+        }
+
+        .background-gradient3 {
+            background: url('https://i.ibb.co/Lxdg1GZ/Dark-Background.png');
+            backdrop-filter: blur(100%);
+            background-position: center;
+            background-blend-mode: normal;
+            background-size: cover;
+        }
+
+        .prize-section-header {
+            font-family: "Press Start 2P";
+            color: #FFD548;
+        }
+
+        .point-marker {
+            font-size: medium;
+            padding-right: 12px;
+            font-family: "Press Start 2P";
+        }
+
+        .second-row {
+            padding-bottom: 100px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #E53C26, #F79E1F);
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="20" font-size="20" fill="red">♥</text></svg>') 16 16, auto;
+
+            font-family: "Press Start 2P";
+            font-size: medium;
+            color: #1B1C24;
+            border: none;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #F5BB11, #F5BB11);
+            cursor: pointer
+        }
+
+        table {
+            color: white;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        #result1, #result2 {
+            text-align: center;
+            margin-top: 20px;
+            color: antiquewhite;
+        }
+
+        .spinner-border {
+            display: none;
+        }
+
+        .bannerFix {
+            margin-top: 70px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .bannerFix {
+                margin-top: 0px;
+            }
+        }
+
+        .hBW7Hb {
+            background-color: #34A853;
+        }
+
+        .img-skill {
+            border-radius: 8px;
+        }
+
+        .img-skill1 {
+            border-radius: 4px;
+            width: 80%;
+        }
+
+        /* revolving border */
+        .borderCards {
+            position: relative;
+            box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
+            color: #999;
+            overflow: hidden;
+        }
+
+        .borderCards span:nth-child(1) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #171618, #fff53b);
+            animation: animate1 2s linear infinite;
+        }
+
+        @keyframes animate1 {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .borderCards span:nth-child(2) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, #171618, #fff53b);
+            animation: animate2 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes animate2 {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .borderCards span:nth-child(3) {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to left, #171618, #fff53b);
+            animation: animate3 2s linear infinite;
+        }
+
+        @keyframes animate3 {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .borderCards span:nth-child(4) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to top, #171618, #fff53b);
+            animation: animate4 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        .MileStone {
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
+
+        @keyframes animate4 {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+        }
+
+        .navbarUlParent {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media screen and (max-width: 800px) {
+            .CloudCommunity {
+                padding-left: 2rem;
+            }
+        }
+        
+        .milestoneCards .card {
+            height: 350px;
+        }
+
+        .scrollBox {
+            overflow: hidden;
+        }
+
+        .custom-modal-content {
+            background-color: white !important;
+        }
+
+        .modal-backdrop.show {
+            opacity: 0.8 !important;
+        }
+
+        .custom-modal-size {
+            max-width: 90% !important;
+        }
+
+        .custom-modal-size .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .go-row {
+            max-height: 50vh;
+            overflow: auto;
+            padding: 1rem;
+            border: 4px solid #FFD548;
+            border-radius: 5px;
+        }
+
+        .go-row::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+        }
+
+        .go-row::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
+        .go-row::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
+
+        .go-row::-webkit-scrollbar-thumb {
+            background-color: #E53C26;
+        }
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #071C35 !important;
+        }
+
+        #google_translate_element {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1001;
+        }
+
+        .navbar-nav .nav-link {
+            padding: 1rem;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd {
+            height: 1px;
+        }
+
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd img {
+            height: 14px !important;
+            width: 37px !important;
+        }
+
+        .specialBadge:hover {
+            box-shadow: 1px 1px 5px 5px #F5BB11;
+            cursor: pointer;
+        }
+        
+        #scrollImage, #scrollImageRight {
+            position: fixed;
+            top: 100%;
+            width: 300px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in, top 0.5s ease-in;
+            z-index: 40000000;
+        }
+        #scrollImageRight {
+            right: -9rem;
+        }
+
+        #scrollImage.show, #scrollImageRight.show {
+            top: 6rem;
+            opacity: 1;
+        }
+
+        .firework-rounded {
+            width: 75px;
+            height: 75px;
+            position: relative;
+            align-self: center;
+        }
+
+        .firework-rounded-light {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border-color: #fbbc04 !important;
+            animation: fireworksAnimation 1.5s ease-out infinite alternate;
+            opacity: 0;
+        }
+
+        .firework-rounded-light:nth-child(1) { width: 15px; height: 15px; border: 1px dotted #f9a600; animation-delay: 0.3s; }
+        .firework-rounded-light:nth-child(2) { width: 25px; height: 25px; border: 2px dotted #ffbb33; animation-delay: 0.5s; }
+        .firework-rounded-light:nth-child(3) { width: 35px; height: 35px; border: 3px dotted #ffcc66; animation-delay: 0.7s; }
+        .firework-rounded-light:nth-child(4) { width: 45px; height: 45px; border: 4px dotted #ffdd99; animation-delay: 0.9s; transform: translate(-50%, -50%) rotate(45deg); }
+        .firework-rounded-light:nth-child(5) { width: 55px; height: 55px; border: 5px dotted #ffe5b3; animation-delay: 1.1s; transform: translate(-50%, -50%) rotate(45deg); }
+        .firework-rounded-light:nth-child(6) { width: 65px; height: 65px; border: 6px dotted #fff2cc; animation-delay: 1.3s; transform: translate(-50%, -50%) rotate(90deg); }
+
+        @keyframes fireworksAnimation {
+            0%, 100% { opacity: 0; border-color: #fbbc04; }
+            50% { opacity: 1; border-color: #fbbc04; }
+        }
+        /* --- END OF ORIGINAL SKILLS BOOST CSS --- */
+    </style>
+
+    
+<script nonce="">window['ppConfig'] = {productName: '6b8ce7c01e3dacd3d2c7a8cd322ff979', deleteIsEnforced:  false , sealIsEnforced:  false , heartbeatRate:  0.5 , periodicReportingRateMillis:  60000.0 , disableAllReporting:  false };(function(){'use strict';function k(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}var l=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,c){if(a==Array.prototype||a==Object.prototype)return a;a[b]=c.value;return a};
+function m(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var c=a[b];if(c&&c.Math==Math)return c}throw Error("Cannot find global object");}var n=m(this);function p(a,b){if(b)a:{var c=n;a=a.split(".");for(var d=0;d<a.length-1;d++){var e=a[d];if(!(e in c))break a;c=c[e]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&b!=null&&l(c,a,{configurable:!0,writable:!0,value:b})}}
+function q(a){var b=typeof Symbol!="undefined"&&Symbol.iterator&&a[Symbol.iterator];if(b)return b.call(a);if(typeof a.length=="number")return{next:k(a)};throw Error(String(a)+" is not an iterable or ArrayLike");}p("Object.is",function(a){return a?a:function(b,c){return b===c?b!==0||1/b===1/c:b!==b&&c!==c}});
+p("Array.prototype.includes",function(a){return a?a:function(b,c){var d=this;d instanceof String&&(d=String(d));var e=d.length;c=c||0;for(c<0&&(c=Math.max(c+e,0));c<e;c++){var f=d[c];if(f===b||Object.is(f,b))return!0}return!1}});
+p("String.prototype.includes",function(a){return a?a:function(b,c){if(this==null)throw new TypeError("The 'this' value for String.prototype.includes must not be null or undefined");if(b instanceof RegExp)throw new TypeError("First argument to String.prototype.includes must not be a regular expression");return this.indexOf(b,c||0)!==-1}});function r(a,b,c){a("https://csp.withgoogle.com/csp/proto/"+encodeURIComponent(b),JSON.stringify(c))}function t(){var a;if((a=window.ppConfig)==null?0:a.disableAllReporting)return function(){};var b,c,d,e;return(e=(b=window)==null?void 0:(c=b.navigator)==null?void 0:(d=c.sendBeacon)==null?void 0:d.bind(navigator))!=null?e:u}function u(a,b){var c=new XMLHttpRequest;c.open("POST",a);c.send(b)}
+function v(){var a=(w=Object.prototype)==null?void 0:w.__lookupGetter__("__proto__"),b=x,c=y;return function(){var d=a.call(this),e,f,g,h;r(c,b,{type:"ACCESS_GET",origin:(f=window.location.origin)!=null?f:"unknown",report:{className:(g=d==null?void 0:(e=d.constructor)==null?void 0:e.name)!=null?g:"unknown",stackTrace:(h=Error().stack)!=null?h:"unknown"}});return d}}
+function z(){var a=(A=Object.prototype)==null?void 0:A.__lookupSetter__("__proto__"),b=x,c=y;return function(d){d=a.call(this,d);var e,f,g,h;r(c,b,{type:"ACCESS_SET",origin:(f=window.location.origin)!=null?f:"unknown",report:{className:(g=d==null?void 0:(e=d.constructor)==null?void 0:e.name)!=null?g:"unknown",stackTrace:(h=Error().stack)!=null?h:"unknown"}});return d}}function B(a,b){C(a.productName,b);setInterval(function(){C(a.productName,b)},a.periodicReportingRateMillis)}
+var D="constructor __defineGetter__ __defineSetter__ hasOwnProperty __lookupGetter__ __lookupSetter__ isPrototypeOf propertyIsEnumerable toString valueOf __proto__ toLocaleString x_ngfn_x".split(" "),E=D.concat,F=navigator.userAgent.match(/Firefox\/([0-9]+)\./),G=(!F||F.length<2?0:Number(F[1])<75)?["toSource"]:[],H;if(G instanceof Array)H=G;else{for(var I=q(G),J,K=[];!(J=I.next()).done;)K.push(J.value);H=K}var L=E.call(D,H),M=[];
+function C(a,b){for(var c=[],d=q(Object.getOwnPropertyNames(Object.prototype)),e=d.next();!e.done;e=d.next())e=e.value,L.includes(e)||M.includes(e)||c.push(e);e=Object.prototype;d=[];for(var f=0;f<c.length;f++){var g=c[f];d[f]={name:g,descriptor:Object.getOwnPropertyDescriptor(Object.prototype,g),type:typeof e[g]}}if(d.length!==0){c=q(d);for(e=c.next();!e.done;e=c.next())M.push(e.value.name);var h;r(b,a,{type:"SEAL",origin:(h=window.location.origin)!=null?h:"unknown",report:{blockers:d}})}};var N=Math.random(),O=t(),P=window.ppConfig;P&&(P.disableAllReporting||P.deleteIsEnforced&&P.sealIsEnforced||N<P.heartbeatRate&&r(O,P.productName,{origin:window.location.origin,type:"HEARTBEAT"}));var y=t(),Q=window.ppConfig;if(Q)if(Q.deleteIsEnforced)delete Object.prototype.__proto__;else if(!Q.disableAllReporting){var x=Q.productName;try{var w,A;Object.defineProperty(Object.prototype,"__proto__",{enumerable:!1,get:v(),set:z()})}catch(a){}}
+(function(){var a=t(),b=window.ppConfig;b&&(b.sealIsEnforced?Object.seal(Object.prototype):b.disableAllReporting||(document.readyState!=="loading"?B(b,a):document.addEventListener("DOMContentLoaded",function(){B(b,a)})))})();}).call(this);
+</script>
