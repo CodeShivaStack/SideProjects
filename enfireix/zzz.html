@@ -1,0 +1,1206 @@
+<style>
+    /* Global Styles */
+/* Floating image button styles */
+#super-btn {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    z-index: 1000;
+    display: inline-block;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    width: 56px;
+    height: 56px;
+    background: #fff;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+#super-btn:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.28);
+    transform: scale(1.07);
+}
+#super-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0; /* lighter gray background */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    margin: 30px 0 15px;
+    color: #333;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'UnifrakturMaguntia', cursive; /* Main bold text font */
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.card-section {
+    margin-bottom: 50px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* Profile Card Styles */
+.profile-card {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    border-radius: 24px;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    padding: 6px 6px 6px 6px; /* Consistent padding on all sides */
+}
+
+.profile-card .card-image {
+    height: 60%;
+    overflow: hidden;
+    border-radius: 20px; /* Round all corners of the image */
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.profile-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.profile-card .card-content {
+    padding: 12px 8px 10px; /* Reduced top padding */
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Changed from space-between to reduce gaps */
+    gap: 10px; /* Controlled gap between content blocks */
+    position: absolute; /* Fixed position */
+    bottom: 6px; /* Adjusted for bottom padding */
+    left: 6px; /* Adjusted for side padding */
+    right: 6px; /* Adjusted for side padding */
+    z-index: 2; /* Keep content above the image overlay */
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.name-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.name {
+    font-weight: bold;
+    color: #000000;
+    font-size: 22px; /* Slightly increased text size */
+}
+
+.verification-badge {
+    color: #00C853;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 200, 83, 0.1);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.description {
+    margin: 4px 0 8px; /* Reduced margins above and below */
+    font-size: 15px; /* Slightly increased text size */
+    color: #666666;
+    line-height: 1.3; /* Reduced line height */
+}
+
+.stats-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 4px; /* Add a small margin at the top */
+}
+
+.stats-group {
+    display: flex;
+    gap: 16px; /* Reduced gap between stats */
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Reduced gap between icon and number */
+}
+
+.stat-icon {
+    color: #666666;
+    font-size: 15px; /* Slightly increased icon size */
+}
+
+.stat-count {
+    font-weight: bold;
+    font-size: 16px; /* Slightly increased font size */
+}
+
+.follow-button {
+    background-color: #f2f2f2;
+    color: #000000;
+    border: none;
+    border-radius: 12px;
+    padding: 6px 14px; /* Slightly reduced padding */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Reduced gap between icon and text */
+    font-weight: 600;
+    font-size: 15px; /* Consistent font size */
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Hover Effect for Profile Card */
+.profile-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.profile-card:hover .card-image {
+    height: calc(100% - 12px); /* Account for top and bottom padding */
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    width: calc(100% - 12px); /* Account for left and right padding */
+    margin: 0; /* Remove margin since we're using absolute positioning with specific coordinates */
+    border-radius: 20px; /* Match non-hover border radius */
+}
+
+.profile-card:hover .card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Remove gradient */
+    backdrop-filter: blur(4px); /* Add blur effect */
+    -webkit-backdrop-filter: blur(4px); /* For Safari support */
+    opacity: 0.4; /* 40% blur opacity */
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.profile-card:hover .card-content {
+    padding: 16px 8px 8px; /* Keep the same padding as non-hover state */
+    background: transparent;
+    z-index: 2;
+    /* Position is already set in the base class and remains unchanged */
+}
+
+.profile-card:hover .name {
+    color: #000000; /* Keep text color the same as non-hover */
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5); /* Add subtle shadow for readability */
+}
+
+.profile-card:hover .description {
+    color: #666666; /* Keep text color the same as non-hover */
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3); /* Add subtle shadow for readability */
+}
+
+.profile-card:hover .stat-icon,
+.profile-card:hover .stat-count {
+    color: #666666; /* Keep text color the same as non-hover */
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3); /* Add subtle shadow for readability */
+}
+
+.profile-card:hover .follow-button {
+    background-color: #f2f2f2; /* Keep button style the same */
+    color: #000000;
+}
+
+/* Feature Cards Section */
+.feature-card {
+    width: 550px;
+    height: 220px;
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 6px; /* Added small padding, same as profile card */
+}
+
+.feature-card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 26px; /* Slightly smaller than outer radius to account for padding */
+    overflow: hidden; /* Ensure the image respects the border radius */
+}
+
+.feature-card-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feature-card-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(44, 62, 80, 0.9) 0%, rgba(44, 62, 80, 0.5) 50%, rgba(44, 62, 80, 0.2) 100%);
+    z-index: 1;
+    border-radius: 26px; /* Match the border radius of the background */
+}
+
+.feature-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 24px 30px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 12px); /* Account for the padding */
+    margin: 6px; /* Align with the padding */
+}
+
+.feature-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.feature-subtitle {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+.feature-description {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.feature-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.feature-price {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.feature-button {
+    background-color: white;
+    color: #333;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Info Cards Section */
+.info-card {
+    width: 550px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    margin: 0 auto;
+    height: 350px;
+    transform-origin: center;
+    transform: scale(1);
+}
+
+.info-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease-out;
+}
+
+.info-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(76, 111, 255, 0.1));
+    z-index: 8;
+    transform: scale(1);
+    transition: all 0.25s ease;
+}
+
+.info-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.info-title {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 32px;
+    font-family: 'UnifrakturMaguntia', cursive;
+    transition: color 0.3s ease, transform 0.5s ease;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    z-index: 3;
+    position: relative;
+}
+
+.info-description {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.6;
+    transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    margin-top: 15px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Beautiful Hover Effects */
+.info-card:hover {
+    box-shadow: 0 20px 60px rgba(76, 111, 255, 0.25);
+    transform: scale(1.005) translateY(-5px);
+}
+
+.info-card:hover .info-image {
+    opacity: 0.9;
+}
+
+.info-card:hover .overlay {
+    transform: scale(4);
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(76, 111, 255, 0.2));
+}
+
+.info-card:hover .info-content {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
+    justify-content: flex-end;
+}
+
+.info-card:hover .info-title {
+    transform: translateY(0);
+}
+
+.info-card:hover .info-description {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 300px;
+    margin-top: 20px;
+    transition-delay: 0.05s;
+}
+
+@keyframes glowAnimation {
+    0% { 
+        filter: blur(5px);
+        opacity: 0.7;
+    }
+    50% {
+        filter: blur(10px);
+        opacity: 0.9;
+    }
+    100% {
+        filter: blur(5px);
+        opacity: 0.7;
+    }
+}
+
+@keyframes glowAnimation {
+    0% { 
+        filter: blur(5px);
+        opacity: 0.7;
+    }
+    50% {
+        filter: blur(10px);
+        opacity: 0.9;
+    }
+    100% {
+        filter: blur(5px);
+        opacity: 0.7;
+    }
+}
+
+/* Testimonial Cards Section */
+.testimonial-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    position: relative;
+    padding: 20px 0;
+    background-color: transparent; /* Ensure transparent background */
+    user-select: none; /* Prevent text selection during scroll */
+    cursor: grab; /* Indicate scrollable content */
+    overflow: hidden; /* Prevent any scrollbar from appearing */
+}
+
+.testimonial-slider {
+    display: flex;
+    width: 100%;
+    background-color: #ffffff; /* Pure white background with hex code */
+    border-radius: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    padding: 15px; /* Consistent padding */
+    position: relative;
+    gap: 25px; /* Gap between image section and content section */
+}
+
+.testimonial-images {
+    width: 300px;
+    position: relative;
+    height: 460px; /* Adjusted for better fit */
+    overflow: hidden;
+    padding: 35px 0; /* Further increased vertical padding to avoid showing extra images */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff; /* Pure white background with hex code */
+}
+
+.testimonial-image {
+    position: absolute;
+    width: 80%; /* Width creates horizontal space */
+    left: 10%; /* Center horizontally */
+    transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother easing function */
+    border-radius: 24px; /* Rounded corners */
+    overflow: hidden;
+    background-color: #ffffff; /* Pure white background with hex code */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    border: 6px solid #ffffff; /* Pure white border with hex code */
+    opacity: 0; /* Hide by default */
+    visibility: hidden; /* Hide by default */
+}
+
+.testimonial-image.current {
+    height: 220px; /* Good size for main image */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background-color: #ffffff; /* Pure white background with hex code */
+    opacity: 1; /* Make visible */
+    visibility: visible; /* Make visible */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow for main image */
+    border: 6px solid #ffffff; /* Pure white border with hex code */
+}
+
+.testimonial-image.prev {
+    height: 100px; /* Adjusted for better fit */
+    top: 50px; /* More gap from the top to avoid showing extra images */
+    z-index: 2;
+    filter: brightness(0.98); /* Very subtle brightness change */
+    background-color: #ffffff; /* Pure white background with hex code */
+    opacity: 1; /* Make visible */
+    visibility: visible; /* Make visible */
+    border: 6px solid #ffffff; /* Pure white border with hex code */
+}
+
+.testimonial-image.next {
+    height: 100px; /* Adjusted for better fit */
+    bottom: 50px; /* More gap from the bottom to avoid showing extra images */
+    z-index: 2;
+    filter: brightness(0.98); /* Very subtle brightness change */
+    background-color: #ffffff; /* Pure white background with hex code */
+    opacity: 1; /* Make visible */
+    visibility: visible; /* Make visible */
+    border: 6px solid #ffffff; /* Pure white border with hex code */
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Ensure image is centered */
+    border-radius: 18px; /* Slightly smaller to account for the border */
+    transition: transform 0.3s ease;
+    display: block; /* Remove any potential gaps */
+    background-color: #ffffff; /* Pure white background in case image has transparency */
+}
+
+.testimonial-image:hover img {
+    transform: scale(1.05); /* Subtle zoom effect on hover */
+}
+
+.testimonial-content {
+    flex: 1;
+    padding: 40px;
+    position: relative;
+    background-color: #ffffff; /* Pure white background with hex code */
+}
+
+.testimonial-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1); /* Match the image transition */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.testimonial-item.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.testimonial-heading {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    color: #333;
+    font-family: 'UnifrakturMaguntia', cursive; /* Main bold text font */
+}
+
+.testimonial-quote {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+    font-family: 'Arizonia', cursive; /* Body text font */
+}
+
+.testimonial-author {
+    margin-top: auto;
+}
+
+.author-name {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: 'Pacifico', cursive; /* Name/title font */
+}
+
+.author-position {
+    font-size: 16px;
+    color: #777;
+    font-family: 'Arizonia', cursive; /* Body text font */
+}
+
+.testimonial-rating {
+    margin-top: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+.testimonial-rating .star {
+    color: #ff5555;
+    font-size: 18px;
+}
+
+.testimonial-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #eaeaea;
+    margin: 20px 0;
+}
+
+.testimonial-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 20px; /* Add space between slider and navigation */
+    justify-content: center;
+}
+
+.nav-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    border: 1px solid #eaeaea;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #555;
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    color: #333;
+}
+
+.testimonial-border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    border-top-left-radius: 18px;
+    border-bottom-left-radius: 18px;
+    background-color: #ffffff; /* Pure white background with hex code */
+}
+</style>
+<body>
+  <!-- Floating button with image -->
+                <a href="https://gopichakradhar.me" target="_blank" id="super-btn" title="Visit gopichakradhar.me">
+                        <img src="https://ik.imagekit.io/gopichakradhar/assets/super.jpg?updatedAt=1748004690247" alt="Super" />
+                </a>
+    <div class="container">
+        <section class="card-section" id="profile-cards">
+            <h2 class="section-title">Profile Cards</h2>
+            <div class="card-container">
+                <div class="profile-card">
+                    <div class="card-image">
+                        <img src="https://ik.imagekit.io/gopichakradhar/lisaa.jpeg" alt="Sophie Bennett">
+                    </div>
+                    <div class="card-content">
+                        <div class="name-container">
+                            <h3 class="name">Lisa Love - by Gopi</h3>
+                            <span class="verification-badge"><i class="fas fa-check-circle"></i></span>
+                        </div>
+                        <p class="description">BlackPink Product Designer who focuses on simplicity & usability.</p>
+                        <div class="stats-container">
+                            <div class="stats-group">
+                                <div class="stat">
+                                    <span class="stat-icon"><i class="fas fa-user"></i></span>
+                                    <span class="stat-count">312</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-icon"><i class="fas fa-file"></i></span>
+                                    <span class="stat-count">48</span>
+                                </div>
+                            </div>
+                            <button class="follow-button"><i class="fas fa-plus"></i> Follow</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More profile cards can be added here -->
+            </div>
+        </section>
+        
+        <section class="card-section" id="feature-cards">
+            <h2 class="section-title">Property Listings</h2>
+            <div class="card-container">
+                <!-- Feature cards will be added here -->
+            </div>
+        </section>
+        
+        <section class="card-section" id="info-cards">
+            <h2 class="section-title">Info Cards</h2>
+            <div class="card-container">
+                <!-- Info cards will be added here -->
+            </div>
+        </section>
+        
+        <section class="card-section" id="testimonial-cards">
+            <h2 class="section-title">Client Testimonials</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-slider">
+                    <div class="testimonial-images">
+                        <!-- Images will be added here via JavaScript -->
+                    </div>
+                    <div class="testimonial-content">
+                        <!-- Content will be added here via JavaScript -->
+                    </div>
+                </div>
+                <div class="testimonial-navigation">
+                    <button class="nav-button prev-button"><i class="fas fa-chevron-up"></i></button>
+                    <button class="nav-button next-button"><i class="fas fa-chevron-down"></i></button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Profile Card Component Data
+const profileCardData = {
+    "component": "ProfileCard",
+    "states": {
+        "initial": {
+            "layout": "vertical_card",
+            "background": "#ffffff",
+            "border_radius": "24px",
+            "shadow": "subtle_drop_shadow",
+            "image": {
+                "src": "sophie_bennett.jpg",
+                "shape": "rounded_top_corners",
+                "height": "60%",
+                "object_fit": "cover"
+            },
+            "text": {
+                "name": {
+                    "text": "Sophie Bennett",
+                    "font_weight": "bold",
+                    "color": "#000000",
+                    "icon": {
+                        "type": "verification_badge",
+                        "color": "#00C853"
+                    }
+                },
+                "description": {
+                    "text": "Product Designer who focuses on simplicity & usability.",
+                    "font_size": "14px",
+                    "color": "#666666"
+                }
+            },
+            "stats": {
+                "followers": {
+                    "icon": "user",
+                    "count": 312
+                },
+                "projects": {
+                    "icon": "document",
+                    "count": 48
+                }
+            },
+            "button": {
+                "text": "Follow",
+                "icon": "+",
+                "style": {
+                    "background": "#f2f2f2",
+                    "color": "#000000",
+                    "border_radius": "12px",
+                    "padding": "8px 16px"
+                }
+            }
+        },
+        "hover_or_clicked": {
+            "layout": "vertical_card",
+            "background": "#ffffff",
+            "border_radius": "24px",
+            "shadow": "stronger_drop_shadow",
+            "image": {
+                "src": "sophie_bennett.jpg",
+                "shape": "rounded_top_corners",
+                "height": "100%",
+                "object_fit": "cover",
+                "overlay": "dark_transparent_overlay"
+            },
+            "text": {
+                "name": {
+                    "text": "Sophie Bennett",
+                    "font_weight": "bold",
+                    "color": "#ffffff",
+                    "icon": {
+                        "type": "verification_badge",
+                        "color": "#00C853"
+                    }
+                },
+                "description": {
+                    "text": "Product Designer who focuses on simplicity & usability.",
+                    "font_size": "14px",
+                    "color": "#dddddd"
+                }
+            },
+            "stats": {
+                "followers": {
+                    "icon": "user",
+                    "count": 312,
+                    "color": "#eeeeee"
+                },
+                "projects": {
+                    "icon": "document",
+                    "count": 48,
+                    "color": "#eeeeee"
+                }
+            },
+            "button": {
+                "text": "Follow",
+                "icon": "+",
+                "style": {
+                    "background": "#ffffff",
+                    "color": "#000000",
+                    "border_radius": "12px",
+                    "padding": "8px 16px"
+                }
+            }
+        }
+    },
+    "interactions": {
+        "onHover": "transition to hover_or_clicked state",
+        "onClick": "optional follow action or animation",
+        "transition_effect": "smooth fade and scale"
+    }
+};
+
+// Feature Cards Data
+const featureCardsData = [
+    {
+        title: "House in Khammam,",
+        subtitle: "Telangana",
+        description: "A picturesque village in the Swiss Khammam",
+        price: "$340/m",
+        buttonText: "Check Availability",
+        image: "https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+    }
+];
+
+// Info Cards Data
+const infoCardsData = [
+    {
+        title: "Devasena's Fiery Gaze",
+        description: "Witness the iconic moment when Devasena enters with unshaken resolve and fire in her eyes. A scene that defined strength, grace, and rebellion  etched forever in cinematic history",
+        link: "#",
+        image: "https://ik.imagekit.io/gopichakradhar/bahu.jpeg"
+    }
+];
+
+// Testimonial Cards Data
+const testimonialCardsData = [
+    {
+        name: "Kathrine Katija",
+        position: "Marketing Manager",
+        company: "ABC Ad Services",
+        avatar: "https://ik.imagekit.io/gopichakradhar/assets/2.jpeg?updatedAt=1748004323175",
+        border: "#e74c3c",
+        rating: 5,
+        title: "Our ad campaigns finally speak to the right audience with clarity resulting in high CTR and ROI.",
+        quote: "Trust her work, that the words that she delivered completely transformed our brand presence."
+    },
+    {
+        name: "Michael Roberts",
+        position: "CEO",
+        company: "Digital Spark",
+        avatar: "https://ik.imagekit.io/gopichakradhar/assets/1.jpeg?updatedAt=1748004321646",
+        border: "#3498db",
+        rating: 5,
+        title: "The data insights provided helped us refine our strategy for maximum impact.",
+        quote: "Working with this team was the best decision we made for our marketing efforts last year."
+    },
+    {
+        name: "Sarah Chen",
+        position: "Director of Sales",
+        company: "GrowthBox",
+        avatar: "https://ik.imagekit.io/gopichakradhar/assets/B.jpg?updatedAt=1748004663862",
+        border: "#2ecc71",
+        rating: 5,
+        title: "Our sales figures doubled within three months of implementing the recommendations.",
+        quote: "The strategic approach to our market positioning completely changed how customers perceive our brand."
+    },
+    {
+        name: "James Wilson",
+        position: "Creative Director",
+        company: "Visionary Media",
+        avatar: "https://ik.imagekit.io/gopichakradhar/assets/Corporate_Headshots_with_Opencare-removebg-preview.png?updatedAt=1749809098511",
+        border: "#9b59b6",
+        rating: 4,
+        title: "The creative direction provided a fresh perspective to our tired branding.",
+        quote: "Our audience engagement metrics have never been higher. This collaboration exceeded our expectations."
+    },
+    {
+        name: "Emily Tanaka",
+        position: "Head of Digital",
+        company: "Nexus Innovations",
+        avatar: "https://ik.imagekit.io/gopichakradhar/assets/2.jpeg?updatedAt=1748004323175",
+        border: "#f39c12",
+        rating: 5,
+        title: "The strategic insights transformed our approach to digital marketing.",
+        quote: "We've seen unprecedented growth in our key metrics since implementing the recommended changes."
+    }
+];
+
+// Function to create feature cards
+function createFeatureCards() {
+    const container = document.querySelector('#feature-cards .card-container');
+    
+    featureCardsData.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'feature-card';
+        cardElement.innerHTML = `
+            <div class="feature-card-background">
+                <img src="${card.image}" alt="${card.title}">
+            </div>
+            <div class="feature-card-content">
+                <div class="feature-text">
+                    <h3 class="feature-title">${card.title}</h3>
+                    <h4 class="feature-subtitle">${card.subtitle}</h4>
+                    <p class="feature-description">${card.description}</p>
+                </div>
+                <div class="feature-bottom">
+                    <div class="feature-price">${card.price}</div>
+                    <button class="feature-button">${card.buttonText}</button>
+                </div>
+            </div>
+        `;
+        container.appendChild(cardElement);
+    });
+}
+
+// Function to create info cards
+function createInfoCards() {
+    const container = document.querySelector('#info-cards .card-container');
+    
+    infoCardsData.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'info-card';
+        cardElement.innerHTML = `
+            <div class="info-image">
+                <img src="${card.image}" alt="${card.title}">
+                <div class="overlay"></div>
+            </div>
+            <div class="info-content">
+                <h3 class="info-title">${card.title}</h3>
+                <p class="info-description">${card.description}</p>
+            </div>
+        `;
+        container.appendChild(cardElement);
+    });
+}
+
+// Function to create testimonial cards
+function createTestimonialCards() {
+    const imageContainer = document.querySelector('.testimonial-images');
+    const contentContainer = document.querySelector('.testimonial-content');
+    
+    // Clear previous content
+    imageContainer.innerHTML = '';
+    contentContainer.innerHTML = '';
+    
+    // First, create all testimonial images
+    testimonialCardsData.forEach((card, index) => {
+        const imageElement = document.createElement('div');
+        imageElement.className = 'testimonial-image';
+        imageElement.innerHTML = `
+            <div class="testimonial-border"></div>
+            <img src="${card.avatar}" alt="${card.name}">
+        `;
+        imageElement.dataset.index = index;
+        
+        // Initially hide all images except for the first set
+        if (index === 0 || index === testimonialCardsData.length - 1 || index === 1) {
+            imageElement.style.opacity = '1';
+            imageElement.style.visibility = 'visible';
+            if (index === 0) imageElement.classList.add('current');
+            else if (index === testimonialCardsData.length - 1) imageElement.classList.add('prev');
+            else if (index === 1) imageElement.classList.add('next');
+        } else {
+            imageElement.style.opacity = '0';
+            imageElement.style.visibility = 'hidden';
+        }
+        
+        // Apply pure white background and border
+        imageElement.style.backgroundColor = '#ffffff';
+        imageElement.style.border = '6px solid #ffffff';
+        
+        imageContainer.appendChild(imageElement);
+        
+        // Create testimonial content
+        const contentElement = document.createElement('div');
+        contentElement.className = `testimonial-item`;
+        
+        // Create rating stars
+        let stars = '';
+        for(let i = 0; i < card.rating; i++) {
+            stars += '<span class="star"><i class="fas fa-star"></i></span>';
+        }
+        
+        contentElement.innerHTML = `
+            <h2 class="testimonial-heading">${card.title}</h2>
+            <p class="testimonial-quote">${card.quote}</p>
+            <div class="testimonial-divider"></div>
+            <div class="testimonial-author">
+                <h3 class="author-name">${card.name}</h3>
+                <p class="author-position">${card.position}, ${card.company}</p>
+            </div>
+            <div class="testimonial-rating">
+                ${stars}
+            </div>
+        `;
+        contentElement.dataset.index = index;
+        
+        // Make the first testimonial active
+        if (index === 0) {
+            contentElement.classList.add('active');
+        }
+        
+        contentContainer.appendChild(contentElement);
+    });
+    
+    // Set up navigation
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    
+    let currentIndex = 0;
+    
+    prevButton.addEventListener('click', () => {
+        navigateTestimonial('prev');
+    });
+    
+    nextButton.addEventListener('click', () => {
+        navigateTestimonial('next');
+    });
+    
+    // Add scroll functionality with throttling
+    const testimonialContainer = document.querySelector('.testimonial-container');
+    
+    // Variables for scroll throttling
+    let lastScrollTime = 0;
+    const scrollCooldown = 1000; // 1 second cooldown between scroll actions
+    let accumulatedDelta = 0;
+    const scrollThreshold = 100; // Threshold to trigger navigation
+    
+    testimonialContainer.addEventListener('wheel', (e) => {
+        e.preventDefault(); // Prevent default scroll
+        
+        const currentTime = new Date().getTime();
+        
+        // Add the delta to our accumulated value
+        accumulatedDelta += e.deltaY;
+        
+        // If we're still in cooldown, don't process this scroll
+        if (currentTime - lastScrollTime < scrollCooldown) {
+            return;
+        }
+        
+        // Check if accumulated scroll passes our threshold
+        if (Math.abs(accumulatedDelta) >= scrollThreshold) {
+            if (accumulatedDelta > 0) {
+                navigateTestimonial('next');
+            } else {
+                navigateTestimonial('prev');
+            }
+            
+            // Reset the accumulated delta and update last scroll time
+            accumulatedDelta = 0;
+            lastScrollTime = currentTime;
+        }
+    });
+    
+    function navigateTestimonial(direction) {
+        // Remove all position classes and hide all images first
+        document.querySelectorAll('.testimonial-image').forEach(img => {
+            img.classList.remove('current', 'prev', 'next');
+            img.style.opacity = '0';
+            img.style.visibility = 'hidden';
+        });
+        
+        // Update current index
+        if (direction === 'next') {
+            currentIndex = (currentIndex + 1) % testimonialCardsData.length;
+        } else {
+            currentIndex = (currentIndex - 1 + testimonialCardsData.length) % testimonialCardsData.length;
+        }
+        
+        // Calculate prev and next indices
+        const prevIndex = (currentIndex - 1 + testimonialCardsData.length) % testimonialCardsData.length;
+        const nextIndex = (currentIndex + 1) % testimonialCardsData.length;
+        
+        // Apply new classes and make only these three images visible
+        const currentImg = document.querySelector(`.testimonial-image[data-index="${currentIndex}"]`);
+        const prevImg = document.querySelector(`.testimonial-image[data-index="${prevIndex}"]`);
+        const nextImg = document.querySelector(`.testimonial-image[data-index="${nextIndex}"]`);
+        
+        currentImg.classList.add('current');
+        prevImg.classList.add('prev');
+        nextImg.classList.add('next');
+        
+        currentImg.style.opacity = '1';
+        prevImg.style.opacity = '1';
+        nextImg.style.opacity = '1';
+        
+        currentImg.style.visibility = 'visible';
+        prevImg.style.visibility = 'visible';
+        nextImg.style.visibility = 'visible';
+        
+        // Update active content
+        document.querySelectorAll('.testimonial-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        document.querySelector(`.testimonial-item[data-index="${currentIndex}"]`).classList.add('active');
+    }
+}
+
+// Initialize all card sections
+document.addEventListener('DOMContentLoaded', function() {
+    createFeatureCards();
+    createInfoCards();
+    createTestimonialCards();
+});
+    </script>
+</body>

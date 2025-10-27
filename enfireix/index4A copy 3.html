@@ -481,62 +481,11 @@
     </section> -->
 
 
-
-
-
-
-
-<!-- 
-<script>
-(function(){
-  const wrapper = document.getElementById('cases-carousel');
-  const items = Array.from(wrapper.children);
-  let idx = 0;
-  
-  function getVisibleCount() {
-    if (window.innerWidth >= 1024) return 3;
-    if (window.innerWidth >= 640) return 2;
-    return 1;
-  }
-
-  function show() {
-    const visibleCount = getVisibleCount();
-    const scrollAmount = items[0].offsetWidth + 24; // gap included
-    wrapper.scrollTo({ left: idx * scrollAmount, behavior: 'smooth' });
-  }
-
-  function next() {
-    const visibleCount = getVisibleCount();
-    idx++;
-    if (idx > items.length - visibleCount) idx = 0;
-    show();
-  }
-
-  function prev() {
-    idx--;
-    if (idx < 0) idx = items.length - getVisibleCount();
-    show();
-  }
-
-  // Auto-scroll
-  setInterval(next, 7000);
-
-  // Optional: Add controls if needed
-  const controls = document.createElement('div');
-  controls.classList.add('carousel-controls');
-  controls.innerHTML = '<button id="prev">‹</button><button id="next">›</button>';
-  wrapper.parentNode.appendChild(controls);
-  document.getElementById('prev').addEventListener('click', prev);
-  document.getElementById('next').addEventListener('click', next);
-
-  window.addEventListener('resize', show);
-})();
-</script> -->
-
-
-
-<section id="cases" class="cases-testimonials bg-indigo-50 border-t border-b border-indigo-100 py-16 overflow-hidden">
+    <!-- CASES / STORIES -->
+<section id="cases" class="bg-indigo-50 border-t border-b border-indigo-100 py-16 overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
       <div>
         <h2 class="text-3xl font-bold text-gray-900">Case stories & success</h2>
@@ -547,72 +496,169 @@
       <div class="text-sm text-gray-500 font-medium">1000+ patients treated</div>
     </div>
 
+    <!-- Slider -->
     <div class="mt-10 relative">
-      <div id="cases-carousel" class="carousel-wrapper">
-        <div class="carousel-item">Slide 1 content</div>
-        <div class="carousel-item">Slide 2 content</div>
-        <div class="carousel-item">Slide 3 content</div>
-        <div class="carousel-item">Slide 4 content</div>
-        <div class="carousel-item">Slide 5 content</div>
+      <div id="slidesWrapper" class="overflow-hidden">
+        <div id="slides" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-700 ease-in-out">
+          
+          <!-- Slide 1 -->
+          <div class="slide p-6 bg-white rounded-xl shadow-md border border-indigo-100 hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4">
+              <img class="w-14 h-14 rounded-full object-cover ring-2 ring-indigo-100"
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=60"
+                alt="patient 1">
+              <div>
+                <div class="font-semibold text-gray-900">Anita S.</div>
+                <div class="text-sm text-indigo-600">Recovered after failed back surgery</div>
+              </div>
+            </div>
+            <p class="mt-4 text-gray-700 text-sm leading-relaxed">
+              “Pain reduced significantly after 6 weeks. Could resume light exercise and daily activities — non-invasive alternative to another surgery.”
+            </p>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide p-6 bg-white rounded-xl shadow-md border border-indigo-100 hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4">
+              <img class="w-14 h-14 rounded-full object-cover ring-2 ring-indigo-100"
+                src="https://images.unsplash.com/photo-1556228720-8c8e3f6d8bce?auto=format&fit=crop&w=400&q=60"
+                alt="patient 2">
+              <div>
+                <div class="font-semibold text-gray-900">Rohit K.</div>
+                <div class="text-sm text-indigo-600">Chronic lumbar pain</div>
+              </div>
+            </div>
+            <p class="mt-4 text-gray-700 text-sm leading-relaxed">
+              “Gradual improvement in mobility and less discomfort. Staff were supportive and guided therapy protocols.”
+            </p>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide p-6 bg-white rounded-xl shadow-md border border-indigo-100 hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4">
+              <img class="w-14 h-14 rounded-full object-cover ring-2 ring-indigo-100"
+                src="https://images.unsplash.com/photo-1545996124-1f1f1c9a6b6f?auto=format&fit=crop&w=400&q=60"
+                alt="patient 3">
+              <div>
+                <div class="font-semibold text-gray-900">Dr. Malhotra</div>
+                <div class="text-sm text-indigo-600">Non-union fracture case</div>
+              </div>
+            </div>
+            <p class="mt-4 text-gray-700 text-sm leading-relaxed">
+              “Using EMTT sessions as adjunct therapy led to improved healing metrics and pain reduction over standard care.”
+            </p>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="slide p-6 bg-white rounded-xl shadow-md border border-indigo-100 hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4">
+              <img class="w-14 h-14 rounded-full object-cover ring-2 ring-indigo-100"
+                src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=60"
+                alt="patient 4">
+              <div>
+                <div class="font-semibold text-gray-900">Samantha L.</div>
+                <div class="text-sm text-indigo-600">Post-surgery rehabilitation</div>
+              </div>
+            </div>
+            <p class="mt-4 text-gray-700 text-sm leading-relaxed">
+              “Recovery was faster and less painful than expected — regained mobility in record time.”
+            </p>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="slide p-6 bg-white rounded-xl shadow-md border border-indigo-100 hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4">
+              <img class="w-14 h-14 rounded-full object-cover ring-2 ring-indigo-100"
+                src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=60"
+                alt="patient 5">
+              <div>
+                <div class="font-semibold text-gray-900">Marcus D.</div>
+                <div class="text-sm text-indigo-600">Knee injury (sports)</div>
+              </div>
+            </div>
+            <p class="mt-4 text-gray-700 text-sm leading-relaxed">
+              “Able to return to sports within 8 weeks. The technology made a clear difference in inflammation control.”
+            </p>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="slide p-6 bg-white rounded-xl shadow-md border border-indigo-100 hover:shadow-lg transition-all">
+            <div class="flex items-start gap-4">
+              <img class="w-14 h-14 rounded-full object-cover ring-2 ring-indigo-100"
+                src="https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&w=400&q=60"
+                alt="patient 6">
+              <div>
+                <div class="font-semibold text-gray-900">Elena P.</div>
+                <div class="text-sm text-indigo-600">Frozen shoulder</div>
+              </div>
+            </div>
+            <p class="mt-4 text-gray-700 text-sm leading-relaxed">
+              “Regained full range of motion after consistent sessions — no injections needed.”
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="mt-10 flex justify-center gap-3">
+        <button id="prevSlide" class="px-4 py-2 text-sm border border-indigo-300 rounded-md hover:bg-indigo-100 transition">Prev</button>
+        <button id="nextSlide" class="px-4 py-2 text-sm border border-indigo-300 rounded-md hover:bg-indigo-100 transition">Next</button>
       </div>
     </div>
   </div>
 </section>
 
-<style>
-.cases-testimonials .carousel-wrapper {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-.cases-testimonials .carousel-item {
-  flex: 0 0 30%;
-  max-width: 30%;
-}
-@media (max-width:1024px) {
-  .cases-testimonials .carousel-item { flex: 0 0 45%; max-width: 45%; }
-}
-@media (max-width:640px) {
-  .cases-testimonials .carousel-item { flex: 0 0 100%; max-width: 100%; }
-}
-</style>
-
+<!-- JS: Realistic Circular Loop Slider -->
 <script>
-(function(){
-  const wrapper = document.getElementById('cases-carousel');
-  let items = Array.from(wrapper.children);
+  (function () {
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const visibleCount = 3;
+    const total = slides.length;
+    let idx = 0;
 
-  // Duplicate slides multiple times to enable infinite scroll
-  const duplicateCount = 3; // repeat slides 3x
-  for (let i = 0; i < duplicateCount; i++) {
-    items.forEach(item => {
-      const clone = item.cloneNode(true);
-      wrapper.appendChild(clone);
-    });
-  }
+    function show(start) {
+      slides.forEach(s => (s.style.display = 'none'));
 
-  // Now new items list includes clones
-  const allItems = Array.from(wrapper.children);
+      // Prevent overflow: stop when last full group (e.g. slides 4–6)
+      if (start > total - visibleCount) {
+        start = total - visibleCount;
+      }
 
-  let idx = 0;
-  const speed = 2; // px per frame
-
-  function animate() {
-    wrapper.scrollLeft += speed;
-    // When reaching middle duplicate, reset scrollLeft back by original slides width
-    const totalWidth = items.length * (items[0].offsetWidth + 24); // 24 = gap
-    if (wrapper.scrollLeft >= totalWidth * 2) {
-      wrapper.scrollLeft -= totalWidth;
+      for (let i = 0; i < visibleCount; i++) {
+        const current = start + i;
+        if (current < total) {
+          slides[current].style.display = 'block';
+        }
+      }
     }
-    requestAnimationFrame(animate);
-  }
 
-  animate();
+    document.getElementById('prevSlide').addEventListener('click', () => {
+      idx = Math.max(idx - 1, 0);
+      show(idx);
+    });
 
-})();
+    document.getElementById('nextSlide').addEventListener('click', () => {
+      idx++;
+      if (idx > total - visibleCount) {
+        // Loop only after showing last full group
+        idx = 0;
+      }
+      show(idx);
+    });
+
+    // Auto-rotate every 7s
+    setInterval(() => {
+      idx++;
+      if (idx > total - visibleCount) {
+        idx = 0;
+      }
+      show(idx);
+    }, 7000);
+
+    show(idx);
+  })();
 </script>
-
 
 
 
