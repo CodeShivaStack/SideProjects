@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pulse IX Mega — Non-Surgical Therapy for Neuro-Spinal & Orthopaedic Conditions</title>
+  <meta name="description" content="Pulse IX Mega — India’s First High-Intensity EMTT Device. Non-invasive, regenerative therapy for spine & orthopaedic conditions. Book your first session at ₹500." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* small custom styles */
+    .glass {
+      backdrop-filter: blur(6px) saturate(120%);
+      background-color: rgba(255,255,255,0.6);
+    }
+    /* testimonial slider basic */
+    .slide { display: none; }
+    .slide.active { display: block; }
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-gradient-to-b from-slate-50 to-white">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-40 bg-white/60 backdrop-blur-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#" class="flex items-center gap-3">
+          <div class="rounded-md p-2 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white">
+            <!-- simple pulse icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3l1-3 2 6 2-12 2 9 2-3h3" />
+            </svg>
+          </div>
+          <div>
+            <div class="text-lg font-semibold">Pulse IX Mega</div>
+            <div class="text-xs text-gray-500">High-intensity EMTT • Non-invasive therapy</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-indigo-600">About</a>
+          <a href="#benefits" class="hover:text-indigo-600">Benefits</a>
+          <a href="#cases" class="hover:text-indigo-600">Cases</a>
+          <a href="#doctors" class="hover:text-indigo-600">Doctors</a>
+          <a href="#faq" class="hover:text-indigo-600">FAQ</a>
+          <a href="#contact" class="hover:text-indigo-600">Contact</a>
+          <button id="bookNowTop" class="ml-2 px-4 py-2 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700">Book Session</button>
+        </nav>
+
+        <div class="md:hidden">
+          <button id="mobileMenuBtn" class="p-2 rounded-md text-gray-700 hover:bg-gray-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-gray-100">
+      <div class="px-4 pb-4 space-y-3">
+        <a href="#about" class="block">About</a>
+        <a href="#benefits" class="block">Benefits</a>
+        <a href="#cases" class="block">Cases</a>
+        <a href="#doctors" class="block">Doctors</a>
+        <a href="#faq" class="block">FAQ</a>
+        <a href="#contact" class="block">Contact</a>
+        <button id="bookNowMobile" class="w-full mt-2 px-4 py-2 bg-indigo-600 text-white rounded-md">Book Session</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-14 lg:py-24">
+          <div>
+            <div class="inline-flex items-center gap-2 mb-3">
+              <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold">Non-invasive • Clinically validated</span>
+              <span class="text-xs text-gray-400">| Proven to accelerate recovery by up to <strong>45%</strong></span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+              Revolutionary Non-Surgical Therapy for Neuro-Spinal & Orthopaedic Conditions
+            </h1>
+            <p class="mt-5 text-gray-600 max-w-xl">
+              Pulse IX Mega — India’s first high-intensity EMTT device. Deep tissue regeneration, faster recovery, and pain relief without surgery or consumables.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <button id="heroBookBtn" class="px-5 py-3 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700">Book your first session ₹500</button>
+              <a href="#benefits" class="px-5 py-3 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50">View Benefits</a>
+            </div>
+
+            <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-600">
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mt-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
+                <span><strong>Deep penetration</strong> — up to 18 cm into tissues</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600 mt-1" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
+                <span><strong>Pre-set clinical protocols</strong> for 30+ conditions</span>
+              </li>
+            </ul>
+
+            <div class="mt-8 text-xs text-gray-500">
+              <strong>Limited offer:</strong> First-time session at ₹500. Limited slots daily.
+            </div>
+          </div>
+
+          <div class="relative">
+            <!-- hero visual: device + patient illustration -->
+            <div class="relative mx-auto w-full max-w-md">
+              <div class="rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white">
+                <div class="p-6">
+                  <img src="https://www.enfireix.com/temp/img/5.png" alt="Patient therapy" class="w-full h-56 object-cover rounded-md" />
+                  <div class="mt-4 flex items-start gap-4">
+                    <div class="flex-shrink-0">
+                      <div class="w-16 h-16 rounded-lg glass flex items-center justify-center">
+                        <!-- simple device icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8m0 0l-3-3m3 3 3-3M7 7h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-sm font-semibold">Pulse IX Mega</div>
+                      <div class="text-xs text-gray-500">High-intensity EMTT • Deep tissue regenerative therapy</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 text-sm text-gray-600">
+                    <p><strong>Fast results:</strong> Many patients report meaningful pain reduction and improved mobility within 4–8 weeks when combined with a clinical program.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- stat badges -->
+              <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4">
+                <div class="bg-white/90 glass px-4 py-2 rounded-lg shadow border">
+                  <div class="text-xs text-gray-500">Patients treated</div>
+                  <div class="text-lg font-bold">1,000+</div>
+                </div>
+                <div class="bg-white/90 glass px-4 py-2 rounded-lg shadow border">
+                  <div class="text-xs text-gray-500">Avg. improvement</div>
+                  <div class="text-lg font-bold">45%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA strip -->
+    <section class="bg-indigo-50 border-t border-b border-indigo-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <div class="text-sm text-indigo-700 font-semibold">Ready to try a non-surgical route?</div>
+          <div class="mt-1 text-gray-700 text-sm">Book now & get your introductory session for just <strong>₹500</strong>.</div>
+        </div>
+        <div>
+          <button id="ctaBook" class="px-5 py-3 bg-indigo-700 text-white rounded-md shadow hover:bg-indigo-800">Book Intro Session</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMS -->
+    <section id="problems" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-2xl font-bold">Common conditions & why prompt treatment matters</h2>
+          <p class="mt-4 text-gray-600 max-w-xl">Untreated spine and degenerative orthopaedic issues may progress, causing chronic pain, reduced mobility, nerve damage, or need for invasive surgery. Early regenerative therapy can slow or reverse progression.</p>
+
+          <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-700">
+            <li class="flex items-start gap-3">
+              <svg class="h-6 w-6 text-red-500 mt-1" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 3v6m0 0l3-3m-3 3L9 6"/></svg>
+              <div>
+                <div class="font-semibold">Chronic back pain</div>
+                <div class="text-xs text-gray-500">Reduced quality of life, sleep disruption</div>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-3">
+              <svg class="h-6 w-6 text-red-500 mt-1" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 3v6m0 0l3-3m-3 3L9 6"/></svg>
+              <div>
+                <div class="font-semibold">Failed back surgery syndrome</div>
+                <div class="text-xs text-gray-500">Persistent pain after surgery; alternatives needed</div>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-3">
+              <svg class="h-6 w-6 text-red-500 mt-1" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 3v6m0 0l3-3m-3 3L9 6"/></svg>
+              <div>
+                <div class="font-semibold">Disc degeneration</div>
+                <div class="text-xs text-gray-500">Loss of function, radicular pain</div>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-3">
+              <svg class="h-6 w-6 text-red-500 mt-1" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 3v6m0 0l3-3m-3 3L9 6"/></svg>
+              <div>
+                <div class="font-semibold">Non-union fractures & chronic inflammation</div>
+                <div class="text-xs text-gray-500">Delayed healing, chronic pain</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <!-- infographic placeholder -->
+          <div class="rounded-lg shadow-lg overflow-hidden border border-gray-100 bg-white p-6">
+            <h3 class="font-semibold text-lg">How untreated conditions can progress</h3>
+            <ol class="mt-4 space-y-3 text-sm text-gray-600">
+              <li><strong>Initial injury/degeneration</strong> — minor pain & stiffness</li>
+              <li><strong>Chronic pain</strong> — functional decline, sleep disturbance</li>
+              <li><strong>Nerve involvement</strong> — radiating pain or neurological symptoms</li>
+              <li><strong>Mobility loss / surgery</strong> — invasive interventions may be required</li>
+            </ol>
+            <div class="mt-6 text-sm text-gray-500">Pulse IX Mega aims to intervene earlier with non-invasive regenerative therapy to reduce progression and help avoid surgery where possible.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="bg-white border-t border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="text-2xl font-bold">About Pulse IX Mega</h2>
+            <p class="mt-4 text-gray-600">Pulse IX Mega is India's first high-intensity EMTT (Electromagnetic Transduction Therapy) device designed specifically for deep-targeted regenerative treatment. It delivers focused magnetic pulses to stimulate cellular repair, modulate inflammation, and restore function.</p>
+
+            <ul class="mt-6 space-y-3 text-sm text-gray-700">
+              <li class="flex gap-3 items-start">
+                <svg class="h-5 w-5 text-indigo-600 mt-1" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <div><strong>Non-invasive</strong> — no incisions, no consumables</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <svg class="h-5 w-5 text-indigo-600 mt-1" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <div><strong>Safe & repeatable</strong> — pre-set clinical protocols</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <svg class="h-5 w-5 text-indigo-600 mt-1" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <div><strong>IoT progress tracking</strong> — monitor patient response over sessions</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="rounded-lg border border-gray-100 shadow overflow-hidden bg-gradient-to-tr from-white to-indigo-50 p-6">
+              <div class="text-sm text-gray-500">Device snapshot</div>
+              <img src="https://images.unsplash.com/photo-1581091012184-7fbfa0d9f2d9?auto=format&fit=crop&w=900&q=60" alt="Pulse IX Mega device" class="mt-4 rounded-md w-full h-48 object-cover"/>
+              <div class="mt-4 text-sm text-gray-700">Pulse IX Mega combines high intensity electromagnetic pulses with clinician-friendly ergonomics and programmable protocols developed for spine and orthopaedic clinics.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS / FEATURES -->
+    <section id="benefits" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <h2 class="text-2xl font-bold">Benefits & Key Features</h2>
+      <p class="mt-3 text-gray-600">Designed to support recovery, reduce pain, and restore mobility — backed by clinical protocols.</p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 border rounded-lg bg-white shadow-sm">
+          <div class="text-indigo-600"><strong>Deep tissue penetration</strong></div>
+          <div class="mt-2 text-sm text-gray-600">Up to 18 cm penetration for deep spinal structures.</div>
+        </div>
+
+        <div class="p-6 border rounded-lg bg-white shadow-sm">
+          <div class="text-indigo-600"><strong>30+ clinical protocols</strong></div>
+          <div class="mt-2 text-sm text-gray-600">Pre-set protocols for specific spine and orthopaedic diagnoses.</div>
+        </div>
+
+        <div class="p-6 border rounded-lg bg-white shadow-sm">
+          <div class="text-indigo-600"><strong>No consumables</strong></div>
+          <div class="mt-2 text-sm text-gray-600">Cost-effective for clinics; safe & repeatable sessions.</div>
+        </div>
+
+        <div class="p-6 border rounded-lg bg-white shadow-sm">
+          <div class="text-indigo-600"><strong>IoT tracking</strong></div>
+          <div class="mt-2 text-sm text-gray-600">Track patient progress and adjust therapy.</div>
+        </div>
+
+        <div class="p-6 border rounded-lg bg-white shadow-sm">
+          <div class="text-indigo-600"><strong>Regenerative effects</strong></div>
+          <div class="mt-2 text-sm text-gray-600">Stimulates cellular repair and modulates inflammation.</div>
+        </div>
+
+        <div class="p-6 border rounded-lg bg-white shadow-sm">
+          <div class="text-indigo-600"><strong>Clinically validated</strong></div>
+          <div class="mt-2 text-sm text-gray-600">Used in supervised clinical settings with supporting studies.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASES / STORIES -->
+    <section id="cases" class="bg-indigo-50 border-t border-b border-indigo-100 py-14">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold">Case stories & success</h2>
+            <p class="mt-2 text-gray-700">Real patients, real outcomes — stories from clinics using Pulse IX Mega.</p>
+          </div>
+          <div class="text-sm text-gray-600">1000+ patients treated</div>
+        </div>
+
+        <!-- testimonial carousel (basic) -->
+        <div class="mt-8 relative">
+          <div id="slides" class="space-y-6">
+            <div class="slide active p-6 bg-white rounded-lg border shadow-sm">
+              <div class="flex gap-4 items-start">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=60" alt="patient 1"/>
+                <div>
+                  <div class="font-semibold">Anita S. — Recovered after failed back surgery</div>
+                  <div class="mt-2 text-sm text-gray-600">"Pain reduced significantly after 6 weeks. Could resume light exercise and daily activities — non-invasive alternative to another surgery."</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide p-6 bg-white rounded-lg border shadow-sm">
+              <div class="flex gap-4 items-start">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1556228720-8c8e3f6d8bce?auto=format&fit=crop&w=400&q=60" alt="patient 2"/>
+                <div>
+                  <div class="font-semibold">Rohit K. — Chronic lumbar pain</div>
+                  <div class="mt-2 text-sm text-gray-600">"Gradual improvement in mobility and less discomfort. Staff were supportive and guided therapy protocols."</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide p-6 bg-white rounded-lg border shadow-sm">
+              <div class="flex gap-4 items-start">
+                <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1545996124-1f1f1c9a6b6f?auto=format&fit=crop&w=400&q=60" alt="patient 3"/>
+                <div>
+                  <div class="font-semibold">Dr. Malhotra (Case study) — Non-union fracture</div>
+                  <div class="mt-2 text-sm text-gray-600">"Using EMTT sessions as adjunct therapy led to improved healing metrics and pain reduction over standard care."</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex gap-3">
+            <button id="prevSlide" class="px-3 py-2 rounded-md border">Prev</button>
+            <button id="nextSlide" class="px-3 py-2 rounded-md border">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCTORS & CRED -->
+    <section id="doctors" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <h2 class="text-2xl font-bold">Trusted by doctors & clinics</h2>
+      <p class="mt-2 text-gray-600">Endorsements, certifications, and research backing the technology.</p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-4 border rounded-lg bg-white">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=60" alt="doctor 1" class="w-full h-32 object-cover rounded-md"/>
+          <div class="mt-3 font-semibold">Dr. Swaroop Pandey</div>
+          <div class="text-xs text-gray-500">Senior Physiotherapist</div>
+          <div class="mt-3 text-sm text-gray-600">"A valuable non-surgical option for selected patients."</div>
+        </div>
+
+        <div class="p-4 border rounded-lg bg-white">
+          <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=60" alt="doctor 2" class="w-full h-32 object-cover rounded-md"/>
+          <div class="mt-3 font-semibold">Dr. Meera Shah</div>
+          <div class="text-xs text-gray-500">Orthopaedic Consultant</div>
+          <div class="mt-3 text-sm text-gray-600">"Helps accelerate recovery in post-op rehabilitation."</div>
+        </div>
+
+        <div class="p-4 border rounded-lg bg-white">
+          <img src="https://images.unsplash.com/photo-1614289376309-9f7d4d2b4f89?auto=format&fit=crop&w=600&q=60" alt="clinic" class="w-full h-32 object-cover rounded-md"/>
+          <div class="mt-3 font-semibold">IEC / CE Certified</div>
+          <div class="text-xs text-gray-500">Regulatory badges</div>
+          <div class="mt-3 text-sm text-gray-600">Certified for clinical use with appropriate safety systems.</div>
+        </div>
+
+        <div class="p-4 border rounded-lg bg-white">
+          <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=60" alt="research" class="w-full h-32 object-cover rounded-md"/>
+          <div class="mt-3 font-semibold">Research-backed</div>
+          <div class="text-xs text-gray-500">200+ studies referenced</div>
+          <div class="mt-3 text-sm text-gray-600">Peer-reviewed literature supports electromagnetic regenerative therapies for selected indications.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING FORM (anchor target) -->
+    <section id="booking" class="bg-white border-t border-b border-gray-100 py-14">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-lg p-6 shadow-lg border">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-xl font-bold">Book a Session</h3>
+              <p class="text-sm text-gray-600 mt-1">Introductory session available at ₹500. Limited slots per day.</p>
+            </div>
+            <div class="text-sm text-gray-500">Supervised therapy • Clinic protocols</div>
+          </div>
+
+          <form id="bookingForm" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm font-medium text-gray-700">Full name</label>
+              <input required name="name" class="mt-1 block w-full rounded-md border px-3 py-2" placeholder="Your name" />
+            </div>
+
+            <div>
+              <label class="text-sm font-medium text-gray-700">Phone</label>
+              <input required name="phone" pattern="[0-9]{7,15}" class="mt-1 block w-full rounded-md border px-3 py-2" placeholder="Enter phone number" />
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="text-sm font-medium text-gray-700">Email (optional)</label>
+              <input name="email" type="email" class="mt-1 block w-full rounded-md border px-3 py-2" placeholder="you@example.com" />
+            </div>
+
+            <div>
+              <label class="text-sm font-medium text-gray-700">Preferred date</label>
+              <input required name="date" type="date" class="mt-1 block w-full rounded-md border px-3 py-2" />
+            </div>
+
+            <div>
+              <label class="text-sm font-medium text-gray-700">Preferred time</label>
+              <select name="time" class="mt-1 block w-full rounded-md border px-3 py-2">
+                <option>09:00 - 11:00</option>
+                <option>11:00 - 13:00</option>
+                <option>15:00 - 17:00</option>
+                <option>17:00 - 19:00</option>
+              </select>
+            </div>
+
+            <div class="sm:col-span-2 flex items-center gap-3">
+              <input id="firstTime" type="checkbox" checked class="h-4 w-4" />
+              <label for="firstTime" class="text-sm text-gray-700">Apply first-time offer — ₹500 introductory session</label>
+            </div>
+
+            <div class="sm:col-span-2 flex justify-between items-center">
+              <div class="text-sm text-gray-600">We will contact you to confirm the appointment.</div>
+              <button type="submit" class="px-5 py-2 bg-indigo-600 text-white rounded-md">Request Booking</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <h2 class="text-2xl font-bold">Frequently Asked Questions</h2>
+      <div class="mt-6 space-y-4">
+        <div class="border rounded-lg">
+          <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+            <span class="font-medium">Is Pulse IX Mega safe?</span>
+            <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">Yes — when used under professional medical supervision and according to protocols. It is non-invasive and has safety systems built in.</div>
+        </div>
+
+        <div class="border rounded-lg">
+          <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+            <span class="font-medium">How many sessions are required?</span>
+            <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">Depends on the condition — typically 6–12 sessions spread over weeks. Your clinician will recommend a protocol.</div>
+        </div>
+
+        <div class="border rounded-lg">
+          <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+            <span class="font-medium">Is it painful?</span>
+            <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">No — sessions are generally well tolerated and described as comfortable. Clinicians adjust intensity as needed.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION & CONTACT -->
+    <section id="contact" class="bg-white border-t border-b border-gray-100 py-14">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-start">
+        <div>
+          <h3 class="text-xl font-bold">Visit our center</h3>
+          <p class="mt-2 text-gray-600">Pulse IX Mega sessions are administered under clinician supervision at partnered clinics. Contact to schedule and confirm availability.</p>
+
+          <div class="mt-6 space-y-4 text-sm text-gray-700">
+            <div>
+              <div class="font-semibold">Address</div>
+              <div class="text-gray-600">#123 Clinic Street, Health Park, Bengaluru, Karnataka 560058</div>
+            </div>
+
+            <div>
+              <div class="font-semibold">Contact</div>
+              <div class="text-gray-600">Phone: <a href="tel:+911234567890" class="text-indigo-600">+91 12345 67890</a> | Email: <a href="mailto:info@example.com" class="text-indigo-600">info@example.com</a></div>
+            </div>
+
+            <div>
+              <div class="font-semibold">Attending therapist</div>
+              <div class="text-gray-600">Dr. Swaroop Pandey — Senior Physiotherapist (Supervising)</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-sm text-gray-500">Map</h4>
+          <!-- Replace src with actual Google Maps embed link -->
+          <div class="mt-2 rounded-lg overflow-hidden border">
+            <iframe title="Clinic location" class="w-full h-64 border-0" loading="lazy"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.01961239112!2d144.96305831531835!3d-37.81410797975185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43b1b7b5b9%3A0xc4a0e1d2e6b2b0f8!2sFederation%20Square!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid lg:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center gap-3">
+            <div class="rounded-md p-2 bg-gradient-to-r from-indigo-500 to-cyan-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v8m0 0l-3-3m3 3 3-3M7 7h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2z"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold">Pulse IX Mega</div>
+              <div class="text-xs text-slate-300">Non-invasive regenerative therapy</div>
+            </div>
+          </div>
+
+          <p class="mt-4 text-sm text-slate-300 max-w-md">Disclaimer: Pulse IX Mega is intended for use under professional medical supervision. Results vary by patient and condition. Consult your clinician for suitability.</p>
+        </div>
+
+        <div class="text-sm text-slate-300">
+          <div class="font-semibold mb-3">Quick links</div>
+          <ul class="space-y-2">
+            <li><a href="#about" class="hover:text-white">About</a></li>
+            <li><a href="#benefits" class="hover:text-white">Benefits</a></li>
+            <li><a href="#faq" class="hover:text-white">FAQ</a></li>
+            <li><a href="#contact" class="hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="font-semibold text-sm text-slate-300">Follow</div>
+          <div class="mt-3 flex gap-3">
+            <a class="text-slate-300 hover:text-white" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4zM8.5 8h3.8v2.2h.1c.5-.9 1.8-1.8 3.7-1.8 4 0 4.7 2.6 4.7 6V24h-4V14.4c0-2.3-.1-5.2-3.2-5.2-3.2 0-3.7 2.5-3.7 5v9H8.5z"/></svg>
+            </a>
+            <a class="text-slate-300 hover:text-white" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A3.8 3.8 0 1015.8 12 3.8 3.8 0 0012 8.2zM18.5 6.8a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1z"/></svg>
+            </a>
+          </div>
+
+          <div class="mt-6 text-sm text-slate-400">© <span id="year"></span> Pulse IX Mega — Demo</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- BOOKING MODAL -->
+  <div id="modalBackdrop" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg w-full max-w-md p-6 mx-4">
+      <div class="flex items-center justify-between">
+        <h4 class="font-semibold">Book Intro Session — ₹500</h4>
+        <button id="closeModal" class="text-gray-500 hover:text-gray-700">✕</button>
+      </div>
+
+      <form id="modalForm" class="mt-4 grid gap-3">
+        <input name="m_name" required placeholder="Your full name" class="px-3 py-2 border rounded-md" />
+        <input name="m_phone" pattern="[0-9]{7,15}" required placeholder="Phone" class="px-3 py-2 border rounded-md" />
+        <input name="m_email" type="email" placeholder="Email (optional)" class="px-3 py-2 border rounded-md" />
+        <div class="flex gap-3">
+          <input name="m_date" required type="date" class="px-3 py-2 border rounded-md w-full" />
+          <select name="m_time" class="px-3 py-2 border rounded-md w-full">
+            <option>09:00 - 11:00</option>
+            <option>11:00 - 13:00</option>
+            <option>15:00 - 17:00</option>
+            <option>17:00 - 19:00</option>
+          </select>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="text-sm text-gray-600">First visit offer applied</div>
+          <div>
+            <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md">Confirm Booking</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // close mobile menu if open
+          if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+        }
+      });
+    });
+
+    // Booking modal logic
+    const bookBtns = [document.getElementById('bookNowTop'), document.getElementById('bookNowMobile'), document.getElementById('heroBookBtn'), document.getElementById('ctaBook')];
+    const backdrop = document.getElementById('modalBackdrop');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    bookBtns.forEach(btn => {
+      if (!btn) return;
+      btn.addEventListener('click', () => backdrop.classList.remove('hidden'));
+    });
+
+    if (closeModalBtn) closeModalBtn.addEventListener('click', () => backdrop.classList.add('hidden'));
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) backdrop.classList.add('hidden');
+    });
+
+    // Submit modal form (demo: no backend) — show success and close
+    document.getElementById('modalForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      // basic validation already via required attributes
+      alert('Thank you — your booking request has been received. We will contact you to confirm.');
+      this.reset();
+      backdrop.classList.add('hidden');
+    });
+
+    // Booking form on page
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Booking request received. Clinic will contact you to confirm.');
+      this.reset();
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const body = header.parentElement.querySelector('.faq-body');
+        const icon = header.querySelector('svg');
+        if (body.classList.contains('hidden')) {
+          // close others
+          document.querySelectorAll('.faq-body').forEach(b => b.classList.add('hidden'));
+          document.querySelectorAll('.faq-header svg').forEach(s => s.style.transform = '');
+          body.classList.remove('hidden');
+          icon.style.transform = 'rotate(180deg)';
+        } else {
+          body.classList.add('hidden');
+          icon.style.transform = '';
+        }
+      });
+    });
+
+    // Basic testimonial slider
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      let idx = 0;
+      const show = (i) => {
+        slides.forEach((s, n) => {
+          s.classList.toggle('active', n === i);
+        });
+      };
+      document.getElementById('prevSlide').addEventListener('click', () => {
+        idx = (idx - 1 + slides.length) % slides.length; show(idx);
+      });
+      document.getElementById('nextSlide').addEventListener('click', () => {
+        idx = (idx + 1) % slides.length; show(idx);
+      });
+      // auto rotate
+      setInterval(() => { idx = (idx + 1) % slides.length; show(idx); }, 7000);
+    })();
+
+    // Accessibility: focus first input in modal when it opens
+    const modalFormFirstInput = document.querySelector('#modalForm input');
+    const observer = new MutationObserver(() => {
+      if (!backdrop.classList.contains('hidden')) {
+        setTimeout(() => modalFormFirstInput && modalFormFirstInput.focus(), 120);
+      }
+    });
+    observer.observe(backdrop, { attributes: true, attributeFilter: ['class'] });
+  </script>
+</body>
+</html>
