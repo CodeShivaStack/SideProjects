@@ -7,6 +7,7 @@
   <title>Pulse IX Mega - Non-Surgical Therapy for Neuro-Spinal & Orthopaedic Conditions</title>
   <meta name="description"
     content="Pulse IX Mega - India’s First High-Intensity EMTT Device. Non-invasive, regenerative therapy for spine & orthopaedic conditions. Book your first session at ₹500." />
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* small custom styles */
@@ -25,24 +26,6 @@
     }
   </style>
 
-
-  <style>
-    #modalForm input,
-    #modalForm select {
-      border-color: #e5e7eb;
-      /* teal-400 */
-    }
-
-    #modalForm input:focus,
-    #modalForm select:focus {
-      border-color: rgb(20 184 166);
-      /* teal-500 */
-      outline: none;
-      box-shadow: 0 0 0 1px rgb(20 184 166);
-    }
-  </style>
-
-
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -60,6 +43,7 @@
     }
   </script>
   <style>
+    /* replace indigo utility classes with teal shades */
     .text-indigo-600,
     .text-indigo-700,
     .text-indigo-800 {
@@ -98,17 +82,6 @@
       max-width: 100%;
       height: auto;
     }
-
-
-
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-    }
-
-    .mobile-menu.active {
-      transform: translateX(0);
-    }
   </style>
 
 
@@ -117,22 +90,20 @@
 <body class="antialiased text-gray-800 bg-gradient-to-b from-slate-50 to-white">
 
   <!-- NAV -->
-  <!-- NAV -->
   <header class="sticky top-0 z-40 bg-white/60 backdrop-blur-sm border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
         <a href="#" class="flex items-center gap-3">
           <div class="rounded-md text-white">
-            <img src="images/logo2.png" alt="Pulse IX Mega" class="w-full h-16 object-cover rounded-md" />
+            <img src="images/logo2.png" alt="Patient therapy" class="w-full h-16 object-cover rounded-md" />
           </div>
+
           <div>
             <div class="text-lg font-semibold">Pulse IX Mega</div>
             <div class="text-xs text-gray-500">High-intensity EMTT • Non-invasive therapy</div>
           </div>
         </a>
 
-        <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-6 text-sm">
           <a href="#about" class="hover:text-[#00B8B0]">About</a>
           <a href="#benefits" class="hover:text-[#00B8B0]">Benefits</a>
@@ -140,87 +111,35 @@
           <a href="#doctors" class="hover:text-[#00B8B0]">Doctors</a>
           <a href="#faq" class="hover:text-[#00B8B0]">FAQ</a>
           <a href="#contact" class="hover:text-[#00B8B0]">Contact</a>
-          <button id="bookNowTop" class="ml-2 px-4 py-2 bg-[#00B8B0] text-white rounded-md shadow hover:bg-[#00938D]">
-            Book Session
-          </button>
+          <button id="bookNowTop"
+            class="ml-2 px-4 py-2 bg-[#00B8B0] text-white rounded-md shadow hover:bg-[#00938D]">Book Session</button>
         </nav>
 
-        <!-- Mobile Menu Button -->
         <div class="md:hidden">
           <button id="mobileMenuBtn" class="p-2 rounded-md text-gray-700 hover:bg-gray-100">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
               stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
         </div>
       </div>
     </div>
-  </header>
 
-  <!-- Mobile Slide-in Menu -->
-  <div id="mobileMenu"
-    class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 md:hidden">
-    <div class="p-6 flex flex-col h-full">
-      <!-- Close Button -->
-      <button id="closeMobileMenu" class="mb-8 self-end">
-        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-
-      <!-- Menu Links -->
-      <div class="flex flex-col space-y-6 text-gray-800">
-        <a href="#hero" class="text-lg hover:text-[#00B8B0]">Home</a>
-        <a href="#about" class="text-lg hover:text-[#00B8B0]">About</a>
-        <a href="#benefits" class="text-lg hover:text-[#00B8B0]">Benefits</a>
-        <a href="#cases" class="text-lg hover:text-[#00B8B0]">Cases</a>
-        <a href="#doctors" class="text-lg hover:text-[#00B8B0]">Doctors</a>
-        <a href="#faq" class="text-lg hover:text-[#00B8B0]">FAQ</a>
-        <a href="#contact" class="text-lg hover:text-[#00B8B0]">Contact</a>
-
-        <button id="bookNowMobile"
-          class="mt-6 px-6 py-3 rounded-md text-white font-semibold bg-[#00B8B0] hover:bg-[#00938D] transition">
-          Book Session
-        </button>
+    <!-- mobile nav -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-gray-100">
+      <div class="px-4 pb-4 space-y-3">
+        <a href="#about" class="block">About</a>
+        <a href="#benefits" class="block">Benefits</a>
+        <a href="#cases" class="block">Cases</a>
+        <a href="#doctors" class="block">Doctors</a>
+        <a href="#faq" class="block">FAQ</a>
+        <a href="#contact" class="block">Contact</a>
+        <button id="bookNowMobile" class="w-full mt-2 px-4 py-2 bg-indigo-600 text-white rounded-md">Book
+          Session</button>
       </div>
     </div>
-  </div>
-
-  <!-- Overlay -->
-  <div id="menuOverlay"
-    class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden md:hidden transition-opacity duration-300"></div>
-
-  <!-- JS -->
-  <script>
-    const mobileMenu = document.getElementById("mobileMenu");
-    const menuOverlay = document.getElementById("menuOverlay");
-    const openBtn = document.getElementById("mobileMenuBtn");
-    const closeBtn = document.getElementById("closeMobileMenu");
-
-    function openMenu() {
-      mobileMenu.classList.remove("translate-x-full", "hidden");
-      menuOverlay.classList.remove("hidden");
-      document.body.classList.add("overflow-hidden");
-    }
-
-    function closeMenu() {
-      mobileMenu.classList.add("translate-x-full");
-      menuOverlay.classList.add("hidden");
-      document.body.classList.remove("overflow-hidden");
-    }
-
-    openBtn.addEventListener("click", openMenu);
-    closeBtn.addEventListener("click", closeMenu);
-    menuOverlay.addEventListener("click", closeMenu);
-
-    // ✅ Close menu when any link or button inside it is clicked
-    document.querySelectorAll("#mobileMenu a, #mobileMenu button").forEach(item => {
-      item.addEventListener("click", closeMenu);
-    });
-  </script>
-
-
+  </header>
 
   <!-- HERO -->
   <main>
@@ -244,12 +163,10 @@
 
             <div class="mt-8 flex flex-wrap gap-3">
               <button id="heroBookBtn"
-                class="px-5 py-3 bg-indigo-600 text-white rounded-md shadow hover:ring-1 ring-teal-500">Book your first
-                session
+                class="px-5 py-3 bg-indigo-600 text-white rounded-md shadow hover:bg-[#00938D]">Book your first session
                 ₹500</button>
               <a href="#benefits"
-                class="px-5 py-3 border border-gray-200 rounded-md text-gray-700 hover:border-teal-400">View
-                Benefits</a>
+                class="px-5 py-3 border border-gray-200 rounded-md text-gray-700 hover:bg-gray-50">View Benefits</a>
             </div>
 
             <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-600">
@@ -287,8 +204,13 @@
                     class="w-full h-62 object-cover rounded-md" />
                   <div class="mt-1 flex items-start gap-4">
                     <div class="flex-shrink-0">
-                      <div class="rounded-md text-white">
-                        <img src="images/logo2.png" alt="Patient therapy" class="w-full h-10 object-cover rounded-md" />
+                      <div class="w-16 h-10 rounded-lg glass flex items-center justify-center">
+                        <!-- simple device icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor" stroke-width="1.5">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 8v8m0 0l-3-3m3 3 3-3M7 7h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2V9a2 2 0 012-2z" />
+                        </svg>
                       </div>
                     </div>
                     <div>
@@ -304,6 +226,7 @@
                 </div>
 
                 <!-- stat badges: repositioned to left side -->
+                <!-- <div class="absolute inset-y-0 -left-16 flex flex-col justify-center gap-4"> -->
                 <div
                   class="absolute -bottom-14 left-1/2 transform -translate-x-1/2 flex md:inset-y-0 md:-left-8 md:flex md:flex-col md:justify-center gap-4">
                   <div class="bg-white/90 glass px-4 py-2 rounded-lg shadow border border-teal-400 w-28 text-center">
@@ -334,7 +257,7 @@
           </div>
         </div>
         <div>
-          <button id="ctaBook" class="px-5 py-3 bg-[#00B8B0] text-white rounded-md shadow hover:bg-[#00938D]">Book
+          <button id="ctaBook" class="px-5 py-3 bg-[#00938D] text-white rounded-md shadow hover:bg-indigo-800">Book
             Intro Session</button>
         </div>
       </div>
@@ -502,6 +425,8 @@
       </div>
     </section>
 
+    <!-- CASES / STORIES --><!-- CASE STORIES / TESTIMONIALS -->
+
     <!-- CASE STORIES / TESTIMONIALS -->
     <section id="cases" class="bg-indigo-50 border-t border-b border-indigo-100 py-14">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -509,7 +434,7 @@
           <div>
             <h2 class="text-2xl font-bold text-gray-900">Case stories & success</h2>
             <p class="mt-2 text-gray-700">
-              Real patients, real outcomes - stories from clinics using Pulse IX Mega.
+              Real patients, real outcomes — stories from clinics using Pulse IX Mega.
             </p>
           </div>
           <div class="text-sm text-gray-600">1000+ patients treated</div>
@@ -530,7 +455,7 @@
             </div>
             <div class="text-yellow-400 mb-2">★★★★★</div>
             <p class="text-gray-600 italic">
-              "Pain reduced significantly after 6 weeks. Could resume light exercise and daily activities - non-invasive
+              "Pain reduced significantly after 6 weeks. Could resume light exercise and daily activities — non-invasive
               alternative to another surgery."
             </p>
           </div>
@@ -599,13 +524,13 @@
       .owl-carousel .owl-prev {
         position: absolute;
         top: 45%;
-        left: -20px;
+        left: -50px;
       }
 
       .owl-carousel .owl-next {
         position: absolute;
         top: 45%;
-        right: -20px;
+        right: -50px;
       }
     </style>
 
@@ -626,6 +551,10 @@
           smartSpeed: 600,
           dots: true,
           nav: true,
+          navText: [
+            '<i class="fa fa-angle-left"></i>',
+            '<i class="fa fa-angle-right"></i>'
+          ],
           responsive: {
             0: { items: 1 },
             768: { items: 2 },
@@ -634,6 +563,8 @@
         });
       });
     </script>
+
+
 
     <!-- DOCTORS & CRED -->
     <section id="doctors" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -686,10 +617,7 @@
               <h3 class="text-xl font-bold">Book a Session</h3>
               <p class="text-sm text-gray-600 mt-1">Introductory session available at ₹500. Limited slots per day.</p>
             </div>
-            <!-- <div class="text-sm text-gray-500"> -->
-            <div
-              class="inline-block border border-teal-400 bg-teal-500 text-white px-2 py-1 rounded-full sm:text-sm text-xs">
-              Supervised therapy • Clinic protocols</div>
+            <div class="text-sm text-gray-500">Supervised therapy • Clinic protocols</div>
           </div>
 
           <form id="bookingForm" class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -733,7 +661,7 @@
             </div>
 
             <div class="sm:col-span-2 flex justify-between items-center">
-              <div class="text-xs w-1/2 md:text-sm text-gray-600">We will contact you to confirm the appointment.</div>
+              <div class="text-sm text-gray-600">We will contact you to confirm the appointment.</div>
               <button type="submit" class="px-5 py-2 bg-indigo-600 text-white rounded-md">Request Booking</button>
             </div>
           </form>
@@ -745,104 +673,40 @@
     <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
       <h2 class="text-2xl font-bold">Frequently Asked Questions</h2>
       <div class="mt-6 space-y-4">
-        <!-- FAQ Section -->
-        <div class="space-y-3">
+        <div class="border rounded-lg">
+          <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+            <span class="font-medium">Is Pulse IX Mega safe?</span>
+            <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+              <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">Yes - when used under professional medical
+            supervision and according to protocols. It is non-invasive and has safety systems built in.</div>
+        </div>
 
-          <!-- 1 -->
-          <div class="border rounded-lg">
-            <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
-              <span class="font-medium">Is Pulse IX Mega therapy safe?</span>
-              <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-            <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">
-              Yes - it’s completely safe, non-invasive, and certified by global safety standards. There are no known
-              side effects.
-            </div>
-          </div>
+        <div class="border rounded-lg">
+          <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+            <span class="font-medium">How many sessions are required?</span>
+            <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+              <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">Depends on the condition - typically 6-12
+            sessions spread over weeks. Your clinician will recommend a protocol.</div>
+        </div>
 
-          <!-- 2 -->
-          <div class="border rounded-lg">
-            <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
-              <span class="font-medium">How many sessions are needed?</span>
-              <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-            <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">
-              Most people feel better after 3-6 sessions. Chronic issues may need 8-12 for best results.
-            </div>
-          </div>
-
-          <!-- 3 -->
-          <div class="border rounded-lg">
-            <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
-              <span class="font-medium">Is the treatment painful?</span>
-              <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-            <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">
-              Not at all. You might feel a gentle warmth or tingling - most patients find it relaxing.
-            </div>
-          </div>
-
-          <!-- 4 -->
-          <div class="border rounded-lg">
-            <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
-              <span class="font-medium">Who should avoid this therapy?</span>
-              <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-            <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">
-              It’s not suitable for pregnant women, people with pacemakers, or those with certain metal implants.
-            </div>
-          </div>
-
-          <!-- 5 -->
-          <div class="border rounded-lg">
-            <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
-              <span class="font-medium">Is it scientifically proven?</span>
-              <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-            <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">
-              Yes. EMTT tech behind Pulse IX Mega is backed by 200+ global studies and used by doctors worldwide.
-            </div>
-          </div>
-
-          <!-- 6 -->
-          <div class="border rounded-lg">
-            <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
-              <span class="font-medium">What conditions can it treat?</span>
-              <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-            <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">
-              It helps with back pain, arthritis, sports injuries, fractures, nerve issues, and post-surgery recovery.
-            </div>
-          </div>
-
-          <!-- 7 -->
-          <div class="border rounded-lg">
-            <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
-              <span class="font-medium">How long does each session take?</span>
-              <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </button>
-            <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">
-              Sessions usually take 15-30 minutes. You can get back to your day right after.
-            </div>
-          </div>
+        <div class="border rounded-lg">
+          <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+            <span class="font-medium">Is it painful?</span>
+            <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+              <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="faq-body px-4 pb-4 hidden text-sm text-gray-600">No - sessions are generally well tolerated and
+            described as comfortable. Clinicians adjust intensity as needed.</div>
         </div>
       </div>
     </section>
-
 
     <!-- LOCATION & CONTACT -->
     <section id="contact" class="bg-white border-t border-b border-gray-100 py-14">
@@ -876,7 +740,7 @@
           <!-- Replace src with actual Google Maps embed link -->
           <div class="mt-2 rounded-lg overflow-hidden border">
             <iframe title="Clinic location" class="w-full h-64 border-0" loading="lazy"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6487.956794535692!2d77.50872724372452!3d13.019020291161242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1761635328702!5m2!1sen!2sin"></iframe>
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.01961239112!2d144.96305831531835!3d-37.81410797975185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43b1b7b5b9%3A0xc4a0e1d2e6b2b0f8!2sFederation%20Square!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"></iframe>
           </div>
         </div>
       </div>
@@ -913,6 +777,21 @@
 
         <div>
           <div class="font-semibold text-sm text-slate-300">Follow</div>
+          <!-- <div class="mt-3 flex gap-3">
+            <a class="text-slate-300 hover:text-white" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4zM8.5 8h3.8v2.2h.1c.5-.9 1.8-1.8 3.7-1.8 4 0 4.7 2.6 4.7 6V24h-4V14.4c0-2.3-.1-5.2-3.2-5.2-3.2 0-3.7 2.5-3.7 5v9H8.5z" />
+              </svg>
+            </a>
+            <a class="text-slate-300 hover:text-white" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A3.8 3.8 0 1015.8 12 3.8 3.8 0 0012 8.2zM18.5 6.8a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1z" />
+              </svg>
+            </a>
+          </div> -->
+
           <div class="flex gap-4 md:!gap-6">
             <!-- Facebook -->
             <a href="#"
@@ -999,7 +878,7 @@
           </select>
         </div>
         <div class="flex items-center justify-between">
-          <div class="text-[0.8rem] sm:w-1/2 md:text-sm text-gray-600">First visit offer applied</div>
+          <div class="text-sm text-gray-600">First visit offer applied</div>
           <div>
             <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md">Confirm Booking</button>
           </div>
@@ -1012,6 +891,14 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileBtn) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -1074,12 +961,6 @@
         }
       });
     });
-
-
-    // Mobile Menu Toggle
-    function toggleMobileMenu() {
-      document.getElementById('mobileMenu').classList.toggle('active');
-    }
 
 
     // Basic testimonial slider

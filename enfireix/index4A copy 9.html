@@ -117,108 +117,108 @@
 <body class="antialiased text-gray-800 bg-gradient-to-b from-slate-50 to-white">
 
   <!-- NAV -->
-  <!-- NAV -->
-  <header class="sticky top-0 z-40 bg-white/60 backdrop-blur-sm border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <a href="#" class="flex items-center gap-3">
-          <div class="rounded-md text-white">
-            <img src="images/logo2.png" alt="Pulse IX Mega" class="w-full h-16 object-cover rounded-md" />
-          </div>
-          <div>
-            <div class="text-lg font-semibold">Pulse IX Mega</div>
-            <div class="text-xs text-gray-500">High-intensity EMTT • Non-invasive therapy</div>
-          </div>
-        </a>
-
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#about" class="hover:text-[#00B8B0]">About</a>
-          <a href="#benefits" class="hover:text-[#00B8B0]">Benefits</a>
-          <a href="#cases" class="hover:text-[#00B8B0]">Cases</a>
-          <a href="#doctors" class="hover:text-[#00B8B0]">Doctors</a>
-          <a href="#faq" class="hover:text-[#00B8B0]">FAQ</a>
-          <a href="#contact" class="hover:text-[#00B8B0]">Contact</a>
-          <button id="bookNowTop" class="ml-2 px-4 py-2 bg-[#00B8B0] text-white rounded-md shadow hover:bg-[#00938D]">
-            Book Session
-          </button>
-        </nav>
-
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden">
-          <button id="mobileMenuBtn" class="p-2 rounded-md text-gray-700 hover:bg-gray-100">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+<!-- NAV -->
+<header class="sticky top-0 z-40 bg-white/60 backdrop-blur-sm border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="rounded-md text-white">
+          <img src="images/logo2.png" alt="Pulse IX Mega" class="w-full h-16 object-cover rounded-md" />
         </div>
-      </div>
-    </div>
-  </header>
+        <div>
+          <div class="text-lg font-semibold">Pulse IX Mega</div>
+          <div class="text-xs text-gray-500">High-intensity EMTT • Non-invasive therapy</div>
+        </div>
+      </a>
 
-  <!-- Mobile Slide-in Menu -->
-  <div id="mobileMenu"
-    class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 md:hidden">
-    <div class="p-6 flex flex-col h-full">
-      <!-- Close Button -->
-      <button id="closeMobileMenu" class="mb-8 self-end">
-        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-
-      <!-- Menu Links -->
-      <div class="flex flex-col space-y-6 text-gray-800">
-        <a href="#hero" class="text-lg hover:text-[#00B8B0]">Home</a>
-        <a href="#about" class="text-lg hover:text-[#00B8B0]">About</a>
-        <a href="#benefits" class="text-lg hover:text-[#00B8B0]">Benefits</a>
-        <a href="#cases" class="text-lg hover:text-[#00B8B0]">Cases</a>
-        <a href="#doctors" class="text-lg hover:text-[#00B8B0]">Doctors</a>
-        <a href="#faq" class="text-lg hover:text-[#00B8B0]">FAQ</a>
-        <a href="#contact" class="text-lg hover:text-[#00B8B0]">Contact</a>
-
-        <button id="bookNowMobile"
-          class="mt-6 px-6 py-3 rounded-md text-white font-semibold bg-[#00B8B0] hover:bg-[#00938D] transition">
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#about" class="hover:text-[#00B8B0]">About</a>
+        <a href="#benefits" class="hover:text-[#00B8B0]">Benefits</a>
+        <a href="#cases" class="hover:text-[#00B8B0]">Cases</a>
+        <a href="#doctors" class="hover:text-[#00B8B0]">Doctors</a>
+        <a href="#faq" class="hover:text-[#00B8B0]">FAQ</a>
+        <a href="#contact" class="hover:text-[#00B8B0]">Contact</a>
+        <button id="bookNowTop" class="ml-2 px-4 py-2 bg-[#00B8B0] text-white rounded-md shadow hover:bg-[#00938D]">
           Book Session
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="mobileMenuBtn" class="p-2 rounded-md text-gray-700 hover:bg-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
         </button>
       </div>
     </div>
   </div>
+</header>
 
-  <!-- Overlay -->
-  <div id="menuOverlay"
-    class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden md:hidden transition-opacity duration-300"></div>
+<!-- Mobile Slide-in Menu -->
+<div id="mobileMenu"
+  class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 md:hidden">
+  <div class="p-6 flex flex-col h-full">
+    <!-- Close Button -->
+    <button id="closeMobileMenu" class="mb-8 self-end">
+      <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
 
-  <!-- JS -->
-  <script>
-    const mobileMenu = document.getElementById("mobileMenu");
-    const menuOverlay = document.getElementById("menuOverlay");
-    const openBtn = document.getElementById("mobileMenuBtn");
-    const closeBtn = document.getElementById("closeMobileMenu");
+    <!-- Menu Links -->
+    <div class="flex flex-col space-y-6 text-gray-800">
+      <a href="#hero" class="text-lg hover:text-[#00B8B0]">Home</a>
+      <a href="#about" class="text-lg hover:text-[#00B8B0]">About</a>
+      <a href="#benefits" class="text-lg hover:text-[#00B8B0]">Benefits</a>
+      <a href="#cases" class="text-lg hover:text-[#00B8B0]">Cases</a>
+      <a href="#doctors" class="text-lg hover:text-[#00B8B0]">Doctors</a>
+      <a href="#faq" class="text-lg hover:text-[#00B8B0]">FAQ</a>
+      <a href="#contact" class="text-lg hover:text-[#00B8B0]">Contact</a>
 
-    function openMenu() {
-      mobileMenu.classList.remove("translate-x-full", "hidden");
-      menuOverlay.classList.remove("hidden");
-      document.body.classList.add("overflow-hidden");
-    }
+      <button id="bookNowMobile"
+        class="mt-6 px-6 py-3 rounded-md text-white font-semibold bg-[#00B8B0] hover:bg-[#00938D] transition">
+        Book Session
+      </button>
+    </div>
+  </div>
+</div>
 
-    function closeMenu() {
-      mobileMenu.classList.add("translate-x-full");
-      menuOverlay.classList.add("hidden");
-      document.body.classList.remove("overflow-hidden");
-    }
+<!-- Overlay -->
+<div id="menuOverlay"
+  class="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 hidden md:hidden transition-opacity duration-300"></div>
 
-    openBtn.addEventListener("click", openMenu);
-    closeBtn.addEventListener("click", closeMenu);
-    menuOverlay.addEventListener("click", closeMenu);
+<!-- JS -->
+<script>
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const openBtn = document.getElementById("mobileMenuBtn");
+  const closeBtn = document.getElementById("closeMobileMenu");
 
-    // ✅ Close menu when any link or button inside it is clicked
-    document.querySelectorAll("#mobileMenu a, #mobileMenu button").forEach(item => {
-      item.addEventListener("click", closeMenu);
-    });
-  </script>
+  function openMenu() {
+    mobileMenu.classList.remove("translate-x-full", "hidden");
+    menuOverlay.classList.remove("hidden");
+    document.body.classList.add("overflow-hidden");
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.add("translate-x-full");
+    menuOverlay.classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  openBtn.addEventListener("click", openMenu);
+  closeBtn.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", closeMenu);
+
+  // ✅ Close menu when any link or button inside it is clicked
+  document.querySelectorAll("#mobileMenu a, #mobileMenu button").forEach(item => {
+    item.addEventListener("click", closeMenu);
+  });
+</script>
 
 
 
@@ -687,8 +687,8 @@
               <p class="text-sm text-gray-600 mt-1">Introductory session available at ₹500. Limited slots per day.</p>
             </div>
             <!-- <div class="text-sm text-gray-500"> -->
-            <div
-              class="inline-block border border-teal-400 bg-teal-500 text-white px-2 py-1 rounded-full sm:text-sm text-xs">
+            <div class="inline-block border border-teal-400 bg-teal-500 text-white px-2 py-1 rounded-full text-sm">
+
               Supervised therapy • Clinic protocols</div>
           </div>
 
@@ -733,7 +733,7 @@
             </div>
 
             <div class="sm:col-span-2 flex justify-between items-center">
-              <div class="text-xs w-1/2 md:text-sm text-gray-600">We will contact you to confirm the appointment.</div>
+              <div class="text-sm text-gray-600">We will contact you to confirm the appointment.</div>
               <button type="submit" class="px-5 py-2 bg-indigo-600 text-white rounded-md">Request Booking</button>
             </div>
           </form>
@@ -999,7 +999,7 @@
           </select>
         </div>
         <div class="flex items-center justify-between">
-          <div class="text-[0.8rem] sm:w-1/2 md:text-sm text-gray-600">First visit offer applied</div>
+          <div class="text-sm text-gray-600">First visit offer applied</div>
           <div>
             <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md">Confirm Booking</button>
           </div>
