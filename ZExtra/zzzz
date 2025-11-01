@@ -1,4 +1,2 @@
-
-    width: 198px !important;
-    /* height: 22px !important; */
-    text-align: center !important;
+width: 198px !important;
+text-align: center !important;
