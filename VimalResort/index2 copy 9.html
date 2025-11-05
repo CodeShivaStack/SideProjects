@@ -12,30 +12,6 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
     <style>
-                @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3 {
-            font-family: 'Bebas Neue', cursive;
-            letter-spacing: 2px;
-        }
-        
-        .oswald {
-            font-family: 'Oswald', sans-serif;
-        }
-
-
-
         :root {
             --background-color: #ffffff;
             --default-color: rgba(0, 0, 0, 0.7);
@@ -263,7 +239,7 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--background-color);
             color: var(--default-color);
             transition: background-color 0.3s ease, color 0.3s ease;
@@ -276,7 +252,7 @@
         h4,
         h5,
         h6 {
-            font-family: 'Bebas Neue', cursive;
+            font-family: 'Playfair Display', serif;
             color: var(--heading-color);
         }
 
@@ -289,8 +265,7 @@
         }
 
         .hero-gradient {
-            /* background: linear-gradient(135deg, var(--accent-color) 0%, #2563eb 100%); */
-            background: linear-gradient(135deg, var(--accent-color) 0%, #2563eb40 100%);
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2563eb 100%);
         }
 
         .glass-effect {
@@ -380,14 +355,11 @@
         }
 
         .gradient-text {
-            /* background: linear-gradient(135deg, #ffffff 0%, var(--accent-color) 70%, #2563eb 100%); */
-            /* background: linear-gradient(135deg, #ffffff 0%, #f48632 100%); */
-            background: #f48632;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #2563eb 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
 
         @keyframes float {
 
@@ -406,8 +378,7 @@
         }
 
         .section-padding {
-            /* padding: 80px 0; */
-            padding: 90px 0;
+            padding: 80px 0;
         }
 
         @media (max-width: 768px) {
@@ -495,7 +466,7 @@
                 </div>
 
                 <a href="https://vimalresorts.pripgo.com/"
-                    class="hidden md:block px-6 py-3 rounded-full text-white font-semibold hover:opacity-90 transition hover:border-2 border-white"
+                    class="hidden md:block px-6 py-3 rounded-full text-white font-semibold hover:opacity-90 transition"
                     style="background-color: var(--accent-color)">
                     Book Now
                 </a>
@@ -513,17 +484,17 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-surface z-50 shadow-2xl md:hidden">
         <div class="p-6">
-            <button onclick="toggleMobileMenu()" class="float-right mb-8">
+            <button onclick="toggleMobileMenu()" class="mb-8">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
                     </path>
                 </svg>
             </button>
-            <div class="flex flex-col mt-12 space-y-6">
+            <div class="flex flex-col space-y-6">
                 <a href="#hero" class="text-lg" style="color: var(--nav-color)">Home</a>
                 <a href="#about" class="text-lg" style="color: var(--nav-color)">About</a>
                 <a href="#activities" class="text-lg" style="color: var(--nav-color)">Activities</a>
-                <a href="#packages1" class="text-lg" style="color: var(--nav-color)">Packages</a>
+                <a href="#packages" class="text-lg" style="color: var(--nav-color)">Packages</a>
                 <a href="#gallery" class="text-lg" style="color: var(--nav-color)">Gallery</a>
                 <a href="#contact" class="text-lg" style="color: var(--nav-color)">Contact</a>
                 <a href="https://vimalresorts.pripgo.com/"
@@ -539,7 +510,7 @@
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 hero-gradient opacity-90"></div>
         <div class="absolute inset-0">
-            <img src="https://res.cloudinary.com/drn3y417n/image/upload/v1737395149/tqjywgnfmjhkrbleu2eb.jpg"
+            <img src="https://res.cloudinary.com/dboewrzj3/image/upload/v1730979074/IMG-20231021-WA0008_s4ixbz.jpg"
                 alt="Hero" class="w-full h-full object-cover opacity-30">
         </div>
 
@@ -728,9 +699,8 @@
         </div>
     </section>
 
-
     <!-- Packages Section -->
-    <section id="packages1" class="flex md:hidden section-padding bg-surface">
+    <section id="packages" class="flex md:hidden section-padding bg-surface">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 scroll-reveal">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Our <span class="accent-text">Packages</span></h2>
@@ -907,10 +877,11 @@
 
 
 
+    
 
 
     <!-- Packages Section -->
-    <section id="packages" class="hidden md:block section-padding bg-surface">
+    <section id="packages" class="section-padding bg-surface">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-16 scroll-reveal">
@@ -954,8 +925,145 @@
                     <div class="package-content active-tab" id="gold">
                         <div class="text-center md:text-left mb-6">
                             <h3 class="text-3xl font-bold mb-2">Gold Package</h3>
-                            <p class="text-xl font-semibold accent-text mb-1">₹800-₹900 / person</p>
-                            <p class="opacity-70">Monday-Friday: ₹800 | Weekends & Holidays: ₹900</p>
+                            <p class="text-xl font-semibold accent-text mb-1">₹800–₹900 / person</p>
+                            <p class="opacity-70">Monday–Friday: ₹800 | Weekends & Holidays: ₹900</p>
+                        </div>
+                        <p class="mb-4">
+                            Enjoy access to our swimming pool, rain-dance, indoor & outdoor activities, and horse rides.
+                        </p>
+                        <p class="font-medium mb-3">Package includes:</p>
+                        <ul class="space-y-2">
+                            <li>• Welcome drink</li>
+                            <li>• Wholesome breakfast</li>
+                            <li>• Vegetarian lunch</li>
+                            <li>• High tea</li>
+                            <li>• Basic adventure activities</li>
+                        </ul>
+                        <a href="https://vimalresorts.pripgo.com/"
+                            class="mt-8 inline-block px-6 py-3 rounded-full text-white font-semibold hover:opacity-90 transition"
+                            style="background-color: var(--accent-color)">
+                            Book Now
+                        </a>
+                    </div>
+
+                    <!-- Diamond Package -->
+                    <div class="package-content hidden" id="diamond">
+                        <div class="text-center md:text-left mb-6">
+                            <h3 class="text-3xl font-bold mb-2">Diamond Package</h3>
+                            <p class="text-xl font-semibold accent-text mb-1">₹1200–₹1300 / person</p>
+                            <p class="opacity-70">Monday–Friday: ₹1200 | Weekends & Holidays: ₹1300</p>
+                        </div>
+                        <p class="mb-4">
+                            Includes all Gold Package amenities plus advanced adventure activities:
+                        </p>
+                        <ul class="space-y-2">
+                            <li>• Sky Cycling & Zip Lining</li>
+                            <li>• Burma Bridge, Human Gyro & Rappelling</li>
+                            <li>• Net Climbing, Tyre Wall & Bungee Trampoline</li>
+                            <li>• 360° Cycling & Advanced Adventure Activities</li>
+                        </ul>
+                        <a href="https://vimalresorts.pripgo.com/"
+                            class="mt-8 inline-block px-6 py-3 rounded-full text-white font-semibold hover:opacity-90 transition"
+                            style="background-color: var(--accent-color)">
+                            Book Now
+                        </a>
+                    </div>
+
+                    <!-- Group Package -->
+                    <div class="package-content hidden" id="group">
+                        <div class="text-center md:text-left mb-6">
+                            <h3 class="text-3xl font-bold mb-2">Group Package</h3>
+                            <p class="opacity-70 mb-2">Special rates for groups of 20 or more</p>
+                        </div>
+                        <p class="mb-4">Tailored experiences for large groups including:</p>
+                        <ul class="space-y-2">
+                            <li>• Group activities</li>
+                            <li>• Team-building exercises</li>
+                            <li>• Customized meal plans</li>
+                            <li>• Special group discounts</li>
+                        </ul>
+                        <a href="https://vimalresorts.pripgo.com/"
+                            class="mt-8 inline-block px-6 py-3 rounded-full text-white font-semibold hover:opacity-90 transition"
+                            style="background-color: var(--accent-color)">
+                            Book Now
+                        </a>
+                    </div>
+
+                    <!-- School/College Package -->
+                    <div class="package-content hidden" id="school">
+                        <div class="text-center md:text-left mb-6">
+                            <h3 class="text-3xl font-bold mb-2">School / College Package</h3>
+                            <p class="opacity-70 mb-2">Special educational institution rates</p>
+                        </div>
+                        <p class="mb-4">
+                            Perfect for educational trips and safe group adventures. Includes:
+                        </p>
+                        <ul class="space-y-2">
+                            <li>• Educational activities</li>
+                            <li>• Safe adventure experiences</li>
+                            <li>• Group meal arrangements</li>
+                            <li>• Institutional discounts</li>
+                        </ul>
+                        <a href="https://vimalresorts.pripgo.com/"
+                            class="mt-8 inline-block px-6 py-3 rounded-full text-white font-semibold hover:opacity-90 transition"
+                            style="background-color: var(--accent-color)">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Packages Section -->
+    <section id="packages" class="hidden md:flex section-padding bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Our <span class="accent-text">Packages</span>
+                </h2>
+                <p class="text-lg opacity-80 max-w-2xl mx-auto">
+                    Choose the perfect package for your adventure
+                </p>
+            </div>
+
+            <!-- Tabs Container -->
+            <div class="flex flex-col md:flex-row gap-8 scroll-reveal">
+                <!-- Tabs List -->
+                <div class="flex md:flex-col w-full md:w-1/4 space-x-2 md:space-x-0 md:space-y-3">
+                    <button
+                        class="package-tab active-tab w-full text-left px-5 py-3 rounded-xl font-semibold transition bg-accent text-white shadow-md"
+                        data-tab="gold">
+                        Gold Package
+                    </button>
+                    <button
+                        class="package-tab w-full text-left px-5 py-3 rounded-xl font-semibold transition bg-white text-gray-800 hover:bg-gray-100 shadow"
+                        data-tab="diamond">
+                        Diamond Package
+                    </button>
+                    <button
+                        class="package-tab w-full text-left px-5 py-3 rounded-xl font-semibold transition bg-white text-gray-800 hover:bg-gray-100 shadow"
+                        data-tab="group">
+                        Group Package
+                    </button>
+                    <button
+                        class="package-tab w-full text-left px-5 py-3 rounded-xl font-semibold transition bg-white text-gray-800 hover:bg-gray-100 shadow"
+                        data-tab="school">
+                        School/College Package
+                    </button>
+                </div>
+
+                <!-- Tabs Content -->
+                <div class="flex-1 glass-effect rounded-2xl p-8 card-hover">
+                    <!-- Gold Package -->
+                    <div class="package-content active-tab" id="gold">
+                        <div class="text-center md:text-left mb-6">
+                            <h3 class="text-3xl font-bold mb-2">Gold Package</h3>
+                            <p class="text-xl font-semibold accent-text mb-1">₹800–₹900 / person</p>
+                            <p class="opacity-70">Monday–Friday: ₹800 | Weekends & Holidays: ₹900</p>
                         </div>
                         <p class="mb-4">
                             Enjoy access to our swimming pool, rain-dance, indoor & outdoor activities, and horse rides.
@@ -1005,7 +1113,7 @@
                         <div class="text-center md:text-left mb-6">
                             <h3 class="text-3xl font-bold mb-2">Diamond Package</h3>
                             <p class="text-xl font-semibold accent-text mb-1">₹1200-₹1300 / person</p>
-                            <p class="opacity-70">Monday-Friday: ₹1200 | Weekends & Holidays: ₹1300</p>
+                            <p class="opacity-70">Monday–Friday: ₹1200 | Weekends & Holidays: ₹1300</p>
                         </div>
                         <p class="mb-4">
                             Includes all Gold Package amenities plus advanced adventure activities:
@@ -1365,7 +1473,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4 oswald tracking-wider" style="color: var(--heading-color)">Quick Links</h4>
+                    <h4 class="text-lg font-semibold mb-4" style="color: var(--heading-color)">Quick Links</h4>
                     <ul class="space-y-2">
                         <li><a href="#hero" class="opacity-70 hover:opacity-100 transition">Home</a></li>
                         <li><a href="#about" class="opacity-70 hover:opacity-100 transition">About</a></li>
@@ -1375,7 +1483,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4 oswald tracking-wider" style="color: var(--heading-color)">Services</h4>
+                    <h4 class="text-lg font-semibold mb-4" style="color: var(--heading-color)">Services</h4>
                     <ul class="space-y-2">
                         <li><a href="#" class="opacity-70 hover:opacity-100 transition">Adventure Sports</a></li>
                         <li><a href="#" class="opacity-70 hover:opacity-100 transition">Event Planning</a></li>
@@ -1385,7 +1493,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-lg font-semibold mb-4 oswald tracking-wider" style="color: var(--heading-color)">Newsletter</h4>
+                    <h4 class="text-lg font-semibold mb-4" style="color: var(--heading-color)">Newsletter</h4>
                     <p class="opacity-70 mb-4">Subscribe for updates and special offers</p>
                     <form class="flex">
                         <input type="email" placeholder="Your email"
