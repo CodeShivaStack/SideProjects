@@ -137,7 +137,14 @@
             </div>
             
             <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">Monthly Trends</h3>
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900">Trends</h3>
+                    <select id="trendFilter" class="px-3 py-1 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly" selected>Monthly</option>
+                    </select>
+                </div>
                 <canvas id="lineChart"></canvas>
             </div>
         </div>
@@ -327,6 +334,16 @@
             }
         }
 
+        // Get week number
+        function getWeekNumber(date) {
+            const d = new Date(date);
+            d.setHours(0, 0, 0, 0);
+            d.setDate(d.getDate() + 4 - (d.getDay() || 7));
+            const yearStart = new Date(d.getFullYear(), 0, 1);
+            const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+            return `${d.getFullYear()}-W${weekNo.toString().padStart(2, '0')}`;
+        }
+
         // Render charts
         function renderCharts() {
             const income = transactions.filter(t => t.type === 'income').reduce((sum, t) => sum + t.amount, 0);
@@ -357,19 +374,45 @@
                 }
             });
 
-            // Line chart - monthly trends
-            const monthlyData = {};
+            renderLineChart();
+        }
+
+        // Render line chart based on selected trend
+        function renderLineChart() {
+            const trendType = document.getElementById('trendFilter').value;
+            const trendData = {};
+            
             transactions.forEach(t => {
-                const month = t.date.substring(0, 7);
-                if (!monthlyData[month]) {
-                    monthlyData[month] = {income: 0, expense: 0};
+                let key;
+                if (trendType === 'daily') {
+                    key = t.date;
+                } else if (trendType === 'weekly') {
+                    key = getWeekNumber(t.date);
+                } else {
+                    key = t.date.substring(0, 7);
                 }
-                monthlyData[month][t.type] += t.amount;
+                
+                if (!trendData[key]) {
+                    trendData[key] = {income: 0, expense: 0};
+                }
+                trendData[key][t.type] += t.amount;
             });
 
-            const months = Object.keys(monthlyData).sort();
-            const incomeData = months.map(m => monthlyData[m].income);
-            const expenseData = months.map(m => monthlyData[m].expense);
+            const periods = Object.keys(trendData).sort();
+            const incomeData = periods.map(p => trendData[p].income);
+            const expenseData = periods.map(p => trendData[p].expense);
+
+            // Format labels based on trend type
+            const labels = periods.map(p => {
+                if (trendType === 'daily') {
+                    return new Date(p).toLocaleDateString('en', {month: 'short', day: 'numeric'});
+                } else if (trendType === 'weekly') {
+                    const [year, week] = p.split('-W');
+                    return `Week ${week}, ${year}`;
+                } else {
+                    return new Date(p + '-01').toLocaleDateString('en', {month: 'short', year: 'numeric'});
+                }
+            });
 
             const lineCtx = document.getElementById('lineChart').getContext('2d');
             if (lineChart) lineChart.destroy();
@@ -377,19 +420,21 @@
             lineChart = new Chart(lineCtx, {
                 type: 'line',
                 data: {
-                    labels: months.map(m => new Date(m + '-01').toLocaleDateString('en', {month: 'short', year: 'numeric'})),
+                    labels: labels,
                     datasets: [{
                         label: 'Income',
                         data: incomeData,
                         borderColor: '#10b981',
                         backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                        tension: 0.4
+                        tension: 0.4,
+                        fill: true
                     }, {
                         label: 'Expenses',
                         data: expenseData,
                         borderColor: '#ef4444',
                         backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                        tension: 0.4
+                        tension: 0.4,
+                        fill: true
                     }]
                 },
                 options: {
@@ -398,16 +443,32 @@
                     plugins: {
                         legend: {
                             position: 'bottom'
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': + value.toFixed(0);'
+                                }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
                         }
                     },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
+                    interaction: {
+                        mode: 'nearest',
+                        axis: 'x',
+                        intersect: false
                     }
                 }
             });
         }
+
 
         // Update all displays
         function updateDisplay() {
@@ -500,6 +561,7 @@
         document.getElementById('filterType').addEventListener('change', updateDisplay);
         document.getElementById('filterCategory').addEventListener('change', updateDisplay);
         document.getElementById('sortBy').addEventListener('change', updateDisplay);
+        document.getElementById('trendFilter').addEventListener('change', renderLineChart);
 
         // Initialize app
         initializeSampleData();
