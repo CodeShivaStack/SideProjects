@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pulse IX Mega — Non-Surgical Therapy | Fortis Hospital</title>
+  <meta name="description" content="Pulse IX Mega at Fortis Hospital — Advanced EMTT therapy for spine, knee & orthopaedic recovery. Book your first session at ₹500." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom accents for theme C (Gold on deep black) */
+    :root{
+      --accent: #d4af37; /* gold */
+      --accent-2: #f3c969;
+      --bg: #050507; /* deep near-black */
+      --card: #0b0b0d;
+    }
+    /* small utility tweaks */
+    .accent { color: var(--accent); }
+    .accent-bg { background: linear-gradient(90deg, rgba(212,175,55,0.15), rgba(243,201,105,0.05)); }
+    .btn-accent { background: linear-gradient(90deg,var(--accent),var(--accent-2)); color: #0b0b0d; }
+    .glass { background: rgba(255,255,255,0.02); backdrop-filter: blur(6px); }
+  </style>
+</head>
+<body class="bg-[color:var(--bg)] text-white antialiased">
+
+  <!-- NAV / sticky CTA -->
+  <header class="fixed inset-x-0 top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between glass">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-md flex items-center justify-center bg-gradient-to-br from-yellow-600 to-amber-300 text-black font-bold">PX</div>
+        <div>
+          <div class="text-sm font-semibold">Pulse IX Mega</div>
+          <div class="text-xs text-gray-300">@ Fortis Hospital</div>
+        </div>
+      </div>
+      <nav class="hidden md:flex items-center gap-4 text-sm">
+        <a href="#benefits" class="hover:underline">Benefits</a>
+        <a href="#cases" class="hover:underline">Case Stories</a>
+        <a href="#doctors" class="hover:underline">Doctors</a>
+        <a href="#book" class="ml-4 btn-accent px-4 py-2 rounded-md text-xs font-semibold">Book Session</a>
+      </nav>
+      <div class="md:hidden">
+        <a href="#book" class="btn-accent px-3 py-2 rounded-md text-sm font-semibold">Book</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="pt-20">
+    <section class="relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-8">
+        <!-- left: copy + CTAs -->
+        <div class="w-full lg:w-6/12">
+          <div class="text-amber-300 font-semibold text-sm uppercase">Fortis Hospital presents</div>
+          <h1 class="mt-3 text-white text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">Revolutionary Non‑Surgical Therapy for Neuro‑Spinal & Orthopaedic Conditions</h1>
+          <p class="mt-4 text-gray-300 max-w-xl">Experience Pulse IX Mega — India’s first high-intensity EMTT device at Fortis Hospital. Faster recovery, pain-free, non-invasive rehabilitation for spine, back & knee conditions.</p>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="#book" class="btn-accent inline-flex items-center gap-2 px-5 py-3 rounded-md text-sm font-semibold shadow-lg">Book Your First Session ₹500</a>
+            <a href="#benefits" class="border border-gray-700 px-5 py-3 rounded-md text-sm text-gray-200 hover:bg-white/5">Know How It Works</a>
+          </div>
+
+          <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+            <div class="py-3 glass rounded-md">
+              <div class="text-2xl font-bold accent">18 cm</div>
+              <div class="text-xs text-gray-300">Deep Tissue Reach</div>
+            </div>
+            <div class="py-3 glass rounded-md">
+              <div class="text-2xl font-bold accent">30+</div>
+              <div class="text-xs text-gray-300">Clinical Protocols</div>
+            </div>
+            <div class="py-3 glass rounded-md">
+              <div class="text-2xl font-bold accent">1000+</div>
+              <div class="text-xs text-gray-300">Patients Treated</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- right: image / visual -->
+        <div class="w-full lg:w-6/12 flex justify-center">
+          <div class="relative w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-gray-800">
+            <!-- placeholder img -- replace with uploaded image path 'device.jpg' or user-provided -->
+            <img id="deviceImg" src="/assets/device-placeholder.jpg" alt="Pulse IX Mega device" class="w-full h-80 object-cover" />
+            <div class="absolute bottom-4 left-4 p-4 rounded-lg glass">
+              <div class="text-xs text-gray-300">Non-invasive • Pain-Free • Regenerative</div>
+              <div class="text-sm font-semibold mt-1">Pulse IX Mega</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- subtle gold curve -->
+      <div class="mt-6">
+        <svg viewBox="0 0 1440 80" class="w-full" preserveAspectRatio="none"><path d="M0,0 C300,80 1140,0 1440,80 L1440,0 L0,0 Z" fill="url(#g)" opacity="0.08"></path><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0%" stop-color="#d4af37" stop-opacity="1"/><stop offset="100%" stop-color="#f3c969" stop-opacity="1"/></linearGradient></defs></svg>
+      </div>
+    </section>
+
+    <!-- PROBLEM / CONDITIONS -->
+    <section id="problems" class="max-w-6xl mx-auto px-4 py-10 sm:py-14">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div class="p-6 bg-gradient-to-br from-black/60 to-white/1 rounded-2xl border border-gray-800">
+          <h3 class="text-xl font-bold">Who needs Pulse IX Mega?</h3>
+          <ul class="mt-4 space-y-3 text-gray-300">
+            <li class="flex items-start gap-3"><span class="text-amber-300 font-bold">•</span> Chronic back or neck pain limiting daily life</li>
+            <li class="flex items-start gap-3"><span class="text-amber-300 font-bold">•</span> Post-operative stiffness & slow rehabilitation</li>
+            <li class="flex items-start gap-3"><span class="text-amber-300 font-bold">•</span> Failed surgery syndrome / neuropathic pain</li>
+            <li class="flex items-start gap-3"><span class="text-amber-300 font-bold">•</span> Sports injuries & post-trauma recovery</li>
+          </ul>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-amber-900/5 to-transparent border border-gray-800">
+          <h3 class="text-xl font-bold">Severity — why early action matters</h3>
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+            <div class="py-4 glass rounded-md">
+              <div class="text-2xl font-bold accent">80%</div>
+              <div class="text-xs text-gray-300">Untreated cases risk disability</div>
+            </div>
+            <div class="py-4 glass rounded-md">
+              <div class="text-2xl font-bold accent">45%</div>
+              <div class="text-xs text-gray-300">Faster recovery rate reported</div>
+            </div>
+            <div class="py-4 glass rounded-md">
+              <div class="text-2xl font-bold accent">Non‑Surgical</div>
+              <div class="text-xs text-gray-300">Avoids surgery & long downtime</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / HOW IT WORKS -->
+    <section id="about" class="max-w-6xl mx-auto px-4 py-10 sm:py-14">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
+        <div class="lg:col-span-2">
+          <h3 class="text-2xl font-bold">About Pulse IX Mega</h3>
+          <p class="mt-3 text-gray-300 max-w-2xl">Pulse IX Mega uses advanced Extracorporeal Magneto Transduction Therapy (EMTT) to deliver high-intensity magnetic pulses that stimulate deep tissue, improve blood flow, and activate cellular regeneration — all without incisions or drugs.</p>
+
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-lg glass border border-gray-800">
+              <div class="text-sm font-semibold">How it works</div>
+              <div class="text-xs text-gray-300 mt-2">Powerful electromagnetic pulses contract/relax deep muscles, activate cellular repair and reduce neuropathic signalling.</div>
+            </div>
+            <div class="p-4 rounded-lg glass border border-gray-800">
+              <div class="text-sm font-semibold">Clinical protocols</div>
+              <div class="text-xs text-gray-300 mt-2">Pre-set programmes for spinal, knee, shoulder and neuropathic conditions — personalised by our clinicians.</div>
+            </div>
+            <div class="p-4 rounded-lg glass border border-gray-800">
+              <div class="text-sm font-semibold">Safety</div>
+              <div class="text-xs text-gray-300 mt-2">Non-invasive, no consumables, and supervised by trained professionals.</div>
+            </div>
+            <div class="p-4 rounded-lg glass border border-gray-800">
+              <div class="text-sm font-semibold">Results</div>
+              <div class="text-xs text-gray-300 mt-2">Notable pain reduction and mobility restoration within weeks for many patients.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden lg:block">
+          <div class="p-6 rounded-2xl bg-gradient-to-br from-amber-900/5 to-transparent border border-gray-800 text-center">
+            <div class="text-sm text-gray-300">Device Highlights</div>
+            <div class="mt-4 text-3xl font-bold accent">4 Tesla</div>
+            <div class="text-xs text-gray-300 mt-1">High‑intensity field</div>
+            <div class="mt-4">
+              <div class="text-xs text-gray-300">18 cm penetration • IoT progress tracking • 30+ protocols</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS & FEATURES -->
+    <section id="benefits" class="bg-gradient-to-b from-black/0 to-white/1 py-12">
+      <div class="max-w-6xl mx-auto px-4">
+        <h3 class="text-2xl font-bold">Benefits & Key Features</h3>
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="p-5 rounded-xl glass border border-gray-800 text-center">
+            <div class="text-3xl font-extrabold accent">Pain Relief</div>
+            <div class="text-xs text-gray-300 mt-2">Reduce chronic and neuropathic pain without medication.</div>
+          </div>
+          <div class="p-5 rounded-xl glass border border-gray-800 text-center">
+            <div class="text-3xl font-extrabold accent">Rehabilitation</div>
+            <div class="text-xs text-gray-300 mt-2">Accelerates recovery post-surgery and injury.</div>
+          </div>
+          <div class="p-5 rounded-xl glass border border-gray-800 text-center">
+            <div class="text-3xl font-extrabold accent">Deep Penetration</div>
+            <div class="text-xs text-gray-300 mt-2">Magnetic field reaches deep tissue up to 18 cm.</div>
+          </div>
+          <div class="p-5 rounded-xl glass border border-gray-800 text-center">
+            <div class="text-3xl font-extrabold accent">Safe & Fast</div>
+            <div class="text-xs text-gray-300 mt-2">No consumables, short session times, clinically validated protocols.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STORIES (visual cards) -->
+    <section id="cases" class="max-w-6xl mx-auto px-4 py-12">
+      <div class="flex items-center justify-between">
+        <h3 class="text-2xl font-bold">Patient Stories & Results</h3>
+        <div class="text-sm text-gray-400">1000+ patients treated • Real recoveries</div>
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- card 1 -->
+        <article class="rounded-2xl overflow-hidden border border-gray-800 bg-gradient-to-br from-black/40 to-transparent">
+          <div class="h-44 bg-[url('https://images.unsplash.com/photo-1580281657521-557fd8cf0616')] bg-cover bg-center"></div>
+          <div class="p-4">
+            <div class="text-sm text-gray-300">Failed Back Surgery Syndrome</div>
+            <div class="mt-2 font-semibold">Regained mobility in 6 weeks</div>
+            <p class="mt-2 text-xs text-gray-400">"I avoided a second surgery and now can play with my grandchildren."</p>
+          </div>
+        </article>
+        <!-- card 2 -->
+        <article class="rounded-2xl overflow-hidden border border-gray-800 bg-gradient-to-br from-black/40 to-transparent">
+          <div class="h-44 bg-[url('https://images.unsplash.com/photo-1591012911203-1b5b8d1b4e4b')] bg-cover bg-center"></div>
+          <div class="p-4">
+            <div class="text-sm text-gray-300">Knee Osteoarthritis</div>
+            <div class="mt-2 font-semibold">Less pain, better walking</div>
+            <p class="mt-2 text-xs text-gray-400">"After 4 sessions my pain dropped by 60% and I walk longer."</p>
+          </div>
+        </article>
+        <!-- card 3 -->
+        <article class="rounded-2xl overflow-hidden border border-gray-800 bg-gradient-to-br from-black/40 to-transparent">
+          <div class="h-44 bg-[url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528')] bg-cover bg-center"></div>
+          <div class="p-4">
+            <div class="text-sm text-gray-300">Sports Injury Rehab</div>
+            <div class="mt-2 font-semibold">Back to training sooner</div>
+            <p class="mt-2 text-xs text-gray-400">"Faster rehab and less downtime compared to my previous treatment."</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TRUSTED BY DOCTORS -->
+    <section id="doctors" class="bg-gradient-to-b from-black/0 to-white/1 py-10">
+      <div class="max-w-6xl mx-auto px-4">
+        <h3 class="text-2xl font-bold">Trusted by Doctors & Clinics</h3>
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 items-center text-center">
+          <div class="p-4 glass rounded-xl border border-gray-800">
+            <div class="text-sm font-semibold">Dr. Arjun Rao</div>
+            <div class="text-xs text-gray-300">Orthopedic Surgeon</div>
+          </div>
+          <div class="p-4 glass rounded-xl border border-gray-800">
+            <div class="text-sm font-semibold">Dr. Meera Nair</div>
+            <div class="text-xs text-gray-300">Physiatrist</div>
+          </div>
+          <div class="p-4 glass rounded-xl border border-gray-800">
+            <div class="text-sm font-semibold">Fortis Rehab Centre</div>
+            <div class="text-xs text-gray-300">Rehab Partner</div>
+          </div>
+          <div class="p-4 glass rounded-xl border border-gray-800">
+            <div class="text-sm font-semibold">Clinically Validated</div>
+            <div class="text-xs text-gray-300">Peer-reviewed studies</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING (lead capture) -->
+    <section id="book" class="max-w-4xl mx-auto px-4 py-12">
+      <div class="bg-gradient-to-br from-black/60 to-transparent p-6 rounded-2xl border border-gray-800">
+        <div class="flex flex-col md:flex-row gap-6 items-center">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold">Book a Session at Fortis Hospital</h3>
+            <p class="text-gray-300 mt-2">Introductory session ₹500 • Limited slots daily</p>
+
+            <ul class="mt-4 text-xs text-gray-400 space-y-1">
+              <li>Sessions supervised by trained therapists</li>
+              <li>Custom clinical protocol on assessment</li>
+            </ul>
+          </div>
+
+          <form id="bookingForm" class="w-full md:w-96 bg-gradient-to-br from-black/40 to-transparent p-4 rounded-xl border border-gray-800">
+            <div class="flex flex-col gap-3">
+              <input required name="name" placeholder="Full name" class="p-3 rounded-md bg-transparent border border-gray-700 text-sm" />
+              <input required name="phone" placeholder="Phone number" class="p-3 rounded-md bg-transparent border border-gray-700 text-sm" />
+              <input name="note" placeholder="Brief concern (optional)" class="p-3 rounded-md bg-transparent border border-gray-700 text-sm" />
+              <div class="flex gap-2">
+                <input type="date" name="date" class="p-3 rounded-md bg-transparent border border-gray-700 text-sm flex-1" />
+                <select name="time" class="p-3 rounded-md bg-transparent border border-gray-700 text-sm">
+                  <option>Morning</option>
+                  <option>Afternoon</option>
+                  <option>Evening</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-accent px-4 py-3 rounded-md font-semibold">Book Now</button>
+              <div id="bookingMsg" class="text-sm text-gray-300 hidden"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="max-w-6xl mx-auto px-4 py-12">
+      <h3 class="text-2xl font-bold">Frequently Asked Questions</h3>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <details class="p-4 rounded-lg glass border border-gray-800">
+          <summary class="cursor-pointer font-semibold">Is the therapy safe?</summary>
+          <p class="mt-2 text-sm text-gray-300">Yes. Non-invasive, performed under clinical supervision with preset protocols.</p>
+        </details>
+        <details class="p-4 rounded-lg glass border border-gray-800">
+          <summary class="cursor-pointer font-semibold">How many sessions are required?</summary>
+          <p class="mt-2 text-sm text-gray-300">Typically 4–8 sessions depending on condition — personalised during assessment.</p>
+        </details>
+        <details class="p-4 rounded-lg glass border border-gray-800">
+          <summary class="cursor-pointer font-semibold">Is it painful?</summary>
+          <p class="mt-2 text-sm text-gray-300">Most patients describe minimal discomfort — the device is designed to be pain-free for therapeutic use.</p>
+        </details>
+        <details class="p-4 rounded-lg glass border border-gray-800">
+          <summary class="cursor-pointer font-semibold">Who should avoid this therapy?</summary>
+          <p class="mt-2 text-sm text-gray-300">Patients with certain implants or pacemakers should consult their physician. Assessment is required prior to treatment.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- LOCATION & CONTACT -->
+    <section id="contact" class="bg-gradient-to-b from-black/0 to-white/1 py-12">
+      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-2xl font-bold">Location — Fortis Hospital</h3>
+          <p class="text-gray-300 mt-2">No. Clinic address placeholder — replace with actual Fortis branch address.</p>
+          <div class="mt-4">
+            <div class="text-sm text-gray-400">Contact</div>
+            <div class="font-semibold">Phone: +91 98765 43210</div>
+            <div class="text-xs text-gray-400 mt-2">Attending: Dr. Swaroop Pandey — Senior Physiotherapist</div>
+          </div>
+        </div>
+        <div>
+          <div class="w-full h-56 bg-gray-900 rounded-lg flex items-center justify-center text-gray-600">[Google Map Embed Placeholder]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-8 border-t border-gray-900 py-8">
+      <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-md flex items-center justify-center bg-gradient-to-br from-yellow-600 to-amber-300 text-black font-bold">PX</div>
+          <div>
+            <div class="font-semibold">Pulse IX Mega — Fortis Hospital</div>
+            <div class="text-xs text-gray-400">© 2025 Enfireix Technologies</div>
+          </div>
+        </div>
+        <div class="text-sm text-gray-400">Disclaimer: Pulse IX Mega is intended for use under professional medical supervision.</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- SCRIPTS -->
+  <script>
+    // small interactive behaviour: booking form handler + image replacement hook
+    const form = document.getElementById('bookingForm');
+    const msg = document.getElementById('bookingMsg');
+    form?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = new FormData(form);
+      // simulate lead capture — integrate with actual endpoint later
+      msg.classList.remove('hidden');
+      msg.innerText = 'Thanks ' + (data.get('name') || '') + '! We received your request. Our team will call to confirm.';
+      form.reset();
+    });
+
+    // allow device image swap: if user uploads image file named "device.jpg" in same folder, script will set it
+    const deviceImg = document.getElementById('deviceImg');
+    fetch('/assets/device.jpg', {method:'HEAD'})
+      .then(r=>{ if(r.ok) deviceImg.src = '/assets/device.jpg'; })
+      .catch(()=>{});
+
+    // small mobile sticky CTA when user scrolls
+    const bookBtn = document.createElement('a');
+    bookBtn.href = '#book';
+    bookBtn.innerText = 'Book ₹500';
+    bookBtn.className = 'fixed bottom-4 right-4 z-50 rounded-full py-3 px-4 font-semibold shadow-lg';
+    bookBtn.style.background = 'linear-gradient(90deg,#d4af37,#f3c969)';
+    bookBtn.style.color = '#0b0b0d';
+    bookBtn.style.display = window.innerWidth < 768 ? 'block' : 'none';
+    document.body.appendChild(bookBtn);
+
+    // responsive: show/hide nav on resize
+    window.addEventListener('resize', ()=>{
+      bookBtn.style.display = window.innerWidth < 768 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 width: 321px !important;
 text-align: center !important;
+z-index: 999;
 
 
 

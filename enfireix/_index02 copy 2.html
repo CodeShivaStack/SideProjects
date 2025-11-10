@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse IX Mega - Revolutionary EMTT Therapy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .float-animation { animation: float 3s ease-in-out infinite; }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(20, 184, 166, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(20, 184, 166, 0.8); }
+        }
+        .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f766e 0%, #134e4a 50%, #042f2e 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(20, 184, 166, 0.2);
+        }
+        
+        .stat-circle {
+            background: conic-gradient(from 0deg, #14b8a6 0%, #0d9488 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-teal-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-teal-600 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+            <div class="text-center max-w-5xl mx-auto">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 bg-teal-500/20 backdrop-blur-sm border border-teal-400/30 rounded-full px-6 py-2 mb-6">
+                    <span class="w-2 h-2 bg-teal-400 rounded-full pulse-glow"></span>
+                    <span class="text-sm md:text-base font-medium">Non-invasive • Clinically Validated • 45% Faster Recovery</span>
+                </div>
+                
+                <!-- Main Headline -->
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Revolutionary Non-Surgical Therapy for<br/>
+                    <span class="text-teal-300">Neuro-Spinal & Orthopaedic Conditions</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-teal-100 mb-4 max-w-4xl mx-auto">
+                    <strong>Pulse IX Mega</strong> - India's first high-intensity EMTT device. Deep tissue regeneration, faster recovery, and pain relief without surgery or consumables.
+                </p>
+                
+                <!-- Key Features -->
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-8 text-sm md:text-base">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Deep penetration - up to 18 cm</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>30+ clinical protocols</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>4 Tesla Intensity</span>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#booking" class="group bg-teal-500 hover:bg-teal-400 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 flex items-center gap-2 w-full sm:w-auto justify-center">
+                        <span>Book First Session ₹500</span>
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="#benefits" class="border-2 border-teal-400 text-teal-100 hover:bg-teal-500/20 px-8 py-4 rounded-full font-semibold text-lg transition-all w-full sm:w-auto text-center">
+                        View Benefits
+                    </a>
+                </div>
+                
+                <!-- Limited Offer Badge -->
+                <div class="mt-8 inline-block bg-orange-500/90 text-white px-6 py-3 rounded-full text-sm font-semibold animate-pulse">
+                    🎉 Limited Offer: First-time session at ₹500 • Limited slots daily
+                </div>
+            </div>
+            
+            <!-- Stats Section -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center border border-white/20">
+                    <div class="text-3xl md:text-4xl font-bold text-teal-300 mb-2">1,000+</div>
+                    <div class="text-sm text-teal-100">Patients Treated</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center border border-white/20">
+                    <div class="text-3xl md:text-4xl font-bold text-teal-300 mb-2">45%</div>
+                    <div class="text-sm text-teal-100">Avg. Improvement</div>
+                </div>
+                <div class="col-span-2 md:col-span-1 bg-white/10 backdrop-blur-md rounded-2xl p-6 text-center border border-white/20">
+                    <div class="text-3xl md:text-4xl font-bold text-teal-300 mb-2">4-8 Weeks</div>
+                    <div class="text-sm text-teal-100">Visible Results</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave Separator -->
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="#f9fafb"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Common Conditions & Why <span class="gradient-text">Prompt Treatment Matters</span>
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Untreated spine and degenerative orthopaedic issues may progress, causing chronic pain, reduced mobility, nerve damage, or need for invasive surgery.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
+                <!-- Condition Cards -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-t-4 border-teal-500">
+                    <div class="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Chronic Back Pain</h3>
+                    <p class="text-gray-600 text-sm mb-3">Reduced quality of life, sleep disruption</p>
+                    <div class="bg-red-50 text-red-700 text-xs px-3 py-1 rounded-full inline-block">
+                        High Impact
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-t-4 border-orange-500">
+                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Failed Back Surgery</h3>
+                    <p class="text-gray-600 text-sm mb-3">Persistent pain after surgery; alternatives needed</p>
+                    <div class="bg-orange-50 text-orange-700 text-xs px-3 py-1 rounded-full inline-block">
+                        Severe
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-t-4 border-purple-500">
+                    <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Disc Degeneration</h3>
+                    <p class="text-gray-600 text-sm mb-3">Loss of function, radicular pain</p>
+                    <div class="bg-purple-50 text-purple-700 text-xs px-3 py-1 rounded-full inline-block">
+                        Progressive
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover border-t-4 border-pink-500">
+                    <div class="w-14 h-14 bg-pink-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Non-Union Fractures</h3>
+                    <p class="text-gray-600 text-sm mb-3">Delayed healing, chronic inflammation</p>
+                    <div class="bg-pink-50 text-pink-700 text-xs px-3 py-1 rounded-full inline-block">
+                        Chronic
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Progression Timeline -->
+            <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12">
+                <h3 class="text-2xl md:text-3xl font-bold text-center mb-8">
+                    How Untreated Conditions <span class="gradient-text">Progress</span>
+                </h3>
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-teal-200 via-orange-300 to-red-400 transform -translate-y-1/2"></div>
+                    
+                    <!-- Timeline Steps -->
+                    <div class="grid md:grid-cols-4 gap-8 relative">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4 shadow-lg">1</div>
+                            <h4 class="font-bold mb-2">Initial Stage</h4>
+                            <p class="text-sm text-gray-600">Minor pain & stiffness</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4 shadow-lg">2</div>
+                            <h4 class="font-bold mb-2">Chronic Pain</h4>
+                            <p class="text-sm text-gray-600">Functional decline, sleep disturbance</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-red-400 rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4 shadow-lg">3</div>
+                            <h4 class="font-bold mb-2">Nerve Involvement</h4>
+                            <p class="text-sm text-gray-600">Radiating pain, neurological symptoms</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4 shadow-lg">4</div>
+                            <h4 class="font-bold mb-2">Surgery Required</h4>
+                            <p class="text-sm text-gray-600">Invasive interventions needed</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-teal-50 border-l-4 border-teal-500 p-6 rounded-r-lg">
+                    <p class="text-teal-900 font-semibold">
+                        💡 Pulse IX Mega aims to intervene earlier with non-invasive regenerative therapy to reduce progression and help avoid surgery where possible.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Pulse IX Mega -->
+    <section id="about" class="py-16 md:py-24 bg-gradient-to-br from-teal-50 to-cyan-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        About <span class="gradient-text">Pulse IX Mega</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        India's first high-intensity EMTT device designed specifically for deep-targeted regenerative treatment
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 float-animation">
+                            <div class="w-32 h-32 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-3xl flex items-center justify-center mb-6 mx-auto">
+                                <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="text-2xl font-bold mb-2">The Ultimate EMTT Device</h3>
+                                <p class="text-gray-600">Advanced electromagnetic therapy by Enfireix</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold mb-6">How Pulse IX Mega Works</h3>
+                        
+                        <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-teal-500">
+                            <h4 class="font-bold text-lg mb-2 text-teal-700">🧲 Neuro Magnetic Stimulation</h4>
+                            <p class="text-gray-600">
+                                Emits powerful electromagnetic pulses from a round coil, contracting and relaxing muscles in deeper areas
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-cyan-500">
+                            <h4 class="font-bold text-lg mb-2 text-cyan-700">🔄 Cellular Activation</h4>
+                            <p class="text-gray-600">
+                                Improves blood flow, stimulates cellular activation and regeneration through activity potential
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-teal-600">
+                            <h4 class="font-bold text-lg mb-2 text-teal-800">✨ Pain Relief</h4>
+                            <p class="text-gray-600">
+                                Ultimately alleviates neuropathic pain, knee pain, and back pain through deep tissue penetration up to 18 cm
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Key Technology Features -->
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg card-hover">
+                        <div class="text-4xl mb-3">🚫</div>
+                        <h4 class="font-bold mb-2">Non-Invasive</h4>
+                        <p class="text-sm text-gray-600">No incisions, no consumables</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg card-hover">
+                        <div class="text-4xl mb-3">✅</div>
+                        <h4 class="font-bold mb-2">Safe & Repeatable</h4>
+                        <p class="text-sm text-gray-600">Pre-set clinical protocols</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg card-hover">
+                        <div class="text-4xl mb-3">📊</div>
+                        <h4 class="font-bold mb-2">IoT Tracking</h4>
+                        <p class="text-sm text-gray-600">Monitor patient response</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 text-center shadow-lg card-hover">
+                        <div class="text-4xl mb-3">⚡</div>
+                        <h4 class="font-bold mb-2">4 Tesla Power</h4>
+                        <p class="text-sm text-gray-600">High-intensity treatment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits & Features -->
+    <section id="benefits" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Benefits & <span class="gradient-text">Key Features</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Designed to support recovery, reduce pain, and restore mobility - backed by clinical protocols
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-teal-500 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Deep Tissue Penetration</h3>
+                    <p class="text-gray-600 mb-4">Up to 18 cm penetration for deep spinal structures and hard-to-reach areas</p>
+                    <div class="bg-teal-100 text-teal-800 text-sm px-4 py-2 rounded-full inline-block">
+                        18 cm depth
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">30+ Clinical Protocols</h3>
+                    <p class="text-gray-600 mb-4">Pre-set protocols for specific spine and orthopaedic diagnoses</p>
+                    <div class="bg-purple-100 text-purple-800 text-sm px-4 py-2 rounded-full inline-block">
+                        Evidence-based
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">No Consumables</h3>
+                    <p class="text-gray-600 mb-4">Cost-effective for clinics; safe & repeatable sessions</p>
+                    <div class="bg-orange-100 text-orange-800 text-sm px-4 py-2 rounded-full inline-block">
+                        Economical
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">IoT Tracking</h3>
+                    <p class="text-gray-600 mb-4">Track patient progress and adjust therapy in real-time</p>
+                    <div class="bg-blue-100 text-blue-800 text-sm px-4 py-2 rounded-full inline-block">
+                        Smart monitoring
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Regenerative Effects</h3>
+                    <p class="text-gray-600 mb-4">Stimulates cellular repair and modulates inflammation</p>
+                    <div class="bg-green-100 text-green-800 text-sm px-4 py-2 rounded-full inline-block">
+                        Natural healing
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 bg-teal-600 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Clinically Validated</h3>
+                    <p class="text-gray-600 mb-4">Used in supervised clinical settings with supporting studies</p>
+                    <div class="bg-teal-100 text-teal-800 text-sm px-4 py-2 rounded-full inline-block">
+                        Research-backed
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proven Efficacy Section -->
+            <div class="mt-16 max-w-5xl mx-auto bg-gradient-to-br from-teal-500 to-cyan-600 rounded-3xl p-8 md:p-12 text-white shadow-2xl">
+                <div class="text-center">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">Proven Clinical Efficacy</h3>
+                    <p class="text-lg text-teal-50 mb-8 max-w-3xl mx-auto">
+                        Fast results: Many patients report meaningful pain reduction and improved mobility within 4-8 weeks when combined with a clinical program
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+                            <div class="text-4xl font-bold mb-2">200+</div>
+                            <div class="text-sm text-teal-100">Studies Referenced</div>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+                            <div class="text-4xl font-bold mb-2">95%</div>
+                            <div class="text-sm text-teal-100">Patient Satisfaction</div>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+                            <div class="text-4xl font-bold mb-2">4 Tesla</div>
+                            <div class="text-sm text-teal-100">Magnetic Intensity</div>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+                            <div class="text-4xl font-bold mb-2">30+</div>
+                            <div class="text-sm text-teal-100">Conditions Treated</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Stories & Success -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-teal-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Case Stories & <span class="gradient-text">Success</span>
+                </h2>
+                <p class="text-xl text-gray-600">Real patients, real outcomes - stories from clinics using Pulse IX Mega</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Success Stats Banner -->
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-12">
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div class="text-5xl font-bold gradient-text mb-2">1,000+</div>
+                            <div class="text-gray-600 font-semibold">Patients Successfully Treated</div>
+                        </div>
+                        <div>
+                            <div class="text-5xl font-bold gradient-text mb-2">87%</div>
+                            <div class="text-gray-600 font-semibold">Reported Significant Relief</div>
+                        </div>
+                        <div>
+                            <div class="text-5xl font-bold gradient-text mb-2">4-8</div>
+                            <div class="text-gray-600 font-semibold">Weeks to Visible Results</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Patient Testimonials -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 font-bold text-xl mr-4">
+                                RS
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Rajesh S.</h4>
+                                <p class="text-sm text-gray-500">Chronic Back Pain</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-3">
+                            <span class="text-yellow-400">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 italic">"After 6 sessions, my chronic back pain reduced by 70%. I can now work without discomfort. Life-changing treatment!"</p>
+                        <div class="mt-4 text-sm text-teal-600 font-semibold">70% pain reduction</div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-xl mr-4">
+                                PM
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Priya M.</h4>
+                                <p class="text-sm text-gray-500">Post-Surgery Recovery</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-3">
+                            <span class="text-yellow-400">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 italic">"Recovered from knee surgery 40% faster than expected. The non-invasive therapy was painless and effective."</p>
+                        <div class="mt-4 text-sm text-purple-600 font-semibold">40% faster recovery</div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-xl mr-4">
+                                AK
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Amit K.</h4>
+                                <p class="text-sm text-gray-500">Disc Degeneration</p>
+                            </div>
+                        </div>
+                        <div class="flex mb-3">
+                            <span class="text-yellow-400">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 italic">"Avoided surgery completely! After 8 weeks of treatment, my mobility improved dramatically and pain is minimal."</p>
+                        <div class="mt-4 text-sm text-orange-600 font-semibold">Surgery avoided</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by Doctors -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Trusted by <span class="gradient-text">Doctors & Clinics</span>
+                </h2>
+                <p class="text-xl text-gray-600">Endorsements, certifications, and research backing the technology</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Doctor Testimonials -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8 shadow-lg">
+                        <div class="flex items-start mb-4">
+                            <div class="w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-4 flex-shrink-0">
+                                SP
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Dr. Swaroop Pandey</h4>
+                                <p class="text-teal-600 font-semibold">Senior Physiotherapist</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic text-lg">"A valuable non-surgical option for selected patients. The results we're seeing with Pulse IX Mega are remarkable."</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-lg">
+                        <div class="flex items-start mb-4">
+                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-4 flex-shrink-0">
+                                MS
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Dr. Meera Shah</h4>
+                                <p class="text-purple-600 font-semibold">Orthopaedic Consultant</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic text-lg">"Helps accelerate recovery in post-op rehabilitation. I recommend this to patients looking for faster healing."</p>
+                    </div>
+                </div>
+                
+                <!-- Certifications & Research -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white border-2 border-teal-200 rounded-2xl p-8 text-center shadow-lg">
+                        <div class="w-20 h-20 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-12 h-12 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">IEC / CE Certified</h3>
+                        <p class="text-gray-600 mb-4">Regulatory badges</p>
+                        <p class="text-sm text-gray-500">Certified for clinical use with appropriate safety systems</p>
+                    </div>
+                    
+                    <div class="bg-white border-2 border-purple-200 rounded-2xl p-8 text-center shadow-lg">
+                        <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Research-Backed</h3>
+                        <p class="text-gray-600 mb-4">200+ studies referenced</p>
+                        <p class="text-sm text-gray-500">Peer-reviewed literature supports electromagnetic regenerative therapies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book a Session -->
+    <section id="booking" class="py-16 md:py-24 bg-gradient-to-br from-teal-500 to-cyan-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-teal-300 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Book Your Session</h2>
+                    <p class="text-xl text-teal-100">Introductory session available at ₹500 • Limited slots per day</p>
+                    <p class="text-teal-200 mt-2">Supervised therapy • Clinic protocols</p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-2xl border border-white/20">
+                    <form class="space-y-6" onsubmit="handleBooking(event)">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" for="name">Full Name *</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-white/90 text-gray-800 border-2 border-transparent focus:border-teal-300 focus:outline-none transition-all" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" required pattern="[0-9]{10}" class="w-full px-4 py-3 rounded-xl bg-white/90 text-gray-800 border-2 border-transparent focus:border-teal-300 focus:outline-none transition-all" placeholder="10-digit number">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" for="email">Email (optional)</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-xl bg-white/90 text-gray-800 border-2 border-transparent focus:border-teal-300 focus:outline-none transition-all" placeholder="you@example.com">
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" for="date">Preferred Date *</label>
+                                <input type="date" id="date" required class="w-full px-4 py-3 rounded-xl bg-white/90 text-gray-800 border-2 border-transparent focus:border-teal-300 focus:outline-none transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" for="time">Preferred Time *</label>
+                                <select id="time" required class="w-full px-4 py-3 rounded-xl bg-white/90 text-gray-800 border-2 border-transparent focus:border-teal-300 focus:outline-none transition-all">
+                                    <option value="">Select time slot</option>
+                                    <option value="09:00">09:00 - 11:00</option>
+                                    <option value="11:00">11:00 - 13:00</option>
+                                    <option value="14:00">14:00 - 16:00</option>
+                                    <option value="16:00">16:00 - 18:00</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="offer" checked class="w-5 h-5 rounded border-2 border-white/50 text-teal-600 focus:ring-teal-500">
+                            <label for="offer" class="ml-3 text-sm">Apply first-time offer - ₹500 introductory session</label>
+                        </div>
+                        
+                        <p class="text-sm text-teal-100">We will contact you to confirm the appointment.</p>
+                        
+                        <button type="submit" class="w-full bg-white text-teal-600 font-bold py-4 rounded-xl hover:bg-teal-50 transition-all transform hover:scale-105 shadow-lg text-lg">
+                            Request Booking
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-teal-100 text-sm">🔒 Your information is secure and confidential</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Frequently Asked <span class="gradient-text">Questions</span>
+                    </h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-bold text-lg">Is Pulse IX Mega therapy safe?</span>
+                            <svg class="w-6 h-6 text-teal-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-gray-600">
+                            Yes, Pulse IX Mega is IEC/CE certified and completely safe when administered under professional supervision. It's a non-invasive treatment with no incisions, no consumables, and minimal to no side effects.
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-bold text-lg">How many sessions are needed?</span>
+                            <svg class="w-6 h-6 text-teal-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-gray-600">
+                            The number of sessions varies based on your condition and severity. Typically, patients see meaningful results within 4-8 weeks with regular sessions (2-3 times per week). Your clinician will create a personalized treatment plan.
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-bold text-lg">Is the treatment painful?</span>
+                            <svg class="w-6 h-6 text-teal-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-gray-600">
+                            No, Pulse IX Mega therapy is completely painless. Most patients describe a gentle tapping or tingling sensation. The treatment is comfortable and relaxing, with no recovery time needed.
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-bold text-lg">Who should avoid this therapy?</span>
+                            <svg class="w-6 h-6 text-teal-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-gray-600">
+                            Pregnant women, patients with pacemakers, metal implants in the treatment area, or active infections should consult their doctor before treatment. Your clinician will assess your suitability during the initial consultation.
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-bold text-lg">Is it scientifically proven?</span>
+                            <svg class="w-6 h-6 text-teal-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-gray-600">
+                            Yes, electromagnetic therapy is backed by over 200 peer-reviewed studies. Pulse IX Mega uses clinically validated protocols specifically designed for musculoskeletal and neuropathic conditions.
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-bold text-lg">What conditions can it treat?</span>
+                            <svg class="w-6 h-6 text-teal-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-gray-600">
+                            Pulse IX Mega has 30+ clinical protocols for conditions including: chronic back pain, disc degeneration, knee pain, failed back surgery syndrome, post-surgical recovery, sports injuries, neuropathic pain, and non-union fractures.
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <button class="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-bold text-lg">How long does each session take?</span>
+                            <svg class="w-6 h-6 text-teal-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="faq-content hidden px-6 pb-5 text-gray-600">
+                            Each session typically lasts 20-30 minutes depending on the condition and protocol. You can return to normal activities immediately after treatment with no downtime required.
+                        </div>
