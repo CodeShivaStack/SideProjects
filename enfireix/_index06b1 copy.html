@@ -12,6 +12,10 @@
     <!-- Swiper v9 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
+    <!-- FontAwesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
     <style>
         :root {
             --accent: #d4af37;
@@ -44,6 +48,10 @@
 </head>
 
 <body class="bg-black text-white">
+
+
+    <!-- Swiper v9 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <!-- HERO SECTION -->
     <section
@@ -122,74 +130,83 @@
                     maximum therapeutic effect with complete patient comfort.
                 </p>
 
-                <!-- Feature Icons -->
+                <!-- Feature Icons using FontAwesome -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                    <!-- 4 Tesla -->
                     <div class="flex flex-col items-center text-center p-4 bg-gray-100 rounded-lg shadow-sm">
-                        <img src="/assets/icon-tesla.svg" alt="4 Tesla" class="w-10 h-10 mb-3" />
+                        <i class="fas fa-bolt text-4xl text-accent mb-3"></i>
                         <div class="font-semibold text-sm">
                             4.0 Tesla Magnetic Stimulation
                         </div>
                     </div>
+                    <!-- Dual Applicator -->
                     <div class="flex flex-col items-center text-center p-4 bg-gray-100 rounded-lg shadow-sm">
-                        <img src="/assets/icon-applicator.svg" alt="Applicator" class="w-10 h-10 mb-3" />
+                        <i class="fas fa-random text-4xl text-accent mb-3"></i>
                         <div class="font-semibold text-sm">Dual Applicator System</div>
                     </div>
+                    <!-- Touchscreen -->
                     <div class="flex flex-col items-center text-center p-4 bg-gray-100 rounded-lg shadow-sm">
-                        <img src="/assets/icon-touchscreen.svg" alt="Touch Screen" class="w-10 h-10 mb-3" />
+                        <i class="fas fa-tablet-alt text-4xl text-accent mb-3"></i>
                         <div class="font-semibold text-sm">
                             Smart 12-inch Touchscreen Control
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
+            
             <!-- Swiper Image Section -->
             <div class="flex flex-col items-center">
+
                 <!-- Main Swiper -->
                 <div
                     class="swiper mainSwiper w-full max-w-lg rounded-2xl overflow-hidden shadow-lg border border-gray-200 mb-4">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="images/5.jpeg" alt="Pulse IX Mega Device"
-                                class="w-full h-auto object-cover" />
+                            <img src="images/5.jpeg" alt="Pulse IX Mega Device" class="w-full h-auto object-cover" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="images/6.png" alt="Pulse IX Mega Use"
-                                class="w-full h-auto object-cover" />
+                            <img src="images/6.png" alt="Pulse IX Mega Use" class="w-full h-auto object-cover" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="images/7.jpeg" alt="Therapy Procedure"
-                                class="w-full h-auto object-cover" />
+                            <img src="images/7.jpeg" alt="Therapy Procedure" class="w-full h-auto object-cover" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="images/8.png" alt="Device Close-up"
-                                class="w-full h-auto object-cover" />
+                            <img src="images/8.png" alt="Device Close-up" class="w-full h-auto object-cover" />
                         </div>
                     </div>
-
-                    <!-- Navigation Arrows -->
-                    <div class="swiper-button-next text-black"></div>
-                    <div class="swiper-button-prev text-black"></div>
                 </div>
 
-                <!-- Thumbnail Swiper -->
-                <div class="swiper thumbSwiper w-full max-w-lg swiper-thumb">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="images/5.jpeg" class="w-full h-full object-cover rounded-lg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/6.png" class="w-full h-full object-cover rounded-lg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/7.jpeg" class="w-full h-full object-cover rounded-lg" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="images/8.png" class="w-full h-full object-cover rounded-lg" />
+                <!-- Thumbnail Swiper + Navigation -->
+                <div class="relative flex items-center justify-center w-full max-w-lg">
+
+                    <!-- Prev Button -->
+                    <div class="swiper-button-prev text-black !static !translate-x-0 mr-2"></div>
+
+                    <!-- Thumbnail Swiper -->
+                    <div class="swiper thumbSwiper swiper-thumb w-full">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="images/5.jpeg" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="images/6.png" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="images/7.jpeg" class="w-full h-full object-cover rounded-lg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="images/8.png" class="w-full h-full object-cover rounded-lg" />
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Next Button -->
+                    <div class="swiper-button-next text-black !static !translate-x-0 ml-2"></div>
+
                 </div>
             </div>
+
         </div>
     </section>
 
