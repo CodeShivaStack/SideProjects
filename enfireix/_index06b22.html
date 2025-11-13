@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse IX Mega — Non-Surgical Therapy for Neuro-Spinal & Orthopaedic Conditions</title>
+    <meta name="description"
+        content="Pulse IX Mega — India’s First High-Intensity EMTT Device. Non-invasive, regenerative therapy for pain relief and recovery.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+        }
+
+        a {
+            transition: all 0.3s ease;
+        }
+
+        /* Navbar */
+        #navbar {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(90deg, #14b8a6, #0d9488);
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #0d9488, #14b8a6);
+            box-shadow: 0 4px 15px rgba(20, 184, 166, 0.5);
+        }
+
+        /* FAQ toggle */
+        .faq-header:hover {
+            color: #14b8a6;
+        }
+
+        /* Dark overlay gradient sections */
+        .overlay-gradient {
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.95));
+        }
+
+        /* Testimonial slide */
+        .slide {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0a0a0a] text-[#e0e0e0]">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 px-6 py-4 flex justify-between items-center shadow-md">
+        <div class="flex items-center gap-3">
+            <img src="images/logo3.png" alt="Pulse IX Mega" class="w-12 h-12 object-cover rounded-md">
+            <span class="text-xl font-bold text-white">Pulse IX Mega</span>
+        </div>
+        <ul class="hidden md:flex gap-6 text-gray-300 font-medium">
+            <li><a href="#about" class="hover:text-teal-400">About</a></li>
+            <li><a href="#benefits" class="hover:text-teal-400">Benefits</a></li>
+            <li><a href="#booking" class="hover:text-teal-400">Book Session</a></li>
+            <li><a href="#faq" class="hover:text-teal-400">FAQ</a></li>
+        </ul>
+        <div class="md:hidden">
+            <button onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-0 bg-black/90 text-white flex flex-col items-center justify-center gap-6 text-xl z-40">
+        <a href="#about" onclick="toggleMobileMenu()">About</a>
+        <a href="#benefits" onclick="toggleMobileMenu()">Benefits</a>
+        <a href="#booking" onclick="toggleMobileMenu()">Book Session</a>
+        <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overlay-gradient">
+        <img src="images/hero-bg.jpg" alt="Pulse IX Mega Therapy" class="absolute inset-0 w-full h-full object-cover brightness-50">
+        <div class="relative text-center px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Pain Relief. Recovery. Regeneration.</h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-6 max-w-3xl mx-auto">India’s first high-intensity EMTT device for non-invasive regenerative therapy. Experience the future of pain relief and recovery.</p>
+            <button id="heroBookBtn" class="btn-primary px-6 py-3 rounded-lg text-lg font-semibold">Book Your Session</button>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 text-white">About Pulse IX Mega</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto">Pulse IX Mega uses high-intensity electromagnetic therapy (EMTT) to accelerate healing, reduce pain, and improve mobility. Non-invasive and backed by global clinical studies, it’s suitable for various neuro-spinal and orthopedic conditions.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <img src="images/about-device.jpg" alt="Device Image" class="rounded-lg shadow-lg w-full object-cover">
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-white">Why Choose Pulse IX Mega?</h3>
+                <ul class="space-y-2 text-gray-300 list-disc list-inside">
+                    <li>Non-invasive & pain-free</li>
+                    <li>Clinically validated EMTT technology</li>
+                    <li>Fast recovery & mobility improvement</li>
+                    <li>Safe for long-term use under supervision</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="bg-gradient-to-b from-[#0a0a0a] to-[#111111] py-16 overlay-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-white">Benefits of Pulse IX Mega</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Targeted therapy for chronic pain, injuries, and post-surgery recovery. Enhance your quality of life with proven technology.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 rounded-lg bg-black/50 hover:bg-black/70 transition">
+                    <img src="images/benefit1.png" alt="Back Pain Relief" class="mx-auto mb-4 w-16 h-16">
+                    <h4 class="font-semibold text-white mb-2">Back Pain Relief</h4>
+                    <p class="text-gray-300 text-sm">Reduces chronic back pain and improves posture naturally.</p>
+                </div>
+                <div class="p-6 rounded-lg bg-black/50 hover:bg-black/70 transition">
+                    <img src="images/benefit2.png" alt="Joint & Wrist Recovery" class="mx-auto mb-4 w-16 h-16">
+                    <h4 class="font-semibold text-white mb-2">Joint & Wrist Recovery</h4>
+                    <p class="text-gray-300 text-sm">Helps restore mobility in wrists, knees, and other joints.</p>
+                </div>
+                <div class="p-6 rounded-lg bg-black/50 hover:bg-black/70 transition">
+                    <img src="images/benefit3.png" alt="Heel & Foot Care" class="mx-auto mb-4 w-16 h-16">
+                    <h4 class="font-semibold text-white mb-2">Heel & Foot Care</h4>
+                    <p class="text-gray-300 text-sm">Alleviates heel pain and aids faster recovery post-injury.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Booking Section -->
+    <section id="booking" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 overlay-gradient">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4 text-white">Book Your Intro Session</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto">Reserve your first session today. First visit offer applied. ₹500 only.</p>
+        </div>
+        <form id="bookingForm" class="max-w-3xl mx-auto grid gap-4">
+            <input name="name" required placeholder="Full Name" class="px-4 py-3 rounded-md border border-gray-700 bg-black/50 text-white focus:outline-none focus:border-teal-400">
+            <input name="phone" pattern="[0-9]{7,15}" required placeholder="Phone" class="px-4 py-3 rounded-md border border-gray-700 bg-black/50 text-white focus:outline-none focus:border-teal-400">
+            <input name="email" type="email" placeholder="Email (optional)" class="px-4 py-3 rounded-md border border-gray-700 bg-black/50 text-white focus:outline-none focus:border-teal-400">
+            <div class="flex flex-col md:flex-row gap-4">
+                <input name="date" type="date" required class="px-4 py-3 rounded-md border border-gray-700 bg-black/50 text-white w-full focus:outline-none focus:border-teal-400">
+                <select name="time" class="px-4 py-3 rounded-md border border-gray-700 bg-black/50 text-white w-full focus:outline-none focus:border-teal-400">
+                    <option>09:00 - 11:00</option>
+                    <option>11:00 - 13:00</option>
+                    <option>15:00 - 17:00</option>
+                    <option>17:00 - 19:00</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-primary px-6 py-3 rounded-md text-lg font-semibold">Confirm Booking</button>
+        </form>
+    </section>
+
+    <!-- Google Maps -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 class="text-3xl font-bold mb-4 text-white text-center">Our Clinic Location</h2>
+        <div class="mt-4 rounded-lg overflow-hidden border border-gray-700">
+            <iframe title="Clinic location" class="w-full h-64 border-0"
+                loading="lazy"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6487.956794535692!2d77.50872724372452!3d13.019020291161242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1761635328702!5m2!1sen!2sin">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 class="text-3xl font-bold mb-8 text-center text-white">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <!-- FAQ Items -->
+            <div class="border border-gray-700 rounded-lg">
+                <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+                    <span class="font-medium text-white">Is Pulse IX Mega therapy safe?</span>
+                    <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                        <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="faq-body px-4 pb-4 hidden text-gray-300 text-sm">
+                    Yes - it’s completely safe, non-invasive, and certified by global safety standards. No known side effects.
+                </div>
+            </div>
+
+            <div class="border border-gray-700 rounded-lg">
+                <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+                    <span class="font-medium text-white">How many sessions are needed?</span>
+                    <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                        <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="faq-body px-4 pb-4 hidden text-gray-300 text-sm">
+                    Most people feel better after 3-6 sessions. Chronic issues may need 8-12 for best results.
+                </div>
+            </div>
+
+            <div class="border border-gray-700 rounded-lg">
+                <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+                    <span class="font-medium text-white">Is the treatment painful?</span>
+                    <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                        <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="faq-body px-4 pb-4 hidden text-gray-300 text-sm">
+                    Not at all. You might feel a gentle warmth or tingling - most patients find it relaxing.
+                </div>
+            </div>
+
+            <div class="border border-gray-700 rounded-lg">
+                <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+                    <span class="font-medium text-white">Who should avoid this therapy?</span>
+                    <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                        <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="faq-body px-4 pb-4 hidden text-gray-300 text-sm">
+                    Not suitable for pregnant women, people with pacemakers, or those with certain metal implants.
+                </div>
+            </div>
+
+            <div class="border border-gray-700 rounded-lg">
+                <button class="faq-header w-full text-left px-4 py-3 flex justify-between items-center">
+                    <span class="font-medium text-white">Is it scientifically proven?</span>
+                    <svg class="h-5 w-5 transform transition-transform" viewBox="0 0 20 20" fill="none" stroke="currentColor">
+                        <path d="M6 8l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="faq-body px-4 pb-4 hidden text-gray-300 text-sm">
+                    Yes. EMTT tech behind Pulse IX Mega is backed by 200+ global studies and used by doctors worldwide.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0a] text-gray-300 py-12 overlay-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="images/logo3.png" alt="Pulse IX Mega" class="w-16 h-16 object-cover rounded-md">
+                        <div>
+                            <div class="font-bold text-xl text-white">Pulse IX Mega</div>
+                            <div class="text-sm text-gray-400">Non-invasive regenerative therapy</div>
+                        </div>
+                    </div>
+                    <p class="mb-4 text-gray-400 max-w-md">India's first high-intensity EMTT device for non-invasive regenerative therapy. Experience the future of pain relief and recovery.</p>
+                    <div class="flex gap-4">
+                        <!-- Social Icons -->
+                        <a href="#" class="text-white hover:text-teal-400">FB</a>
+                        <a href="#" class="text-white hover:text-teal-400">X</a>
+                        <a href="https://www.instagram.com/enfireix/" class="text-white hover:text-teal-400">IG</a>
+                        <a href="#" class="text-white hover:text-teal-400">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-teal-400">About</a></li>
+                        <li><a href="#benefits" class="hover:text-teal-400">Benefits</a></li>
+                        <li><a href="#booking" class="hover:text-teal-400">Book Session</a></li>
+                        <li><a href="#faq" class="hover:text-teal-400">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4 text-sm text-gray-400">
+                    <div>
+                        <div class="font-bold">Contact</div>
+                        <div>Phone: <a href="tel:+911234567890" class="text-teal-400">+9112345 67890</a></div>
+                        <div>Email: <a href="mailto:contact@enfireix.com" class="text-teal-400">contact@enfireix.com</a></div>
+                        <div>#123 Clinic Street, Health Park, Bengaluru, Karnataka 560058</div>
+                    </div>
+                    <div>
+                        <div class="font-bold">Attending Therapist</div>
+                        <div>Dr. Swaroop Pandey - Senior Physiotherapist (Supervising)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm mb-2"><strong>Disclaimer:</strong> Pulse IX Mega is intended for use under professional medical supervision. Results vary by patient and condition. Consult your clinician for suitability.</p>
+                <p class="text-sm">© 2025 Pulse IX Mega. All rights reserved. Powered by <span class="text-teal-400">Enfireix</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="modalBackdrop" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center p-2">
+        <div class="bg-black/95 rounded-lg w-full max-w-md p-6 sm:p-8 text-white">
+            <div class="flex items-center justify-between mb-4">
+                <h4 class="font-semibold">Book Intro Session - ₹500</h4>
+                <button id="closeModal" class="text-gray-400 hover:text-white">✕</button>
+            </div>
+            <form id="modalForm" class="grid gap-3">
+                <input name="m_name" required placeholder="Your full name" class="px-3 py-2 border rounded-md bg-black/50 text-white focus:outline-none focus:border-teal-400" />
+                <input name="m_phone" pattern="[0-9]{7,15}" required placeholder="Phone" class="px-3 py-2 border rounded-md bg-black/50 text-white focus:outline-none focus:border-teal-400" />
+                <input name="m_email" type="email" placeholder="Email (optional)" class="px-3 py-2 border rounded-md bg-black/50 text-white focus:outline-none focus:border-teal-400" />
+                <div class="flex gap-3">
+                    <input name="m_date" required type="date" class="px-3 py-2 border rounded-md w-full bg-black/50 text-white focus:outline-none focus:border-teal-400" />
+                    <select name="m_time" class="px-3 py-2 border rounded-md w-full bg-black/50 text-white focus:outline-none focus:border-teal-400">
+                        <option>09:00 - 11:00</option>
+                        <option>11:00 - 13:00</option>
+                        <option>15:00 - 17:00</option>
+                        <option>17:00 - 19:00</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="text-[0.8rem] sm:w-1/2 text-gray-400">First visit offer applied</div>
+                    <button type="submit" class="btn-primary px-4 py-2 rounded-md text-sm sm:text-base">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+    </div>
+<script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // close mobile menu if open
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+        });
+    });
+
+    // Booking modal logic
+    const bookBtns = [
+        document.getElementById('bookNowTop'),
+        document.getElementById('bookNowMobile'),
+        document.getElementById('heroBookBtn'),
+        document.getElementById('ctaBook')
+    ];
+    const backdrop = document.getElementById('modalBackdrop');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    bookBtns.forEach(btn => {
+        if (!btn) return;
+        btn.addEventListener('click', () => backdrop.classList.remove('hidden'));
+    });
+
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', () => backdrop.classList.add('hidden'));
+    }
+
+    backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) backdrop.classList.add('hidden');
+    });
+
+    // Submit modal form (demo: no backend) - show success and close
+    const modalForm = document.getElementById('modalForm');
+    if (modalForm) {
+        modalForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you - your booking request has been received. We will contact you to confirm.');
+            this.reset();
+            backdrop.classList.add('hidden');
+        });
+    }
+
+    // Booking form on page
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Booking request received. Clinic will contact you to confirm.');
+            this.reset();
+        });
+    }
+
+    // FAQ accordion toggle
+    document.querySelectorAll('.faq-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const body = header.parentElement.querySelector('.faq-body');
+            const icon = header.querySelector('svg');
+            if (body.classList.contains('hidden')) {
+                // close all other faq items
+                document.querySelectorAll('.faq-body').forEach(b => b.classList.add('hidden'));
+                document.querySelectorAll('.faq-header svg').forEach(s => s.style.transform = '');
+                body.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                body.classList.add('hidden');
+                icon.style.transform = '';
+            }
+        });
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu) mobileMenu.classList.toggle('hidden');
+    }
+
+    // Basic testimonial slider
+    (function () {
+        const slides = Array.from(document.querySelectorAll('.slide'));
+        let idx = 0;
+        const show = (i) => {
+            slides.forEach((s, n) => s.classList.toggle('active', n === i));
+        };
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+
+        if (prevBtn) prevBtn.addEventListener('click', () => { idx = (idx - 1 + slides.length) % slides.length; show(idx); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { idx = (idx + 1) % slides.length; show(idx); });
+
+        // Auto rotate every 7 seconds
+        setInterval(() => { idx = (idx + 1) % slides.length; show(idx); }, 7000);
+    })();
+
+    // Accessibility: focus first input in modal when it opens
+    const modalFormFirstInput = document.querySelector('#modalForm input');
+    const observer = new MutationObserver(() => {
+        if (!backdrop.classList.contains('hidden')) {
+            setTimeout(() => modalFormFirstInput && modalFormFirstInput.focus(), 120);
+        }
+    });
+    observer.observe(backdrop, { attributes: true, attributeFilter: ['class'] });
+</script>
+
+</body></html>
