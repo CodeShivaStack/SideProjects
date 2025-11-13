@@ -311,7 +311,7 @@
                     <!-- Card 1 -->
                     <div
                         class="group relative overflow-hidden rounded-2xl shadow-lg bg-white transition-transform hover:-translate-y-2 hover:shadow-xl">
-                        <img src="images/5.jpeg" alt="Chronic Back Pain"
+                        <img src="/assets/backpain.jpg" alt="Chronic Back Pain"
                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
                         <div
                             class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300">
@@ -325,7 +325,7 @@
                     <!-- Card 2 -->
                     <div
                         class="group relative overflow-hidden rounded-2xl shadow-lg bg-white transition-transform hover:-translate-y-2 hover:shadow-xl">
-                        <img src="images/6.png" alt="Failed Back Surgery"
+                        <img src="/assets/failedsurgery.jpg" alt="Failed Back Surgery"
                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
                         <div
                             class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300">
@@ -339,7 +339,7 @@
                     <!-- Card 3 -->
                     <div
                         class="group relative overflow-hidden rounded-2xl shadow-lg bg-white transition-transform hover:-translate-y-2 hover:shadow-xl">
-                        <img src="images/8.png" alt="Disc Degeneration"
+                        <img src="/assets/discdegeneration.jpg" alt="Disc Degeneration"
                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
                         <div
                             class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300">
@@ -353,7 +353,7 @@
                     <!-- Card 4 -->
                     <div
                         class="group relative overflow-hidden rounded-2xl shadow-lg bg-white transition-transform hover:-translate-y-2 hover:shadow-xl">
-                        <img src="images/9.jpeg" alt="Non-union Fractures"
+                        <img src="/assets/nonunion.jpg" alt="Non-union Fractures"
                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
                         <div
                             class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-60 transition-all duration-300">
@@ -1157,6 +1157,9 @@
 
     <!-- SCRIPTS -->
     <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', function (e) {
