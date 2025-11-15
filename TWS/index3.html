@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" x-data="{ dark: false, menuOpen: false, projects: [] }" x-init="fetchProjects()">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TotalPrime Web Solutions</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine.js for reactivity (JSON-driven portfolio + toggles) -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body :class="dark ? 'dark bg-black text-white' : 'bg-white text-black'" class="transition-colors duration-300">
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 w-full bg-white/80 dark:bg-black/80 backdrop-blur-lg shadow z-50 transition-all">
+        <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+            <div class="font-bold text-2xl text-[#0b46bc] dark:text-[#f3c302]">
+                TotalPrime <span class="block text-sm font-normal text-black dark:text-white">Web Solutions</span>
+            </div>
+
+            <!-- NAV -->
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#home" class="hover:text-[#0b46bc] dark:hover:text-[#f3c302]">Home</a>
+                <a href="#services" class="hover:text-[#0b46bc] dark:hover:text-[#f3c302]">Services</a>
+                <a href="#portfolio" class="hover:text-[#0b46bc] dark:hover:text-[#f3c302]">Portfolio</a>
+                <a href="#about" class="hover:text-[#0b46bc] dark:hover:text-[#f3c302]">About</a>
+                <a href="#contact" class="hover:text-[#0b46bc] dark:hover:text-[#f3c302]">Contact</a>
+            </nav>
+
+            <!-- Dark Mode Toggle -->
+            <button @click="dark = !dark" class="ml-4 p-2 rounded-full border dark:border-gray-600 border-gray-300">
+                <span x-show="!dark">🌙</span>
+                <span x-show="dark">☀️</span>
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button @click="menuOpen = !menuOpen" class="md:hidden ml-4 text-2xl">☰</button>
+        </div>
+
+        <!-- MOBILE NAV -->
+        <div x-show="menuOpen" class="md:hidden bg-white dark:bg-black px-6 pb-4 space-y-2">
+            <a href="#home" class="block">Home</a>
+            <a href="#services" class="block">Services</a>
+            <a href="#portfolio" class="block">Portfolio</a>
+            <a href="#about" class="block">About</a>
+            <a href="#contact" class="block">Contact</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="pt-32 pb-20 text-center bg-gradient-to-b from-[#0b46bc] to-[#000000] dark:from-black dark:to-[#0b46bc] text-white">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">Professional Web Solutions for Your Business</h1>
+        <p class="text-xl opacity-90 mb-6">Building modern, responsive, and premium websites</p>
+        <a href="#contact" class="inline-block bg-[#f3c302] text-black font-semibold px-8 py-3 rounded-full hover:bg-yellow-400 transition">Get Started</a>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-20 max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Services</h2>
+
+        <div class="grid md:grid-cols-3 gap-10">
+            <template x-for="service in [
+                {title: 'Full-Stack Web Development', icon: '💻'},
+                {title: 'Responsive UI/UX Design', icon: '📱'},
+                {title: 'SEO Optimization', icon: '🚀'},
+                {title: 'E-Commerce Solutions', icon: '🛒'},
+                {title: 'Branding & Identity', icon: '🎨'},
+                {title: 'Website Maintenance', icon: '🛠️'}
+            ]">
+            <div class="p-8 rounded-2xl shadow-lg bg-white dark:bg-gray-900 hover:-translate-y-2 hover:shadow-2xl transition cursor-pointer text-center">
+                <div class="text-5xl mb-4" x-text="service.icon"></div>
+                <h3 class="text-xl font-semibold mb-2" x-text="service.title"></h3>
+                <p class="text-gray-600 dark:text-gray-300">High-quality, scalable, and modern digital solutions.</p>
+            </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO (JSON-Driven) -->
+    <section id="portfolio" class="py-20 bg-gray-100 dark:bg-gray-900 px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Portfolio</h2>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto" x-data>
+            <template x-for="item in projects">
+                <div class="relative group rounded-xl overflow-hidden shadow-lg">
+                    <img :src="item.image" class="w-full h-64 object-cover" />
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-center p-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white" x-text="item.title"></h3>
+                            <p class="text-sm text-gray-200 mt-2" x-text="item.description"></p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20 max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">About Us</h2>
+        <p class="text-lg text-center max-w-3xl mx-auto opacity-80">TotalPrime Web Solutions is dedicated to crafting premium digital products. Our mission is to empower businesses with modern, responsive, and scalable web technology.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 bg-gray-100 dark:bg-gray-900 px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">Contact Us</h2>
+
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
+            <form class="space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg border dark:bg-black dark:border-gray-700" />
+                <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg border dark:bg-black dark:border-gray-700" />
+                <textarea placeholder="Your Message" class="w-full p-3 rounded-lg border dark:bg-black dark:border-gray-700" rows="5"></textarea>
+                <button class="bg-[#0b46bc] text-white px-6 py-3 rounded-full hover:bg-blue-700 transition w-full">Submit</button>
+            </form>
+
+            <div class="w-full h-64 bg-gray-300 dark:bg-gray-800 rounded-lg"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-6 bg-black text-white">
+        <p>© 2025 TotalPrime Web Solutions. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JSON Portfolio Loader -->
+    <script>
+        function fetchProjects() {
+            document.querySelector('html')._x_dataStack[0].projects = [
+                { title: "Corporate Website", description: "Clean and professional design.", image: "https://via.placeholder.com/600x400" },
+                { title: "E-Commerce Store", description: "Modern and fast online shop.", image: "https://via.placeholder.com/600x400" },
+                { title: "Landing Page", description: "High-converting landing layout.", image: "https://via.placeholder.com/600x400" },
+                { title: "Portfolio Site", description: "Elegant and minimal portfolio.", image: "https://via.placeholder.com/600x400" },
+                { title: "Business Dashboard", description: "Data-rich interface UI.", image: "https://via.placeholder.com/600x400" },
+                { title: "Mobile Web App", description: "Responsive and optimized.", image: "https://via.placeholder.com/600x400" }
+            ];
+        }
+    </script>
+
+</body>
+</html>

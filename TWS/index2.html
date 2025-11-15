@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TotalPrime Web Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#f3c302',
+            secondary: '#0b46bc'
+          },
+          fontFamily: {
+            pop: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-pop bg-white dark:bg-black text-black dark:text-white">
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 w-full bg-white/80 dark:bg-black/80 backdrop-blur-lg shadow z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+    <div class="flex flex-col leading-tight">
+      <h1 class="text-2xl font-bold text-secondary dark:text-primary">TotalPrime</h1>
+      <span class="text-xs tracking-wide">Web Solutions</span>
+    </div>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex gap-8 text-sm font-semibold">
+      <a href="#home" class="hover:text-secondary dark:hover:text-primary">Home</a>
+      <a href="#services" class="hover:text-secondary dark:hover:text-primary">Services</a>
+      <a href="#portfolio" class="hover:text-secondary dark:hover:text-primary">Portfolio</a>
+      <a href="#about" class="hover:text-secondary dark:hover:text-primary">About</a>
+      <a href="#contact" class="hover:text-secondary dark:hover:text-primary">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <button id="themeToggle" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+        🌓
+      </button>
+
+      <!-- Mobile Menu -->
+      <button id="menuBtn" class="p-2 md:hidden text-2xl">☰</button>
+    </div>
+  </div>
+
+  <!-- Mobile Nav -->
+  <nav id="mobileNav" class="hidden flex-col bg-white dark:bg-black border-t border-gray-200 dark:border-gray-700 md:hidden">
+    <a href="#home" class="p-4 border-b border-gray-200 dark:border-gray-700">Home</a>
+    <a href="#services" class="p-4 border-b border-gray-200 dark:border-gray-700">Services</a>
+    <a href="#portfolio" class="p-4 border-b border-gray-200 dark:border-gray-700">Portfolio</a>
+    <a href="#about" class="p-4 border-b border-gray-200 dark:border-gray-700">About</a>
+    <a href="#contact" class="p-4">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="min-h-screen flex items-center justify-center text-center px-6 bg-gradient-to-br from-secondary/10 to-primary/10 dark:from-secondary/20 dark:to-primary/20">
+  <div>
+    <h2 class="text-4xl md:text-6xl font-bold mb-4">Professional Web Solutions for Your Business</h2>
+    <p class="text-lg md:text-xl mb-6">Building modern, responsive, and premium websites</p>
+    <a href="#contact" class="px-6 py-3 bg-secondary text-white rounded-lg hover:bg-secondary/90 dark:hover:bg-primary transition">Get Started</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-20 max-w-7xl mx-auto px-6">
+  <h3 class="text-3xl font-bold text-center mb-12">Our Services</h3>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="p-8 rounded-xl shadow bg-white dark:bg-gray-900 hover:scale-105 transition">
+      <h4 class="text-xl font-semibold mb-2">Full-Stack Development</h4>
+      <p>Custom-built websites using modern frameworks.</p>
+    </div>
+    <div class="p-8 rounded-xl shadow bg-white dark:bg-gray-900 hover:scale-105 transition">
+      <h4 class="text-xl font-semibold mb-2">Responsive Design</h4>
+      <p>Optimized for all devices and screen sizes.</p>
+    </div>
+    <div class="p-8 rounded-xl shadow bg-white dark:bg-gray-900 hover:scale-105 transition">
+      <h4 class="text-xl font-semibold mb-2">SEO Optimization</h4>
+      <p>Boost visibility and rank higher on search engines.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-20 bg-gray-50 dark:bg-gray-950 px-6">
+  <h3 class="text-3xl font-bold text-center mb-12">Our Projects</h3>
+  <div id="portfolioGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 max-w-6xl mx-auto px-6">
+  <h3 class="text-3xl font-bold text-center mb-8">About Us</h3>
+  <p class="text-center max-w-3xl mx-auto leading-relaxed">TotalPrime Web Solutions is committed to delivering premium digital experiences. Our mission is to elevate businesses by creating visually stunning, high-performance websites tailored to your goals.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 bg-gray-100 dark:bg-gray-900 px-6">
+  <h3 class="text-3xl font-bold text-center mb-8">Contact Us</h3>
+
+  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
+
+    <!-- Contact Form -->
+    <form class="space-y-4">
+      <input type="text" placeholder="Name" class="w-full p-3 rounded bg-white dark:bg-gray-800 border" />
+      <input type="email" placeholder="Email" class="w-full p-3 rounded bg-white dark:bg-gray-800 border" />
+      <textarea placeholder="Message" rows="5" class="w-full p-3 rounded bg-white dark:bg-gray-800 border"></textarea>
+      <button class="px-6 py-3 bg-secondary text-white rounded hover:bg-secondary/90 dark:hover:bg-primary transition">Submit</button>
+    </form>
+
+    <!-- Map -->
+    <div class="w-full h-64 bg-gray-300 dark:bg-gray-700 rounded"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-8 text-center bg-black text-white">
+  <p>© 2025 TotalPrime Web Solutions. All rights reserved.</p>
+</footer>
+
+<!-- JSON Portfolio + JS -->
+<script>
+  const portfolioData = [
+    { title: "E-Commerce Platform", desc: "Modern online store UI", img: "https://via.placeholder.com/400" },
+    { title: "Business Website", desc: "Corporate branding site", img: "https://via.placeholder.com/400" },
+    { title: "Portfolio Site", desc: "Personal branding portfolio", img: "https://via.placeholder.com/400" },
+    { title: "SaaS Dashboard", desc: "Analytics dashboard UI", img: "https://via.placeholder.com/400" },
+    { title: "Agency Website", desc: "Clean minimal website", img: "https://via.placeholder.com/400" },
+    { title: "Landing Page", desc: "High-converting landing design", img: "https://via.placeholder.com/400" }
+  ];
+
+  const grid = document.getElementById('portfolioGrid');
+  grid.innerHTML = portfolioData.map(item => `
+    <div class='relative group rounded-lg overflow-hidden shadow-lg'>
+      <img src='${item.img}' class='w-full h-60 object-cover' />
+      <div class='absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center text-white text-center p-4 transition'>
+        <h4 class='text-lg font-semibold mb-2'>${item.title}</h4>
+        <p class='text-sm'>${item.desc}</p>
+      </div>
+    </div>
+  `).join('');
+
+  // Mobile Menu
+  document.getElementById('menuBtn').onclick = () => {
+    document.getElementById('mobileNav').classList.toggle('hidden');
+  };
+
+  // Dark Mode
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.onclick = () => {
+    document.documentElement.classList.toggle('dark');
+  };
+</script>
+
+</body>
+</html>

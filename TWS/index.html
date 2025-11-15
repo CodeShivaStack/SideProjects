@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TotalPrime Web Solutions — Professional Web Solutions for Your Business</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root{
+      --yellow: #f3c302;
+      --blue: #0b46bc;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    /* Decorative tech SVG mask for hero */
+    .hero-mask {
+      background-image: radial-gradient(circle at 10% 30%, rgba(11,70,188,0.06), transparent 8%),
+                        radial-gradient(circle at 90% 70%, rgba(243,195,2,0.04), transparent 8%),
+                        linear-gradient(134deg, rgba(11,70,188,0.06), rgba(243,195,2,0.03));
+      background-blend-mode: screen, screen, normal;
+    }
+    /* Helper to offset anchor scrolling for fixed header */
+    :target::before {
+      content: "";
+      display: block;
+      height: 84px; /* matches header height */
+      margin-top: -84px;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+  <!-- Header / Navigation -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm transition-shadow">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3" aria-label="TotalPrime Web Solutions">
+          <div class="flex flex-col leading-tight">
+            <span class="text-2xl md:text-3xl font-extrabold" style="color:var(--blue);">TotalPrime</span>
+            <span class="text-xs md:text-sm font-medium text-gray-600 -mt-1">Web Solutions</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#home" class="nav-link text-sm font-medium hover:text-blue-600">Home</a>
+          <a href="#services" class="nav-link text-sm font-medium hover:text-blue-600">Services</a>
+          <a href="#portfolio" class="nav-link text-sm font-medium hover:text-blue-600">Portfolio</a>
+          <a href="#about" class="nav-link text-sm font-medium hover:text-blue-600">About</a>
+          <a href="#contact" class="nav-link text-sm font-medium hover:text-blue-600">Contact</a>
+          <a href="#contact" class="ml-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-300 text-sm font-semibold shadow-md hover:translate-y-[-1px] transform transition">Get Started</a>
+        </nav>
+
+        <!-- Mobile controls -->
+        <div class="md:hidden flex items-center gap-3">
+          <button id="cta-mobile" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-yellow-400 font-semibold shadow-sm" aria-label="Get Started">
+            Get Started
+          </button>
+
+          <button id="mobile-toggle" class="p-2 rounded-md focus:outline-none" aria-label="Toggle menu">
+            <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Panel -->
+    <div id="mobile-nav" class="md:hidden">
+      <div class="px-6 pb-6">
+        <div class="flex flex-col gap-3 mt-2">
+          <a href="#home" class="block py-3 px-4 rounded-lg hover:bg-gray-50">Home</a>
+          <a href="#services" class="block py-3 px-4 rounded-lg hover:bg-gray-50">Services</a>
+          <a href="#portfolio" class="block py-3 px-4 rounded-lg hover:bg-gray-50">Portfolio</a>
+          <a href="#about" class="block py-3 px-4 rounded-lg hover:bg-gray-50">About</a>
+          <a href="#contact" class="block py-3 px-4 rounded-lg hover:bg-gray-50">Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+
+    <!-- HERO -->
+    <section id="home" class="hero-mask relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase text-yellow-500 mb-4">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/></svg>
+              Premium Agency
+            </p>
+
+            <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight text-gray-900">
+              Professional Web Solutions for Your Business
+            </h1>
+
+            <p class="mt-6 text-gray-600 max-w-2xl">
+              Building modern, responsive, and premium websites — tailored for conversions, speed, and delightful user experiences. Web development, design, and growth-focused solutions under one roof.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="#contact" class="inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-gradient-to-r from-yellow-400 to-yellow-300 text-sm font-semibold shadow-lg hover:scale-[1.02] transform transition">
+                Get Started
+              </a>
+              <a href="#portfolio" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-gray-200 text-sm hover:bg-gray-50 transition">
+                View Portfolio
+              </a>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-6 items-center">
+              <div class="flex items-center gap-3">
+                <div class="p-2 rounded-md bg-gray-100">
+                  <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v4a1 1 0 001 1h3m10 0h3a1 1 0 001-1V7m-4 0V5a3 3 0 00-6 0v2"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold">Trusted performance</p>
+                  <p class="text-xs text-gray-500">Fast, reliable, and secure builds</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="p-2 rounded-md bg-gray-100">
+                  <svg class="w-6 h-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v6"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-semibold">Design-first</p>
+                  <p class="text-xs text-gray-500">Pixel-perfect, responsive UI</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero visual -->
+          <div class="lg:col-span-5">
+            <div class="relative mx-auto w-full max-w-md">
+              <!-- Decorative card -->
+              <div class="rounded-2xl p-6 shadow-2xl border border-gray-100 bg-white/80 backdrop-blur-md animate-fade-in">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <div class="text-xs uppercase font-semibold text-gray-500">Featured Project</div>
+                    <div class="mt-3 text-sm font-bold text-gray-900">E-Commerce Platform — Launch Ready</div>
+                    <div class="mt-3 text-xs text-gray-500">Custom storefront, payment integration, fast shipping UI.</div>
+                  </div>
+                  <div class="flex-shrink-0">
+                    <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-blue-600 to-yellow-400 flex items-center justify-center text-white font-bold">TP</div>
+                  </div>
+                </div>
+
+                <div class="mt-6 grid grid-cols-3 gap-3">
+                  <div class="h-12 rounded-lg bg-gray-50 flex items-center justify-center text-xs text-gray-500">UI</div>
+                  <div class="h-12 rounded-lg bg-gray-50 flex items-center justify-center text-xs text-gray-500">API</div>
+                  <div class="h-12 rounded-lg bg-gray-50 flex items-center justify-center text-xs text-gray-500">SEO</div>
+                </div>
+              </div>
+
+              <!-- subtle tech shapes -->
+              <svg class="absolute -bottom-6 -right-6 w-32 h-32 opacity-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#0b46bc"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-16">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-lg font-semibold text-yellow-500">What We Do</h2>
+          <h3 class="mt-2 text-3xl md:text-4xl font-extrabold">Services that power your online presence</h3>
+          <p class="mt-4 text-gray-600">From full-stack development to growth-focused SEO, we deliver results-driven web solutions that scale with your business.</p>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card -->
+          <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="p-3 rounded-lg bg-blue-50 group-hover:bg-blue-100 transition">
+                <!-- icon -->
+                <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8"/></svg>
+              </div>
+              <h4 class="font-semibold text-lg">Full-Stack Web Development</h4>
+            </div>
+            <p class="mt-4 text-sm text-gray-600">Modern stacks, scalable architecture, REST/GraphQL APIs, and maintainable codebases.</p>
+            <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
+          </article>
+
+          <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="p-3 rounded-lg bg-yellow-50 group-hover:bg-yellow-100 transition">
+                <svg class="w-6 h-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"/></svg>
+              </div>
+              <h4 class="font-semibold text-lg">Responsive & UI/UX Design</h4>
+            </div>
+            <p class="mt-4 text-sm text-gray-600">Pixel-perfect interfaces, accessible patterns and mobile-first experiences.</p>
+            <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
+          </article>
+
+          <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="p-3 rounded-lg bg-gray-50 group-hover:bg-gray-100 transition">
+                <svg class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4M8 15l4 4 4-4"/></svg>
+              </div>
+              <h4 class="font-semibold text-lg">SEO & Performance Optimization</h4>
+            </div>
+            <p class="mt-4 text-sm text-gray-600">Page speed, accessibility, and SEO best practices to help you rank and convert.</p>
+            <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
+          </article>
+
+          <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="p-3 rounded-lg bg-blue-50 group-hover:bg-blue-100 transition">
+                <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 6h18M3 14h18M3 18h18"/></svg>
+              </div>
+              <h4 class="font-semibold text-lg">E-Commerce Solutions</h4>
+            </div>
+            <p class="mt-4 text-sm text-gray-600">Custom stores, payment integrations, product catalogs and conversion funnels.</p>
+            <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
+          </article>
+
+          <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="p-3 rounded-lg bg-yellow-50 group-hover:bg-yellow-100 transition">
+                <svg class="w-6 h-6 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16M8 8l8 8"/></svg>
+              </div>
+              <h4 class="font-semibold text-lg">CMS & Headless Integrations</h4>
+            </div>
+            <p class="mt-4 text-sm text-gray-600">WordPress, headless CMS (Strapi / Sanity), and CMS-driven marketing sites.</p>
+            <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
+          </article>
+
+          <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="p-3 rounded-lg bg-gray-50 group-hover:bg-gray-100 transition">
+                <svg class="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h10M7 16h10"/></svg>
+              </div>
+              <h4 class="font-semibold text-lg">Maintenance & Growth</h4>
+            </div>
+            <p class="mt-4 text-sm text-gray-600">Ongoing support, monitoring, and marketing growth plans that scale.</p>
+            <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-lg font-semibold text-yellow-500">Portfolio</h2>
+            <h3 class="mt-1 text-2xl md:text-3xl font-extrabold">Selected projects — crafted with care</h3>
+          </div>
+          <a href="#portfolio" class="text-sm text-blue-600 hidden md:inline-flex">View all projects →</a>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Portfolio card template repeated -->
+          <!-- Use data attributes for optional interactive details -->
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1526378722838-0c0a3b2d3d5c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 1" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+              <h4 class="font-semibold text-lg">E-Commerce Replatform</h4>
+              <p class="text-sm mt-1">Headless storefront with 2x speed improvements.</p>
+            </div>
+          </div>
+
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1502880197927-1ec2b91a0e78?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 2" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-blue-800/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+              <h4 class="font-semibold text-lg">SaaS Dashboard</h4>
+              <p class="text-sm mt-1">Complex data visualizations and role-based access.</p>
+            </div>
+          </div>
+
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 3" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-yellow-900/40 via-yellow-800/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+              <h4 class="font-semibold text-lg">Corporate Redesign</h4>
+              <p class="text-sm mt-1">Brand refresh and content migration.</p>
+            </div>
+          </div>
+
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 4" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+              <h4 class="font-semibold text-lg">Mobile App Landing</h4>
+              <p class="text-sm mt-1">Conversion-focused landing page strategy.</p>
+            </div>
+          </div>
+
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1505238680356-667803448bb6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 5" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-blue-700/40 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+              <h4 class="font-semibold text-lg">Marketing Microsite</h4>
+              <p class="text-sm mt-1">A/B tested hero and CTAs for higher conversions.</p>
+            </div>
+          </div>
+
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 6" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+              <h4 class="font-semibold text-lg">Performance Overhaul</h4>
+              <p class="text-sm mt-1">Reduced load times and improved Lighthouse score.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-16">
+      <div class="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div class="lg:col-span-2">
+          <h2 class="text-lg font-semibold text-yellow-500">About</h2>
+          <h3 class="mt-2 text-3xl font-extrabold">We build web experiences that move businesses forward</h3>
+          <p class="mt-4 text-gray-600">
+            TotalPrime Web Solutions is a modern web development studio focused on delivering beautiful, fast, and maintainable websites.
+            Our approach blends thoughtful design with engineering best-practices — because a great product needs both form and function.
+          </p>
+
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+              <h4 class="font-bold">Our Mission</h4>
+              <p class="mt-2 text-sm text-gray-600">To empower businesses with modern web solutions that scale and perform.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+              <h4 class="font-bold">Our Vision</h4>
+              <p class="mt-2 text-sm text-gray-600">To make premium web technology accessible to businesses of all sizes.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team / Icons -->
+        <aside class="hidden lg:block">
+          <div class="bg-gradient-to-b from-white to-gray-50 border border-gray-100 rounded-2xl p-6">
+            <h4 class="font-semibold">Leadership</h4>
+            <div class="mt-4 space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-yellow-400 flex items-center justify-center text-white font-bold">SR</div>
+                <div>
+                  <div class="font-medium">Shiva R</div>
+                  <div class="text-xs text-gray-500">Founder & CTO</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 font-medium">AM</div>
+                <div>
+                  <div class="font-medium">Asha M</div>
+                  <div class="text-xs text-gray-500">Head of Design</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 text-sm text-gray-500">We collaborate with a vetted network of designers, engineers and product strategists to scale on demand.</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-lg font-semibold text-yellow-500">Contact</h2>
+          <h3 class="mt-2 text-3xl font-extrabold">Let's build something great together</h3>
+          <p class="mt-4 text-gray-600">Fill in the form and we'll get back to you within 1–2 business days. Or reach out on LinkedIn for faster response.</p>
+
+          <form id="contact-form" class="mt-8 space-y-4 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm" onsubmit="handleContact(event)">
+            <div>
+              <label class="text-sm font-medium">Name</label>
+              <input required type="text" name="name" class="mt-2 w-full rounded-md border-gray-200 focus:ring-2 focus:ring-yellow-300 p-3" placeholder="Your full name">
+            </div>
+            <div>
+              <label class="text-sm font-medium">Email</label>
+              <input required type="email" name="email" class="mt-2 w-full rounded-md border-gray-200 focus:ring-2 focus:ring-blue-300 p-3" placeholder="you@company.com">
+            </div>
+            <div>
+              <label class="text-sm font-medium">Message</label>
+              <textarea required name="message" rows="5" class="mt-2 w-full rounded-md border-gray-200 focus:ring-2 focus:ring-blue-200 p-3" placeholder="Tell us about your project"></textarea>
+            </div>
+            <div class="flex items-center gap-3">
+              <button type="submit" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-blue-700 text-white font-semibold shadow hover:translate-y-[-1px] transition">Send Message</button>
+              <span class="text-sm text-gray-500">Or email us at <a href="mailto:hello@totalprime.com" class="text-blue-600">hello@totalprime.com</a></span>
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+            <!-- Google Maps embed placeholder to a generic location (Bengaluru) -->
+            <iframe
+              title="TotalPrime Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15509.69534100202!2d77.568-0.00001!3d12.9715987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1630f3a1a7a7%3A0xa2b0e0b228f1ae6e!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+              width="100%" height="420" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+
+          <div class="mt-4 flex items-center justify-between">
+            <div>
+              <div class="text-sm font-semibold">Follow us</div>
+              <div class="mt-2 flex items-center gap-3">
+                <!-- LinkedIn -->
+                <a href="#" aria-label="LinkedIn" class="p-2 rounded-md hover:bg-gray-100">
+                  <svg class="w-5 h-5 text-blue-700" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4v12h-4V8zm7.5 0h3.8v1.6h.1c.5-.9 1.7-1.8 3.5-1.8 3.7 0 4.4 2.4 4.4 5.4V20H16v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V20H7.9V8z"/>
+                  </svg>
+                </a>
+
+                <!-- Instagram -->
+                <a href="#" aria-label="Instagram" class="p-2 rounded-md hover:bg-gray-100">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.3.4.6.3 1 .6 1.4 1.2.4.4.6 1.1.8 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.6 2.3-.3.6-.6 1-1.2 1.4-.4.4-1.1.6-2.3.8-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.3-.6-.6-.3-1-.6-1.4-1.2-.4-.4-.6-1.1-.8-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.9.6-2.3.3-.6.6-1 1.2-1.4.4-.4 1.1-.6 2.3-.8C8.4 2.3 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7 .1 5.7.2 4.7.5 3.9 1.1 3 .8 2.3 1.1 1.5 1.9.8 2.6.5 3.3.1 4.2 0 5.1 0 5.5 0 8.8v6.4c0 3.3 0 3.7.1 4.9.2 1.2.5 2.3 1.1 3.1.8.8 1.5 1.5 2.4 2.2.8.4 1.6.8 2.8 1 1.2.2 1.6.2 4.9.2s3.7 0 4.9-.1c1.2-.2 2.3-.5 3.1-1.1.8-.8 1.5-1.5 2.2-2.4.4-.8.8-1.6 1-2.8.2-1.2.2-1.6.2-4.9s0-3.7-.1-4.9c-.2-1.2-.5-2.3-1.1-3.1-.8-.8-1.5-1.5-2.4-2.2C20.1.5 19.2.2 18.1 0 16.9 0 16.5 0 12 0z"/></svg>
+                </a>
+
+                <!-- Twitter -->
+                <a href="#" aria-label="Twitter" class="p-2 rounded-md hover:bg-gray-100">
+                  <svg class="w-5 h-5 text-blue-500" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.5c-.9.4-1.8.6-2.8.8.9-.6 1.6-1.6 2-2.6-.8.5-1.8.9-2.7 1.1C20 2.8 19 2.5 18 2.5c-2.3 0-4.2 1.9-4.2 4.2 0 .3 0 .6.1.8-3.5-.2-6.6-1.9-8.6-4.6-.4.7-.7 1.5-.7 2.4 0 1.6.8 3.1 2.1 4-.7 0-1.4-.2-2-.5v.1c0 2.3 1.6 4.2 3.7 4.7-.4.1-.9.2-1.4.2-.3 0-.6 0-.9-.1.6 2 2.3 3.4 4.4 3.5-1.6 1.3-3.6 2-5.7 2-.4 0-.8 0-1.2-.1C2.5 21.5 5.4 22 8.5 22c10.2 0 15.8-8.4 15.8-15.8v-.7c1.1-.8 2-1.7 2.8-2.7z"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="text-right text-sm text-gray-500">
+              <div>Phone: <a href="tel:+911234567890" class="text-gray-700">+91 12345 67890</a></div>
+              <div class="mt-1">Address: Bengaluru, Karnataka</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-100 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <div class="text-2xl font-extrabold" style="color:var(--blue)">TotalPrime</div>
+        <div class="text-sm text-gray-500 mt-2">Web Solutions — premium websites, built for results.</div>
+      </div>
+
+      <div class="flex gap-6">
+        <div>
+          <div class="font-semibold">Quick Links</div>
+          <ul class="mt-2 text-sm text-gray-600 space-y-1">
+            <li><a href="#services" class="hover:text-blue-600">Services</a></li>
+            <li><a href="#portfolio" class="hover:text-blue-600">Portfolio</a></li>
+            <li><a href="#about" class="hover:text-blue-600">About</a></li>
+            <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-right">
+        <div class="font-semibold">Get in touch</div>
+        <div class="mt-2 text-sm text-gray-600">hello@totalprime.com</div>
+        <div class="mt-4 text-xs text-gray-400">© <span id="year"></span> TotalPrime Web Solutions. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Small helper to query
+    const $ = (sel, ctx = document) => ctx.querySelector(sel);
+    const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+    // Mobile nav toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    const hamburger = document.getElementById('hamburger');
+
+    let mobileOpen = false;
+    mobileNav.style.display = 'none';
+
+    mobileToggle?.addEventListener('click', () => {
+      mobileOpen = !mobileOpen;
+      if (mobileOpen) {
+        mobileNav.style.display = 'block';
+        hamburger.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+      } else {
+        mobileNav.style.display = 'none';
+        hamburger.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+      }
+    });
+
+    // Close mobile nav when link clicked
+    $$('#mobile-nav a').forEach(a => a.addEventListener('click', () => {
+      mobileOpen = false;
+      mobileNav.style.display = 'none';
+      hamburger.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+    }));
+
+    // Sticky header shadow on scroll
+    const header = document.getElementById('header');
+    const headerShadowClass = 'shadow-lg';
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-lg');
+      } else {
+        header.classList.remove('shadow-lg');
+      }
+    });
+
+    // Smooth anchor scrolling with offset (for older browsers)
+    // Intercepts all in-page nav links to account for fixed header height.
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const headerOffset = header.offsetHeight + 8;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Portfolio card subtle hover zoom (already via CSS) - add optional click to open detail modal (lightweight)
+    // For demo purposes, we'll add a click handler to show a quick overlay
+    const portfolioCards = $$('#portfolio .group.relative');
+    portfolioCards.forEach((card, idx) => {
+      card.addEventListener('click', () => {
+        const title = card.querySelector('h4')?.innerText || 'Project';
+        const desc = card.querySelector('p')?.innerText || '';
+        // quick modal
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 z-60 flex items-center justify-center bg-black/60';
+        modal.innerHTML = `
+          <div class="bg-white rounded-2xl max-w-xl w-full mx-4 p-6">
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h3 class="text-xl font-bold">\${title}</h3>
+                <p class="mt-2 text-sm text-gray-600">\${desc}</p>
+              </div>
+              <button id="close-modal" class="p-2 text-gray-500">✕</button>
+            </div>
+            <div class="mt-4 text-sm text-gray-500">This is a demo preview. Replace with project details or a proper project page.</div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+        modal.querySelector('#close-modal').addEventListener('click', () => modal.remove());
+        modal.addEventListener('click', (evt) => { if (evt.target === modal) modal.remove(); });
+      });
+    });
+
+    // Contact form handler (demo, no backend)
+    function handleContact(e) {
+      e.preventDefault();
+      const f = e.target;
+      const name = f.name.value.trim();
+      const email = f.email.value.trim();
+      const message = f.message.value.trim();
+      if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return;
+      }
+      // Show a friendly message — in real site you'd POST to an API
+      const btn = f.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.innerText = 'Sending...';
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerText = 'Send Message';
+        f.reset();
+        alert('Thanks, ' + name + '! Your message has been received. We will get back to you soon.');
+      }, 900);
+    }
+
+    // Set current year in footer
+    document.getElementById('year').innerText = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TotalPrime Web Solutions</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        // Tailwind Dark Mode Config
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#f3c302',
+                        brandBlue: '#0b46bc',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-all duration-300">
+
+<!-- =========================================
+     HEADER / NAV
+========================================= -->
+<header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        
+        <!-- Logo -->
+        <div class="font-bold text-2xl leading-5">
+            <span class="text-brandBlue">TotalPrime</span>
+            <div class="text-xs text-gray-500 dark:text-gray-300">Web Solutions</div>
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex space-x-8 font-medium">
+            <a href="#home" class="hover:text-brandBlue">Home</a>
+            <a href="#services" class="hover:text-brandBlue">Services</a>
+            <a href="#portfolio" class="hover:text-brandBlue">Portfolio</a>
+            <a href="#about" class="hover:text-brandBlue">About</a>
+            <a href="#contact" class="hover:text-brandBlue">Contact</a>
+        </nav>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center space-x-4">
+
+            <!-- Dark Mode Toggle -->
+            <button id="themeToggle" class="text-xl">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 px-6 pb-4 space-y-4 font-medium">
+        <a href="#home" class="block">Home</a>
+        <a href="#services" class="block">Services</a>
+        <a href="#portfolio" class="block">Portfolio</a>
+        <a href="#about" class="block">About</a>
+        <a href="#contact" class="block">Contact</a>
+    </div>
+</header>
+
+<div class="pt-24"></div>
+
+<!-- =========================================
+     HERO SECTION
+========================================= -->
+<section id="home" class="text-center py-24 bg-gradient-to-r from-brandBlue to-blue-900 text-white">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Professional Web Solutions for Your Business
+    </h1>
+    <p class="text-lg md:text-xl mb-6 opacity-90">
+        Building modern, responsive, and premium websites
+    </p>
+
+    <a href="#contact" 
+       class="bg-brandYellow text-black px-6 py-3 font-semibold rounded shadow hover:opacity-90 transition">
+       Get Started
+    </a>
+</section>
+
+<!-- =========================================
+     SERVICES SECTION
+========================================= -->
+<section id="services" class="py-20 max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Card -->
+        <div class="p-6 rounded-xl border dark:border-gray-700 hover:shadow-lg transition">
+            <i class="fa-solid fa-code text-brandBlue text-4xl mb-4"></i>
+            <h3 class="font-bold text-xl mb-2">Full-Stack Development</h3>
+            <p class="opacity-80">We create fast, secure, and scalable applications using modern tech.</p>
+        </div>
+
+        <div class="p-6 rounded-xl border dark:border-gray-700 hover:shadow-lg transition">
+            <i class="fa-solid fa-mobile-screen text-brandBlue text-4xl mb-4"></i>
+            <h3 class="font-bold text-xl mb-2">Responsive Design</h3>
+            <p class="opacity-80">Perfect experience across desktop, tablet, and mobile.</p>
+        </div>
+
+        <div class="p-6 rounded-xl border dark:border-gray-700 hover:shadow-lg transition">
+            <i class="fa-solid fa-chart-line text-brandBlue text-4xl mb-4"></i>
+            <h3 class="font-bold text-xl mb-2">SEO Optimization</h3>
+            <p class="opacity-80">Boost your website ranking with modern SEO strategies.</p>
+        </div>
+
+        <div class="p-6 rounded-xl border dark:border-gray-700 hover:shadow-lg transition">
+            <i class="fa-solid fa-cart-shopping text-brandBlue text-4xl mb-4"></i>
+            <h3 class="font-bold text-xl mb-2">E-Commerce Solutions</h3>
+            <p class="opacity-80">Robust online stores that convert visitors into customers.</p>
+        </div>
+
+        <div class="p-6 rounded-xl border dark:border-gray-700 hover:shadow-lg transition">
+            <i class="fa-solid fa-paintbrush text-brandBlue text-4xl mb-4"></i>
+            <h3 class="font-bold text-xl mb-2">UI/UX Design</h3>
+            <p class="opacity-80">Modern, clean interfaces that improve user experience.</p>
+        </div>
+
+        <div class="p-6 rounded-xl border dark:border-gray-700 hover:shadow-lg transition">
+            <i class="fa-solid fa-server text-brandBlue text-4xl mb-4"></i>
+            <h3 class="font-bold text-xl mb-2">Hosting & Deployment</h3>
+            <p class="opacity-80">End-to-end deployment, cloud hosting, and maintenance.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================================
+     PORTFOLIO SECTION (JSON-Driven)
+========================================= -->
+<section id="portfolio" class="py-20 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Our Recent Projects</h2>
+
+        <div id="portfolioGrid" class="grid md:grid-cols-3 gap-8"></div>
+    </div>
+</section>
+
+<script>
+/* JSON DATA FOR PORTFOLIO */
+const portfolioData = [
+    { title: "Corporate Website", desc: "Clean modern business site", img: "https://via.placeholder.com/500" },
+    { title: "E-Commerce Store", desc: "High-conversion product pages", img: "https://via.placeholder.com/500" },
+    { title: "Startup Landing Page", desc: "Premium hero sections and UI", img: "https://via.placeholder.com/500" },
+    { title: "Portfolio Site", desc: "Minimal personal showcase", img: "https://via.placeholder.com/500" },
+    { title: "Dashboard UI", desc: "Advanced UI/UX interfaces", img: "https://via.placeholder.com/500" },
+    { title: "Mobile App Web", desc: "Hybrid front-end development", img: "https://via.placeholder.com/500" }
+];
+
+const grid = document.getElementById("portfolioGrid");
+
+portfolioData.forEach(p => {
+    const card = `
+        <div class="rounded-xl overflow-hidden shadow hover:shadow-xl transition relative group cursor-pointer">
+            <img src="${p.img}" class="w-full h-56 object-cover" />
+
+            <div class="absolute inset-0 bg-black bg-opacity-60 text-white 
+                        flex flex-col justify-center items-center opacity-0 
+                        group-hover:opacity-100 transition">
+                <h3 class="font-bold text-xl mb-2">${p.title}</h3>
+                <p class="text-sm opacity-80">${p.desc}</p>
+            </div>
+        </div>
+    `;
+    grid.innerHTML += card;
+});
+</script>
+
+<!-- =========================================
+     ABOUT SECTION
+========================================= -->
+<section id="about" class="py-20 max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-8">About Us</h2>
+
+    <p class="text-center max-w-3xl mx-auto opacity-80 text-lg">
+        TotalPrime Web Solutions is a premium web development company 
+        crafting modern, responsive, and high-performance websites.
+        Our mission is to empower businesses with digital experiences 
+        that inspire growth and success.
+    </p>
+</section>
+
+<!-- =========================================
+     CONTACT SECTION
+========================================= -->
+<section id="contact" class="py-20 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-4xl mx-auto px-6">
+
+        <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+
+        <form class="grid gap-6">
+
+            <input type="text" placeholder="Your Name" 
+                   class="p-3 border dark:border-gray-700 rounded">
+
+            <input type="email" placeholder="Your Email" 
+                   class="p-3 border dark:border-gray-700 rounded">
+
+            <textarea placeholder="Your Message" rows="5"
+                      class="p-3 border dark:border-gray-700 rounded"></textarea>
+
+            <button class="bg-brandBlue text-white py-3 rounded font-semibold hover:opacity-90">
+                Submit
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+<footer class="py-6 bg-gray-900 text-white text-center">
+    © 2025 TotalPrime Web Solutions — All Rights Reserved
+</footer>
+
+<!-- =========================================
+     JS: MOBILE MENU + DARK MODE
+========================================= -->
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.onclick = () => {
+    mobileMenu.classList.toggle("hidden");
+};
+
+// Dark Mode Toggle
+const themeToggle = document.getElementById("themeToggle");
+themeToggle.onclick = () => {
+    document.documentElement.classList.toggle("dark");
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TotalPrime Web Solutions - Professional Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0b46bc',
+                        secondary: '#f3c302',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0b46bc 0%, #0a3a9e 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+            border: 3px solid #f3c302;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(243, 195, 2, 0.3);
+        }
+        .portfolio-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: scale(1.05);
+        }
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(11, 70, 188, 0.95), transparent);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .portfolio-card:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+        .stat-number {
+            font-weight: 800;
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="bg-primary text-white fixed w-full top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-secondary text-primary w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xl">
+                        TP
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold">TotalPrime</div>
+                        <div class="text-xs text-secondary -mt-1">Web Solutions</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-secondary transition font-medium">HOME</a>
+                    <a href="#about" class="hover:text-secondary transition font-medium">ABOUT</a>
+                    <a href="#services" class="hover:text-secondary transition font-medium">SERVICES</a>
+                    <a href="#works" class="hover:text-secondary transition font-medium">WORKS</a>
+                    <a href="#contact" class="hover:text-secondary transition font-medium">CONTACT</a>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="#contact" class="hidden md:block bg-secondary text-primary font-bold px-6 py-2 rounded-full hover:bg-yellow-300 transition">
+                    GET IN TOUCH
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="mobile-menu md:hidden">
+                <div class="flex flex-col space-y-4 mt-6 pb-4">
+                    <a href="#home" class="hover:text-secondary transition font-medium">HOME</a>
+                    <a href="#about" class="hover:text-secondary transition font-medium">ABOUT</a>
+                    <a href="#services" class="hover:text-secondary transition font-medium">SERVICES</a>
+                    <a href="#works" class="hover:text-secondary transition font-medium">WORKS</a>
+                    <a href="#contact" class="hover:text-secondary transition font-medium">CONTACT</a>
+                    <a href="#contact" class="bg-secondary text-primary font-bold px-6 py-2 rounded-full text-center">
+                        GET IN TOUCH
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 mt-16">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        We craft <span class="text-secondary">digital experiences</span> that excite, inspire & sell
+                    </h1>
+                    <p class="text-lg mb-8 text-gray-200">
+                        We specialize in building premium, high-performance websites that drive results and elevate your brand.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="bg-secondary text-primary px-4 py-2 rounded-full text-sm font-semibold">Web Design & Development</span>
+                        <span class="bg-secondary text-primary px-4 py-2 rounded-full text-sm font-semibold">E-Commerce</span>
+                        <span class="bg-secondary text-primary px-4 py-2 rounded-full text-sm font-semibold">SEO</span>
+                    </div>
+                    <a href="#works" class="inline-flex items-center bg-transparent border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-primary transition">
+                        View Our Works
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="hidden lg:block">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Portfolio Preview" class="rounded-lg shadow-2xl">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-xl">
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-green-500 w-3 h-3 rounded-full animate-pulse"></div>
+                                <span class="text-primary font-semibold">Live Projects</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos -->
+    <section class="bg-gray-50 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 opacity-50 grayscale">
+                <div class="text-3xl font-bold text-gray-600">NIFCO</div>
+                <div class="text-3xl font-bold text-gray-600">AVT</div>
+                <div class="text-3xl font-bold text-gray-600">Thriving</div>
+                <div class="text-3xl font-bold text-gray-600">SK</div>
+                <div class="text-3xl font-bold text-gray-600">Summit</div>
+                <div class="text-3xl font-bold text-gray-600">BTS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Stats Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="container mx-auto text-center max-w-4xl">
+            <p class="text-gray-700 text-lg mb-12 leading-relaxed">
+                Welcome to <span class="font-bold text-primary">TotalPrime Web Solutions</span>, your trusted partner in building exceptional websites. <span class="font-bold">Codes & More</span> is your one-stop shop for complete web solutions. This includes everything from the initial designing, all the way to building it on a fully functioning website.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="stat-number text-primary mb-2">8+</div>
+                    <div class="text-gray-600 font-medium">Years of Experience</div>
+                </div>
+                <div>
+                    <div class="stat-number text-primary mb-2">30+</div>
+                    <div class="text-gray-600 font-medium">Clients</div>
+                </div>
+                <div>
+                    <div class="stat-number text-primary mb-2">100+</div>
+                    <div class="text-gray-600 font-medium">Projects Delivered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center text-secondary mb-4">WHAT WE DO</h2>
+            <p class="text-center text-gray-300 mb-16">We deliver success by going above & beyond</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Service Card 1 -->
+                <div class="bg-white rounded-lg p-8 card-hover">
+                    <h3 class="text-xl font-bold text-primary mb-4">Web Design & Development</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Transform your vision into reality with stunning, responsive websites. We create custom designs that captivate your audience and drive results, ensuring every pixel serves a purpose.
+                    </p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white rounded-lg p-8 card-hover">
+                    <h3 class="text-xl font-bold text-primary mb-4">E-Commerce</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Launch your online store with confidence. We build powerful e-commerce solutions with seamless payment integration, inventory management, and user-friendly interfaces that convert visitors into customers.
+                    </p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white rounded-lg p-8 card-hover">
+                    <h3 class="text-xl font-bold text-primary mb-4">WordPress Development</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Harness the power of WordPress with custom themes and plugins tailored to your needs. We deliver flexible, scalable solutions that put you in control of your content.
+                    </p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white rounded-lg p-8 card-hover">
+                    <h3 class="text-xl font-bold text-primary mb-4">SEO</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Dominate search results and attract organic traffic. Our SEO experts use proven strategies to improve your rankings, increase visibility, and drive qualified leads to your business.
+                    </p>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="bg-white rounded-lg p-8 card-hover">
+                    <h3 class="text-xl font-bold text-primary mb-4">Digital Marketing</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Amplify your online presence with targeted marketing campaigns. From social media to email marketing, we craft strategies that engage your audience and maximize ROI.
+                    </p>
+                </div>
+
+                <!-- CTA Card -->
+                <div class="bg-primary rounded-lg p-8 flex flex-col justify-center items-center text-center text-white">
+                    <h3 class="text-2xl font-bold mb-4">Interested in this service? Let's start a conversation.</h3>
+                    <a href="#contact" class="bg-secondary text-primary font-bold px-8 py-3 rounded-full hover:bg-yellow-300 transition">
+                        GET IN TOUCH
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="works" class="py-20 px-4 sm:px-6 lg:px-8 bg-primary">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center text-secondary mb-4">OUR RECENT WORKS</h2>
+            <p class="text-center text-gray-200 mb-16">Showcasing our latest projects and success stories</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Project 1 -->
+                <div class="portfolio-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Portfolio 1" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay text-white">
+                        <h4 class="font-bold text-lg mb-1">Fashion Store</h4>
+                        <p class="text-sm mb-2">E-Commerce Website</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">WordPress</span>
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">WooCommerce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="Portfolio 2" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay text-white">
+                        <h4 class="font-bold text-lg mb-1">Corporate Website</h4>
+                        <p class="text-sm mb-2">Business Portfolio</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">React</span>
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop" alt="Portfolio 3" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay text-white">
+                        <h4 class="font-bold text-lg mb-1">Tech Startup</h4>
+                        <p class="text-sm mb-2">Landing Page</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">HTML5</span>
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop" alt="Portfolio 4" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay text-white">
+                        <h4 class="font-bold text-lg mb-1">Event Management</h4>
+                        <p class="text-sm mb-2">Booking Platform</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">PHP</span>
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="portfolio-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" alt="Portfolio 5" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay text-white">
+                        <h4 class="font-bold text-lg mb-1">Sports Academy</h4>
+                        <p class="text-sm mb-2">Training Portal</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">Vue.js</span>
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="portfolio-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Portfolio 6" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay text-white">
+                        <h4 class="font-bold text-lg mb-1">Hotel Booking</h4>
+                        <p class="text-sm mb-2">Reservation System</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">Angular</span>
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="portfolio-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=600&h=400&fit=crop" alt="Portfolio 7" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay text-white">
+                        <h4 class="font-bold text-lg mb-1">Restaurant Chain</h4>
+                        <p class="text-sm mb-2">Online Ordering</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">React Native</span>
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="portfolio-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?w=600&h=400&fit=crop" alt="Portfolio 8" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay text-white">
+                        <h4 class="font-bold text-lg mb-1">Fitness Studio</h4>
+                        <p class="text-sm mb-2">Membership Portal</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">Django</span>
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="portfolio-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&h=400&fit=crop" alt="Portfolio 9" class="w-full h-64 object-cover">
+                    <div class="portfolio-overlay text-white">
+                        <h4 class="font-bold text-lg mb-1">E-Learning Platform</h4>
+                        <p class="text-sm mb-2">Online Courses</p>
+                        <div class="flex gap-2">
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">Laravel</span>
+                            <span class="text-xs bg-secondary text-primary px-2 py-1 rounded">Vue</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="mt-16 text-center">
+                <div class="bg-gradient-to-r from-secondary to-yellow-400 rounded-2xl p-12 max-w-3xl mx-auto">
+                    <h3 class="text-3xl font-bold text-primary mb-4">Like what you see? Let's start a conversation.</h3>
+                    <a href="#contact" class="inline-block bg-primary text-white font-bold px-10 py-4 rounded-full hover:bg-blue-800 transition text-lg">
+                        GET IN TOUCH
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div class="container mx-auto max-w-2xl">
+            <h2 class="text-4xl font-bold text-center text-white mb-4">Contact Us</h2>
+            <p class="text-center text-gray-300 mb-12">
+                Tell us about your project<br>
+                and we'll prepare a free, no-obligation quote
+            </p>
+
+            <form id="contactForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Name" required class="w-full px-6 py-4 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-secondary focus:outline-none">
+                    <input type="email" placeholder="Email" required class="w-full px-6 py-4 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-secondary focus:outline-none">
+                </div>
+                <input type="text" placeholder="Subject" required class="w-full px-6 py-4 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-secondary focus:outline-none">
+                <textarea placeholder="Message" rows="6" required class="w-full px-6 py-4 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-secondary focus:outline-none resize-none"></textarea>
+                <button type="submit" class="w-full bg-secondary text-primary font-bold py-4 rounded-lg hover:bg-yellow-300 transition text-lg flex items-center justify-center">
+                    Submit
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </form>
+
+            <div class="mt-12 text-center text-gray-300">
+                <p class="mb-2">
+                    <i class="fas fa-phone mr-2 text-secondary"></i>
+                    +91 86445 93000
+                </p>
+                <p>
+                    <i class="fas fa-envelope mr-2 text-secondary"></i>
+                    info@totalprime.com
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-8">
+                <div>
+                    <h4 class="text-white font-bold mb-4">Home</h4>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">About</h4>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Services</h4>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Works</h4>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contact</h4>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm mb-4 md:mb-0">© 2025 TotalPrime Web Solutions. All rights reserved.</p>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm">CODES & MORE</span>
+                    <a href="#" class="text-secondary hover:text-yellow-300 transition">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-secondary hover:text-yellow-300 transition">
+                        <i class="fas fa-comments text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = 80;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-hover, .portfolio-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

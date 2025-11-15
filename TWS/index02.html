@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TotalPrime Web Solutions</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#f3c302',
+                        brandBlue: '#0b46bc',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-all duration-300">
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="font-bold text-2xl leading-5">
+            <span class="text-brandYellow drop-shadow">TotalPrime</span>
+            <div class="text-xs text-gray-600 dark:text-gray-300">Web Solutions</div>
+        </div>
+
+        <nav class="hidden md:flex space-x-8 font-medium">
+            <a href="#home" class="hover:text-brandYellow">Home</a>
+            <a href="#services" class="hover:text-brandYellow">Services</a>
+            <a href="#portfolio" class="hover:text-brandYellow">Portfolio</a>
+            <a href="#about" class="hover:text-brandYellow">About</a>
+            <a href="#contact" class="hover:text-brandYellow">Contact</a>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+            <button id="themeToggle" class="text-xl"><i class="fa-solid fa-moon"></i></button>
+            <button id="menuBtn" class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 px-6 pb-4 space-y-4 font-medium">
+        <a href="#home" class="block">Home</a>
+        <a href="#services" class="block">Services</a>
+        <a href="#portfolio" class="block">Portfolio</a>
+        <a href="#about" class="block">About</a>
+        <a href="#contact" class="block">Contact</a>
+    </div>
+</header>
+<div class="pt-24"></div>
+
+<!-- HERO SECTION -->
+<section id="home" class="py-24 bg-gradient-to-br from-brandBlue to-blue-900 text-white relative">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">We Build Digital Experiences That Inspire & Grow Businesses</h1>
+            <p class="text-lg opacity-90 mb-6">Modern web design, development & branding solutions tailored for your business needs.</p>
+            <a href="#contact" class="bg-brandYellow text-black px-8 py-3 font-semibold rounded shadow hover:opacity-90 transition">Get Started</a>
+        </div>
+
+        <div class="relative">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600" class="rounded-xl shadow-2xl border border-white/20" />
+        </div>
+    </div>
+</section>
+
+<!-- BRAND LOGOS SECTION -->
+<section class="py-12 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-3 md:grid-cols-6 gap-6 opacity-70">
+        <img src="https://dummyimage.com/150x60/000/fff&text=Brand" />
+        <img src="https://dummyimage.com/150x60/000/fff&text=Brand" />
+        <img src="https://dummyimage.com/150x60/000/fff&text=Brand" />
+        <img src="https://dummyimage.com/150x60/000/fff&text=Brand" />
+        <img src="https://dummyimage.com/150x60/000/fff&text=Brand" />
+        <img src="https://dummyimage.com/150x60/000/fff&text=Brand" />
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="py-20 bg-gray-100 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-10 text-brandBlue dark:text-brandYellow">WHAT WE DO</h2>
+        <p class="max-w-2xl mx-auto mb-12 opacity-80">We deliver success by combining strategy, creativity & technology.</p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-6 bg-white dark:bg-gray-900 dark:border-gray-700 border rounded-xl shadow hover:-translate-y-1 transition">
+                <i class="fa-solid fa-code text-brandBlue dark:text-brandYellow text-4xl mb-4"></i>
+                <h3 class="font-bold text-xl mb-2">Web Development</h3>
+                <p class="opacity-80">From landing pages to complex SaaS applications.</p>
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-900 border dark:border-gray-700 rounded-xl shadow hover:-translate-y-1 transition">
+                <i class="fa-solid fa-cart-shopping text-brandBlue dark:text-brandYellow text-4xl mb-4"></i>
+                <h3 class="font-bold text-xl mb-2">E-Commerce</h3>
+                <p class="opacity-80">High-conversion online stores built for performance.</p>
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-900 border dark:border-gray-700 rounded-xl shadow hover:-translate-y-1 transition">
+                <i class="fa-solid fa-pencil-ruler text-brandBlue dark:text-brandYellow text-4xl mb-4"></i>
+                <h3 class="font-bold text-xl mb-2">UI/UX & Branding</h3>
+                <p class="opacity-80">Premium visuals & user experiences.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section id="portfolio" class="py-20 bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12 text-brandBlue dark:text-brandYellow">OUR RECENT WORKS</h2>
+        <div id="portfolioGrid" class="grid md:grid-cols-3 gap-8"></div>
+    </div>
+</section>
+
+<script>
+const portfolioData = [
+    { title: "Modern Business Website", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600" },
+    { title: "E-Commerce Store", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600" },
+    { title: "Creative Portfolio", img: "https://images.unsplash.com/photo-1472289065668-ce650ac443d2?q=80&w=1600" },
+    { title: "Branding + UI Design", img: "https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=1600" },
+    { title: "Corporate Website", img: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?q=80&w=1600" },
+    { title: "Tech Landing Page", img: "https://images.unsplash.com/photo-1531497865144-0464bb5783bb?q=80&w=1600" }
+];
+
+const grid = document.getElementById("portfolioGrid");
+portfolioData.forEach(p => {
+    grid.innerHTML += `
+        <div class='rounded-xl overflow-hidden shadow-lg hover:scale-[1.02] transition relative group'>
+            <img src="${p.img}" class='w-full h-56 object-cover' />
+            <div class='absolute inset-0 bg-black/60 text-white opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center transition'>
+                <h3 class='font-bold text-xl mb-2'>${p.title}</h3>
+            </div>
+        </div>`;
+});
+</script>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 bg-gray-100 dark:bg-gray-800 text-center">
+    <h2 class="text-3xl font-bold mb-6 text-brandBlue dark:text-brandYellow">ABOUT US</h2>
+    <p class="max-w-3xl mx-auto opacity-80 text-lg">We craft high-quality digital solutions focused on performance, aesthetics & experience.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 bg-white dark:bg-gray-900">
+    <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12 text-brandBlue dark:text-brandYellow">Contact Us</h2>
+        <form class="grid gap-6 max-w-2xl mx-auto">
+            <input type="text" placeholder="Name" class="p-3 border dark:border-gray-700 rounded">
+            <input type="email" placeholder="Email" class="p-3 border dark:border-gray-700 rounded">
+            <textarea placeholder="Message" rows="5" class="p-3 border dark:border-gray-700 rounded"></textarea>
+            <button class="bg-brandBlue text-white py-3 rounded font-bold hover:opacity-90">Submit</button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-6 bg-gray-900 text-white text-center">© 2025 TotalPrime Web Solutions</footer>
+
+<script>
+document.getElementById("menuBtn").onclick = () => document.getElementById("mobileMenu").classList.toggle("hidden");
+
+document.getElementById("themeToggle").onclick = () => document.documentElement.classList.toggle("dark");
+</script>
+
+</body>
+</html>
