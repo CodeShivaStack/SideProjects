@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TotalPrime Web Solutions — Modern Web Development</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMrZrY6s6rLpF0H0n3V1M6x2m3V2f9Hq9ZlFz/1gYw2pX7r1d0Z5Xp7s1m0xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CDN -->
+  <script>
+    // Tailwind config (extend colors)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0b46bc',
+            accent: '#f3c302',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* small custom styles */
+    .logo-total {
+      letter-spacing: -0.02em;
+    }
+    /* Fancy underline for primary CTA on hover */
+    .cta-underline::after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, #f3c302, #0b46bc);
+      transition: width .3s ease;
+      margin-top: .5rem;
+      border-radius: 4px;
+    }
+    .cta-underline:hover::after { width: 2.25rem; }
+
+    /* Keep iframe responsive */
+    .map-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+    .map-responsive iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+
+    /* subtle glass card background */
+    .glass {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+  <!-- Header -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 group" aria-label="TotalPrime Web Solutions home">
+          <div class="flex flex-col leading-none">
+            <span class="logo-total text-2xl md:text-3xl font-extrabold text-primary">TotalPrime</span>
+            <span class="text-xs md:text-sm -mt-0.5 text-gray-600">Web Solutions</span>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#home" class="nav-link text-sm font-medium hover:text-primary transition">Home</a>
+          <a href="#services" class="nav-link text-sm font-medium hover:text-primary transition">Services</a>
+          <a href="#portfolio" class="nav-link text-sm font-medium hover:text-primary transition">Portfolio</a>
+          <a href="#about" class="nav-link text-sm font-medium hover:text-primary transition">About</a>
+          <a href="#contact" class="nav-link text-sm font-medium hover:text-primary transition">Contact</a>
+          <a href="#contact" class="ml-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold shadow-md hover:brightness-95 transition">
+            <i class="fa-solid fa-rocket"></i><span>Get Started</span>
+          </a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+            <svg id="hamburger" class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 text-gray-800 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div id="mobile-menu" class="md:hidden">
+      <div class="px-4 pb-6 pt-4 space-y-3 bg-white/95 border-b">
+        <a href="#home" class="block text-gray-700 font-medium py-2">Home</a>
+        <a href="#services" class="block text-gray-700 font-medium py-2">Services</a>
+        <a href="#portfolio" class="block text-gray-700 font-medium py-2">Portfolio</a>
+        <a href="#about" class="block text-gray-700 font-medium py-2">About</a>
+        <a href="#contact" class="block text-gray-700 font-medium py-2">Contact</a>
+        <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-semibold shadow-md hover:brightness-95 transition">
+          <i class="fa-solid fa-rocket"></i><span>Get Started</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+
+    <!-- HERO -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7">
+          <div class="max-w-2xl">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-gray-900">
+              Professional Web Solutions for Your Business
+            </h1>
+            <p class="mt-6 text-lg sm:text-xl text-gray-600">
+              Building modern, responsive, and premium websites — tailored to grow your brand and convert visitors into customers.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-4 items-center">
+              <a href="#contact" class="inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-primary text-white font-semibold shadow-lg hover:brightness-95 transition">
+                <i class="fa-solid fa-paper-plane"></i> Get Started
+              </a>
+              <a href="#portfolio" class="inline-flex items-center gap-2 text-sm font-medium cta-underline hover:text-primary transition">
+                View Portfolio
+              </a>
+            </div>
+
+            <div class="mt-8 flex gap-6 items-center text-sm text-gray-500">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-md flex items-center justify-center glass border border-gray-100 shadow-sm">
+                  <i class="fa-solid fa-code text-primary"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold">Trusted</div>
+                  <div class="text-xs">by startups & enterprises</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-md flex items-center justify-center glass border border-gray-100 shadow-sm">
+                  <i class="fa-solid fa-clock text-primary"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold">Fast delivery</div>
+                  <div class="text-xs">agile & reliable</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero illustration / card -->
+        <div class="lg:col-span-5">
+          <div class="relative">
+            <div class="rounded-2xl shadow-2xl overflow-hidden">
+              <div class="bg-gradient-to-tr from-primary to-white p-8 sm:p-10 lg:p-12">
+                <!-- abstract tech illustration using simple shapes -->
+                <div class="w-full h-64 sm:h-72 md:h-80 rounded-lg bg-white/80 flex items-center justify-center">
+                  <div class="text-center">
+                    <i class="fa-solid fa-layer-group text-5xl text-primary"></i>
+                    <h3 class="mt-4 text-lg font-bold text-gray-900">Modern, Scalable Websites</h3>
+                    <p class="mt-2 text-sm text-gray-600 max-w-xs mx-auto">Clean UI, SEO friendly, fast performance</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- floating badges -->
+            <div class="hidden md:block absolute -bottom-6 -left-6 bg-white rounded-full p-3 shadow-md border">
+              <i class="fa-brands fa-js text-yellow-400 text-xl"></i>
+            </div>
+            <div class="hidden md:block absolute -top-6 -right-6 bg-white rounded-full p-3 shadow-md border">
+              <i class="fa-brands fa-react text-blue-600 text-xl"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="bg-gray-50 py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl font-extrabold text-gray-900">Our Services</h2>
+          <p class="mt-3 text-gray-600">Comprehensive services to launch, scale, and maintain your web presence.</p>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Service card -->
+          <div class="p-6 rounded-2xl bg-white shadow hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-primary text-white">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Full-Stack Web Development</h3>
+                <p class="mt-2 text-sm text-gray-500">From frontend to backend — robust, maintainable, scalable solutions.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white shadow hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-primary text-white">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Responsive Design</h3>
+                <p class="mt-2 text-sm text-gray-500">Pixel-perfect experiences across phones, tablets, and desktops.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white shadow hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-primary text-white">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">SEO Optimization</h3>
+                <p class="mt-2 text-sm text-gray-500">Improve visibility with performance-focused SEO techniques.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white shadow hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-primary text-white">
+                <i class="fa-solid fa-basket-shopping"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">E-Commerce Solutions</h3>
+                <p class="mt-2 text-sm text-gray-500">Secure shops, payment integrations, and conversion-first UX.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- optional extras -->
+          <div class="p-6 rounded-2xl bg-white shadow hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-primary text-white">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Security & Maintenance</h3>
+                <p class="mt-2 text-sm text-gray-500">Ongoing security, backups, and updates to keep your product safe.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white shadow hover:shadow-xl transition transform hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-primary text-white">
+                <i class="fa-solid fa-server"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">Cloud & DevOps</h3>
+                <p class="mt-2 text-sm text-gray-500">CI/CD, scaling, and deployment strategies for reliability.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between gap-4">
+          <div>
+            <h2 class="text-3xl font-extrabold text-gray-900">Selected Projects</h2>
+            <p class="mt-2 text-gray-600">A selection of websites and web apps we've designed and developed.</p>
+          </div>
+          <div class="hidden sm:flex gap-3">
+            <button class="px-3 py-2 border rounded text-sm text-gray-600 hover:bg-gray-100">All</button>
+            <button class="px-3 py-2 border rounded text-sm text-gray-600 hover:bg-gray-100">E-Commerce</button>
+            <button class="px-3 py-2 border rounded text-sm text-gray-600 hover:bg-gray-100">SaaS</button>
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- portfolio card template (repeat 6-8) -->
+          <article class="relative group overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=3b1c5fd2eee7c1f6806b4fde1c3e3dec" alt="Project 1" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+              <div>
+                <h3 class="text-white text-lg font-bold">AlphaShop E-commerce</h3>
+                <p class="text-sm text-gray-200 mt-1">Custom storefront, payments & inventory integration.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="relative group overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=1f1ec9f5b2f5d1b94f6f3c2f98d5a0bf" alt="Project 2" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+              <div>
+                <h3 class="text-white text-lg font-bold">BizLaunch Portal</h3>
+                <p class="text-sm text-gray-200 mt-1">SaaS dashboard & analytics.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="relative group overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=1f1ec9f5b2f5d1b94f6f3c2f98d5a0bf" alt="Project 3" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+              <div>
+                <h3 class="text-white text-lg font-bold">EduConnect</h3>
+                <p class="text-sm text-gray-200 mt-1">E-learning & course management portal.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="relative group overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1508830524289-0adcbe822b40?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=6e5f9a2d28a9f0a6f9d5df9b7b4e9e63" alt="Project 4" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+              <div>
+                <h3 class="text-white text-lg font-bold">HealthPro</h3>
+                <p class="text-sm text-gray-200 mt-1">Patient booking & management system.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="relative group overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=7058b987d40a1f8b0f2b9d1b9a9b2f6e" alt="Project 5" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+              <div>
+                <h3 class="text-white text-lg font-bold">Eventory</h3>
+                <p class="text-sm text-gray-200 mt-1">Booking & ticketing platform.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="relative group overflow-hidden rounded-2xl shadow-lg">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2a26b7d4b5f4cf8b0c2c7b2e6e7a9c4d" alt="Project 6" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+              <div>
+                <h3 class="text-white text-lg font-bold">FinAssist</h3>
+                <p class="text-sm text-gray-200 mt-1">Finance management & insights.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="bg-gray-50 py-16">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-2">
+          <h2 class="text-3xl font-extrabold text-gray-900">About TotalPrime</h2>
+          <p class="mt-4 text-gray-600 max-w-2xl">
+            TotalPrime Web Solutions is a full-service web development company focused on building premium, high-performing websites and web apps.
+            Our mission is to combine strong engineering, clean design, and measurable results to help businesses scale online.
+          </p>
+
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 bg-white rounded-lg shadow flex gap-4 items-start">
+              <div class="w-12 h-12 flex items-center justify-center rounded-md bg-primary text-white">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">Our Mission</h4>
+                <p class="text-sm text-gray-500">To deliver reliable, elegant, and conversion-focused digital experiences.</p>
+              </div>
+            </div>
+
+            <div class="p-4 bg-white rounded-lg shadow flex gap-4 items-start">
+              <div class="w-12 h-12 flex items-center justify-center rounded-md bg-primary text-white">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">Our Vision</h4>
+                <p class="text-sm text-gray-500">To be the go-to partner for businesses seeking digital transformation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-gray-900">Meet the Team</h3>
+          <div class="flex gap-3 items-center">
+            <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=bbd1d8d9aefeb8b6a8dfb2b1c8fa4e9b" alt="Team member">
+            <div>
+              <div class="font-semibold">Aisha Khan</div>
+              <div class="text-sm text-gray-500">Founder & CEO</div>
+            </div>
+          </div>
+
+          <div class="flex gap-3 items-center">
+            <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1545996124-0ec4c6f6b4e6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=c8f2d3b2a8f5f4e0b3b9a3c2d6c7e9a1" alt="Team member">
+            <div>
+              <div class="font-semibold">Rohan Patel</div>
+              <div class="text-sm text-gray-500">Lead Developer</div>
+            </div>
+          </div>
+
+          <div class="flex gap-3 items-center">
+            <img class="w-14 h-14 rounded-full object-cover" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=3a6d5f2b3c7d6e8f9b1c2a3d4e5f6a7b" alt="Team member">
+            <div>
+              <div class="font-semibold">Priya Sharma</div>
+              <div class="text-sm text-gray-500">Product Designer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-3xl font-extrabold text-gray-900">Get in touch</h2>
+          <p class="mt-3 text-gray-600">Have a project in mind or questions? Send us a message and we'll respond within 24 hours.</p>
+
+          <form id="contact-form" class="mt-6 space-y-4 bg-white p-6 rounded-2xl shadow" onsubmit="submitContactForm(event)">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Name</label>
+              <input required type="text" id="name" name="name" placeholder="Your name" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-primary focus:border-primary" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Email</label>
+              <input required type="email" id="email" name="email" placeholder="you@company.com" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-primary focus:border-primary" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Message</label>
+              <textarea required id="message" name="message" rows="5" placeholder="Tell us about your project" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-primary focus:border-primary"></textarea>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button type="submit" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-white font-semibold shadow hover:brightness-95 transition">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+              <span id="form-status" class="text-sm text-gray-500 hidden">Sending…</span>
+            </div>
+            <p class="text-xs text-gray-400">This form demo does not submit to a server — adapt action to your backend or serverless handler.</p>
+          </form>
+
+          <div class="mt-6">
+            <h4 class="font-semibold">Reach us</h4>
+            <p class="text-sm text-gray-600 mt-2">Email: <a href="mailto:hello@totalprime.example" class="text-primary">hello@totalprime.example</a><br>Phone: <a href="tel:+911234567890" class="text-primary">+91 12345 67890</a></p>
+
+            <div class="mt-4 flex gap-3">
+              <a href="#" class="p-3 rounded-md border hover:bg-gray-100"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="p-3 rounded-md border hover:bg-gray-100"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="p-3 rounded-md border hover:bg-gray-100"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div>
+          <h4 class="font-semibold">Our Location</h4>
+          <div class="mt-3 map-responsive rounded-2xl overflow-hidden shadow">
+            <!-- Google Maps embed placeholder (change query/address as needed) -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.123456789!2d77.2090!3d28.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b1234567%3A0x123456789abcdef!2sNew%20Delhi%2C%20India!5e0!3m2!1sen!2sus!4v1697040000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="mt-6 text-sm text-gray-500">
+            <strong>Office:</strong> 123 Business Street, New Delhi, India
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <a href="#home" class="flex items-center gap-3">
+          <div>
+            <span class="text-xl font-extrabold text-accent">TotalPrime</span>
+            <div class="text-xs text-gray-400 -mt-1">Web Solutions</div>
+          </div>
+        </a>
+
+        <p class="mt-4 text-sm text-gray-400 max-w-sm">Premium web development services: websites, e-commerce, SaaS, and more.</p>
+      </div>
+
+      <div>
+        <h5 class="font-semibold">Quick Links</h5>
+        <ul class="mt-3 space-y-2 text-sm text-gray-400">
+          <li><a href="#services" class="hover:text-white">Services</a></li>
+          <li><a href="#portfolio" class="hover:text-white">Portfolio</a></li>
+          <li><a href="#about" class="hover:text-white">About</a></li>
+          <li><a href="#contact" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-semibold">Contact</h5>
+        <p class="mt-3 text-sm text-gray-400">hello@totalprime.example<br>+91 12345 67890</p>
+        <div class="mt-4 flex gap-3">
+          <a class="p-2 rounded-md border text-gray-400 hover:text-white" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="p-2 rounded-md border text-gray-400 hover:text-white" href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a class="p-2 rounded-md border text-gray-400 hover:text-white" href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-6 py-4 text-sm text-gray-500 flex flex-col md:flex-row items-center justify-between">
+        <div>&copy; <span id="year"></span> TotalPrime Web Solutions. All rights reserved.</div>
+        <div class="mt-2 md:mt-0">Designed & built with <span class="text-accent font-semibold">passion</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // header shadow on scroll & shrink
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('backdrop-blur-md', 'bg-white/60', 'shadow-md');
+      } else {
+        header.classList.remove('backdrop-blur-md', 'bg-white/60', 'shadow-md');
+      }
+    });
+
+    // mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburger = document.getElementById('hamburger');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileBtn.addEventListener('click', () => {
+      const expanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        mobileMenu.classList.add('hidden');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        hamburger.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('hidden');
+        mobileBtn.setAttribute('aria-expanded', 'true');
+        hamburger.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    });
+
+    // Initially hide mobile menu
+    if (window.innerWidth < 768) {
+      mobileMenu.classList.add('hidden');
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const yOffset = -72; // header offset
+          const y = targetEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+
+          // close mobile menu if open (mobile)
+          if (window.innerWidth < 768 && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+            hamburger.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          }
+        }
+      });
+    });
+
+    // Contact form demo handler (no backend)
+    function submitContactForm(e) {
+      e.preventDefault();
+      const statusEl = document.getElementById('form-status');
+      statusEl.classList.remove('hidden');
+      statusEl.textContent = 'Sending…';
+
+      // mimic send
+      setTimeout(() => {
+        statusEl.textContent = 'Message sent! We will get back to you soon.';
+        statusEl.classList.remove('text-gray-500');
+        statusEl.classList.add('text-green-600');
+        // reset form
+        document.getElementById('contact-form').reset();
+        setTimeout(() => {
+          statusEl.classList.add('hidden');
+          statusEl.classList.remove('text-green-600');
+          statusEl.classList.add('text-gray-500');
+        }, 3000);
+      }, 900);
+    }
+
+    // insert current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Small accessibility improvement: close mobile menu on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        mobileMenu.classList.add('hidden');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        hamburger.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+    });
+
+  </script>
+</body>
+</html>

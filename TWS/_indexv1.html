@@ -18,26 +18,17 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-    /* Decorative tech SVG mask for hero */
-    .hero-mask {
-      background-image: radial-gradient(circle at 10% 30%, rgba(11,70,188,0.06), transparent 8%),
-                        radial-gradient(circle at 90% 70%, rgba(243,195,2,0.04), transparent 8%),
-                        linear-gradient(134deg, rgba(11,70,188,0.06), rgba(243,195,2,0.03));
-      background-blend-mode: screen, screen, normal;
-    }
-    /* Helper to offset anchor scrolling for fixed header */
-    :target::before {
-      content: "";
-      display: block;
-      height: 84px; /* matches header height */
-      margin-top: -84px;
-    }
+    /* small animation */
+    @keyframes float-up { from { transform: translateY(8px); opacity: .9 } to { transform: translateY(0); opacity: 1 } }
+    .animate-float { animation: float-up .7s ease forwards; }
+    /* sticky header offset helper for anchor links */
+    :target::before { content: ""; display:block; height:84px; margin-top:-84px; }
   </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
   <!-- Header / Navigation -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm transition-shadow">
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm transition-shadow">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
       <div class="flex items-center justify-between h-20">
         <!-- Logo -->
@@ -90,9 +81,9 @@
   <main class="pt-20">
 
     <!-- HERO -->
-    <section id="home" class="hero-mask relative overflow-hidden">
+    <section id="home" class="relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div class="lg:col-span-7">
             <p class="inline-flex items-center gap-2 text-xs font-semibold uppercase text-yellow-500 mb-4">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/></svg>
@@ -104,7 +95,7 @@
             </h1>
 
             <p class="mt-6 text-gray-600 max-w-2xl">
-              Building modern, responsive, and premium websites — tailored for conversions, speed, and delightful user experiences. Web development, design, and growth-focused solutions under one roof.
+              Building modern, responsive, and premium websites — tailored for conversions, speed, and delightful user experiences.
             </p>
 
             <div class="mt-8 flex flex-wrap gap-4">
@@ -139,33 +130,67 @@
             </div>
           </div>
 
-          <!-- Hero visual -->
+          <!-- Hero visual (flat modern illustration - inline SVG) -->
           <div class="lg:col-span-5">
-            <div class="relative mx-auto w-full max-w-md">
-              <!-- Decorative card -->
-              <div class="rounded-2xl p-6 shadow-2xl border border-gray-100 bg-white/80 backdrop-blur-md animate-fade-in">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <div class="text-xs uppercase font-semibold text-gray-500">Featured Project</div>
-                    <div class="mt-3 text-sm font-bold text-gray-900">E-Commerce Platform — Launch Ready</div>
-                    <div class="mt-3 text-xs text-gray-500">Custom storefront, payment integration, fast shipping UI.</div>
-                  </div>
-                  <div class="flex-shrink-0">
-                    <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-blue-600 to-yellow-400 flex items-center justify-center text-white font-bold">TP</div>
-                  </div>
-                </div>
+            <div class="relative mx-auto w-full max-w-md animate-float">
+              <div class="rounded-2xl p-6 shadow-2xl border border-gray-100 bg-white">
+                <!-- Inline SVG: Flat illustration of person with laptop -->
+                <div class="w-full">
+                  <svg viewBox="0 0 600 620" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flat illustration of developer">
+                    <defs>
+                      <linearGradient id="g1" x1="0" x2="1">
+                        <stop offset="0" stop-color="#f3c302"/>
+                        <stop offset="1" stop-color="#0b46bc"/>
+                      </linearGradient>
+                      <linearGradient id="g2" x1="0" x2="1">
+                        <stop offset="0" stop-color="#fef3c7"/>
+                        <stop offset="1" stop-color="#e6eefc"/>
+                      </linearGradient>
+                    </defs>
 
-                <div class="mt-6 grid grid-cols-3 gap-3">
-                  <div class="h-12 rounded-lg bg-gray-50 flex items-center justify-center text-xs text-gray-500">UI</div>
-                  <div class="h-12 rounded-lg bg-gray-50 flex items-center justify-center text-xs text-gray-500">API</div>
-                  <div class="h-12 rounded-lg bg-gray-50 flex items-center justify-center text-xs text-gray-500">SEO</div>
+                    <!-- background rounded panel -->
+                    <rect x="16" y="16" width="568" height="588" rx="36" fill="url(#g2)" opacity="0.95" stroke="#f1f5f9" />
+
+                    <!-- desk -->
+                    <rect x="60" y="420" width="480" height="22" rx="6" fill="#1f2937" opacity="0.06" />
+                    <rect x="60" y="440" width="480" height="14" rx="6" fill="#1f2937" opacity="0.04" />
+
+                    <!-- chair -->
+                    <ellipse cx="220" cy="420" rx="75" ry="30" fill="#fde68a" />
+                    <rect x="170" y="320" width="100" height="110" rx="18" fill="#f59e0b" />
+
+                    <!-- person (simplified) -->
+                    <!-- head -->
+                    <circle cx="220" cy="260" r="46" fill="#fde68a" />
+                    <!-- hair -->
+                    <path d="M178 238c0-24 20-46 42-46s42 22 42 46v8c0 20-18 36-40 36s-44-16-44-36v-8z" fill="#0b46bc"/>
+                    <!-- body -->
+                    <rect x="160" y="300" width="120" height="80" rx="28" fill="#ffedd5" />
+                    <path d="M160 320h120v28a28 28 0 01-28 28H188a28 28 0 01-28-28V320z" fill="#fb923c" />
+
+                    <!-- laptop -->
+                    <rect x="300" y="360" width="220" height="120" rx="12" fill="#111827" />
+                    <rect x="316" y="384" width="188" height="84" rx="6" fill="#e6eefc" />
+                    <rect x="340" y="412" width="136" height="8" rx="4" fill="#c7d2fe" />
+                    <rect x="340" y="432" width="96" height="6" rx="3" fill="#c7d2fe" />
+
+                    <!-- hands on keyboard -->
+                    <path d="M280 420c6 4 12 6 18 6 6 0 12-2 18-6v-8h-36v8z" fill="#fde68a"/>
+                    <path d="M322 420h-12v-12h12v12z" fill="#fef3c7"/>
+
+                    <!-- small UI windows floating -->
+                    <rect x="60" y="70" rx="12" ry="12" width="160" height="90" fill="#ffffff" opacity="0.9" stroke="#e6eefc" />
+                    <rect x="270" y="70" rx="12" ry="12" width="220" height="56" fill="#ffffff" opacity="0.95" stroke="#e6eefc" />
+                    <circle cx="110" cy="120" r="8" fill="#0b46bc" />
+                    <rect x="80" y="90" width="80" height="12" rx="6" fill="#c7d2fe" />
+
+                    <!-- decorative abstract shapes -->
+                    <path d="M480 150c-40 10-84 40-120 72-36 32-76 72-120 80" stroke="url(#g1)" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.95"/>
+                    <circle cx="520" cy="180" r="8" fill="#f3c302" opacity="0.9" />
+                    <circle cx="500" cy="220" r="6" fill="#0b46bc" opacity="0.85" />
+                  </svg>
                 </div>
               </div>
-
-              <!-- subtle tech shapes -->
-              <svg class="absolute -bottom-6 -right-6 w-32 h-32 opacity-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="50" fill="#0b46bc"/>
-              </svg>
             </div>
           </div>
         </div>
@@ -182,11 +207,10 @@
         </div>
 
         <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Card -->
+          <!-- Card 1 -->
           <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
             <div class="flex items-center gap-4">
               <div class="p-3 rounded-lg bg-blue-50 group-hover:bg-blue-100 transition">
-                <!-- icon -->
                 <svg class="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8M8 12h8"/></svg>
               </div>
               <h4 class="font-semibold text-lg">Full-Stack Web Development</h4>
@@ -195,6 +219,7 @@
             <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
           </article>
 
+          <!-- Card 2 -->
           <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
             <div class="flex items-center gap-4">
               <div class="p-3 rounded-lg bg-yellow-50 group-hover:bg-yellow-100 transition">
@@ -206,6 +231,7 @@
             <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
           </article>
 
+          <!-- Card 3 -->
           <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
             <div class="flex items-center gap-4">
               <div class="p-3 rounded-lg bg-gray-50 group-hover:bg-gray-100 transition">
@@ -217,6 +243,7 @@
             <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
           </article>
 
+          <!-- Card 4 -->
           <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
             <div class="flex items-center gap-4">
               <div class="p-3 rounded-lg bg-blue-50 group-hover:bg-blue-100 transition">
@@ -228,6 +255,7 @@
             <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
           </article>
 
+          <!-- Card 5 -->
           <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
             <div class="flex items-center gap-4">
               <div class="p-3 rounded-lg bg-yellow-50 group-hover:bg-yellow-100 transition">
@@ -239,6 +267,7 @@
             <div class="mt-4 text-sm font-medium text-blue-600 group-hover:text-blue-700">Learn more →</div>
           </article>
 
+          <!-- Card 6 -->
           <article class="group bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transform transition hover:-translate-y-1">
             <div class="flex items-center gap-4">
               <div class="p-3 rounded-lg bg-gray-50 group-hover:bg-gray-100 transition">
@@ -265,59 +294,64 @@
         </div>
 
         <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Portfolio card template repeated -->
-          <!-- Use data attributes for optional interactive details -->
-          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://images.unsplash.com/photo-1526378722838-0c0a3b2d3d5c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 1" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-              <h4 class="font-semibold text-lg">E-Commerce Replatform</h4>
-              <p class="text-sm mt-1">Headless storefront with 2x speed improvements.</p>
+          <!-- Sample project cards (use your own images in production) -->
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1526378722838-0c0a3b2d3d5c?q=80&w=1200&auto=format&fit=crop" alt="Project 1" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+              <div class="p-4 text-white">
+                <h4 class="font-semibold text-lg">E-Commerce Replatform</h4>
+                <p class="text-sm mt-1">Headless storefront with 2x speed improvements.</p>
+              </div>
             </div>
           </div>
 
-          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://images.unsplash.com/photo-1502880197927-1ec2b91a0e78?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 2" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-blue-800/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-              <h4 class="font-semibold text-lg">SaaS Dashboard</h4>
-              <p class="text-sm mt-1">Complex data visualizations and role-based access.</p>
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1502880197927-1ec2b91a0e78?q=80&w=1200&auto=format&fit=crop" alt="Project 2" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-blue-800/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+              <div class="p-4 text-white">
+                <h4 class="font-semibold text-lg">SaaS Dashboard</h4>
+                <p class="text-sm mt-1">Complex data visualizations and role-based access.</p>
+              </div>
             </div>
           </div>
 
-          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 3" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-yellow-900/40 via-yellow-800/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-              <h4 class="font-semibold text-lg">Corporate Redesign</h4>
-              <p class="text-sm mt-1">Brand refresh and content migration.</p>
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Project 3" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-yellow-900/40 via-yellow-800/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+              <div class="p-4 text-white">
+                <h4 class="font-semibold text-lg">Corporate Redesign</h4>
+                <p class="text-sm mt-1">Brand refresh and content migration.</p>
+              </div>
             </div>
           </div>
 
-          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 4" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/40 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-              <h4 class="font-semibold text-lg">Mobile App Landing</h4>
-              <p class="text-sm mt-1">Conversion-focused landing page strategy.</p>
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Project 4" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+              <div class="p-4 text-white">
+                <h4 class="font-semibold text-lg">Mobile App Landing</h4>
+                <p class="text-sm mt-1">Conversion-focused landing page strategy.</p>
+              </div>
             </div>
           </div>
 
-          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://images.unsplash.com/photo-1505238680356-667803448bb6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 5" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-blue-700/40 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-              <h4 class="font-semibold text-lg">Marketing Microsite</h4>
-              <p class="text-sm mt-1">A/B tested hero and CTAs for higher conversions.</p>
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1505238680356-667803448bb6?q=80&w=1200&auto=format&fit=crop" alt="Project 5" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-blue-700/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+              <div class="p-4 text-white">
+                <h4 class="font-semibold text-lg">Marketing Microsite</h4>
+                <p class="text-sm mt-1">A/B tested hero and CTAs for higher conversions.</p>
+              </div>
             </div>
           </div>
 
-          <div class="relative group rounded-2xl overflow-hidden shadow-sm">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Project 6" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-              <h4 class="font-semibold text-lg">Performance Overhaul</h4>
-              <p class="text-sm mt-1">Reduced load times and improved Lighthouse score.</p>
+          <div class="relative group rounded-2xl overflow-hidden shadow-sm cursor-pointer">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Project 6" class="w-full h-56 object-cover transition-transform group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+              <div class="p-4 text-white">
+                <h4 class="font-semibold text-lg">Performance Overhaul</h4>
+                <p class="text-sm mt-1">Reduced load times and improved Lighthouse score.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -473,9 +507,23 @@
     </div>
   </footer>
 
+  <!-- Portfolio modal placeholder -->
+  <div id="project-modal" class="fixed inset-0 z-60 hidden items-center justify-center bg-black/60 p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6">
+      <div class="flex justify-between items-start gap-4">
+        <div>
+          <h3 id="project-title" class="text-xl font-bold"></h3>
+          <p id="project-desc" class="mt-2 text-sm text-gray-600"></p>
+        </div>
+        <button id="close-project" class="p-2 text-gray-500">✕</button>
+      </div>
+      <div id="project-more" class="mt-4 text-sm text-gray-500">Demo preview — replace with full project details or link.</div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script>
-    // Small helper to query
+    // Small helpers
     const $ = (sel, ctx = document) => ctx.querySelector(sel);
     const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
@@ -507,7 +555,6 @@
 
     // Sticky header shadow on scroll
     const header = document.getElementById('header');
-    const headerShadowClass = 'shadow-lg';
     window.addEventListener('scroll', () => {
       if (window.scrollY > 20) {
         header.classList.add('shadow-lg');
@@ -516,8 +563,7 @@
       }
     });
 
-    // Smooth anchor scrolling with offset (for older browsers)
-    // Intercepts all in-page nav links to account for fixed header height.
+    // Smooth anchor scrolling for older browsers + offset
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -537,32 +583,33 @@
       });
     });
 
-    // Portfolio card subtle hover zoom (already via CSS) - add optional click to open detail modal (lightweight)
-    // For demo purposes, we'll add a click handler to show a quick overlay
-    const portfolioCards = $$('#portfolio .group.relative');
-    portfolioCards.forEach((card, idx) => {
+    // Portfolio click to open modal
+    const projectCards = $$('#portfolio .group.relative, #portfolio .group');
+    const modal = $('#project-modal');
+    const projectTitle = $('#project-title');
+    const projectDesc = $('#project-desc');
+    const closeProject = $('#close-project');
+
+    projectCards.forEach(card => {
       card.addEventListener('click', () => {
         const title = card.querySelector('h4')?.innerText || 'Project';
-        const desc = card.querySelector('p')?.innerText || '';
-        // quick modal
-        const modal = document.createElement('div');
-        modal.className = 'fixed inset-0 z-60 flex items-center justify-center bg-black/60';
-        modal.innerHTML = `
-          <div class="bg-white rounded-2xl max-w-xl w-full mx-4 p-6">
-            <div class="flex justify-between items-start gap-4">
-              <div>
-                <h3 class="text-xl font-bold">\${title}</h3>
-                <p class="mt-2 text-sm text-gray-600">\${desc}</p>
-              </div>
-              <button id="close-modal" class="p-2 text-gray-500">✕</button>
-            </div>
-            <div class="mt-4 text-sm text-gray-500">This is a demo preview. Replace with project details or a proper project page.</div>
-          </div>
-        `;
-        document.body.appendChild(modal);
-        modal.querySelector('#close-modal').addEventListener('click', () => modal.remove());
-        modal.addEventListener('click', (evt) => { if (evt.target === modal) modal.remove(); });
+        const desc = card.querySelector('p')?.innerText || 'Project details.';
+        projectTitle.innerText = title;
+        projectDesc.innerText = desc;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
       });
+    });
+
+    closeProject?.addEventListener('click', () => {
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    });
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }
     });
 
     // Contact form handler (demo, no backend)
@@ -576,7 +623,6 @@
         alert('Please fill in all fields.');
         return;
       }
-      // Show a friendly message — in real site you'd POST to an API
       const btn = f.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.innerText = 'Sending...';

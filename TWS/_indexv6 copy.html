@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>TotalPrime Web Solutions — Premium Web Development</title>
+  <meta name="description" content="TotalPrime Web Solutions — premium, customer-centric web development: full-stack, responsive, SEO, e-commerce." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent: #f3c302;      /* gold */
+      --accent-2: #ffd662;
+      --bg: #050507;          /* near-black */
+      --card: #0b0b0d;
+    }
+
+    /* Theme utilities */
+    .accent { color: var(--accent); }
+    .btn-accent { background: linear-gradient(90deg,var(--accent),var(--accent-2)); color: #0b0b0d; }
+    .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(6px); }
+    .logo-tp { font-family: 'Montserrat', sans-serif; letter-spacing: -0.02em; }
+
+    /* CTA underline small animation */
+    .cta-underline::after {
+      content: ""; display:block; width:0; height:3px; border-radius:3px;
+      background: linear-gradient(90deg,var(--accent),#ffd662); transition: width .28s ease; margin-top:.45rem;
+    }
+    .cta-underline:hover::after{ width:2.5rem; }
+
+    /* map placeholder sizing */
+    .map-placeholder { min-height: 220px; }
+
+    /* small visual tweaks */
+    .tpgold { color: var(--accent); }
+    .tpcard { background: var(--card); }
+  </style>
+</head>
+<body class="bg-[color:var(--bg)] text-white antialiased">
+
+  <!-- HEADER -->
+  <header class="fixed inset-x-0 top-0 z-40 glass border-b border-white/6">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3" aria-label="TotalPrime Web Solutions">
+        <div class="w-10 h-10 rounded-md flex items-center justify-center btn-accent font-bold">TP</div>
+        <div class="leading-none">
+          <div class="logo-tp text-lg md:text-xl font-extrabold">TotalPrime</div>
+          <div class="text-xs text-gray-300 -mt-0.5">Web Solutions</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#home" class="hover:text-[color:var(--accent)]">Home</a>
+        <a href="#services" class="hover:text-[color:var(--accent)]">Services</a>
+        <a href="#portfolio" class="hover:text-[color:var(--accent)]">Portfolio</a>
+        <a href="#about" class="hover:text-[color:var(--accent)]">About</a>
+        <a href="#contact" class="hover:text-[color:var(--accent)]">Contact</a>
+        <a href="#contact" class="ml-4 btn-accent px-4 py-2 rounded-md text-sm font-semibold shadow">Get Started</a>
+      </nav>
+
+      <!-- Mobile -->
+      <div class="md:hidden flex items-center gap-2">
+        <a href="#contact" class="btn-accent px-3 py-2 rounded-md text-sm font-semibold">Start</a>
+        <button id="mobile-btn" aria-expanded="false" class="p-2 rounded-md focus:ring-2 focus:ring-[color:var(--accent)]/30">
+          <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden">
+      <div class="px-4 pt-3 pb-6 space-y-2 glass border-t border-white/6">
+        <a href="#home" class="block py-2">Home</a>
+        <a href="#services" class="block py-2">Services</a>
+        <a href="#portfolio" class="block py-2">Portfolio</a>
+        <a href="#about" class="block py-2">About</a>
+        <a href="#contact" class="block py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24">
+
+    <!-- HERO -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 py-14 lg:py-20 grid lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7">
+          <div class="text-sm uppercase text-[color:var(--accent)] font-semibold">Premium • Customer-Centric • Minimal</div>
+          <h1 class="mt-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">Professional Web Solutions for Your Business</h1>
+          <p class="mt-4 text-gray-300 max-w-2xl">We craft modern, responsive, and conversion-led websites & web apps — designed to elevate your brand and drive measurable growth.</p>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3 items-start">
+            <a href="#contact" class="btn-accent inline-flex items-center gap-3 px-5 py-3 rounded-md font-semibold shadow">Get Started</a>
+            <a href="#portfolio" class="border border-white/6 px-5 py-3 rounded-md text-sm text-gray-300 hover:bg-white/5">View Portfolio</a>
+          </div>
+
+          <div class="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-3 text-sm text-gray-400">
+            <div class="col-span-1 sm:col-span-2 p-3 glass rounded-md text-center">
+              <div class="font-semibold tpgold">Design</div>
+              <div class="text-xs">User-first UI</div>
+            </div>
+            <div class="p-3 glass rounded-md text-center">
+              <div class="font-semibold tpgold">Performance</div>
+              <div class="text-xs">Lighthouse-grade</div>
+            </div>
+            <div class="p-3 glass rounded-md text-center">
+              <div class="font-semibold tpgold">SEO</div>
+              <div class="text-xs">Organic growth</div>
+            </div>
+            <div class="p-3 glass rounded-md text-center">
+              <div class="font-semibold tpgold">E-Com</div>
+              <div class="text-xs">Conversion-first</div>
+            </div>
+            <div class="p-3 glass rounded-md text-center">
+              <div class="font-semibold tpgold">Security</div>
+              <div class="text-xs">Managed updates</div>
+            </div>
+            <div class="p-3 glass rounded-md text-center">
+              <div class="font-semibold tpgold">Cloud</div>
+              <div class="text-xs">Reliable infra</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-md">
+            <div class="rounded-2xl overflow-hidden border border-white/6 glass p-6 shadow-2xl">
+              <!-- Futuristic abstract tech SVG illustration -->
+              <div class="w-full h-64">
+                <svg viewBox="0 0 800 400" class="w-full h-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <defs>
+                    <linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#f3c302"/><stop offset="1" stop-color="#ffd662"/></linearGradient>
+                    <linearGradient id="gB" x1="0" x2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0.06"/><stop offset="1" stop-color="#ffffff" stop-opacity="0.02"/></linearGradient>
+                    <filter id="b" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="18"/></filter>
+                  </defs>
+
+                  <rect width="800" height="400" rx="20" fill="url(#gB)"></rect>
+
+                  <g filter="url(#b)">
+                    <ellipse cx="180" cy="110" rx="140" ry="90" fill="url(#gA)" opacity="0.12"></ellipse>
+                    <ellipse cx="620" cy="260" rx="200" ry="130" fill="url(#gA)" opacity="0.08"></ellipse>
+                  </g>
+
+                  <g stroke="#ffffff" stroke-opacity="0.06" stroke-linecap="round">
+                    <path d="M70 230 C190 90, 410 70, 540 190 C660 300, 740 240, 760 200" stroke-width="12" fill="none"></path>
+                    <path d="M30 290 C160 150, 360 130, 500 260 C600 360, 720 310, 760 260" stroke-width="20" fill="none" stroke-opacity="0.04"></path>
+                  </g>
+
+                  <g transform="translate(120,60)">
+                    <rect x="160" y="60" width="300" height="160" rx="12" fill="#050507" opacity="0.75" />
+                    <circle cx="40" cy="50" r="6" fill="#f3c302"></circle>
+                    <circle cx="40" cy="110" r="5" fill="#ffd662"></circle>
+                    <circle cx="480" cy="120" r="6" fill="#f3c302"></circle>
+                    <line x1="40" y1="50" x2="160" y2="90" stroke="#fff" stroke-opacity="0.06" stroke-width="2"></line>
+                    <line x1="480" y1="120" x2="360" y2="140" stroke="#fff" stroke-opacity="0.04" stroke-width="2"></line>
+                  </g>
+                </svg>
+              </div>
+
+              <div class="mt-4 flex items-center justify-between">
+                <div>
+                  <div class="text-xs text-gray-300">Custom architectures • Scalable code</div>
+                  <div class="text-sm font-semibold mt-1">Trusted by startups & enterprises</div>
+                </div>
+                <div class="hidden sm:flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-md flex items-center justify-center btn-accent font-bold">TP</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- floating badge -->
+            <div class="hidden lg:block absolute -left-6 -bottom-6 p-3 rounded-full glass border border-white/6 shadow">
+              <i class="fa-solid fa-code text-[color:var(--accent)]"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="max-w-6xl mx-auto px-4 py-14">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl font-extrabold">Services</h2>
+        <p class="mt-3 text-gray-400">End-to-end services to launch and scale your digital product.</p>
+      </div>
+
+      <div class="mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="p-6 rounded-2xl glass border border-white/6 hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center btn-accent font-bold text-sm">F</div>
+            <div>
+              <h3 class="font-semibold">Full-Stack Development</h3>
+              <p class="mt-2 text-sm text-gray-400">Robust backends, modern frontends, and scalable APIs.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-6 rounded-2xl glass border border-white/6 hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center btn-accent font-bold text-sm">UX</div>
+            <div>
+              <h3 class="font-semibold">UX & Responsive Design</h3>
+              <p class="mt-2 text-sm text-gray-400">Design systems, accessibility, and delightful mobile-first experiences.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-6 rounded-2xl glass border border-white/6 hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center btn-accent font-bold text-sm">SEO</div>
+            <div>
+              <h3 class="font-semibold">SEO & Performance</h3>
+              <p class="mt-2 text-sm text-gray-400">Technical SEO, optimizations, and performance tuning.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-6 rounded-2xl glass border border-white/6 hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center btn-accent font-bold text-sm">E</div>
+            <div>
+              <h3 class="font-semibold">E-Commerce Solutions</h3>
+              <p class="mt-2 text-sm text-gray-400">Secure storefronts, checkout optimization & analytics.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-6 rounded-2xl glass border border-white/6 hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center btn-accent font-bold text-sm">S</div>
+            <div>
+              <h3 class="font-semibold">Security & Maintenance</h3>
+              <p class="mt-2 text-sm text-gray-400">Managed maintenance, backups and vulnerability monitoring.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="p-6 rounded-2xl glass border border-white/6 hover:shadow-xl transition transform hover:-translate-y-1">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center btn-accent font-bold text-sm">C</div>
+            <div>
+              <h3 class="font-semibold">Cloud & DevOps</h3>
+              <p class="mt-2 text-sm text-gray-400">CI/CD, autoscaling, observability and cost optimization.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="max-w-6xl mx-auto px-4 py-14">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-3xl font-extrabold">Selected Projects</h2>
+          <p class="mt-2 text-gray-400">A curated set of recent work — design and engineering combined.</p>
+        </div>
+        <div class="hidden sm:flex gap-3 text-sm">
+          <button class="px-3 py-2 border rounded text-gray-300 hover:bg-white/5">All</button>
+          <button class="px-3 py-2 border rounded text-gray-300 hover:bg-white/5">E-Commerce</button>
+          <button class="px-3 py-2 border rounded text-gray-300 hover:bg-white/5">SaaS</button>
+        </div>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 8 projects (6 shown, then 2) -->
+        <figure class="relative group rounded-2xl overflow-hidden border border-white/6 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop" alt="AlphaShop" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+          <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-5 flex items-end">
+            <div>
+              <div class="text-sm text-[color:var(--accent)] font-semibold">AlphaShop</div>
+              <div class="text-xs text-gray-200 mt-1">Custom e-commerce & conversion rate optimisation</div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="relative group rounded-2xl overflow-hidden border border-white/6 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop" alt="BizLaunch" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+          <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-5 flex items-end">
+            <div>
+              <div class="text-sm text-[color:var(--accent)] font-semibold">BizLaunch</div>
+              <div class="text-xs text-gray-200 mt-1">B2B SaaS platform & analytics</div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="relative group rounded-2xl overflow-hidden border border-white/6 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1526378723780-49f8f6a0e7ff?q=80&w=1600&auto=format&fit=crop" alt="EduConnect" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+          <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-5 flex items-end">
+            <div>
+              <div class="text-sm text-[color:var(--accent)] font-semibold">EduConnect</div>
+              <div class="text-xs text-gray-200 mt-1">E-learning platform with progress tracking</div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="relative group rounded-2xl overflow-hidden border border-white/6 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1508385082359-fd8b6bde1b53?q=80&w=1600&auto=format&fit=crop" alt="HealthPro" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+          <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-5 flex items-end">
+            <div>
+              <div class="text-sm text-[color:var(--accent)] font-semibold">HealthPro</div>
+              <div class="text-xs text-gray-200 mt-1">Patient booking & secure records</div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="relative group rounded-2xl overflow-hidden border border-white/6 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop" alt="Eventory" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+          <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-5 flex items-end">
+            <div>
+              <div class="text-sm text-[color:var(--accent)] font-semibold">Eventory</div>
+              <div class="text-xs text-gray-200 mt-1">Ticketing & high-throughput booking</div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="relative group rounded-2xl overflow-hidden border border-white/6 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1600&auto=format&fit=crop" alt="FinAssist" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+          <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-5 flex items-end">
+            <div>
+              <div class="text-sm text-[color:var(--accent)] font-semibold">FinAssist</div>
+              <div class="text-xs text-gray-200 mt-1">Secure finance tools & insights</div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="relative group rounded-2xl overflow-hidden border border-white/6 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1600&auto=format&fit=crop" alt="StudioX" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+          <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-5 flex items-end">
+            <div>
+              <div class="text-sm text-[color:var(--accent)] font-semibold">StudioX</div>
+              <div class="text-xs text-gray-200 mt-1">Portfolio & showcase site</div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="relative group rounded-2xl overflow-hidden border border-white/6 shadow-lg">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop" alt="MarketPro" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+          <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-5 flex items-end">
+            <div>
+              <div class="text-sm text-[color:var(--accent)] font-semibold">MarketPro</div>
+              <div class="text-xs text-gray-200 mt-1">Market-facing product site</div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="max-w-6xl mx-auto px-4 py-14 border-t border-white/6">
+      <div class="grid lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-2">
+          <h2 class="text-3xl font-extrabold">About TotalPrime</h2>
+          <p class="mt-4 text-gray-300 max-w-2xl">TotalPrime Web Solutions builds premium digital products with a clear focus on UX, performance and measurable outcomes. We partner with businesses to design, build, and scale web platforms that customers love.</p>
+
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-lg glass border border-white/6">
+              <div class="font-semibold">Our Mission</div>
+              <div class="text-sm text-gray-400 mt-2">Deliver delightful, fast, and secure web experiences that drive business results.</div>
+            </div>
+            <div class="p-4 rounded-lg glass border border-white/6">
+              <div class="font-semibold">Our Vision</div>
+              <div class="text-sm text-gray-400 mt-2">To be the trusted engineering & design partner for ambitious teams.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold">Leadership</h3>
+          <div class="flex items-center gap-3">
+            <img class="w-14 h-14 rounded-full object-cover border border-white/6" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" alt="Founder">
+            <div>
+              <div class="font-semibold">Aisha Khan</div>
+              <div class="text-xs text-gray-400">Founder & CEO</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <img class="w-14 h-14 rounded-full object-cover border border-white/6" src="https://images.unsplash.com/photo-1545996124-0ec4c6f6b4e6?q=80&w=400&auto=format&fit=crop" alt="Lead Developer">
+            <div>
+              <div class="font-semibold">Rohan Patel</div>
+              <div class="text-xs text-gray-400">Lead Developer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-6xl mx-auto px-4 py-14">
+      <div class="grid lg:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-3xl font-extrabold">Talk to us</h2>
+          <p class="mt-3 text-gray-400">Have a project? Tell us about it and we’ll send a tailored plan and estimate.</p>
+
+          <form id="contact-form" class="mt-6 p-6 rounded-2xl glass border border-white/6 space-y-4" onsubmit="submitContact(event)">
+            <div>
+              <label class="text-sm text-gray-300">Name</label>
+              <input required name="name" class="mt-2 w-full rounded-md bg-transparent border border-white/6 p-3 text-white placeholder:text-gray-500 focus:ring-2 focus:ring-[color:var(--accent)]/30" placeholder="Your name"/>
+            </div>
+            <div>
+              <label class="text-sm text-gray-300">Email</label>
+              <input required type="email" name="email" class="mt-2 w-full rounded-md bg-transparent border border-white/6 p-3 text-white placeholder:text-gray-500 focus:ring-2 focus:ring-[color:var(--accent)]/30" placeholder="you@company.com"/>
+            </div>
+            <div>
+              <label class="text-sm text-gray-300">Message</label>
+              <textarea required name="message" rows="5" class="mt-2 w-full rounded-md bg-transparent border border-white/6 p-3 text-white placeholder:text-gray-500 focus:ring-2 focus:ring-[color:var(--accent)]/30" placeholder="Tell us about your project"></textarea>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button type="submit" class="btn-accent px-5 py-3 rounded-md font-semibold shadow">Send Message</button>
+              <div id="form-status" class="text-sm text-gray-400 hidden">Sending…</div>
+            </div>
+            <p class="text-xs text-gray-500">This demo form does not post — connect to your backend or a service like Formspree/Netlify when ready.</p>
+          </form>
+
+          <div class="mt-6 text-sm text-gray-400">
+            <div><strong>Email:</strong> <a href="mailto:hello@totalprime.example" class="tpgold">hello@totalprime.example</a></div>
+            <div class="mt-1"><strong>Phone:</strong> <a href="tel:+911234567890" class="tpgold">+91 12345 67890</a></div>
+          </div>
+
+          <div class="mt-6 flex gap-3">
+            <a href="#" class="p-3 rounded-md border border-white/6 hover:bg-white/5"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="p-3 rounded-md border border-white/6 hover:bg-white/5"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="p-3 rounded-md border border-white/6 hover:bg-white/5"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold">Office & Location</h3>
+          <div class="mt-4 map-placeholder rounded-2xl bg-gradient-to-br from-white/3 to-transparent border border-white/6 flex items-center justify-center text-gray-500">
+            <div class="text-center">
+              <div class="text-sm">Google Maps placeholder</div>
+              <div class="text-xs mt-2">Replace with your offices' Google Maps iframe</div>
+            </div>
+          </div>
+
+          <div class="mt-6 text-sm text-gray-400">
+            <div><strong>Office:</strong> 123 Prime Avenue, Bangalore, India</div>
+            <div class="mt-1">Mon–Fri • 9:30am–6:30pm</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/6 py-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 rounded-md flex items-center justify-center btn-accent font-bold">TP</div>
+        <div>
+          <div class="font-semibold">TotalPrime Web Solutions</div>
+          <div class="text-xs text-gray-400">Premium web development</div>
+        </div>
+      </div>
+      <div class="text-sm text-gray-400">© <span id="year"></span> TotalPrime Web Solutions — All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    mobileBtn?.addEventListener('click', () => {
+      const open = mobileBtn.getAttribute('aria-expanded') === 'true';
+      if (open) {
+        mobileMenu.classList.add('hidden');
+        mobileBtn.setAttribute('aria-expanded','false');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('hidden');
+        mobileBtn.setAttribute('aria-expanded','true');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      }
+    });
+
+    // close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        mobileMenu.classList.add('hidden');
+        mobileBtn?.setAttribute('aria-expanded','false');
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+      }
+    });
+
+    // smooth scroll anchors
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            const yOffset = -80;
+            const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+
+            // close mobile menu if open
+            if (window.innerWidth < 768 && !mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+              mobileBtn?.setAttribute('aria-expanded','false');
+              iconOpen?.classList.remove('hidden');
+              iconClose?.classList.add('hidden');
+            }
+          }
+        }
+      });
+    });
+
+    // header shadow on scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) header.classList.add('shadow-md', 'backdrop-blur-md');
+      else header.classList.remove('shadow-md', 'backdrop-blur-md');
+    });
+
+    // contact form demo handler
+    function submitContact(e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.classList.remove('hidden');
+      status.textContent = 'Sending…';
+      const form = e.target;
+      setTimeout(() => {
+        status.textContent = 'Thanks — we received your message. We will reply shortly.';
+        status.classList.add('text-green-400');
+        form.reset();
+        setTimeout(()=> {
+          status.classList.add('hidden');
+          status.classList.remove('text-green-400');
+        }, 3000);
+      }, 900);
+    }
+
+    // set copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // non-blocking replace of hero/brand images if local assets exist
+    (function tryReplace(path, selector){
+      fetch(path, { method: 'HEAD' }).then(r => {
+        if (r.ok) {
+          document.querySelectorAll(selector).forEach(img => img.src = path);
+        }
+      }).catch(()=>{/* ignore */});
+    })('/assets/brand-hero.jpg', 'img.brand-hero');
+
+  </script>
+</body>
+</html>
