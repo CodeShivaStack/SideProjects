@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ronad Associates - Premier architectural firm specializing in architectural design, interior design, construction & consultancy services in Karnataka, India.">
+    <meta name="keywords" content="architecture, interior design, construction, consultancy, Karnataka, Dharwad, residential design, commercial design">
+    <meta name="author" content="Ronad Associates">
+    <title>Ronad Associates | Building Better Spaces - Architecture & Interior Design</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#2D2D2D',
+                        concrete: '#95A5A6',
+                        sand: '#F5F0E8',
+                        terracotta: '#C4735A',
+                        gold: '#B8956A'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Fade-in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hero parallax effect */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(45, 45, 45, 0.95) 0%, rgba(45, 45, 45, 0.85) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23E8E4DC" width="1200" height="800"/><path fill="%23C4735A" opacity="0.1" d="M0 400L50 380L100 400L150 360L200 400L250 380L300 400L350 360L400 400L450 380L500 400L550 360L600 400L650 380L700 400L750 360L800 400L850 380L900 400L950 360L1000 400L1050 380L1100 400L1150 360L1200 400V800H0V400Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Hover effects */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .project-card {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-card img {
+            transition: transform 0.6s ease;
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(45, 45, 45, 0.95), transparent);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            padding: 2rem;
+            color: white;
+        }
+        
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Mobile menu transition */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+        
+        /* WhatsApp floating button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Counter animation */
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #B8956A;
+        }
+    </style>
+</head>
+<body class="bg-sand text-charcoal">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center">
+                        <span class="text-2xl font-display font-bold text-charcoal">Ronad Associates</span>
+                    </a>
+                    <p class="text-xs text-concrete mt-1">Building Better Spaces</p>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-charcoal font-semibold border-b-2 border-terracotta px-1 py-2">Home</a>
+                    <a href="about.html" class="text-concrete hover:text-charcoal transition px-1 py-2">About</a>
+                    <a href="services.html" class="text-concrete hover:text-charcoal transition px-1 py-2">Services</a>
+                    <a href="projects.html" class="text-concrete hover:text-charcoal transition px-1 py-2">Projects</a>
+                    <a href="contact.html" class="bg-terracotta text-white px-6 py-2 rounded hover:bg-opacity-90 transition">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-charcoal focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="index.html" class="block px-3 py-2 text-charcoal font-semibold bg-sand rounded">Home</a>
+                    <a href="about.html" class="block px-3 py-2 text-concrete hover:bg-sand rounded">About</a>
+                    <a href="services.html" class="block px-3 py-2 text-concrete hover:bg-sand rounded">Services</a>
+                    <a href="projects.html" class="block px-3 py-2 text-concrete hover:bg-sand rounded">Projects</a>
+                    <a href="contact.html" class="block px-3 py-2 bg-terracotta text-white rounded text-center">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-white pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-7xl font-display font-bold mb-6 fade-in">
+                Designing Timeless<br>Architecture & Interiors
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto fade-in">
+                Expert architectural design, interior solutions, construction & consultancy services across Karnataka
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
+                <a href="projects.html" class="bg-terracotta text-white px-8 py-4 rounded text-lg font-semibold hover:bg-opacity-90 transition">
+                    View Our Projects
+                </a>
+                <a href="contact.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded text-lg font-semibold hover:bg-white hover:text-charcoal transition">
+                    Get a Consultation
+                </a>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="mt-16 animate-bounce">
+                <svg class="w-6 h-6 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Overview -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-charcoal mb-4">Our Expertise</h2>
+                <p class="text-xl text-concrete max-w-2xl mx-auto">Comprehensive architectural and design solutions tailored to your vision</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-sand p-8 rounded-lg shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-terracotta rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-semibold mb-3">Architectural Design</h3>
+                    <p class="text-concrete">Innovative architectural solutions for residential and commercial spaces</p>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card bg-sand p-8 rounded-lg shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-gold rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-semibold mb-3">Interior Design</h3>
+                    <p class="text-concrete">Stunning interiors that blend functionality with aesthetic excellence</p>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card bg-sand p-8 rounded-lg shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-terracotta rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-semibold mb-3">Construction</h3>
+                    <p class="text-concrete">Quality construction services with attention to detail and timelines</p>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card bg-sand p-8 rounded-lg shadow-lg fade-in">
+                    <div class="w-16 h-16 bg-gold rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-semibold mb-3">Consultancy</h3>
+                    <p class="text-concrete">Expert guidance and project management for successful execution</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-charcoal text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Why Choose Ronad Associates</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Excellence in every project, trust in every relationship</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center fade-in">
+                    <div class="counter mb-4" data-target="500">0</div>
+                    <p class="text-2xl font-semibold mb-2">Projects Completed</p>
+                    <p class="text-gray-400">Across residential and commercial sectors</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="counter mb-4" data-target="15">0</div>
+                    <p class="text-2xl font-semibold mb-2">Years Experience</p>
+                    <p class="text-gray-400">Building excellence in architecture</p>
+                </div>
+                
+                <div class="text-center fade-in">
+                    <div class="counter mb-4" data-target="450">0</div>
+                    <p class="text-2xl font-semibold mb-2">Happy Clients</p>
+                    <p class="text-gray-400">Satisfied with our quality work</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+                <div class="bg-white bg-opacity-5 p-8 rounded-lg fade-in">
+                    <h3 class="text-2xl font-display font-semibold mb-4 text-gold">Expert Team</h3>
+                    <p class="text-gray-300">Our team of experienced architects and civil engineers brings decades of combined expertise to every project, ensuring quality and innovation.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-5 p-8 rounded-lg fade-in">
+                    <h3 class="text-2xl font-display font-semibold mb-4 text-gold">Client-Focused</h3>
+                    <p class="text-gray-300">We prioritize your vision and requirements, working closely with you from concept to completion to deliver spaces that exceed expectations.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-5 p-8 rounded-lg fade-in">
+                    <h3 class="text-2xl font-display font-semibold mb-4 text-gold">Quality Assurance</h3>
+                    <p class="text-gray-300">Every project undergoes rigorous quality checks and adheres to the highest standards of construction and design excellence.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-5 p-8 rounded-lg fade-in">
+                    <h3 class="text-2xl font-display font-semibold mb-4 text-gold">Timely Delivery</h3>
+                    <p class="text-gray-300">We respect your time and investment, ensuring projects are completed on schedule without compromising on quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Projects -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-charcoal mb-4">Featured Projects</h2>
+                <p class="text-xl text-concrete max-w-2xl mx-auto">A glimpse of our finest architectural achievements</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card rounded-lg overflow-hidden shadow-lg fade-in">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%23E8E4DC' width='800' height='600'/%3E%3Cpath fill='%23C4735A' opacity='0.3' d='M0 300L100 280L200 300L300 260L400 300L500 280L600 300L700 260L800 300V600H0V300Z'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='32' fill='%232D2D2D' opacity='0.5'%3EModern Villa%3C/text%3E%3C/svg%3E" alt="Modern Villa Project" class="w-full h-80 object-cover" loading="lazy">
+                    <div class="project-overlay">
+                        <h3 class="text-2xl font-display font-semibold mb-2">Modern Villa</h3>
+                        <p class="text-gray-300 mb-2">Residential Architecture</p>
+                        <a href="projects.html" class="text-gold hover:underline">View Details →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card rounded-lg overflow-hidden shadow-lg fade-in">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%23E8E4DC' width='800' height='600'/%3E%3Cpath fill='%23B8956A' opacity='0.3' d='M0 400L80 380L160 400L240 360L320 400L400 380L480 400L560 360L640 400L720 380L800 400V600H0V400Z'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='32' fill='%232D2D2D' opacity='0.5'%3EOffice Complex%3C/text%3E%3C/svg%3E" alt="Office Complex Project" class="w-full h-80 object-cover" loading="lazy">
+                    <div class="project-overlay">
+                        <h3 class="text-2xl font-display font-semibold mb-2">Office Complex</h3>
+                        <p class="text-gray-300 mb-2">Commercial Architecture</p>
+                        <a href="projects.html" class="text-gold hover:underline">View Details →</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card rounded-lg overflow-hidden shadow-lg fade-in">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%23E8E4DC' width='800' height='600'/%3E%3Cpath fill='%23C4735A' opacity='0.3' d='M0 350L90 330L180 350L270 310L360 350L450 330L540 350L630 310L720 350L800 330V600H0V350Z'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='32' fill='%232D2D2D' opacity='0.5'%3ELuxury Interior%3C/text%3E%3C/svg%3E" alt="Luxury Interior Project" class="w-full h-80 object-cover" loading="lazy">
+                    <div class="project-overlay">
+                        <h3 class="text-2xl font-display font-semibold mb-2">Luxury Interior</h3>
+                        <p class="text-gray-300 mb-2">Interior Design</p>
+                        <a href="projects.html" class="text-gold hover:underline">View Details →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="projects.html" class="inline-block bg-terracotta text-white px-8 py-4 rounded text-lg font-semibold hover:bg-opacity-90 transition">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact CTA Banner -->
+    <section class="py-20 bg-gradient-to-r from-terracotta to-gold text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-6">Ready to Start Your Project?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Let's bring your architectural vision to life. Contact us today for a consultation.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-white text-charcoal px-8 py-4 rounded text-lg font-semibold hover:bg-opacity-90 transition">
+                    Get in Touch
+                </a>
+                <a href="tel:+917411697544" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded text-lg font-semibold hover:bg-white hover:text-charcoal transition">
+                    Call +91 7411697544
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-charcoal text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-2xl font-display font-bold mb-4">Ronad Associates</h3>
+                    <p class="text-gray-400 mb-4">Building Better Spaces</p>
+                    <p class="text-gray-400 mb-4">Expert architectural design, interior solutions, and construction services across Karnataka, India.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-gold transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-gold transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.

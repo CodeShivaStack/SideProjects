@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ronad Associates | Building Better Spaces</title>
+
+<meta name="description" content="Ronad Associates – Architecture, Interior Design, Construction & Consultancy in Karnataka, India.">
+<meta name="keywords" content="Architects in Karnataka, Interior Designers Dharwad, Construction Consultants">
+<meta name="author" content="Ronad Associates">
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Tailwind Config -->
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        dark: '#0e0e0e',
+        charcoal: '#151515',
+        concrete: '#1f1f1f',
+        gold: '#b89b5e'
+      }
+    }
+  }
+}
+</script>
+
+<style>
+html { scroll-behavior: smooth; }
+</style>
+
+<!-- SEO Schema -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Architect",
+ "name":"Ronad Associates",
+ "address":{
+  "@type":"PostalAddress",
+  "streetAddress":"Gandhinagar Madina Housing Colony",
+  "addressLocality":"Dharwad",
+  "addressRegion":"Karnataka",
+  "postalCode":"580004",
+  "addressCountry":"IN"
+ },
+ "telephone":["+917411697544","+918792473588"],
+ "areaServed":"Karnataka"
+}
+</script>
+</head>
+
+<body class="bg-dark text-gray-200">
+
+<!-- NAVBAR -->
+<header id="navbar" class="fixed top-0 w-full z-50 bg-dark/90 backdrop-blur border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl tracking-wide">Ronad Associates</h1>
+    <nav class="hidden md:flex gap-8 text-sm">
+      <a href="#home" class="hover:text-gold">Home</a>
+      <a href="#about" class="hover:text-gold">About</a>
+      <a href="#services" class="hover:text-gold">Services</a>
+      <a href="#projects" class="hover:text-gold">Projects</a>
+      <a href="#contact" class="hover:text-gold">Contact</a>
+    </nav>
+    <button id="menuBtn" class="md:hidden text-xl">☰</button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden px-6 pb-4 space-y-4">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="h-screen bg-[url('https://images.unsplash.com/photo-1503387762-592deb58ef4e')] bg-cover bg-center">
+  <div class="h-full bg-black/70 flex items-center">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-5xl md:text-6xl font-light mb-6">
+        Designing Timeless Architecture & Interiors
+      </h2>
+      <p class="mb-10 text-lg">
+        Architecture | Interior Design | Construction & Consultancy
+      </p>
+      <div class="flex gap-6">
+        <a href="#projects" class="bg-gold text-black px-8 py-4">View Projects</a>
+        <a href="#contact" class="border px-8 py-4">Get Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+    <div>
+      <h3 class="text-3xl mb-6 text-gold">Building Better Spaces</h3>
+      <p class="leading-relaxed text-gray-400">
+        Architectural firm with architects and civil engineers. Interior designing
+        and architectural services are our key role. We handle residential and
+        commercial projects across Karnataka.
+      </p>
+    </div>
+    <div class="h-80 bg-gray-800"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl text-center mb-16">Our Services</h3>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="border border-gray-800 p-8 hover:border-gold transition">Architectural Design</div>
+      <div class="border border-gray-800 p-8 hover:border-gold transition">Interior Design</div>
+      <div class="border border-gray-800 p-8 hover:border-gold transition">Construction</div>
+      <div class="border border-gray-800 p-8 hover:border-gold transition">Consultancy</div>
+      <div class="border border-gray-800 p-8 hover:border-gold transition">Space Planning</div>
+      <div class="border border-gray-800 p-8 hover:border-gold transition">3D Visualization</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-24 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl text-center mb-12">Projects</h3>
+
+    <!-- Filters -->
+    <div class="flex justify-center gap-6 mb-12">
+      <button onclick="filterProjects('all')" class="border px-4 py-2">All</button>
+      <button onclick="filterProjects('residential')" class="border px-4 py-2">Residential</button>
+      <button onclick="filterProjects('commercial')" class="border px-4 py-2">Commercial</button>
+      <button onclick="filterProjects('interior')" class="border px-4 py-2">Interior</button>
+    </div>
+
+    <!-- Grid -->
+    <div id="projectGrid" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-24">
+  <h3 class="text-3xl text-center mb-12">Client Testimonials</h3>
+  <div class="overflow-hidden max-w-3xl mx-auto">
+    <div id="slides" class="flex transition-transform duration-700">
+      <div class="min-w-full text-center px-8">
+        <p>"Outstanding architectural quality and execution."</p>
+        <span class="block mt-4 text-gold">— Residential Client</span>
+      </div>
+      <div class="min-w-full text-center px-8">
+        <p>"Professional team with timely delivery."</p>
+        <span class="block mt-4 text-gold">— Commercial Client</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+    <form action="contact.php" method="POST" class="space-y-6">
+      <input name="name" required placeholder="Full Name" class="w-full p-3 bg-dark border">
+      <input name="phone" required placeholder="Phone" class="w-full p-3 bg-dark border">
+      <input name="email" placeholder="Email" class="w-full p-3 bg-dark border">
+      <select name="service" class="w-full p-3 bg-dark border">
+        <option>Architecture</option>
+        <option>Interior Design</option>
+        <option>Construction</option>
+        <option>Consultancy</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Message" class="w-full p-3 bg-dark border"></textarea>
+      <button class="bg-gold text-black px-6 py-3">Send Message</button>
+    </form>
+
+    <div>
+      <p>Ronad & Associates<br>Dharwad, Karnataka – 580004</p>
+      <p class="mt-4">📞 +91 7411697544<br>📞 +91 8792473588</p>
+      <iframe class="w-full h-64 mt-6 grayscale invert"
+        src="https://maps.google.com/maps?q=Dharwad%20Karnataka&z=15&output=embed"
+        loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-8 text-center text-sm border-t border-gray-800">
+  © 2025 Ronad Associates — Building Better Spaces
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/917411697544" class="fixed bottom-6 right-6 bg-green-600 w-14 h-14 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+</a>
+
+<!-- JS -->
+<script>
+/* Mobile Menu */
+menuBtn.onclick = () => mobileMenu.classList.toggle("hidden");
+
+/* Project CMS Data */
+const projects = [
+ {title:"Modern Residence", type:"residential", img:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c"},
+ {title:"Office Complex", type:"commercial", img:"https://images.unsplash.com/photo-1505691723518-36a5ac3b2a10"},
+ {title:"Luxury Interior", type:"interior", img:"https://images.unsplash.com/photo-1524758631624-e2822e304c36"}
+];
+
+const grid = document.getElementById("projectGrid");
+
+projects.forEach(p => {
+ grid.innerHTML += `
+  <div class="project ${p.type}">
+    <img src="${p.img}" class="h-64 w-full object-cover">
+    <div class="mt-2 text-center">${p.title}</div>
+  </div>`;
+});
+
+function filterProjects(type){
+ document.querySelectorAll(".project").forEach(p=>{
+  p.style.display = type==="all" || p.classList.contains(type) ? "block" : "none";
+ });
+}
+
+/* Testimonials */
+let index=0;
+setInterval(()=>{
+ index=(index+1)%2;
+ slides.style.transform=`translateX(-${index*100}%)`;
+},4000);
+</script>
+
+</body>
+</html>

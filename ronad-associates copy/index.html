@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ronad Associates | Building Better Spaces</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Ronad Associates – Architecture, Interior Design, Construction & Consultancy in Karnataka, India. Designing timeless spaces." />
+  <meta name="keywords" content="Architects in Karnataka, Interior Designers Dharwad, Construction Consultancy" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#b89b5e',
+            charcoal: '#1c1c1c',
+            concrete: '#f5f5f5'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Smooth Scroll -->
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-white text-charcoal">
+
+<!-- ================= HEADER ================= -->
+<header id="navbar" class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur border-b">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <h1 class="text-xl font-semibold tracking-wide">Ronad Associates</h1>
+
+    <nav class="hidden md:flex space-x-8 text-sm font-medium">
+      <a href="#home" class="hover:text-gold">Home</a>
+      <a href="#about" class="hover:text-gold">About</a>
+      <a href="#services" class="hover:text-gold">Services</a>
+      <a href="#projects" class="hover:text-gold">Projects</a>
+      <a href="#contact" class="hover:text-gold">Contact</a>
+    </nav>
+
+    <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-6 py-4 space-y-4">
+    <a href="#home" class="block">Home</a>
+    <a href="#about" class="block">About</a>
+    <a href="#services" class="block">Services</a>
+    <a href="#projects" class="block">Projects</a>
+    <a href="#contact" class="block">Contact</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="h-screen flex items-center bg-[url('https://images.unsplash.com/photo-1503387762-592deb58ef4e')] bg-cover bg-center">
+  <div class="bg-black/60 w-full h-full flex items-center">
+    <div class="max-w-7xl mx-auto px-6 text-white">
+      <h2 class="text-4xl md:text-6xl font-light leading-tight mb-6">
+        Designing Timeless <br /> Architecture & Interiors
+      </h2>
+      <p class="text-lg mb-8">
+        Architecture | Interior Design | Construction & Consultancy
+      </p>
+      <div class="flex gap-4">
+        <a href="#projects" class="bg-gold text-black px-6 py-3 font-medium">View Projects</a>
+        <a href="#contact" class="border border-white px-6 py-3">Get Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-24 bg-concrete">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <h3 class="text-3xl font-light mb-6">
+        <span class="text-gold">Building Better Spaces</span>
+      </h3>
+      <p class="leading-relaxed text-gray-700">
+        Architectural firm with architects and civil engineers.
+        Interior designing and architectural services are our key role.
+        We deliver residential and commercial projects with a balance
+        of aesthetics, functionality, and structural excellence.
+      </p>
+    </div>
+    <div class="h-80 bg-gray-300"></div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-light mb-12 text-center">Our Services</h3>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div class="border p-8 hover:shadow-lg transition">
+        <h4 class="text-xl mb-2">Architectural Design</h4>
+        <p class="text-sm text-gray-600">Innovative and sustainable architectural solutions.</p>
+      </div>
+      <div class="border p-8 hover:shadow-lg transition">
+        <h4 class="text-xl mb-2">Interior Design</h4>
+        <p class="text-sm text-gray-600">Elegant interiors crafted for lifestyle and comfort.</p>
+      </div>
+      <div class="border p-8 hover:shadow-lg transition">
+        <h4 class="text-xl mb-2">Construction</h4>
+        <p class="text-sm text-gray-600">End-to-end construction execution and management.</p>
+      </div>
+      <div class="border p-8 hover:shadow-lg transition">
+        <h4 class="text-xl mb-2">Consultancy</h4>
+        <p class="text-sm text-gray-600">Professional guidance from concept to completion.</p>
+      </div>
+      <div class="border p-8 hover:shadow-lg transition">
+        <h4 class="text-xl mb-2">Space Planning</h4>
+        <p class="text-sm text-gray-600">Efficient layouts and functional planning.</p>
+      </div>
+      <div class="border p-8 hover:shadow-lg transition">
+        <h4 class="text-xl mb-2">3D Visualization</h4>
+        <p class="text-sm text-gray-600">Realistic renders to visualize final outcomes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="py-24 bg-concrete">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-light mb-12 text-center">Projects</h3>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="relative group">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="w-full h-64 object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition">
+          Residential Project
+        </div>
+      </div>
+      <div class="relative group">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36" class="w-full h-64 object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition">
+          Interior Design
+        </div>
+      </div>
+      <div class="relative group">
+        <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2a10" class="w-full h-64 object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition">
+          Commercial Project
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-20 bg-charcoal text-white text-center">
+  <h3 class="text-3xl font-light mb-6">Let’s Build Your Dream Space</h3>
+  <a href="#contact" class="bg-gold text-black px-8 py-4 font-medium">Contact Us</a>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="py-24">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+    
+    <!-- Form -->
+    <form action="contact.php" method="POST" class="space-y-6">
+      <input type="text" name="name" placeholder="Full Name" required class="w-full border p-3">
+      <input type="tel" name="phone" placeholder="Phone Number" required class="w-full border p-3">
+      <input type="email" name="email" placeholder="Email" class="w-full border p-3">
+      <select name="service" class="w-full border p-3">
+        <option>Service Required</option>
+        <option>Architecture</option>
+        <option>Interior Design</option>
+        <option>Construction</option>
+        <option>Consultancy</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Message" class="w-full border p-3"></textarea>
+      <button type="submit" class="bg-gold px-6 py-3">Send Message</button>
+    </form>
+
+    <!-- Info -->
+    <div>
+      <h4 class="text-xl mb-4">Contact Information</h4>
+      <p>Ronad & Associates,<br>Gandhinagar Madina Housing Colony,<br>Dharwad, Karnataka – 580004</p>
+      <p class="mt-4">
+        📞 <a href="tel:+917411697544">+91 7411697544</a><br>
+        📞 <a href="tel:+918792473588">+91 8792473588</a>
+      </p>
+      <p class="mt-4">Service Area: Karnataka, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-charcoal text-white py-8 text-center text-sm">
+  <p>Ronad Associates — Building Better Spaces</p>
+  <p class="mt-2">&copy; 2025 All Rights Reserved</p>
+</footer>
+
+<!-- ================= JS ================= -->
+<script>
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+</script>
+
+</body>
+</html>
