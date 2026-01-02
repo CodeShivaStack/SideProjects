@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Something Great Is Building</title>
+
+  <style>
+    :root {
+      --brand: #4fd1c5;
+      --brand-dark: #2c7a7b;
+
+      --bg-dark: #0b1220;
+      --bg-light: #f5f7fb;
+
+      --text-dark: #0f172a;
+      --text-light: #e5e7eb;
+
+      --card-dark: rgba(255, 255, 255, 0.08);
+      --card-light: rgba(255, 255, 255, 0.65);
+
+      --blur: blur(18px);
+    }
+
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* Background animation */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 20% 20%, #4fd1c544, transparent 40%),
+        radial-gradient(circle at 80% 30%, #38b2ac33, transparent 40%),
+        radial-gradient(circle at 50% 80%, #2c7a7b33, transparent 40%);
+      animation: float 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.08);
+      }
+    }
+
+    /* Layout */
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      width: 100%;
+      border-radius: 24px;
+      padding: 3rem;
+      backdrop-filter: var(--blur);
+      -webkit-backdrop-filter: var(--blur);
+      background: var(--card-dark);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    body.light .card {
+      background: var(--card-light);
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .logo span {
+      color: var(--brand);
+    }
+
+    .toggle {
+      cursor: pointer;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.85rem;
+    }
+
+    /* Hero */
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      opacity: 0.85;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .time {
+      text-align: center;
+    }
+
+    .time span {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .time label {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      letter-spacing: 0.12em;
+    }
+
+    /* Notify form */
+    form {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 2rem;
+      max-width: 480px;
+    }
+
+    input {
+      flex: 1;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    button {
+      padding: 0.9rem 1.2rem;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .card {
+        padding: 2rem;
+      }
+
+      .countdown {
+        gap: 1rem;
+      }
+
+      form {
+        flex-direction: column;
+      }
+    }
+
+
+
+
+    /* Perpetual Horizon */
+.horizon-wrap {
+  margin: 3.8rem 0;
+  text-align: center;
+}
+
+.horizon-line {
+  position: relative;
+  /* width: 320px; */
+  height: 2px;
+  margin: 0 auto 1.6rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212,175,55,0.4),
+    #d4af37,
+    rgba(212,175,55,0.4),
+    transparent
+  );
+  overflow: hidden;
+}
+
+.horizon-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255,255,255,0.45),
+    transparent 80%
+  );
+  animation: horizonSweep 6s ease-in-out infinite;
+}
+
+@keyframes horizonSweep {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+
+  </style>
+</head>
+
+<body class="dark">
+  <div class="bg"></div>
+
+  <div class="container">
+    <div class="card">
+
+      <div class="header">
+        <div class="logo">S<span>G</span></div>
+        <div class="toggle" id="themeToggle">☀ Light</div>
+      </div>
+
+      <h1>Building Something Meaningful</h1>
+      <p>
+        We’re crafting a powerful experience with care, precision, and purpose.
+        Progress is actively underway - and it’s worth the wait.
+      </p>
+
+      <!-- <div class="countdown" id="countdown">
+        <div class="time"><span id="days">00</span><label>DAYS</label></div>
+        <div class="time"><span id="hours">00</span><label>HOURS</label></div>
+        <div class="time"><span id="minutes">00</span><label>MIN</label></div>
+        <div class="time"><span id="seconds">00</span><label>SEC</label></div>
+      </div> -->
+
+      <div class="horizon-wrap">
+  <div class="horizon-line"></div>
+</div>
+
+
+      <form id="contactForm"
+        action="https://docs.google.com/forms/d/e/1FAIpQLScC-Vj-B56ikvbonKoQm5g9IrqXIkdPw38x51LoGJVPV5-NzQ/formResponse"
+        method="POST" onsubmit="handleSubmit(event)">
+        <input type="email" name="entry.1863964657" placeholder="Enter your email" required />
+        <button type="submit">Notify Me</button>
+      </form>
+
+      <footer>
+        © 2025 · Something great is coming
+      </footer>
+
+    </div>
+  </div>
+
+  <script>
+    /* Theme toggle */
+    const body = document.body;
+    const toggle = document.getElementById('themeToggle');
+
+    toggle.onclick = () => {
+      body.classList.toggle('light');
+      body.classList.toggle('dark');
+      toggle.textContent = body.classList.contains('dark') ? '☀ Light' : '⏾ Dark';
+    };
+
+    /* Countdown */
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 14);
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      const d = Math.max(0, Math.floor(diff / 86400000));
+      const h = Math.max(0, Math.floor(diff / 3600000) % 24);
+      const m = Math.max(0, Math.floor(diff / 60000) % 60);
+      const s = Math.max(0, Math.floor(diff / 1000) % 60);
+
+      days.textContent = String(d).padStart(2, '0');
+      hours.textContent = String(h).padStart(2, '0');
+      minutes.textContent = String(m).padStart(2, '0');
+      seconds.textContent = String(s).padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+
+  <script>
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const form = document.getElementById('contactForm');
+      const actionUrl = form.action;
+      const formData = new FormData(form);
+
+      // Create an XMLHttpRequest to submit the form data
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', actionUrl, true);
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 400) {
+          // Form submission successful
+          document.getElementById('contactForm').style.display = 'none';
+        } else {
+          // Form submission failed
+          handleError();
+        }
+      };
+      xhr.onerror = function () {
+        // Network error
+        handleError();
+      };
+      xhr.send(formData);
+
+      function handleError() {
+        alert('You’ll be notified!');
+        document.getElementById('contactForm').reset();
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

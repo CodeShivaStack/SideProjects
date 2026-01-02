@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- SEO -->
+<title>Building Something Meaningful | Coming Soon</title>
+<meta name="description" content="We’re building something thoughtful, powerful, and meaningful. Progress is underway. Stay tuned." />
+<meta name="robots" content="index, follow" />
+
+<!-- OpenGraph -->
+<meta property="og:title" content="Building Something Meaningful" />
+<meta property="og:description" content="Something great is being built. Progress is underway." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yourdomain.com" />
+<meta property="og:image" content="https://yourdomain.com/og-image.png" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Building Something Meaningful" />
+<meta name="twitter:description" content="Something great is being built. Stay tuned." />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+:root {
+  --brand: #4fd1c5;
+  --brand-dark: #2c7a7b;
+  --bg-dark: #0b1220;
+  --bg-light: #f5f7fb;
+  --text-dark: #0f172a;
+  --text-light: #e5e7eb;
+  --card-dark: rgba(255,255,255,0.08);
+  --card-light: rgba(255,255,255,0.65);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  transition: background 0.4s, color 0.4s;
+}
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* Animated background */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 20% 20%, #4fd1c544, transparent 40%),
+    radial-gradient(circle at 80% 30%, #38b2ac33, transparent 40%),
+    radial-gradient(circle at 50% 80%, #2c7a7b33, transparent 40%);
+  animation: bgFloat 20s ease-in-out infinite alternate;
+}
+
+@keyframes bgFloat {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+/* Layout */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 100%;
+  padding: 3rem;
+  border-radius: 24px;
+  backdrop-filter: blur(18px);
+  background: var(--card-dark);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  animation: cardEnter 0.8s ease-out both;
+}
+
+body.light .card {
+  background: var(--card-light);
+}
+
+@keyframes cardEnter {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.logo span {
+  color: var(--brand);
+}
+
+.toggle {
+  cursor: pointer;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: transform 0.2s;
+}
+
+.toggle:hover {
+  transform: translateY(-1px);
+}
+
+/* Hero */
+.hero > * {
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.hero h1 { animation-delay: 0.1s; }
+.hero p { animation-delay: 0.2s; }
+.countdown { animation-delay: 0.3s; }
+form { animation-delay: 0.4s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: clamp(2.3rem, 5vw, 3.3rem);
+  margin-bottom: 1rem;
+}
+
+p {
+  max-width: 600px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* Countdown */
+.countdown {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.time {
+  text-align: center;
+}
+
+.time i {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.time span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.time label {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+}
+
+/* Form */
+form {
+  display: flex;
+  gap: 0.8rem;
+  max-width: 480px;
+}
+
+.input-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.input-wrap i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  opacity: 0.5;
+}
+
+input {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 2.4rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 0.9rem 1.3rem;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(79,209,197,0.3);
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .card { padding: 2rem; }
+  .countdown { gap: 1rem; }
+  form { flex-direction: column; }
+}
+</style>
+</head>
+
+<body class="dark">
+<div class="bg"></div>
+
+<div class="container">
+  <main class="card">
+    <header class="header">
+      <div class="logo">YOUR<span>LOGO</span></div>
+      <div class="toggle" id="themeToggle">
+        <i class="fa-solid fa-sun"></i>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Building Something Meaningful</h1>
+      <p>
+        We’re crafting a focused, high-quality experience with intention and care.
+        Progress is actively underway.
+      </p>
+
+      <div class="countdown">
+        <div class="time"><i class="fa-regular fa-calendar"></i><span id="days">00</span><label>DAYS</label></div>
+        <div class="time"><i class="fa-regular fa-clock"></i><span id="hours">00</span><label>HOURS</label></div>
+        <div class="time"><i class="fa-solid fa-hourglass-half"></i><span id="minutes">00</span><label>MIN</label></div>
+        <div class="time"><i class="fa-solid fa-stopwatch"></i><span id="seconds">00</span><label>SEC</label></div>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('You’ll be notified!');">
+        <div class="input-wrap">
+          <i class="fa-regular fa-envelope"></i>
+          <input type="email" placeholder="Enter your email" required />
+        </div>
+        <button type="submit">
+          Notify Me
+        </button>
+      </form>
+    </section>
+
+    <footer>
+      © 2025 · Something great is coming
+    </footer>
+  </main>
+</div>
+
+<script>
+/* Theme toggle */
+const body = document.body;
+const toggle = document.getElementById('themeToggle');
+const icon = toggle.querySelector('i');
+
+toggle.onclick = () => {
+  body.classList.toggle('light');
+  icon.className = body.classList.contains('light')
+    ? 'fa-solid fa-moon'
+    : 'fa-solid fa-sun';
+};
+
+/* Countdown */
+const target = new Date();
+target.setDate(target.getDate() + 14);
+
+function updateCountdown() {
+  const diff = target - new Date();
+  const d = Math.max(0, Math.floor(diff / 86400000));
+  const h = Math.max(0, Math.floor(diff / 3600000) % 24);
+  const m = Math.max(0, Math.floor(diff / 60000) % 60);
+  const s = Math.max(0, Math.floor(diff / 1000) % 60);
+
+  days.textContent = String(d).padStart(2, '0');
+  hours.textContent = String(h).padStart(2, '0');
+  minutes.textContent = String(m).padStart(2, '0');
+  seconds.textContent = String(s).padStart(2, '0');
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
+</body>
+</html>

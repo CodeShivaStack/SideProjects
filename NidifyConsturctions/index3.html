@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nidify Constructions - Build Your Dreams</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-dark: #1a1a1a;
+            --primary-gold: #d4af37;
+            --bg-light: #fafafa;
+            --text-dark: #1a1a1a;
+            --text-gray: #6b7280;
+            --text-light: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 6%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            color: var(--primary-gold);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .cta-btn {
+            background: var(--primary-dark);
+            color: white !important;
+            padding: 0.75rem 1.75rem;
+            border-radius: 2px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-dark);
+        }
+
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--primary-dark) !important;
+
+        }
+
+        .cta-btn:hover::after {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary-dark);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.6)),
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 6%;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            color: #d1d5db;
+            letter-spacing: 1px;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--text-light);
+            color: var(--primary-dark);
+            padding: 1.25rem 2.5rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--text-light);
+        }
+
+        .hero-btn:hover {
+            background: transparent;
+            color: var(--text-light);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 6%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 5rem;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--text-light);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+
+        .about-text h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800') center/cover;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 1px solid var(--primary-gold);
+            z-index: -1;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--text-light);
+            padding: 3rem 2rem;
+            border-radius: 2px;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            text-align: left;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--primary-dark);
+            color: var(--text-light);
+        }
+
+        .why-choose .section-title {
+            color: var(--text-light);
+        }
+
+        .why-choose .section-subtitle {
+            color: #9ca3af;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-item h4 {
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .feature-item p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            background: var(--text-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            cursor: pointer;
+            height: 400px;
+            border: 1px solid var(--border-color);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(26, 26, 26, 0.95));
+            padding: 3rem 2rem 2rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .portfolio-overlay p {
+            color: #d1d5db;
+            font-size: 0.95rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--bg-light);
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--text-light);
+            padding: 3rem;
+            border-radius: 2px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .testimonial-card i {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            opacity: 0.3;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .author-info h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.2rem;
+            font-weight: 500;
+        }
+
+        .author-info p {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--text-light);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 2px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.75rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 1.25rem 2.5rem;
+            border: 2px solid var(--primary-dark);
+            border-radius: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: transparent;
+            color: var(--primary-dark);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            width: 40px;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .info-text p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background: #e5e7eb;
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--bg-light);
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            border-color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 5rem 6% 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .footer-section p {
+            color: #9ca3af;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-section ul li i {
+            color: var(--primary-gold);
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .success-message {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 2px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            section {
+                padding: 6rem 5%;
+            }
+
+            nav {
+                padding: 1.5rem 5%;
+            }
+
+            .hero {
+                padding: 0 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 77px;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 3rem 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                gap: 2rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 5rem 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.25rem;
+            }
+
+            .section-title {
+                font-size: 1.85rem;
+            }
+
+            .services-grid,
+            .features-grid,
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-building"></i>
+                <span>Nidify Constructions</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact" class="cta-btn">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Build Your Dreams</h1>
+            <p>Expert Construction Solutions for Your Vision</p>
+            <a href="#contact" class="hero-btn">
+                Get Started
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Us</h2>
+        <p class="section-subtitle">Building excellence through innovation and dedication</p>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Your Trusted Construction Partner</h3>
+                <p>Nidify Constructions is a leading construction company committed to delivering exceptional projects that exceed expectations. With years of experience in the industry, we specialize in transforming visions into reality through innovative design and superior craftsmanship.</p>
+                <p><strong>Our Mission:</strong> To provide comprehensive construction solutions that combine quality, efficiency, and sustainability.</p>
+                <p><strong>Our Vision:</strong> To be the most trusted name in construction, setting new standards of excellence in every project we undertake.</p>
+            </div>
+            <div class="about-image"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive solutions for all your construction needs</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-hard-hat service-icon"></i>
+                <h3>Construction</h3>
+                <p>Full-scale construction services from foundation to finishing, ensuring quality at every stage.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-key service-icon"></i>
+                <h3>Turnkey Contracts</h3>
+                <p>Complete project delivery from concept to completion, providing hassle-free solutions.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-briefcase service-icon"></i>
+                <h3>Consulting</h3>
+                <p>Expert guidance on construction projects, cost optimization, and project management.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-brush service-icon"></i>
+                <h3>Interior Designing</h3>
+                <p>Transform spaces with innovative interior design solutions tailored to your style.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cube service-icon"></i>
+                <h3>3D Designing</h3>
+                <p>Visualize your project with detailed 3D renderings before construction begins.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-building service-icon"></i>
+                <h3>Commercial Complex</h3>
+                <p>Specialized design and construction of commercial complexes and business spaces.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-ruler-combined service-icon"></i>
+                <h3>Draft & Design</h3>
+                <p>Professional architectural drafting and design services for all projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-choose" class="why-choose">
+        <h2 class="section-title">Why Choose Us</h2>
+        <p class="section-subtitle">Experience the Nidify difference</p>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-tasks feature-icon"></i>
+                <h4>End-to-End Delivery</h4>
+                <p>Complete project management from start to finish</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-dollar-sign feature-icon"></i>
+                <h4>Cost Control</h4>
+                <p>Fixed pricing with no hidden costs</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-star feature-icon"></i>
+                <h4>Quality Materials</h4>
+                <p>Only the finest construction materials</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-clock feature-icon"></i>
+                <h4>Time Efficiency</h4>
+                <p>Projects completed on schedule</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-handshake feature-icon"></i>
+                <h4>Single Point Contact</h4>
+                <p>One dedicated team for all needs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <h2 class="section-title">Our Portfolio</h2>
+        <p class="section-subtitle">Showcasing our finest work</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" onclick="openLightbox('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800')">
+                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800" alt="Luxury Interior">
+                <div class="portfolio-overlay">
+                    <h3>Luxury Interior</h3>
+                    <p>Premium interior design and execution</p>
+                </div>
+            </div>
+            <div class="portfolio-item" onclick="openLightbox('https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800')">
+                <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800" alt="Corporate Office">
+                <div class="portfolio-overlay">
+                    <h3>Corporate Office</h3>
+                    <p>Modern workspace design</p>
+                </div>
+            </div>
+            <div class="portfolio-item" onclick="openLightbox('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800')">
+                <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800" alt="Smart Home">
+                <div class="portfolio-overlay">
+                    <h3>Smart Home</h3>
+                    <p>Technology-integrated residential project</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="Portfolio Image">
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">Client Testimonials</h2>
+        <p class="section-subtitle">Trusted by hundreds of satisfied customers</p>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testimonial-text">Nidify Constructions exceeded our expectations! Their attention to detail and commitment to quality made our dream home a reality. Highly recommended!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RK</div>
+                    <div class="author-info">
+                        <h4>Rajesh Kumar</h4>
+                        <p>Homeowner, Bangalore</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testimonial-text">Professional, efficient, and transparent. The team delivered our commercial project on time and within budget. Outstanding service!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">PS</div>
+                    <div class="author-info">
+                        <h4>Priya Sharma</h4>
+                        <p>Business Owner, Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-left"></i>
+                <p class="testimonial-text">From design to execution, everything was perfect. The 3D visualization helped us make informed decisions. Truly a world-class experience!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AM</div>
+                    <div class="author-info">
+                        <h4>Arun Mehta</h4>
+                        <p>Architect, Delhi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's discuss your next project</p>
+        <div class="contact-container">
+            <div class="contact-form">
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Thank you for contacting us! We'll get back to you soon.
+                </div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt info-icon"></i>
+                    <div class="info-text">
+                        <h4>Address</h4>
+                        <p>123 Construction Avenue<br>Bangalore, Karnataka 560001</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt info-icon"></i>
+                    <div class="info-text">
+                        <h4>Phone</h4>
+                        <p>+91 98765 43210</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope info-icon"></i>
+                    <div class="info-text">
+                        <h4>Email</h4>
+                        <p>info@nidifyconstructions.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock info-icon"></i>
+                    <div class="info-text">
+                        <h4>Business Hours</h4>
+                        <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.84916296526!2d77.6309395!3d12.9539974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1234567890"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Nidify Constructions</h3>
+                <p>Building dreams, creating landmarks. Your trusted partner in construction excellence.</p>
+                <div class="social-links" style="margin-top: 1.5rem;">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i>Home</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i>About Us</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i>Services</a></li>
+                    <li><a href="#portfolio"><i class="fas fa-chevron-right"></i>Portfolio</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i>Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i>Construction</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i>Turnkey Contracts</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i>Interior Designing</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i>3D Designing</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i>Consulting</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i>Bangalore, Karnataka</li>
+                    <li><i class="fas fa-phone-alt"></i>+91 98765 43210</li>
+                    <li><i class="fas fa-envelope"></i>info@nidifyconstructions.com</li>
+                    <li><i class="fas fa-clock"></i>Mon - Sat: 9 AM - 6 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Nidify Constructions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 76,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Lightbox
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Contact Form
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            console.log('Form submitted:', { name, email, phone, message });
+
+            successMessage.classList.add('show');
+            contactForm.reset();
+
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        // Header scroll effect
+        // let lastScroll = 0;
+        // window.addEventListener('scroll', () => {
+        //     const header = document.querySelector('header');
+        //     const currentScroll = window.pageYOffset;
+
+        //     if (currentScroll > 100) {
+        //         header.style.padding = '1rem 6%';
+        //         header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+        //     } else {
+        //         header.style.padding = '1.5rem 6%';
+        //         header.style.boxShadow = 'none';
+        //     }
+
+        //     lastScroll = currentScroll;
+        // });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
