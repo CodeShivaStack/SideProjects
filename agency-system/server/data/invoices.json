@@ -1,9 +1,0 @@
-[
-  {
-    "id": "INV001",
-    "client": "John Doe",
-    "amount": 500,
-    "status": "pending",
-    "dueDate": "2025-01-20"
-  }
-]
