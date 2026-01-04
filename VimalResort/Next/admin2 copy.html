@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f5f6fa;
+    }
+
+    header {
+      padding: 1rem;
+      background: #2f3640;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav {
+      width: 220px;
+      background: #353b48;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      background: #718093;
+    }
+
+    main {
+      margin-left: 220px;
+      padding: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th,
+    td {
+      padding: 0.8rem;
+      border: 1px solid #dcdde1;
+      text-align: left;
+    }
+
+    th {
+      background: #718093;
+      color: white;
+    }
+
+    .card {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    @media(max-width:768px) {
+      nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+
+      main {
+        margin-left: 0;
+      }
+
+      .card {
+        display: block;
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Admin Dashboard</h1>
+    <button id="logoutBtn">Logout</button>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showSection('bookingsSection')">Bookings</a>
+    <a href="#" onclick="showSection('contactsSection')">Contacts</a>
+    <a href="#" onclick="showSection('analyticsSection')">Analytics</a>
+  </nav>
+
+  <main>
+    <section id="bookingsSection">
+      <h2>Bookings</h2>
+      <button onclick="exportBookingsCSV()">Export CSV</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Rooms</th>
+            <th>Guests</th>
+            <th>Created At</th>
+            <th>Notify</th>
+          </tr>
+        </thead>
+        <tbody id="bookingTable"></tbody>
+      </table>
+    </section>
+
+    <section id="contactsSection" style="display:none;">
+      <h2>Contacts</h2>
+      <button onclick="exportContactsCSV()">Export CSV</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Created At</th>
+            <th>Notify</th>
+          </tr>
+        </thead>
+        <tbody id="contactTable"></tbody>
+      </table>
+    </section>
+
+    <section id="analyticsSection" style="display:none;">
+      <h2>Analytics</h2>
+      <div class="card" id="totalToday">Bookings Today: 0</div>
+      <div class="card" id="totalMonth">Bookings This Month: 0</div>
+      <div class="card" id="totalBookings">Total Bookings: 0</div>
+      <canvas id="bookingsChart" width="400" height="150"></canvas>
+    </section>
+  </main>
+
+
+
+
+  <script>
+
+    const supabaseClient = supabase.createClient("https://bmfbvckahnuwfmdaqjts.supabase.co","sb_publishable_hroobSDDhZnbywmpkqaXHQ_uFUc_4kR");
+
+
+    // Check if user is logged in
+    (async () => {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (!session) {
+        window.location.href = '/VimalResort/Next/admin-login.html';
+      }
+    })();
+
+
+    function showSection(id) {
+      ['bookingsSection', 'contactsSection', 'analyticsSection'].forEach(s => {
+        document.getElementById(s).style.display = s === id ? 'block' : 'none';
+      });
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      await supabaseClient.auth.signOut();
+      window.location.href = '/VimalResort/Next/admin-login.html';
+    });
+
+    let bookingsData = [];
+    let contactsData = [];
+
+    // Render functions
+    function renderBookings(data) {
+      bookingsData = data;
+      const tbody = document.getElementById('bookingTable');
+      tbody.innerHTML = '';
+      data.forEach(b => {
+        tbody.innerHTML += `<tr>
+      <td>${b.name}</td><td>${b.phone}</td><td>${b.date}</td><td>${b.rooms}</td><td>${b.guests}</td><td>${new Date(b.created_at).toLocaleString()}</td>
+      <td><button onclick="notifyWhatsApp('${b.phone}','${b.name}','${b.date}')">📲</button></td>
+    </tr>`;
+      });
+      updateAnalytics(data);
+    }
+
+    function renderContacts(data) {
+      contactsData = data;
+      const tbody = document.getElementById('contactTable');
+      tbody.innerHTML = '';
+      data.forEach(c => {
+        tbody.innerHTML += `<tr>
+      <td>${c.name}</td><td>${c.email}</td><td>${c.phone}</td><td>${c.subject}</td><td>${c.message}</td><td>${new Date(c.created_at).toLocaleString()}</td>
+      <td><button onclick="notifyWhatsApp('${c.phone}','${c.name}','Message')">📲</button></td>
+    </tr>`;
+      });
+    }
+
+    function updateAnalytics(bookings) {
+      const today = new Date().toISOString().split('T')[0];
+      const month = new Date().getMonth();
+      let todayCount = 0, monthCount = 0;
+      bookings.forEach(b => {
+        const d = new Date(b.created_at);
+        if (b.created_at.startsWith(today)) todayCount++;
+        if (d.getMonth() === month) monthCount++;
+      });
+      document.getElementById('totalToday').textContent = `Bookings Today: ${todayCount}`;
+      document.getElementById('totalMonth').textContent = `Bookings This Month: ${monthCount}`;
+      document.getElementById('totalBookings').textContent = `Total Bookings: ${bookings.length}`;
+
+      // Chart.js
+      const ctx = document.getElementById('bookingsChart').getContext('2d');
+      const labels = bookings.map(b => new Date(b.created_at).toLocaleDateString());
+      const counts = labels.map((_, i) => 1);
+      if (window.myChart) window.myChart.destroy();
+      window.myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{ label: 'Bookings', data: counts, backgroundColor: 'rgba(54,162,235,0.6)' }]
+        },
+        options: { responsive: true, plugins: { legend: { display: false } } }
+      });
+    }
+
+    // CSV export
+    function downloadCSV(data, filename) {
+      if (!data.length) return;
+      const headers = Object.keys(data[0]).join(',');
+      const rows = data.map(r => Object.values(r).join(','));
+      const csv = [headers, ...rows].join('\n');
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+    }
+
+    function exportBookingsCSV() { downloadCSV(bookingsData, 'bookings.csv'); }
+    function exportContactsCSV() { downloadCSV(contactsData, 'contacts.csv'); }
+
+    // WhatsApp notification
+    function notifyWhatsApp(phone, name, date) {
+      const msg = encodeURIComponent(`Hello ${name}, regarding your booking/message on ${date}`);
+      window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+    }
+
+    // Load bookings & contacts
+    async function loadBookings() {
+      const { data, error } = await supabaseClient.from('bookings').select('*').order('created_at', { ascending: false });
+      if (!error) renderBookings(data);
+    }
+
+    async function loadContacts() {
+      const { data, error } = await supabaseClient.from('contacts').select('*').order('created_at', { ascending: false });
+      if (!error) renderContacts(data);
+    }
+
+    // Realtime subscriptions v2
+    supabaseClient.channel('public:bookings')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'bookings' }, payload => { loadBookings(); })
+      .subscribe();
+
+    supabaseClient.channel('public:contacts')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'contacts' }, payload => { loadContacts(); })
+      .subscribe();
+
+    // Initial load
+    loadBookings();
+    loadContacts();
+  </script>
+</body>
+
+</html>

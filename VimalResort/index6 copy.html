@@ -40,7 +40,6 @@
 
         :root {
             --background-color: #ffffff;
-            --background1-color: #fcfcfcd1;
             --default-color: rgba(0, 0, 0, 0.7);
             --heading-color: #000000;
             --accent-color: #4186D5;
@@ -52,7 +51,6 @@
 
         [data-theme="dark"] {
             --background-color: #0c0b09;
-            --background1-color: #383838d1;
             --default-color: rgb(255, 255, 255);
             --heading-color: #ffffff;
             --accent-color: #4186D5;
@@ -1477,9 +1475,8 @@
             padding: 16px 14px;
             border-radius: 12px;
             border: none;
-            /* outline: none; */
-            background: var(--background1-color);
-            /* color: #000000; */
+            outline: none;
+            background: var(--background-color);
         }
 
         .floating label {
@@ -1598,6 +1595,36 @@
     <script>
 
 
+
+        // function openBookingModal() {
+        //     const modal = document.getElementById('bookingModal');
+        //     const content = modal.querySelector('div');
+
+        //     modal.classList.remove('hidden');
+        //     modal.classList.add('flex');
+
+        //     setTimeout(() => {
+        //         content.classList.remove('scale-95', 'opacity-0');
+        //         content.classList.add('scale-100', 'opacity-100');
+        //     }, 10);
+
+        //     document.body.style.overflow = 'hidden';
+        // }
+
+        // function closeBookingModal() {
+        //     const modal = document.getElementById('bookingModal');
+        //     const content = modal.querySelector('div');
+
+        //     content.classList.add('scale-95', 'opacity-0');
+
+        //     setTimeout(() => {
+        //         modal.classList.add('hidden');
+        //         modal.classList.remove('flex');
+        //     }, 200);
+
+        //     document.body.style.overflow = 'auto';
+        // }
+
         // Close on backdrop click
         document.getElementById('bookingModal')?.addEventListener('click', (e) => {
             if (e.target.id === 'bookingModal') closeBookingModal();
@@ -1696,7 +1723,17 @@
             window.open(`https://wa.me/919886784189?text=${msg}`, '_blank');
         }
 
-        
+
+
+
+
+
+
+
+
+
+
+
 
 
         document.getElementById('bookingDate').addEventListener('change', async function () {

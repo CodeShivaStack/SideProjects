@@ -2035,3 +2035,34 @@ I can now:
 🏨 Multi-room pricing logic
 
 Just tell me the next step.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.youtube.com/watch?v=Da2BZ3WQSbs
+
+
+
+
+
+can we host our only .json file on server, read and write accordingly in free way
+
+
+
+
+i have built my website using html, css, js, currently running in my local machine, i am planning to host on netlify free plan, and in my website i have 2 forms (booking, contact), i need to store data in .json and get to show them in admin dashboard
+
+however,  i need to read/write .json file in free way

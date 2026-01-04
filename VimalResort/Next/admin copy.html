@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  body { margin: 0; font-family: sans-serif; background: #f5f6fa; }
+  header { padding: 1rem; background: #2f3640; color: white; display:flex; justify-content:space-between; align-items:center;}
+  nav { width: 220px; background:#353b48; height:100vh; position:fixed; top:0; left:0; padding-top:2rem; display:flex; flex-direction:column; }
+  nav a { color:white; padding:1rem; text-decoration:none; transition:0.2s; }
+  nav a:hover { background:#718093; }
+  main { margin-left:220px; padding:2rem; }
+  table { width:100%; border-collapse: collapse; margin-top:1rem; }
+  th, td { padding:0.8rem; border:1px solid #dcdde1; text-align:left; }
+  th { background:#718093; color:white; }
+  .card { background:white; padding:1rem 1.5rem; border-radius:8px; display:inline-block; margin-right:1rem; margin-bottom:1rem; }
+  @media(max-width:768px){
+    nav{width:100%;height:auto;position:relative;}
+    main{margin-left:0;}
+    .card{display:block;margin-right:0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Admin Dashboard</h1>
+  <button id="logoutBtn">Logout</button>
+</header>
+
+<nav>
+  <a href="#" onclick="showSection('bookingsSection')">Bookings</a>
+  <a href="#" onclick="showSection('contactsSection')">Contacts</a>
+  <a href="#" onclick="showSection('analyticsSection')">Analytics</a>
+</nav>
+
+<main>
+  <!-- Bookings Section -->
+  <section id="bookingsSection">
+    <h2>Bookings</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th><th>Phone</th><th>Date</th><th>Rooms</th><th>Guests</th><th>Created At</th>
+        </tr>
+      </thead>
+      <tbody id="bookingTable"></tbody>
+    </table>
+  </section>
+
+  <!-- Contacts Section -->
+  <section id="contactsSection" style="display:none;">
+    <h2>Contacts</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th><th>Email</th><th>Phone</th><th>Subject</th><th>Message</th><th>Created At</th>
+        </tr>
+      </thead>
+      <tbody id="contactTable"></tbody>
+    </table>
+  </section>
+
+  <!-- Analytics Section -->
+  <section id="analyticsSection" style="display:none;">
+    <h2>Analytics</h2>
+    <div class="card" id="totalToday">Bookings Today: 0</div>
+    <div class="card" id="totalMonth">Bookings This Month: 0</div>
+    <div class="card" id="totalBookings">Total Bookings: 0</div>
+  </section>
+</main>
+
+<script>
+const supabaseClient = supabase.createClient("YOUR_SUPABASE_URL","YOUR_ANON_KEY");
+
+// Section navigation
+function showSection(sectionId){
+  ['bookingsSection','contactsSection','analyticsSection'].forEach(s=>{
+    document.getElementById(s).style.display = s===sectionId?'block':'none';
+  });
+}
+
+// Logout
+document.getElementById('logoutBtn').addEventListener('click', async ()=>{
+  await supabaseClient.auth.signOut();
+  window.location.href='/admin-login.html';
+});
+
+// Render bookings
+function renderBookings(data){
+  const tbody = document.getElementById('bookingTable');
+  tbody.innerHTML = '';
+  data.forEach(b=>{
+    tbody.innerHTML += `<tr>
+      <td>${b.name}</td><td>${b.phone}</td><td>${b.date}</td><td>${b.rooms}</td><td>${b.guests}</td><td>${new Date(b.created_at).toLocaleString()}</td>
+    </tr>`;
+  });
+}
+
+// Render contacts
+function renderContacts(data){
+  const tbody = document.getElementById('contactTable');
+  tbody.innerHTML = '';
+  data.forEach(c=>{
+    tbody.innerHTML += `<tr>
+      <td>${c.name}</td><td>${c.email}</td><td>${c.phone}</td><td>${c.subject}</td><td>${c.message}</td><td>${new Date(c.created_at).toLocaleString()}</td>
+    </tr>`;
+  });
+}
+
+// Analytics
+function updateAnalytics(bookings){
+  const today = new Date().toISOString().split('T')[0];
+  const month = new Date().getMonth();
+  let todayCount=0, monthCount=0;
+  bookings.forEach(b=>{
+    const bDate = new Date(b.created_at);
+    if(b.created_at.startsWith(today)) todayCount++;
+    if(bDate.getMonth()===month) monthCount++;
+  });
+  document.getElementById('totalToday').textContent = `Bookings Today: ${todayCount}`;
+  document.getElementById('totalMonth').textContent = `Bookings This Month: ${monthCount}`;
+  document.getElementById('totalBookings').textContent = `Total Bookings: ${bookings.length}`;
+}
+
+// Load bookings
+async function loadBookings(){
+  const { data, error } = await supabaseClient.from('bookings').select('*').order('created_at',{ascending:false});
+  if(!error) {
+    renderBookings(data);
+    updateAnalytics(data);
+  }
+}
+
+// Load contacts
+async function loadContacts(){
+  const { data, error } = await supabaseClient.from('contacts').select('*').order('created_at',{ascending:false});
+  if(!error) renderContacts(data);
+}
+
+// Real-time subscriptions
+supabaseClient.from('bookings').on('INSERT', payload=>{
+  loadBookings();
+}).subscribe();
+
+supabaseClient.from('contacts').on('INSERT', payload=>{
+  loadContacts();
+}).subscribe();
+
+// Initial load
+loadBookings();
+loadContacts();
+</script>
+
+</body>
+</html>
